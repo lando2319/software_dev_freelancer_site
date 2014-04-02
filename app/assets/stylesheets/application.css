@@ -14,3 +14,35 @@
 body {
   font-family: Helvetica;
 }
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.row {
+  clear: both;
+}
+
+.box {
+  float: left;
+  width: 100px;
+  height: 100px;
+  margin: 0 0 10px 10px;
+  color: white;
+  line-height: 100px;
+  text-align: center;
+}
+
+.red { background: red; }
+.yellow { background: yellow; color: #333; }
+.orange { background: orange; }
+.green { background: green; }
+.blue { background: blue; }
+.purple { background: purple; }
+
+
+
+
+
