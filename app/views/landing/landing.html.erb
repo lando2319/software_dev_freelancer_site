@@ -1,65 +1,18 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  <title>JS Bin</title>
-</head>
-<body>
-  <ul>
-    <li class="row">
-      <ul>
-        <li class="box red">Box</li>
-        <li class="box red">Box</li>
-        <li class="box red">Box</li>
-        <li class="box red">Box</li>
-        <li class="box red">Box</li>
-      </ul>
-    </li>
-    <li class="row">
-      <ul>
-        <li class="box orange">Box</li>
-        <li class="box orange">Box</li>
-        <li class="box orange">Box</li>
-        <li class="box orange">Box</li>
-        <li class="box orange">Box</li>
-      </ul>
-    </li>
-    <li class="row">
-      <ul>
-        <li class="box yellow">Box</li>
-        <li class="box yellow">Box</li>
-        <li class="box yellow">Box</li>
-        <li class="box yellow">Box</li>
-        <li class="box yellow">Box</li>
-      </ul>
-    </li>
-    <li class="row">
-      <ul>
-        <li class="box green">Box</li>
-        <li class="box green">Box</li>
-        <li class="box green">Box</li>
-        <li class="box green">Box</li>
-        <li class="box green">Box</li>
-      </ul>
-    </li>
-    <li class="row">
-      <ul>
-        <li class="box blue">Box</li>
-        <li class="box blue">Box</li>
-        <li class="box blue">Box</li>
-        <li class="box blue">Box</li>
-        <li class="box blue">Box</li>
-      </ul>
-    </li>
-    <li class="row">
-      <ul>
-        <li class="box purple">Box</li>
-        <li class="box purple">Box</li>
-        <li class="box purple">Box</li>
-        <li class="box purple">Box</li>
-        <li class="box purple">Box</li>
-      </ul>
-    </li>
-  </ul>
-</body>
-</html>
+the dice game
+<br>
+<input type="button" id="btnSearch" value="Roll the Dice" onclick="RollDice();" />
+<h2>Dice One</h2>
+<p id="message_1" >Dice are Ready</p>
+<h2>Dice Two</h2>
+<p id="message_2" >Dice are Ready</p>
+<script>
+function RollDice()
+{
+    var current_roll_dice_2= new Array("One","Two","Three","Four","Five","Six");
+    var random_2 = current_roll_dice_2[Math.floor(Math.random() * current_roll_dice_2.length)];
+    var current_roll_dice_1= new Array("One","Two","Three","Four","Five","Six");
+    var random_1 = current_roll_dice_1[Math.floor(Math.random() * current_roll_dice_1.length)];
+   document.getElementById("message_2").innerHTML=random_2;
+   document.getElementById("message_1").innerHTML=random_1;
+}
+</script>
