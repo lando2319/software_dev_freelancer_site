@@ -5,14 +5,32 @@ the dice game
 <p id="message_1" >Dice are Ready</p>
 <h2>Dice Two</h2>
 <p id="message_2" >Dice are Ready</p>
+<h2>Game Status</h2>
+<p id="point_is" ></p>
+<h2>The call is</h2>
+<div id="hard_number">Dice</div>
+<div id="total_of_dice" >are Ready</div>
 <script>
 function RollDice()
 {
-    var current_roll_dice_2= new Array("One","Two","Three","Four","Five","Six");
+    var current_roll_dice_2= new Array(1,2,3,4,5,6);
     var random_2 = current_roll_dice_2[Math.floor(Math.random() * current_roll_dice_2.length)];
-    var current_roll_dice_1= new Array("One","Two","Three","Four","Five","Six");
+    var current_roll_dice_1= new Array(1,2,3,4,5,6);
     var random_1 = current_roll_dice_1[Math.floor(Math.random() * current_roll_dice_1.length)];
+		var total_of_dice = random_1 + random_2
+		var hard_number = ""
+		if (total_of_dice == 4 || total_of_dice == 6 ||total_of_dice == 8 ||total_of_dice == 10 ) {
+				if ( random_1 == random_2) {
+						var hard_number = "hard"
+				} else {
+						var hard_number = "soft"
+				}
+		}
+		var point_is = total_of_dice					
    document.getElementById("message_2").innerHTML=random_2;
    document.getElementById("message_1").innerHTML=random_1;
+   document.getElementById("total_of_dice").innerHTML=total_of_dice;
+   document.getElementById("hard_number").innerHTML=hard_number;
+   document.getElementById("point_is").innerHTML=point_is;
 }
 </script>
