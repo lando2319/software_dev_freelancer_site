@@ -11,6 +11,10 @@ the dice game
 <div id="hard_number">Dice</div>
 <div id="total_of_dice" >are Ready</div>
 <script>
+function TestingStuff(point_is)
+{
+	document.getElementById("point_is").innerHTML=point_is;
+}
 function RollDice()
 {
     var current_roll_dice_2= new Array(1,2,3,4,5,6);
@@ -19,7 +23,9 @@ function RollDice()
     var random_1 = current_roll_dice_1[Math.floor(Math.random() * current_roll_dice_1.length)];
 		var total_of_dice = random_1 + random_2
 		var hard_number = ""
-		if (total_of_dice == 4 || total_of_dice == 6 ||total_of_dice == 8 ||total_of_dice == 10 ) {
+		var total_of_dice_options = [4,6,8,10]
+		var total_of_dice = random_1 + random_2
+		if (total_of_dice_options.indexOf(total_of_dice) >= 0) {
 				if ( random_1 == random_2) {
 						var hard_number = "hard"
 				} else {
@@ -27,10 +33,11 @@ function RollDice()
 				}
 		}
 		var point_is = total_of_dice					
+		TestingStuff(point_is)
+
    document.getElementById("message_2").innerHTML=random_2;
    document.getElementById("message_1").innerHTML=random_1;
    document.getElementById("total_of_dice").innerHTML=total_of_dice;
    document.getElementById("hard_number").innerHTML=hard_number;
-   document.getElementById("point_is").innerHTML=point_is;
 }
 </script>
