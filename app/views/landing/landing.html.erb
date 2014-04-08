@@ -6,15 +6,31 @@ the dice game
 <h2>Dice Two</h2>
 <p id="message_2" >Dice are Ready</p>
 <h2>Game Status</h2>
-<p id="point_is" ></p>
+<p id="game_status" >Come Out Roll</p>
 <h2>The call is</h2>
 <div id="hard_number">Dice</div>
 <div id="total_of_dice" >are Ready</div>
 <script>
-function TestingStuff(point_is)
+	$(document).ready(function() {
+		game_status = "Come out roll"
+	})
+
+function EvaluateThePoint(total_of_dice)
 {
-	document.getElementById("point_is").innerHTML=point_is;
+	if (game_status	== "Come Out Roll") {
+		if (total_of_dice == 2 || total_of_dice == 3 || total_of_dice == 12) {
+			//Line Away
+		} else if(total_of_dice == 11 || total_of_dice == 7) {
+			//Front Line Winner
+		}
+	} 
+	else if (game_status == total_of_dice) {
+			//Front Line Winner
+			game_status = "Come Out Roll"
+		document.getElementById("game_status").innerHTML=game_status;
+	}
 }
+
 function RollDice()
 {
     var current_roll_dice_2= new Array(1,2,3,4,5,6);
@@ -23,17 +39,16 @@ function RollDice()
     var random_1 = current_roll_dice_1[Math.floor(Math.random() * current_roll_dice_1.length)];
 		var total_of_dice = random_1 + random_2
 		var hard_number = ""
-		var total_of_dice_options = [4,6,8,10]
+		var possible_hard_numbers = [4,6,8,10]
 		var total_of_dice = random_1 + random_2
-		if (total_of_dice_options.indexOf(total_of_dice) >= 0) {
+		if (possible_hard_numbers.indexOf(total_of_dice) >= 0) {
 				if ( random_1 == random_2) {
 						var hard_number = "hard"
 				} else {
 						var hard_number = "soft"
 				}
 		}
-		var point_is = total_of_dice					
-		TestingStuff(point_is)
+		EvaluateThePoint(total_of_dice)
 
    document.getElementById("message_2").innerHTML=random_2;
    document.getElementById("message_1").innerHTML=random_1;
