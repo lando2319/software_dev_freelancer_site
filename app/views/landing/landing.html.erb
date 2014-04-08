@@ -1,16 +1,33 @@
-the dice game
-<br>
+<h1>Dice Game</h1>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><h2>Dice One</h2></th>
+      <th><h2>Dice Two</h2></th>
+      <th><h2>Game Status</h2></th>
+      <th><h2>The call is</h2></th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td>
+					<p id="message_1" >Dice are Ready</p>
+				</td>
+        <td>
+					<p id="message_2" >Dice are Ready</p>
+				</td>
+        <td>
+					<div id="line_call"></div>
+					<p id="game_status" >Come Out Roll</p>
+				</td>
+        <td>
+					<div id="hard_number">Dice Are</div>
+					<div id="total_of_dice" >Ready</div>
+        </td>
+      </tr>
+  </tbody>
+</table>
 <input type="button" id="btnSearch" value="Roll the Dice" onclick="RollDice();" />
-<h2>Dice One</h2>
-<p id="message_1" >Dice are Ready</p>
-<h2>Dice Two</h2>
-<p id="message_2" >Dice are Ready</p>
-<h2>Game Status</h2>
-<div id="line_call"></div>
-<p id="game_status" >Come Out Roll</p>
-<h2>The call is</h2>
-<div id="hard_number">Dice Are</div>
-<div id="total_of_dice" >Ready</div>
 <script>
 	$(document).ready(function() {
 		game_status = "Come Out Roll"
