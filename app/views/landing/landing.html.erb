@@ -8,7 +8,9 @@
         <div class="form-group">
           <label>Dealer Call: <span>{{ dealer_call }}</span></label></p>
           <label>Game Status: <span>{{ game_status }}</span><span>{{ point_is }}</span></label></p>
-          <label>Dice Total: <span>{{ the_call_is }}</span></label></p>
+          <label>Die One: <span>{{ die_one }}</span></label></p>
+          <label>Die Two: <span>{{ die_two }}</span></label></p>
+          <label>Dice Total: <span>{{ the_call_is }}</span></label><span>{{ hard_soft }}</span></p>
           <input type="button" id="btnSearch" ng-model="foo" value="roll the dice" ng-click="roll();" />
         </div>
       </fieldset>
