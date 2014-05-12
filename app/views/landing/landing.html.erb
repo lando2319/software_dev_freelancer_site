@@ -1,35 +1,20 @@
-<h1>Dice Game</h1>
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th><h2>Dice One</h2></th>
-      <th><h2>Dice Two</h2></th>
-      <th><h2>Game Status</h2></th>
-      <th><h2>The call is</h2></th>
-    </tr>
-  </thead>
-    <tbody>
-      <tr>
-        <td>
-          <p id="message_1" >Dice are Ready</p>
-        </td>
-        <td>
-          <p id="message_2" >Dice are Ready</p>
-        </td>
-        <td>
-          <div id="line_call"></div>
-          <p id="game_status" >Come Out Roll</p>
-        </td>
-        <td>
-          <div id="hard_number">Dice Are</div>
-          <div id="total_of_dice" >Ready</div>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-<input type="button" id="btnSearch" value="Roll the Dice" onclick="RollDice();" />
+<html ng-app>
+  <h1>Dice Game</h1>
+  <hr>
+  <body>
+    <form action="">
+      <fieldset ng-controller="RollDice">
+        <legend>Dice</legend>
+        <div class="form-group">
+          <label>Dealer Call: <span>{{ dealer_call }}</span></label></p>
+          <label>Game Status: <span>{{ game_status }}</span><span>{{ point_is }}</span></label></p>
+          <label>Dice Total: <span>{{ the_call_is }}</span></label></p>
+          <input type="button" id="btnSearch" ng-model="foo" value="roll the dice" ng-click="roll();" />
+        </div>
+      </fieldset>
+    </form>
+  </body>
+</html>
 <script>
-  $(document).ready(function() {
-    game_status = "Come Out Roll"
-  })
+ 
 </script>
