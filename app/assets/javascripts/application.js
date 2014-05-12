@@ -24,10 +24,12 @@ function EvaluatePassNoPass($scope, total_of_dice)
     if (total_of_dice ==  2 || total_of_dice == 3 || total_of_dice == 12 ) {
 			$scope.dealer_call = "Craps Line Away "
       $scope.the_call_is = total_of_dice
+      $scope.line_bet = 0
     } 
     else if (total_of_dice == 7 || total_of_dice == 11) {
 			$scope.dealer_call = "Front Line Winner"
       $scope.the_call_is = total_of_dice
+      $scope.bank_roll_actual += $scope.line_bet
     }
     else {
       $scope.dealer_call = "We have a point "
@@ -37,17 +39,40 @@ function EvaluatePassNoPass($scope, total_of_dice)
     }
   }
 	else if ($scope.game_status == "Point is ") {
-    if ($scope.point_is == total_of_dice) {
+    if (($scope.point_is == 6 || $scope.point_is == 8) && $scope.point_is == total_of_dice ) {
 			$scope.dealer_call = "Frontline Winner"
 			$scope.game_status = "Come Out Roll"
       $scope.point_is = ""
       $scope.the_call_is = total_of_dice
+      $scope.bank_roll_actual += $scope.line_bet
+      $scope.bank_roll_actual += ($scope.odds_behind_the_line * 2.2)
+      $scope.odds_behind_the_line = 0
+    }
+    else if (($scope.point_is == 5 || $scope.point_is == 9) && $scope.point_is == total_of_dice ) {
+			$scope.dealer_call = "Frontline Winner"
+			$scope.game_status = "Come Out Roll"
+      $scope.point_is = ""
+      $scope.the_call_is = total_of_dice
+      $scope.bank_roll_actual += $scope.line_bet
+      $scope.bank_roll_actual += ($scope.odds_behind_the_line * 2.5)
+      $scope.odds_behind_the_line = 0
+    }
+    else if (($scope.point_is == 4 || $scope.point_is == 10) && $scope.point_is == total_of_dice ) {
+			$scope.dealer_call = "Frontline Winner"
+			$scope.game_status = "Come Out Roll"
+      $scope.point_is = ""
+      $scope.the_call_is = total_of_dice
+      $scope.bank_roll_actual += $scope.line_bet
+      $scope.bank_roll_actual += ($scope.odds_behind_the_line * 3)
+      $scope.odds_behind_the_line = 0
     }
     else if (total_of_dice == 7) {
 			$scope.dealer_call = "Seven Out"
 			$scope.game_status = "Come Out Roll"
       $scope.point_is = ""
       $scope.the_call_is = total_of_dice
+      $scope.line_bet = 0
+      $scope.odds_behind_the_line = 0
     }
     else {
       $scope.the_call_is = total_of_dice
@@ -57,6 +82,7 @@ function EvaluatePassNoPass($scope, total_of_dice)
 
 function RollDice($scope) {
   $scope.game_status = "Come Out Roll"
+  $scope.odds_behind_the_line
   $scope.roll = function() {
     var current_roll_dice_2= new Array(1,2,3,4,5,6);
     var random_2 = current_roll_dice_2[Math.floor(Math.random() * current_roll_dice_2.length)];
@@ -67,5 +93,54 @@ function RollDice($scope) {
     var total_of_dice = random_1 + random_2;
     EvaluatePassNoPass($scope, total_of_dice);
   };
+  $scope.bank_roll_actual = 100
+  $scope.amount_to_bet = 0
+  $scope.line_bet = 0
+  $scope.odds_behind_the_line = 0
+  
+  $scope.place_line_bet = function() {
+    $scope.line_bet += $scope.amount_to_bet 
+    $scope.amount_to_bet = 0
+  }
+
+  $scope.place_odds_behind_the_line = function() {
+    $scope.odds_behind_the_line += $scope.amount_to_bet 
+    $scope.amount_to_bet = 0
+  }
+
+  $scope.bet_increase_500 = function() {
+    $scope.amount_to_bet += 500
+    $scope.bank_roll_actual -= 500
+  };
+  $scope.bet_increase_100 = function() {
+    $scope.amount_to_bet += 100
+    $scope.bank_roll_actual -= 100
+  };
+  $scope.bet_increase_25 = function() {
+    $scope.amount_to_bet += 25
+    $scope.bank_roll_actual -= 25
+  };
+  $scope.bet_increase_5 = function() {
+    $scope.amount_to_bet += 5
+    $scope.bank_roll_actual -= 5
+  };
+  $scope.bet_increase_1 = function() {
+    $scope.amount_to_bet += 1
+    $scope.bank_roll_actual -= 1
+  };
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
