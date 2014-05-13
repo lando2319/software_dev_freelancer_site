@@ -82,7 +82,9 @@ function EvaluatePassNoPass($scope, total_of_dice)
 
 function RollDice($scope) {
   $scope.game_status = "Come Out Roll"
-  $scope.odds_behind_the_line
+  $scope.bank_roll_actual = 100
+  $scope.line_bet = 0
+  $scope.odds_behind_the_line = 0
   $scope.roll = function() {
     var current_roll_dice_2= new Array(1,2,3,4,5,6);
     var random_2 = current_roll_dice_2[Math.floor(Math.random() * current_roll_dice_2.length)];
@@ -93,41 +95,10 @@ function RollDice($scope) {
     var total_of_dice = random_1 + random_2;
     EvaluatePassNoPass($scope, total_of_dice);
   };
-  $scope.bank_roll_actual = 100
-  $scope.amount_to_bet = 0
-  $scope.line_bet = 0
-  $scope.odds_behind_the_line = 0
-  
-  $scope.place_line_bet = function() {
-    $scope.line_bet += $scope.amount_to_bet 
-    $scope.amount_to_bet = 0
-  }
-
-  $scope.place_odds_behind_the_line = function() {
-    $scope.odds_behind_the_line += $scope.amount_to_bet 
-    $scope.amount_to_bet = 0
-  }
-
-  $scope.bet_increase_500 = function() {
-    $scope.amount_to_bet += 500
-    $scope.bank_roll_actual -= 500
-  };
-  $scope.bet_increase_100 = function() {
-    $scope.amount_to_bet += 100
-    $scope.bank_roll_actual -= 100
-  };
-  $scope.bet_increase_25 = function() {
-    $scope.amount_to_bet += 25
-    $scope.bank_roll_actual -= 25
-  };
-  $scope.bet_increase_5 = function() {
-    $scope.amount_to_bet += 5
-    $scope.bank_roll_actual -= 5
-  };
-  $scope.bet_increase_1 = function() {
-    $scope.amount_to_bet += 1
-    $scope.bank_roll_actual -= 1
-  };
+  $scope.$watch('line_bet', function(newVal, oldVal) {
+    the_difference = newVal - oldVal
+    console.log(the_difference)
+  });
 }
 
 

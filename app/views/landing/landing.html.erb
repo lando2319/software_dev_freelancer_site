@@ -14,16 +14,28 @@
           <input type="button" id="btnSearch" ng-model="dice" value="roll the dice" ng-click="roll();" />
           <hr>
           <label>Bank Roll: <span>{{ bank_roll_actual }}</span></label></p>
-          <label>Line Bet: <span>{{ line_bet }}</span></label></p>
-          <label>Odds Behind the Line: <span>{{ odds_behind_the_line }}</span></label></p>
-          <label>Amount to Bet: <span>{{ amount_to_bet }}</span></label></p>
-          <input type="button" id="btnSearch" ng-model="bank_roll" value="place line bet" ng-click="place_line_bet();" /></p>
-          <input type="button" id="btnSearch" ng-model="bank_roll" value="place odds behind the line" ng-click="place_odds_behind_the_line();" /></p>
-          <input type="button" id="btnSearch" ng-model="bank_roll" value="bet 1" ng-click="bet_increase_1();" />
-          <input type="button" id="btnSearch" ng-model="bank_roll" value="bet 5" ng-click="bet_increase_5();" />
-          <input type="button" id="btnSearch" ng-model="bank_roll" value="bet 25" ng-click="bet_increase_25();" />
-          <input type="button" id="btnSearch" ng-model="bank_roll" value="bet 100" ng-click="bet_increase_100();" />
-          <input type="button" id="btnSearch" ng-model="bank_roll" value="bet 500" ng-click="bet_increase_500();" />
+          <label>Line Bet </label> <input type="number" id="btnSearch" ng-model="line_bet" min="0" max="1000"  /></p>
+          <div ng-show="game_status == 'Point is '">
+            <label>Place Odds Behind The Line </label> <input type="number" id="btnSearch" ng-model="odds_behind_the_line" min="0" max="1000" /></p>
+          </div>
+          <div ng-show="game_status == 'Point is '">
+            <label>Place Bet on the 4 </label> <input type="number" id="btnSearch" ng-model="place_bet_on_4" min="0" max="1000" /></p>
+          </div>
+          <div ng-show="game_status == 'Point is '">
+            <label>Place Bet on the 5 </label> <input type="number" id="btnSearch" ng-model="place_bet_on_5" min="0" max="1000" /></p>
+          </div>
+          <div ng-show="game_status == 'Point is '">
+            <label>Place Bet on the 6 </label> <input type="number" id="btnSearch" ng-model="place_bet_on_6" min="0" max="1000" /></p>
+          </div>
+          <div ng-show="game_status == 'Point is '">
+            <label>Place Bet on the 8 </label> <input type="number" id="btnSearch" ng-model="place_bet_on_8" min="0" max="1000" /></p>
+          </div>
+          <div ng-show="game_status == 'Point is '">
+            <label>Place Bet on the 9 </label> <input type="number" id="btnSearch" ng-model="place_bet_on_9" min="0" max="1000" /></p>
+          </div>
+          <div ng-show="game_status == 'Point is '">
+            <label>Place Bet on the 10 </label> <input type="number" id="btnSearch" ng-model="place_bet_on_10" min="0" max="1000" /></p>
+          </div>
         </div>
       </fieldset>
     </form>
