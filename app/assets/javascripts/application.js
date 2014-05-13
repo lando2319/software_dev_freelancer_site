@@ -23,6 +23,7 @@ function FrontLineWinner($scope, total_of_dice)
       $scope.bank_roll_actual += $scope.line_bet
       $scope.point_is = ""
       $scope.game_status = "Come Out Roll"
+      $scope.place_bets_off_coming_out = "Place Bets Are Off Coming Out (uncheck if you wish to have your bets working)"
 }
 
 function LineAway($scope, total_of_dice) {
@@ -203,6 +204,7 @@ function RollDice($scope) {
   $scope.game_status = "Come Out Roll"
   $scope.bank_roll_actual = 100
   $scope.line_bet = 0
+  $scope.bets_are_off = true
   $scope.place_bet_on_the_4 = 0
   $scope.place_bet_on_the_5 = 0
   $scope.place_bet_on_the_6 = 0
