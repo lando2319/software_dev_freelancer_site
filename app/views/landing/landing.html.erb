@@ -19,6 +19,44 @@
             <tbody>
               <tr>
                 <td>
+                  <div ng-show="come_bet_flat_on_4 != 0 "> 
+                    <label>Come Bet (Odds)</label> <input type="number" id="btnSearch" ng-model="come_bet_odds_on_4" min="0" max="1000" /></p>
+                    <label>Come Bet (Flat)</label> <input type="number" id="btnSearch" ng-disabled=true ng-model="come_bet_flat_on_4" min="0" max="1000" /></p>
+                  </div>
+                </td>
+                <td>
+                  <div ng-show="come_bet_flat_on_5 != 0 "> 
+                    <label>Come Bet (Odds)</label> <input type="number" id="btnSearch" ng-model="come_bet_odds_on_5" min="0" max="1000" /></p>
+                    <label>Come Bet (Flat)</label> <input type="number" id="btnSearch" ng-disabled=true ng-model="come_bet_flat_on_5" min="0" max="1000" /></p>
+                  </div>
+                </td>
+                <td>
+                  <div ng-show="come_bet_flat_on_6 != 0 "> 
+                    <label>Come Bet (Odds)</label> <input type="number" id="btnSearch" ng-model="come_bet_odds_on_6" min="0" max="1000" /></p>
+                    <label>Come Bet (Flat)</label> <input type="number" id="btnSearch" ng-disabled=true ng-model="come_bet_flat_on_6" min="0" max="1000" /></p>
+                  </div>
+                </td>
+                <td>
+                  <div ng-show="come_bet_flat_on_8 != 0 "> 
+                    <label>Come Bet (Odds)</label> <input type="number" id="btnSearch" ng-model="come_bet_odds_on_8" min="0" max="1000" /></p>
+                    <label>Come Bet (Flat)</label> <input type="number" id="btnSearch" ng-disabled=true ng-model="come_bet_flat_on_8" min="0" max="1000" /></p>
+                  </div>
+                </td>
+                <td>
+                  <div ng-show="come_bet_flat_on_9 != 0 "> 
+                    <label>Come Bet (Odds)</label> <input type="number" id="btnSearch" ng-model="come_bet_odds_on_9" min="0" max="1000" /></p>
+                    <label>Come Bet (Flat)</label> <input type="number" id="btnSearch" ng-disabled=true ng-model="come_bet_flat_on_9" min="0" max="1000" /></p>
+                  </div>
+                </td>
+                <td>
+                  <div ng-show="come_bet_flat_on_10 != 0 "> 
+                    <label>Come Bet (Odds)</label> <input type="number" id="btnSearch" ng-model="come_bet_odds_on_10" min="0" max="1000" /></p>
+                    <label>Come Bet (Flat)</label> <input type="number" id="btnSearch" ng-disabled=true ng-model="come_bet_flat_on_10" min="0" max="1000" /></p>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
                   <div ng-show="point_is != 4 "> 
                     <label>Place Bet</label> <input type="number" id="btnSearch" ng-disabled="place_bets_are_off" ng-model="place_bet_on_the_4" min="0" max="1000" /></p>
                   </div>
@@ -52,6 +90,9 @@
               <tr>
                 <td>
                   <center><h1>COME</h1></center>
+                  <div ng-show="game_status != 'Come Out Roll'"> 
+                    <label>Come Bet</label> <input type="number" id="btnSearch" ng-model="place_come_bet" min="0" max="1000" /></p>
+                  </div>
                 </td>
               </tr>
             </tbody>
@@ -72,7 +113,8 @@
           <h3>Advanced Options</h3>
           <input type="checkbox" ng-model="place_bets_are_off" /><label>Place Bets Off </label></p>
           <span>{{ place_bets_off_message }}</span></p>
-          <input type="checkbox" ng-model="come_bets_are_off" /><label>Odds On Come Bets Always Work </label></p>
+          <input type="checkbox" ng-model="odd_on_come_bets" /><label>Odds On Come Bets </label></p>
+          <span>{{ odds_on_come_bets_message }}</span></p>
         </div>
       </fieldset>
     </form>
