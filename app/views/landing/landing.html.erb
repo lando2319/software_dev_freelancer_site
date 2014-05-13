@@ -19,7 +19,9 @@
             <tbody>
               <tr>
                 <td>
-                  <label>Place Bet</label> <input type="number" id="btnSearch" ng-disabled="bets_are_off" ng-model="place_bet_on_the_4" min="0" max="1000" /></p>
+                  <div ng-show="point_is != 4 "> 
+                    <label>Place Bet</label> <input type="number" id="btnSearch" ng-disabled="bets_are_off" ng-model="place_bet_on_the_4" min="0" max="1000" /></p>
+                  </div>
                 </td>
                 <td>
                   <label>Place Bet</label> <input type="number" id="btnSearch" ng-disabled="bets_are_off" ng-model="place_bet_on_the_5" min="0" max="1000" /></p>
