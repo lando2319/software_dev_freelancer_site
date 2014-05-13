@@ -20,23 +20,33 @@
               <tr>
                 <td>
                   <div ng-show="point_is != 4 "> 
-                    <label>Place Bet</label> <input type="number" id="btnSearch" ng-disabled="bets_are_off" ng-model="place_bet_on_the_4" min="0" max="1000" /></p>
+                    <label>Place Bet</label> <input type="number" id="btnSearch" ng-disabled="place_bets_are_off" ng-model="place_bet_on_the_4" min="0" max="1000" /></p>
                   </div>
                 </td>
                 <td>
-                  <label>Place Bet</label> <input type="number" id="btnSearch" ng-disabled="bets_are_off" ng-model="place_bet_on_the_5" min="0" max="1000" /></p>
+                  <div ng-show="point_is != 5 "> 
+                    <label>Place Bet</label> <input type="number" id="btnSearch" ng-disabled="place_bets_are_off" ng-model="place_bet_on_the_5" min="0" max="1000" /></p>
+                  </div>
                 </td>
                 <td>
-                  <label>Place Bet</label> <input type="number" id="btnSearch" ng-disabled="bets_are_off" ng-model="place_bet_on_the_6" min="0" max="1000" /></p>
+                  <div ng-show="point_is != 6 "> 
+                    <label>Place Bet</label> <input type="number" id="btnSearch" ng-disabled="place_bets_are_off" ng-model="place_bet_on_the_6" min="0" max="1000" /></p>
+                  </div>
                 </td>
                 <td>
-                  <label>Place Bet</label> <input type="number" id="btnSearch" ng-disabled="bets_are_off" ng-model="place_bet_on_the_8" min="0" max="1000" /></p>
+                  <div ng-show="point_is != 8 "> 
+                    <label>Place Bet</label> <input type="number" id="btnSearch" ng-disabled="place_bets_are_off" ng-model="place_bet_on_the_8" min="0" max="1000" /></p>
+                  </div>
                 </td>
                 <td>
-                  <label>Place Bet</label> <input type="number" id="btnSearch" ng-disabled="bets_are_off" ng-model="place_bet_on_the_9" min="0" max="1000" /></p>
+                  <div ng-show="point_is != 9 "> 
+                    <label>Place Bet</label> <input type="number" id="btnSearch" ng-disabled="place_bets_are_off" ng-model="place_bet_on_the_9" min="0" max="1000" /></p>
+                  </div>
                 </td>
                 <td>
-                  <label>Place Bet</label> <input type="number" id="btnSearch" ng-disabled="bets_are_off" ng-model="place_bet_on_the_10" min="0" max="1000" /></p>
+                  <div ng-show="point_is != 10 "> 
+                    <label>Place Bet</label> <input type="number" id="btnSearch" ng-disabled="place_bets_are_off" ng-model="place_bet_on_the_10" min="0" max="1000" /></p>
+                  </div>
                 </td>
               </tr>
               <tr>
@@ -60,8 +70,8 @@
             <label>Place Odds Behind The Line </label> <input type="number" id="btnSearch" ng-model="odds_behind_the_line" min="0" max="1000" /></p>
           </div>
           <h3>Advanced Options</h3>
-          <input type="checkbox" ng-model="bets_are_off" /><label>Place Bets Off </label></p>
-          <span>{{ place_bets_off }}</span></p>
+          <input type="checkbox" ng-model="place_bets_are_off" /><label>Place Bets Off </label></p>
+          <span>{{ place_bets_off_message }}</span></p>
           <input type="checkbox" ng-model="come_bets_are_off" /><label>Odds On Come Bets Always Work </label></p>
         </div>
       </fieldset>
