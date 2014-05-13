@@ -40,6 +40,24 @@ function SetsThePoint($scope, total_of_dice) {
       $scope.the_call_is = total_of_dice
       $scope.bets_are_off = false 
       $scope.place_bets_off = ""
+      if (total_of_dice == 4) {
+        $scope.four = "Point Is Four"
+      }
+      if (total_of_dice == 5) {
+        $scope.five = "Point Is Five"
+      }
+      if (total_of_dice == 6) {
+        $scope.six = "Point Is Six"
+      }
+      if (total_of_dice == 8) {
+        $scope.eight = "Point Is Eight"
+      }
+      if (total_of_dice == 9) {
+        $scope.nine = "Point Is Nine"
+      }
+      if (total_of_dice == 10) {
+        $scope.ten = "Point Is Ten"
+      }
 }
 
 function ComeAway($scope, total_of_dice) {
@@ -59,6 +77,12 @@ function SevenOut($scope, total_of_dice) {
       $scope.bets_are_off == false ? $scope.place_bet_on_the_8 = 0 : $scope.place_bets_off = "Bets are off, will work once new point is established"
       $scope.bets_are_off == false ? $scope.place_bet_on_the_9 = 0 : $scope.place_bets_off = "Bets are off, will work once new point is established"
       $scope.bets_are_off == false ? $scope.place_bet_on_the_10 = 0 : $scope.place_bets_off = "Bets are off, will work once new point is established"
+      $scopt.four = "Four"
+      $scopt.five = "Five"
+      $scopt.six = "Six"
+      $scopt.eight = "Eight"
+      $scopt.nine = "Nine"
+      $scopt.ten = "Ten"
       $scope.odds_behind_the_line = 0
       $scope.point_is = ""
       $scope.game_status = "Come Out Roll"
@@ -91,7 +115,8 @@ function TheCallIs4($scope, total_of_dice) {
         FrontLineWinner($scope, total_of_dice)
         $scope.bank_roll_actual += ($scope.odds_behind_the_line * 3)
         $scope.odds_behind_the_line = 0
-        $scope.place_bets_off = "Place Bets Are Off Coming Out (uncheck if you wish to have your bets working)"
+        $scope.place_bets_off = "Off Coming Out (uncheck if you wish to have your bets working)"
+        $scope.four = "Four"
     }
     else if ($scope.game_status == "Point is " && ($scope.point_is != total_of_dice)) {
         $scope.the_call_is = total_of_dice
@@ -107,7 +132,8 @@ function TheCallIs5($scope, total_of_dice) {
         FrontLineWinner($scope, total_of_dice)
         $scope.bank_roll_actual += ($scope.odds_behind_the_line * 2.5)
         $scope.odds_behind_the_line = 0
-        $scope.place_bets_off = "Place Bets Are Off Coming Out (uncheck if you wish to have your bets working)"
+        $scope.place_bets_off = "Off Coming Out (uncheck if you wish to have your bets working)"
+        $scope.five = "Five"
     }
     else if ($scope.game_status == "Point is " && ($scope.point_is != total_of_dice)) {
         $scope.bets_are_off == false ? $scope.bank_roll_actual += ($scope.place_bet_on_the_10 * 1.4) : $scope.place_bets_off = "Bets are off"
@@ -123,7 +149,8 @@ function TheCallIs6($scope, total_of_dice) {
         FrontLineWinner($scope, total_of_dice)
         $scope.bank_roll_actual += ($scope.odds_behind_the_line * 2.2)
         $scope.odds_behind_the_line = 0
-        $scope.place_bets_off = "Place Bets Are Off Coming Out (uncheck if you wish to have your bets working)"
+        $scope.place_bets_off = "Off Coming Out (uncheck if you wish to have your bets working)"
+        $scope.six = "Six"
     }
     else if ($scope.game_status == "Point is " && ($scope.point_is != total_of_dice)) {
         $scope.bets_are_off == false ? $scope.bank_roll_actual += (($scope.place_bet_on_the_8 / 6  ) * 7 ) : $scope.place_bets_off = "Bets are off"
@@ -148,7 +175,8 @@ function TheCallIs8($scope, total_of_dice) {
         FrontLineWinner($scope, total_of_dice)
         $scope.bank_roll_actual += ($scope.odds_behind_the_line * 2.2)
         $scope.odds_behind_the_line = 0
-        $scope.place_bets_off = "Place Bets Are Off Coming Out (uncheck if you wish to have your bets working)"
+        $scope.place_bets_off = "Off Coming Out (uncheck if you wish to have your bets working)"
+        $scope.eight = "Eight"
     }
     else if ($scope.game_status == "Point is " && ($scope.point_is != total_of_dice)) {
         $scope.bets_are_off == false ? $scope.bank_roll_actual += (($scope.place_bet_on_the_8 / 6  ) * 7 ) : $scope.place_bets_off = "Bets are off"
@@ -164,7 +192,8 @@ function TheCallIs9($scope, total_of_dice) {
         FrontLineWinner($scope, total_of_dice)
         $scope.bank_roll_actual += ($scope.odds_behind_the_line * 2.5)
         $scope.odds_behind_the_line = 0
-        $scope.place_bets_off = "Place Bets Are Off Coming Out (uncheck if you wish to have your bets working)"
+        $scope.place_bets_off = "Off Coming Out (uncheck if you wish to have your bets working)"
+        $scope.nine = "Nine"
     }
     else if ($scope.game_status == "Point is " && ($scope.point_is != total_of_dice)) {
         $scope.bets_are_off == false ? $scope.bank_roll_actual += ($scope.place_bet_on_the_10 * 1.4) : $scope.place_bets_off = "Bets are off"
@@ -180,7 +209,8 @@ function TheCallIs10($scope, total_of_dice) {
         FrontLineWinner($scope, total_of_dice)
         $scope.bank_roll_actual += ($scope.odds_behind_the_line * 3)
         $scope.odds_behind_the_line = 0
-        $scope.place_bets_off = "Place Bets Are Off Coming Out (uncheck if you wish to have your bets working)"
+        $scope.place_bets_off = "Off Coming Out (uncheck if you wish to have your bets working)"
+        $scope.ten = "Ten"
     }
     else if ($scope.game_status == "Point is " && ($scope.point_is != total_of_dice)) {
         $scope.bets_are_off == false ? $scope.bank_roll_actual += ($scope.place_bet_on_the_10 * 1.8) : $scope.place_bets_off = "Bets are off"
@@ -213,6 +243,12 @@ function RollDice($scope) {
   $scope.bank_roll_actual = 100
   $scope.line_bet = 0
   $scope.bets_are_off = true
+  $scope.four = "Four"
+  $scope.five = "Five"
+  $scope.six = "Six"
+  $scope.eight = "Eigth"
+  $scope.nine = "Nine"
+  $scope.ten = "Ten"
   $scope.place_bet_on_the_4 = 0
   $scope.place_bet_on_the_5 = 0
   $scope.place_bet_on_the_6 = 0

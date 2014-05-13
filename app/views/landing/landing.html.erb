@@ -5,6 +5,45 @@
     <form action="">
       <fieldset ng-controller="RollDice">
         <legend>Craps Game: 1 Min / 1000 Max | 10X odds | Hard Ways are off on the comeout roll | We do take hop bets</legend>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th><h2><span>{{ four }}</span></h2></th>
+                <th><h2><span>{{ five }}</span></h2></th>
+                <th><h2><span>{{ six }}</span></h2></th>
+                <th><h2><span>{{ eight }}</span></h2></th>
+                <th><h2><span>{{ nine }}</span></h2></th>
+                <th><h2><span>{{ ten }}</span></h2></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <label>Place Bet</label> <input type="number" id="btnSearch" ng-disabled="bets_are_off" ng-model="place_bet_on_the_4" min="0" max="1000" /></p>
+                </td>
+                <td>
+                  <label>Place Bet</label> <input type="number" id="btnSearch" ng-disabled="bets_are_off" ng-model="place_bet_on_the_5" min="0" max="1000" /></p>
+                </td>
+                <td>
+                  <label>Place Bet</label> <input type="number" id="btnSearch" ng-disabled="bets_are_off" ng-model="place_bet_on_the_6" min="0" max="1000" /></p>
+                </td>
+                <td>
+                  <label>Place Bet</label> <input type="number" id="btnSearch" ng-disabled="bets_are_off" ng-model="place_bet_on_the_8" min="0" max="1000" /></p>
+                </td>
+                <td>
+                  <label>Place Bet</label> <input type="number" id="btnSearch" ng-disabled="bets_are_off" ng-model="place_bet_on_the_9" min="0" max="1000" /></p>
+                </td>
+                <td>
+                  <label>Place Bet</label> <input type="number" id="btnSearch" ng-disabled="bets_are_off" ng-model="place_bet_on_the_10" min="0" max="1000" /></p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <center><h1>COME</h1></center>
+                </td>
+              </tr>
+            </tbody>
+          </table>
         <div class="form-group">
           <label>Dealer Call: <span>{{ dealer_call }}</span></label></p>
           <label>Game Status: <span>{{ game_status }}</span><span>{{ point_is }}</span></label></p>
@@ -18,14 +57,10 @@
           <div ng-show="game_status == 'Point is '">
             <label>Place Odds Behind The Line </label> <input type="number" id="btnSearch" ng-model="odds_behind_the_line" min="0" max="1000" /></p>
           </div>
+          <h3>Advanced Options</h3>
           <input type="checkbox" ng-model="bets_are_off" /><label>Place Bets Off </label></p>
           <span>{{ place_bets_off }}</span></p>
-          <label>Place Bet on the 4 </label> <input type="number" id="btnSearch" ng-disabled="bets_are_off" ng-model="place_bet_on_the_4" min="0" max="1000" /></p>
-          <label>Place Bet on the 5 </label> <input type="number" id="btnSearch" ng-disabled="bets_are_off" ng-model="place_bet_on_the_5" min="0" max="1000" /></p>
-          <label>Place Bet on the 6 </label> <input type="number" id="btnSearch" ng-disabled="bets_are_off" ng-model="place_bet_on_the_6" min="0" max="1000" /></p>
-          <label>Place Bet on the 8 </label> <input type="number" id="btnSearch" ng-disabled="bets_are_off" ng-model="place_bet_on_the_8" min="0" max="1000" /></p>
-          <label>Place Bet on the 9 </label> <input type="number" id="btnSearch" ng-disabled="bets_are_off" ng-model="place_bet_on_the_9" min="0" max="1000" /></p>
-          <label>Place Bet on the 10 </label> <input type="number" id="btnSearch" ng-disabled="bets_are_off" ng-model="place_bet_on_the_10" min="0" max="1000" /></p>
+          <input type="checkbox" ng-model="come_bets_are_off" /><label>Odds On Come Bets Always Work </label></p>
         </div>
       </fieldset>
     </form>
