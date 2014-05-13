@@ -17,9 +17,6 @@
 
 function EvaluatePassNoPass($scope, total_of_dice)
 {
-    console.log($scope.game_status)
-    console.log($scope.point_is)
-    console.log(total_of_dice)
 	if ($scope.game_status == "Come Out Roll") {
     if (total_of_dice ==  2 || total_of_dice == 3 || total_of_dice == 12 ) {
 			$scope.dealer_call = "Craps Line Away "
@@ -74,7 +71,32 @@ function EvaluatePassNoPass($scope, total_of_dice)
       $scope.line_bet = 0
       $scope.odds_behind_the_line = 0
     }
-    else {
+    else if (total_of_dice == 6) {
+      $scope.bank_roll_actual += (($scope.place_bet_on_the_6 / 6) * 7)
+      $scope.the_call_is = total_of_dice
+    }
+    else if (total_of_dice == 8) {
+      $scope.bank_roll_actual += (($scope.place_bet_on_the_8 / 6) * 7)
+      $scope.the_call_is = total_of_dice
+    }
+    else if (total_of_dice == 5) {
+      $scope.bank_roll_actual += ($scope.place_bet_on_the_9 * 1.8)
+      $scope.the_call_is = total_of_dice
+    }
+    else if (total_of_dice == 9) {
+      $scope.bank_roll_actual += ($scope.place_bet_on_the_9 * 1.8)
+      $scope.the_call_is = total_of_dice
+    }
+    else if (total_of_dice == 2) {
+      $scope.the_call_is = total_of_dice
+    }
+    else if (total_of_dice == 3) {
+      $scope.the_call_is = total_of_dice
+    }
+    else if (total_of_dice == 11) {
+      $scope.the_call_is = total_of_dice
+    }
+    else if (total_of_dice == 12) {
       $scope.the_call_is = total_of_dice
     }
 	}
@@ -84,6 +106,12 @@ function RollDice($scope) {
   $scope.game_status = "Come Out Roll"
   $scope.bank_roll_actual = 100
   $scope.line_bet = 0
+  $scope.place_bet_on_the_4 = 0
+  $scope.place_bet_on_the_5 = 0
+  $scope.place_bet_on_the_6 = 0
+  $scope.place_bet_on_the_8 = 0
+  $scope.place_bet_on_the_9 = 0
+  $scope.place_bet_on_the_10 = 0
   $scope.odds_behind_the_line = 0
   $scope.roll = function() {
     var current_roll_dice_2= new Array(1,2,3,4,5,6);
@@ -97,7 +125,31 @@ function RollDice($scope) {
   };
   $scope.$watch('line_bet', function(newVal, oldVal) {
     the_difference = newVal - oldVal
-    console.log(the_difference)
+    $scope.bank_roll_actual -= the_difference
+  });
+  $scope.$watch('place_bet_on_the_4', function(newVal, oldVal) {
+    the_difference = newVal - oldVal
+    $scope.bank_roll_actual -= the_difference
+  });
+  $scope.$watch('place_bet_on_the_5', function(newVal, oldVal) {
+    the_difference = newVal - oldVal
+    $scope.bank_roll_actual -= the_difference
+  });
+  $scope.$watch('place_bet_on_the_6', function(newVal, oldVal) {
+    the_difference = newVal - oldVal
+    $scope.bank_roll_actual -= the_difference
+  });
+  $scope.$watch('place_bet_on_the_8', function(newVal, oldVal) {
+    the_difference = newVal - oldVal
+    $scope.bank_roll_actual -= the_difference
+  });
+  $scope.$watch('place_bet_on_the_9', function(newVal, oldVal) {
+    the_difference = newVal - oldVal
+    $scope.bank_roll_actual -= the_difference
+  });
+  $scope.$watch('place_bet_on_the_10', function(newVal, oldVal) {
+    the_difference = newVal - oldVal
+    $scope.bank_roll_actual -= the_difference
   });
 }
 
