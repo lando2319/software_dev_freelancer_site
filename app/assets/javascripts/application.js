@@ -16,26 +16,32 @@
 //= require angular
 
 //= require the_call_is
-//= game_status
+//= require game_status
+//= require odds
 
 function RollDice($scope) {
+  // sets game status
   $scope.game_status = "Come Out Roll"
-  $scope.bank_roll_actual = 100
-  $scope.line_bet = 0
   $scope.place_bets_are_off = true
+
+  // Sets each possible point with the default stat.
   $scope.four = "Four"
   $scope.five = "Five"
   $scope.six = "Six"
   $scope.eight = "Eigth"
   $scope.nine = "Nine"
   $scope.ten = "Ten"
+
+  // Sets all betting values to 0
+  $scope.bank_roll_actual = 100
+  $scope.line_bet = 0
+  $scope.odds_behind_the_line = 0
   $scope.place_bet_on_the_4 = 0
   $scope.place_bet_on_the_5 = 0
   $scope.place_bet_on_the_6 = 0
   $scope.place_bet_on_the_8 = 0
   $scope.place_bet_on_the_9 = 0
   $scope.place_bet_on_the_10 = 0
-  $scope.odds_behind_the_line = 0
   $scope.place_come_bet = 0
   $scope.come_bet_flat_on_4 = 0
   $scope.come_bet_flat_on_5 = 0
@@ -50,6 +56,7 @@ function RollDice($scope) {
   $scope.come_bet_odds_on_9 = 0
   $scope.come_bet_odds_on_10 = 0
 
+  // rolling the dice
   $scope.roll = function() {
     var current_roll_dice_2= new Array(1,2,3,4,5,6);
     var random_2 = current_roll_dice_2[Math.floor(Math.random() * current_roll_dice_2.length)];
@@ -93,85 +100,18 @@ function RollDice($scope) {
     }
   };
 
-  $scope.$watch('place_come_bet', function(newVal, oldVal) {
-    the_difference = newVal - oldVal
-    $scope.bank_roll_actual -= the_difference
-  });
-  $scope.$watch('line_bet', function(newVal, oldVal) {
-    the_difference = newVal - oldVal
-    $scope.bank_roll_actual -= the_difference
-  });
-  $scope.$watch('come_bet_odds_on_4', function(newVal, oldVal) {
-    the_difference = newVal - oldVal
-    $scope.bank_roll_actual -= the_difference
-  });
-  $scope.$watch('come_bet_odds_on_5', function(newVal, oldVal) {
-    the_difference = newVal - oldVal
-    $scope.bank_roll_actual -= the_difference
-  });
-  $scope.$watch('come_bet_odds_on_6', function(newVal, oldVal) {
-    the_difference = newVal - oldVal
-    $scope.bank_roll_actual -= the_difference
-  });
-  $scope.$watch('come_bet_odds_on_8', function(newVal, oldVal) {
-    the_difference = newVal - oldVal
-    $scope.bank_roll_actual -= the_difference
-  });
-  $scope.$watch('come_bet_odds_on_9', function(newVal, oldVal) {
-    the_difference = newVal - oldVal
-    $scope.bank_roll_actual -= the_difference
-  });
-  $scope.$watch('come_bet_odds_on_10', function(newVal, oldVal) {
-    the_difference = newVal - oldVal
-    $scope.bank_roll_actual -= the_difference
-  });
-  $scope.$watch('come_bet_flat_on_4', function(newVal, oldVal) {
-    the_difference = newVal - oldVal
-    $scope.bank_roll_actual -= the_difference
-  });
-  $scope.$watch('come_bet_flat_on_5', function(newVal, oldVal) {
-    the_difference = newVal - oldVal
-    $scope.bank_roll_actual -= the_difference
-  });
-  $scope.$watch('come_bet_flat_on_6', function(newVal, oldVal) {
-    the_difference = newVal - oldVal
-    $scope.bank_roll_actual -= the_difference
-  });
-  $scope.$watch('come_bet_flat_on_8', function(newVal, oldVal) {
-    the_difference = newVal - oldVal
-    $scope.bank_roll_actual -= the_difference
-  });
-  $scope.$watch('come_bet_flat_on_9', function(newVal, oldVal) {
-    the_difference = newVal - oldVal
-    $scope.bank_roll_actual -= the_difference
-  });
-  $scope.$watch('come_bet_flat_on_10', function(newVal, oldVal) {
-    the_difference = newVal - oldVal
-    $scope.bank_roll_actual -= the_difference
-  });
-  $scope.$watch('place_bet_on_the_4', function(newVal, oldVal) {
-    the_difference = newVal - oldVal
-    $scope.bank_roll_actual -= the_difference
-  });
-  $scope.$watch('place_bet_on_the_5', function(newVal, oldVal) {
-    the_difference = newVal - oldVal
-    $scope.bank_roll_actual -= the_difference
-  });
-  $scope.$watch('place_bet_on_the_6', function(newVal, oldVal) {
-    the_difference = newVal - oldVal
-    $scope.bank_roll_actual -= the_difference
-  });
-  $scope.$watch('place_bet_on_the_8', function(newVal, oldVal) {
-    the_difference = newVal - oldVal
-    $scope.bank_roll_actual -= the_difference
-  });
-  $scope.$watch('place_bet_on_the_9', function(newVal, oldVal) {
-    the_difference = newVal - oldVal
-    $scope.bank_roll_actual -= the_difference
-  });
-  $scope.$watch('place_bet_on_the_10', function(newVal, oldVal) {
-    the_difference = newVal - oldVal
-    $scope.bank_roll_actual -= the_difference
-  });
+  // connecting each place to bet with bank_roll_actual
+  var places_to_watch = ['line_bet', 'odds_behind_the_line', 'place_come_bet', 'come_bet_odds_on_4', 'come_bet_odds_on_5', 'come_bet_odds_on_6', 'come_bet_odds_on_8', 'come_bet_odds_on_9', 'come_bet_odds_on_10', 'come_bet_flat_on_4', 'come_bet_flat_on_5', 'come_bet_flat_on_6', 'come_bet_flat_on_8', 'come_bet_flat_on_9', 'come_bet_flat_on_10', 'place_bet_on_the_4', 'place_bet_on_the_5', 'place_bet_on_the_6', 'place_bet_on_the_8', 'place_bet_on_the_9', 'place_bet_on_the_10']
+
+  angular.forEach(places_to_watch, function(value) {
+    $scope.$watch(value, function(newVal, oldVal) {
+        AdjustBankRoll($scope, newVal, oldVal)
+    });
+  }) 
+
+  function AdjustBankRoll($scope, newVal, oldVal) {
+      the_difference = newVal - oldVal
+      $scope.bank_roll_actual -= the_difference
+  }
 }
 

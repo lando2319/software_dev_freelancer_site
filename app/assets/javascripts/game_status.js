@@ -1,3 +1,4 @@
+//= require odds
 // Game Status Functions
 
 function FrontLineWinner($scope, total_of_dice)
@@ -125,7 +126,7 @@ function ComesGoToThe($scope, total_of_dice) {
               $scope.base_dealer_message = "Off and On"
           }
           else if ($scope.come_bet_flat_on_6 != $scope.place_come_bet) {
-              $scope.bank_roll_actual += ($scope.come_bet_odds_on_6 * 2.2)
+              $scope.bank_roll_actual += ($scope.come_bet_odds_on_6 * 1.2)
               $scope.bank_roll_actual += ($scope.come_bet_flat_on_6 * 2)
               $scope.come_bet_odds_on_6 = 0
               $scope.come_bet_flat_on_6 = 0
@@ -271,39 +272,21 @@ function SevenOut($scope, total_of_dice) {
 
 function HitsThePoint($scope, total_of_dice) {
       if (total_of_dice == 4) {
-          $scope.bank_roll_actual += ($scope.odds_behind_the_line * 3)
-          $scope.odds_behind_the_line = 0
-          ComesGoToThe($scope, total_of_dice)
-          $scope.four = "Four"
+          FourAndTenTrueOdds($scope, total_of_dice)
       }
       if (total_of_dice == 5) {
-          $scope.bank_roll_actual += ($scope.odds_behind_the_line * 2.5)
-          $scope.odds_behind_the_line = 0
-          ComesGoToThe($scope, total_of_dice)
-          $scope.five = "Five"
+          FiveAndNineTrueOdds($scope, total_of_dice)
       }
       if (total_of_dice == 6) {
-          $scope.bank_roll_actual += ($scope.odds_behind_the_line * 2.2)
-          $scope.odds_behind_the_line = 0
-          ComesGoToThe($scope, total_of_dice)
-          $scope.six = "Six"
+          SixAndEightTrueOdds($scope, total_of_dice)
       }
       if (total_of_dice == 8) {
-          $scope.bank_roll_actual += ($scope.odds_behind_the_line * 2.2)
-          $scope.odds_behind_the_line = 0
-          ComesGoToThe($scope, total_of_dice)
-          $scope.eight = "Eight"
+          SixAndEightTrueOdds($scope, total_of_dice)
       }
       if (total_of_dice == 9) {
-          $scope.bank_roll_actual += ($scope.odds_behind_the_line * 2.5)
-          $scope.odds_behind_the_line = 0
-          ComesGoToThe($scope, total_of_dice)
-          $scope.nine = "Nine"
+          FiveAndNineTrueOdds($scope, total_of_dice)
       }
       if (total_of_dice == 10) {
-          $scope.bank_roll_actual += ($scope.odds_behind_the_line * 3)
-          $scope.odds_behind_the_line = 0
-          ComesGoToThe($scope, total_of_dice)
-          $scope.ten = "Ten"
+          FourAndTenTrueOdds($scope, total_of_dice)
       }
 }
