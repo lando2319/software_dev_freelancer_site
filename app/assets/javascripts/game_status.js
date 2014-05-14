@@ -50,6 +50,29 @@ function SetsThePoint($scope, total_of_dice) {
       }
 }
 
+function PayPlaceBets($scope, total_of_dice) {
+    if (total_of_dice == 4) {
+        $scope.place_bets_are_off == false ? $scope.bank_roll_actual += ($scope.place_bet_on_the_4 * 1.8) : $scope.place_bets_off_message = "Bets are off"
+    }
+    if (total_of_dice == 5) {
+        $scope.place_bets_are_off == false ? $scope.bank_roll_actual += ($scope.place_bet_on_the_5 * 1.4) : $scope.place_bets_off_message = "Bets are off"
+    }
+    if (total_of_dice == 6) {
+        $scope.place_bets_are_off == false ? $scope.bank_roll_actual += (($scope.place_bet_on_the_6 / 6) * 7) : $scope.place_bets_off_message = "Bets are off"
+    }
+    if (total_of_dice == 8) {
+        $scope.place_bets_are_off == false ? $scope.bank_roll_actual += (($scope.place_bet_on_the_8 / 6) * 7) : $scope.place_bets_off_message = "Bets are off"
+    }
+    if (total_of_dice == 9) {
+        $scope.place_bets_are_off == false ? $scope.bank_roll_actual += ($scope.place_bet_on_the_9 * 1.4) : $scope.place_bets_off_message = "Bets are off"
+    }
+    if (total_of_dice == 10) {
+        $scope.place_bets_are_off == false ? $scope.bank_roll_actual += ($scope.place_bet_on_the_10 * 1.8) : $scope.place_bets_off_message = "Bets are off"
+    }
+}
+
+
+
 function ComesGoToThe($scope, total_of_dice) {
       if (total_of_dice == 4) {
         $scope.come_bet_flat_on_4 = $scope.place_come_bet
