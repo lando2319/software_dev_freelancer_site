@@ -40,11 +40,22 @@ function TheCallIs10($scope, total_of_dice) {
 
 // Naturals
 function TheCallIs7($scope, total_of_dice) {
-    Naturals($scope, total_of_dice)
+    if ($scope.game_status == "Come Out Roll" ) {
+        FrontLineWinner($scope, total_of_dice)
+    }
+    else if ($scope.game_status == "Point is ") {
+        SevenOut($scope, total_of_dice)
+        PayTheCome($scope, total_of_dice)
+    }
 }
 
 function TheCallIs11($scope, total_of_dice) {
-    Naturals($scope, total_of_dice)
+    if ($scope.game_status == "Come Out Roll" ) {
+        FrontLineWinner($scope, total_of_dice)
+    }
+    else if ($scope.game_status == "Point is ") {
+        PayTheCome($scope, total_of_dice)
+    }
 }
 
 // groups similar actions of each category
@@ -72,11 +83,3 @@ function PointNumbers($scope, total_of_dice) {
     }
 }
 
-function Naturals($scope, total_of_dice) {
-    if ($scope.game_status == "Come Out Roll" ) {
-        FrontLineWinner($scope, total_of_dice)
-    }
-    else if ($scope.game_status == "Point is ") {
-        PayTheCome($scope, total_of_dice)
-    }
-}

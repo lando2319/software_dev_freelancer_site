@@ -65,6 +65,7 @@ function RollDice($scope) {
     var random_1 = current_roll_dice_1[Math.floor(Math.random() * current_roll_dice_1.length)];
     $scope.die_two = random_1;
     var total_of_dice = random_1 + random_2;
+    console.log(total_of_dice)
     if (total_of_dice == 2) {
       TheCallIs2($scope, total_of_dice)
     }
