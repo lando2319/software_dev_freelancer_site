@@ -98,7 +98,8 @@
             </tbody>
           </table>
         <div class="form-group">
-          <label>Dealer Call: <span>{{ dealer_call }}</span></label></p>
+          <label>Base Dealer Call: <span>{{ base_dealer_call }}</span></label></p>
+          <label>Stickman Call: <span>{{ dealer_call }}</span></label></p>
           <label>Game Status: <span>{{ game_status }}</span><span>{{ point_is }}</span></label></p>
           <label>Die One: <span>{{ die_one }}</span></label></p>
           <label>Die Two: <span>{{ die_two }}</span></label></p>
@@ -113,7 +114,7 @@
           <h3>Advanced Options</h3>
           <input type="checkbox" ng-model="place_bets_are_off" /><label>Place Bets Off </label></p>
           <span>{{ place_bets_off_message }}</span></p>
-          <input type="checkbox" ng-model="odd_on_come_bets" /><label>Odds On Come Bets </label></p>
+          <input type="checkbox" ng-model="odds_on_come_bets_are_off" /><label>Odds On Come Bets Off</label></p>
           <span>{{ odds_on_come_bets_message }}</span></p>
         </div>
       </fieldset>
