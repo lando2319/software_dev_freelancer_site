@@ -116,6 +116,8 @@ function PayTheCome($scope, total_of_dice) {
 function SevenOut($scope, total_of_dice) {
       $scope.the_call_is = total_of_dice
       $scope.line_bet = 0
+      $scope.bank_roll_actual -= $scope.odds_behind_the_line 
+      $scope.bank_roll_actual -= $scope.line_bet 
       $scope.odds_behind_the_line = 0
       $scope.bank_roll_actual += $scope.place_come_bet 
       $scope.place_come_bet = 0
@@ -171,3 +173,35 @@ function SevenOut($scope, total_of_dice) {
       $scope.place_bets_are_off = true
 }
 
+function HitsThePoint($scope, total_of_dice) {
+      if (total_of_dice == 4) {
+          $scope.bank_roll_actual += ($scope.odds_behind_the_line * 3)
+          $scope.odds_behind_the_line = 0
+          $scope.four = "Four"
+      }
+      if (total_of_dice == 5) {
+          $scope.bank_roll_actual += ($scope.odds_behind_the_line * 2.5)
+          $scope.odds_behind_the_line = 0
+          $scope.five = "Five"
+      }
+      if (total_of_dice == 6) {
+          $scope.bank_roll_actual += ($scope.odds_behind_the_line * 2.2)
+          $scope.odds_behind_the_line = 0
+          $scope.six = "Six"
+      }
+      if (total_of_dice == 8) {
+          $scope.bank_roll_actual += ($scope.odds_behind_the_line * 2.2)
+          $scope.odds_behind_the_line = 0
+          $scope.eight = "Eight"
+      }
+      if (total_of_dice == 9) {
+          $scope.bank_roll_actual += ($scope.odds_behind_the_line * 2.5)
+          $scope.odds_behind_the_line = 0
+          $scope.nine = "Nine"
+      }
+      if (total_of_dice == 10) {
+          $scope.bank_roll_actual += ($scope.odds_behind_the_line * 3)
+          $scope.odds_behind_the_line = 0
+          $scope.ten = "Ten"
+      }
+}
