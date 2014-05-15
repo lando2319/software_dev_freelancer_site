@@ -187,7 +187,7 @@ function ComeAway($scope, total_of_dice) {
       $scope.the_call_is = total_of_dice
 }
 
-function PayTheCome($scope, total_of_dice) {
+function PayTheLastCome($scope, total_of_dice) {
       $scope.bank_roll_actual += $scope.place_come_bet 
       $scope.the_call_is = total_of_dice
 }

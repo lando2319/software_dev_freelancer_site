@@ -46,7 +46,7 @@ function TheCallIs7($scope, total_of_dice) {
     }
     else if ($scope.game_status == "Point is ") {
         SevenOut($scope, total_of_dice)
-        PayTheCome($scope, total_of_dice)
+        PayTheLastCome($scope, total_of_dice)
     }
 }
 
@@ -55,7 +55,7 @@ function TheCallIs11($scope, total_of_dice) {
         FrontLineWinner($scope, total_of_dice)
     }
     else if ($scope.game_status == "Point is ") {
-        PayTheCome($scope, total_of_dice)
+        PayTheLastCome($scope, total_of_dice)
     }
 }
 
