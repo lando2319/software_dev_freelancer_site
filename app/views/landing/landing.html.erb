@@ -113,6 +113,12 @@
               </tr>
               <tr>
                 <td>
+                  <center><h1>Don't COME</h1></center>
+                  <div ng-show="game_status != 'Come Out Roll'"> 
+                    <label>Don't Come Bet</label> <input type="number" id="btnSearch" ng-model="place_dont_come_bet" min="0" max="1000" /></p>
+                  </div>
+                </td>
+                <td>
                   <center><h1>COME</h1></center>
                   <div ng-show="game_status != 'Come Out Roll'"> 
                     <label>Come Bet</label> <input type="number" id="btnSearch" ng-model="place_come_bet" min="0" max="1000" /></p>
@@ -120,37 +126,40 @@
                   <center><h1>Field</h1></center>
                   <label>Field Bet</label> <input type="number" id="btnSearch" ng-model="field_bet" min="0" max="1000" /></p>
                 </td>
+              </tr>
+              <tr>
                 <td>
-                  <center><h1>Don't COME</h1></center>
-                  <div ng-show="game_status != 'Come Out Roll'"> 
-                    <label>Don't Come Bet</label> <input type="number" id="btnSearch" ng-model="place_dont_come_bet" min="0" max="1000" /></p>
+                </td>
+                <td>
+                  <label>Base Dealer Call: <span>{{ base_dealer_call }}</span></label></p>
+                  <label>Stickman Call: <span>{{ dealer_call }}</span></label></p>
+                  <label>Game Status: <span>{{ game_status }}</span><span>{{ point_is }}</span></label></p>
+                  <label>Die One: <span>{{ die_one }}</span></label></p>
+                  <label>Die Two: <span>{{ die_two }}</span></label></p>
+                  <label>Dice Total: <span>{{ the_call_is }}</span></label><span>{{ hard_soft }}</span></p>
+                  <input type="button" id="btnSearch" ng-model="dice" value="roll the dice" ng-click="roll();" />
+                  <hr>
+                  <label>Bank Roll: <span>{{ bank_roll_actual }}</span></label></p>
+                  <label>Pass Line Bet </label> <input type="number" id="btnSearch" ng-model="line_bet" min="0" max="1000"  /></p>
+                  <div ng-show="game_status == 'Point is ' && line_bet > 0">
+                    <label>Place Odds Behind The Line </label> <input type="number" id="btnSearch" ng-model="odds_behind_the_line" min="0" max="1000" /></p>
+                  </div>
+                  <label>Don't Pass Bet </label> <input type="number" id="btnSearch" ng-model="dont_pass_line_bet" min="0" max="1000"  /></p>
+                  <div ng-show="game_status == 'Point is ' && dont_pass_line_bet > 0">
+                    <label>Place Odds Behind The Line </label> <input type="number" id="btnSearch" ng-model="odds_behind_the_dont_pass_line" min="0" max="1000" /></p>
                   </div>
                 </td>
               </tr>
             </tbody>
           </table>
         <div class="form-group">
-          <label>Base Dealer Call: <span>{{ base_dealer_call }}</span></label></p>
-          <label>Stickman Call: <span>{{ dealer_call }}</span></label></p>
-          <label>Game Status: <span>{{ game_status }}</span><span>{{ point_is }}</span></label></p>
-          <label>Die One: <span>{{ die_one }}</span></label></p>
-          <label>Die Two: <span>{{ die_two }}</span></label></p>
-          <label>Dice Total: <span>{{ the_call_is }}</span></label><span>{{ hard_soft }}</span></p>
-          <input type="button" id="btnSearch" ng-model="dice" value="roll the dice" ng-click="roll();" />
-          <hr>
-          <label>Bank Roll: <span>{{ bank_roll_actual }}</span></label></p>
-          <label>Pass Line Bet </label> <input type="number" id="btnSearch" ng-model="line_bet" min="0" max="1000"  /></p>
-          <div ng-show="game_status == 'Point is ' && line_bet > 0">
-            <label>Place Odds Behind The Line </label> <input type="number" id="btnSearch" ng-model="odds_behind_the_line" min="0" max="1000" /></p>
-          </div>
-          <label>Don't Pass Bet </label> <input type="number" id="btnSearch" ng-model="dont_pass_line_bet" min="0" max="1000"  /></p>
-          <div ng-show="game_status == 'Point is ' && dont_pass_line_bet > 0">
-            <label>Place Odds Behind The Line </label> <input type="number" id="btnSearch" ng-model="odds_behind_the_dont_pass_line" min="0" max="1000" /></p>
-          </div>
           <table class="table table-striped">
             <thead>
               <center><h3>Prop Bets</h3></center>
               <center><h4>Hop Bets</h4></center>
+              <center><h5>One Roll Bets</h5></center>
+              <center><h5>Low Side Pays 16 for 1 (example: 3-1 dice must roll 3-1 or 1-3)</h5></center>
+              <center><h5>High Side Pays 31 for 1 (example: 2-2 dice must roll 2-2)</h5></center>
               <tr>
                 <th><h2><span>Four</span></h2></th>
                 <th><h2><span>Five</span></h2></th>
@@ -191,6 +200,10 @@
               </tr>
               <tr>
                 <td>
+                </td>
+                <td>
+                </td>
+                <td>
                   <h4>Horn Numbers</h4>
                   <label>Aces</label> <input type="number" id="btnSearch" ng-model="prop_bet_aces" min="0" max="1000"  /></p>
                   <label>Ace Deuce</label> <input type="number" id="btnSearch" ng-model="prop_bet_ace_deuce" min="0" max="1000"  /></p>
@@ -202,10 +215,6 @@
                   <label>6-1</label> <input type="number" id="btnSearch" ng-model="prop_bet_on_6_1" min="0" max="1000"  /></p>
                   <label>5-2</label> <input type="number" id="btnSearch" ng-model="prop_bet_on_5_2" min="0" max="1000"  /></p>
                   <label>4-3</label> <input type="number" id="btnSearch" ng-model="prop_bet_on_4_3" min="0" max="1000"  /></p>
-                </td>
-                <td>
-                </td>
-                <td>
                 </td>
                 <td>
                 </td>
@@ -223,5 +232,6 @@
         </div>
       </fieldset>
     </form>
+    Entertainment Purposes Only
   </body>
 </html>
