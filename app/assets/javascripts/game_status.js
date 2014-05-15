@@ -8,7 +8,6 @@ function FrontLineWinner($scope, total_of_dice)
       $scope.bank_roll_actual += $scope.line_bet
       $scope.point_is = ""
       $scope.game_status = "Come Out Roll"
-      $scope.place_bets_are_off = true 
 }
 
 function LineAway($scope, total_of_dice) {
@@ -235,8 +234,30 @@ function SevenOut($scope, total_of_dice) {
         $scope.come_bet_odds_on_9 = 0 
         $scope.come_bet_odds_on_10 = 0
       }
-      else if ($scope.odds_on_come_bets == true) {
+      else if ($scope.odds_on_come_bets_are_off == true) {
         $scope.odds_on_come_bets_message = "Odds were off, flat bet ALWAYS works"
+        // Lose the flat
+        $scope.bank_roll_actual -= $scope.come_bet_flat_on_4 
+        $scope.bank_roll_actual -= $scope.come_bet_flat_on_5 
+        $scope.bank_roll_actual -= $scope.come_bet_flat_on_6 
+        $scope.bank_roll_actual -= $scope.come_bet_flat_on_8 
+        $scope.bank_roll_actual -= $scope.come_bet_flat_on_9 
+        $scope.bank_roll_actual -= $scope.come_bet_flat_on_10
+
+        $scope.come_bet_flat_on_4 = 0        
+        $scope.come_bet_flat_on_5 = 0 
+        $scope.come_bet_flat_on_6 = 0 
+        $scope.come_bet_flat_on_8 = 0 
+        $scope.come_bet_flat_on_9 = 0 
+        $scope.come_bet_flat_on_10 = 0
+
+        // give back the odds
+        $scope.come_bet_odds_on_4 = 0        
+        $scope.come_bet_odds_on_5 = 0 
+        $scope.come_bet_odds_on_6 = 0 
+        $scope.come_bet_odds_on_8 = 0 
+        $scope.come_bet_odds_on_9 = 0 
+        $scope.come_bet_odds_on_10 = 0
       } 
 
       if ($scope.place_bets_are_off != true) {
@@ -271,22 +292,15 @@ function SevenOut($scope, total_of_dice) {
 }
 
 function HitsThePoint($scope, total_of_dice) {
-      if (total_of_dice == 4) {
+      if (total_of_dice == 4 || total_of_dice == 10) {
           FourAndTenTrueOdds($scope, total_of_dice)
       }
-      if (total_of_dice == 5) {
+      if (total_of_dice == 5 || total_of_dice == 9) {
           FiveAndNineTrueOdds($scope, total_of_dice)
       }
-      if (total_of_dice == 6) {
+      if (total_of_dice == 6 || total_of_dice == 8) {
           SixAndEightTrueOdds($scope, total_of_dice)
       }
-      if (total_of_dice == 8) {
-          SixAndEightTrueOdds($scope, total_of_dice)
-      }
-      if (total_of_dice == 9) {
-          FiveAndNineTrueOdds($scope, total_of_dice)
-      }
-      if (total_of_dice == 10) {
-          FourAndTenTrueOdds($scope, total_of_dice)
-      }
+      $scope.place_bets_are_off = true 
+      $scope.odds_on_come_bets_are_off = true 
 }

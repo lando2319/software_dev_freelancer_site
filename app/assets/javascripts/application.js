@@ -23,6 +23,7 @@ function RollDice($scope) {
   // sets game status
   $scope.game_status = "Come Out Roll"
   $scope.place_bets_are_off = true
+  $scope.odds_on_come_bets_are_off = true
 
   // Sets each possible point with the default stat.
   $scope.four = "Four"

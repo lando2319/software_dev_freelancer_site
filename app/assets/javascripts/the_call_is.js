@@ -71,10 +71,13 @@ function AcesAceDeuceTwelve($scope, total_of_dice) {
 function PointNumbers($scope, total_of_dice) {
     if ($scope.game_status == "Come Out Roll") {
         SetsThePoint($scope, total_of_dice)
+        ComesGoToThe($scope, total_of_dice)
+        PayPlaceBets($scope, total_of_dice)
     }
     else if ($scope.game_status == "Point is " && ($scope.point_is == total_of_dice)) {
         FrontLineWinner($scope, total_of_dice)
         HitsThePoint($scope, total_of_dice)
+        ComesGoToThe($scope, total_of_dice)
     }
     else if ($scope.game_status == "Point is " && ($scope.point_is != total_of_dice)) {
         $scope.the_call_is = total_of_dice
