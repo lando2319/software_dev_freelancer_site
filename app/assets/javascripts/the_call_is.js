@@ -73,11 +73,15 @@ function PointNumbers($scope, total_of_dice) {
         SetsThePoint($scope, total_of_dice)
         ComesGoToThe($scope, total_of_dice)
         PayPlaceBets($scope, total_of_dice)
+        $scope.odds_on_come_bets_are_off = false
+        $scope.place_bets_are_off = false 
     }
     else if ($scope.game_status == "Point is " && ($scope.point_is == total_of_dice)) {
         FrontLineWinner($scope, total_of_dice)
         HitsThePoint($scope, total_of_dice)
         ComesGoToThe($scope, total_of_dice)
+        $scope.point_is = ""
+        $scope.game_status = "Come Out Roll"
     }
     else if ($scope.game_status == "Point is " && ($scope.point_is != total_of_dice)) {
         $scope.the_call_is = total_of_dice

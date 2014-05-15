@@ -6,8 +6,6 @@ function FrontLineWinner($scope, total_of_dice)
 			$scope.dealer_call = "Front Line Winner"
       $scope.the_call_is = total_of_dice
       $scope.bank_roll_actual += $scope.line_bet
-      $scope.point_is = ""
-      $scope.game_status = "Come Out Roll"
 }
 
 function LineAway($scope, total_of_dice) {
@@ -22,7 +20,6 @@ function SetsThePoint($scope, total_of_dice) {
       $scope.game_status = "Point is "
       $scope.point_is = total_of_dice
       $scope.the_call_is = total_of_dice
-      $scope.place_bets_are_off = false 
       $scope.place_bets_off_message = ""
       if (total_of_dice == 4) {
         $scope.come_bet_odds_on_4 = 0
