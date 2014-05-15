@@ -1,20 +1,38 @@
 function FourAndTenTrueOdds($scope, total_of_dice) {
-    $scope.bank_roll_actual += ($scope.odds_behind_the_line * 3)
-    $scope.odds_behind_the_line = 0
+    if (total_of_dice != 7) {
+        $scope.bank_roll_actual += ($scope.odds_behind_the_line * 3)
+        $scope.odds_behind_the_line = 0
+    }
+    else {
+        $scope.bank_roll_actual -= ($scope.odds_behind_the_dont_pass_line * 1.5)
+        $scope.odds_behind_the_dont_pass_line = 0
+    }
     $scope.four = "Four"
     $scope.ten = "Ten"
 }
 
 function FiveAndNineTrueOdds($scope, total_of_dice) {
-    $scope.bank_roll_actual += ($scope.odds_behind_the_line * 2.5)
-    $scope.odds_behind_the_line = 0
+    if (total_of_dice != 7) {
+        $scope.bank_roll_actual += ($scope.odds_behind_the_line * 2.5)
+        $scope.odds_behind_the_line = 0
+    }
+    else {
+      $scope.bank_roll_actual -= ($scope.odds_behind_the_dont_pass_line * (2 / 3))
+      $scope.odds_behind_the_dont_pass_line = 0
+    }
     $scope.five = "Five"
     $scope.nine = "Nine"
 }
 
 function SixAndEightTrueOdds($scope, total_of_dice) {
-    $scope.bank_roll_actual += ($scope.odds_behind_the_line * 2.2)
-    $scope.odds_behind_the_line = 0
+    if (total_of_dice != 7) {
+      $scope.bank_roll_actual += ($scope.odds_behind_the_line * 2.2)
+      $scope.odds_behind_the_line = 0
+    }
+    else {
+      $scope.bank_roll_actual -= ($scope.odds_behind_the_dont_pass_line * (5 / 6))
+      $scope.odds_behind_the_dont_pass_line = 0
+    }
     $scope.eight = "Eight"
     $scope.six = "Six"
 }
@@ -36,8 +54,6 @@ function EvaluateTheField($scope, total_of_dice) {
 }
 
 function PropBets($scope, random_1, random_2) {
-    console.log(random_1)
-    console.log(random_2)
     if (random_1 == 1 && random_2 == 1) {
       var stay_up = $scope.prop_bet_aces
       $scope.bank_roll_actual += $scope.prop_bet_aces * 30

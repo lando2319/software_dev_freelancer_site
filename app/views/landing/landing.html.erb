@@ -109,9 +109,13 @@
           <input type="button" id="btnSearch" ng-model="dice" value="roll the dice" ng-click="roll();" />
           <hr>
           <label>Bank Roll: <span>{{ bank_roll_actual }}</span></label></p>
-          <label>Line Bet </label> <input type="number" id="btnSearch" ng-model="line_bet" min="0" max="1000"  /></p>
-          <div ng-show="game_status == 'Point is '">
+          <label>Pass Line Bet </label> <input type="number" id="btnSearch" ng-model="line_bet" min="0" max="1000"  /></p>
+          <div ng-show="game_status == 'Point is ' && line_bet > 0">
             <label>Place Odds Behind The Line </label> <input type="number" id="btnSearch" ng-model="odds_behind_the_line" min="0" max="1000" /></p>
+          </div>
+          <label>Don't Pass Bet </label> <input type="number" id="btnSearch" ng-model="dont_pass_line_bet" min="0" max="1000"  /></p>
+          <div ng-show="game_status == 'Point is ' && dont_pass_line_bet > 0">
+            <label>Place Odds Behind The Line </label> <input type="number" id="btnSearch" ng-model="odds_behind_the_dont_pass_line" min="0" max="1000" /></p>
           </div>
           <table class="table table-striped">
             <thead>

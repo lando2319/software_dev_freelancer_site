@@ -6,12 +6,16 @@ function FrontLineWinner($scope, total_of_dice)
 			$scope.dealer_call = "Front Line Winner"
       $scope.the_call_is = total_of_dice
       $scope.bank_roll_actual += $scope.line_bet
+      $scope.bank_roll_actual -= $scope.dont_pass_line_bet
+      $scope.dont_pass_line_bet = 0
 }
 
 function LineAway($scope, total_of_dice) {
 			$scope.dealer_call = "Craps Line Away"
       $scope.the_call_is = total_of_dice
+      $scope.bank_roll_actual -= $scope.line_bet 
       $scope.line_bet = 0
+      $scope.bank_roll_actual += $scope.dont_pass_line_bet
       $scope.point_is = ""
 }
 
@@ -194,12 +198,14 @@ function PayTheLastCome($scope, total_of_dice) {
 
 function SevenOut($scope, total_of_dice) {
       $scope.the_call_is = total_of_dice
-      $scope.line_bet = 0
-      $scope.bank_roll_actual -= $scope.odds_behind_the_line 
-      $scope.bank_roll_actual -= $scope.line_bet 
-      $scope.odds_behind_the_line = 0
       $scope.bank_roll_actual += $scope.place_come_bet 
       $scope.place_come_bet = 0
+
+      LineAway($scope, total_of_dice)
+
+      FourAndTenTrueOdds($scope, total_of_dice)
+      FiveAndNineTrueOdds($scope, total_of_dice)
+      SixAndEightTrueOdds($scope, total_of_dice)
 
       if ($scope.odds_on_come_bets_are_off != true) {
         LoseFlatAndOddsOnComeBets($scope, total_of_dice)
