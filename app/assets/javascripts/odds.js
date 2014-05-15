@@ -18,3 +18,19 @@ function SixAndEightTrueOdds($scope, total_of_dice) {
     $scope.eight = "Eight"
     $scope.six = "Six"
 }
+
+function EvaluateTheField($scope, total_of_dice) {
+    if (total_of_dice == 2) {
+        $scope.bank_roll_actual += $scope.field_bet * 2
+    }
+    if (total_of_dice == 3 || total_of_dice == 4 || total_of_dice == 9 || total_of_dice == 10 || total_of_dice == 11) {
+        $scope.bank_roll_actual += $scope.field_bet
+    }
+    if (total_of_dice == 12) {
+        $scope.bank_roll_actual += $scope.field_bet * 3
+    }
+    if (total_of_dice == 5 || total_of_dice == 6 || total_of_dice == 7 || total_of_dice == 8) {
+        $scope.bank_roll_actual -= $scope.field_bet
+        $scope.field_bet = 0
+    }
+}

@@ -67,6 +67,9 @@ function RollDice($scope) {
     $scope.die_two = random_1;
     var total_of_dice = random_1 + random_2;
     console.log(total_of_dice)
+      
+    EvaluateTheField($scope, total_of_dice)
+
     if (total_of_dice == 2) {
       TheCallIs2($scope, total_of_dice)
     }
