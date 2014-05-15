@@ -37,6 +37,7 @@ function RollDice($scope) {
   $scope.bank_roll_actual = 100
   $scope.line_bet = 0
   $scope.odds_behind_the_line = 0
+  $scope.field_bet = 0
   $scope.place_bet_on_the_4 = 0
   $scope.place_bet_on_the_5 = 0
   $scope.place_bet_on_the_6 = 0
