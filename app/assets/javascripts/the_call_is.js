@@ -42,6 +42,7 @@ function TheCallIs10($scope, total_of_dice) {
 function TheCallIs7($scope, total_of_dice) {
     if ($scope.game_status == "Come Out Roll" ) {
         FrontLineWinner($scope, total_of_dice)
+        GiveBackTheOdds($scope, total_of_dice)
     }
     else if ($scope.game_status == "Point is ") {
         SevenOut($scope, total_of_dice)
@@ -82,6 +83,8 @@ function PointNumbers($scope, total_of_dice) {
         ComesGoToThe($scope, total_of_dice)
         $scope.point_is = ""
         $scope.game_status = "Come Out Roll"
+        $scope.place_bets_are_off = true 
+        $scope.odds_on_come_bets_are_off = true 
     }
     else if ($scope.game_status == "Point is " && ($scope.point_is != total_of_dice)) {
         $scope.the_call_is = total_of_dice
