@@ -65,7 +65,22 @@ function RollDice($scope) {
   // Dark Side
   $scope.dont_pass_line_bet = 0
   $scope.odds_behind_the_dont_pass_line = 0
+  $scope.place_dont_come_bet = 0
 
+  $scope.dont_come_bet_flat_on_4 = 0
+  $scope.dont_come_bet_flat_on_5 = 0
+  $scope.dont_come_bet_flat_on_6 = 0
+  $scope.dont_come_bet_flat_on_8 = 0
+  $scope.dont_come_bet_flat_on_9 = 0
+  $scope.dont_come_bet_flat_on_10 = 0
+
+  $scope.dont_come_bet_odds_on_4 = 0
+  $scope.dont_come_bet_odds_on_5 = 0
+  $scope.dont_come_bet_odds_on_6 = 0
+  $scope.dont_come_bet_odds_on_8 = 0
+  $scope.dont_come_bet_odds_on_9 = 0
+  $scope.dont_come_bet_odds_on_10 = 0
+  
   // Prop Bets
   $scope.prop_bet_aces = 0
   $scope.prop_bet_ace_deuce = 0
@@ -148,7 +163,9 @@ function RollDice($scope) {
       'place_bet_on_the_10', 'prop_bet_aces', 'prop_bet_ace_deuce', 'prop_bet_twelve', 'prop_bet_yo', 'prop_bet_on_6_1', 
       'prop_bet_on_5_2', 'prop_bet_on_4_3', 'prop_bet_on_3_1', 'prop_bet_on_2_2', 'prop_bet_on_3_2', 'prop_bet_on_4_1', 'prop_bet_on_5_1', 
       'prop_bet_on_4_2', 'prop_bet_on_3_3', 'prop_bet_on_6_2', 'prop_bet_on_5_3', 'prop_bet_on_4_2', 'prop_bet_on_6_3', 'prop_bet_on_5_4', 
-      'prop_bet_on_6_4', 'prop_bet_on_5_5', 'dont_pass_line_bet', 'odds_behind_the_dont_pass_line']
+      'prop_bet_on_6_4', 'prop_bet_on_5_5', 'dont_pass_line_bet', 'odds_behind_the_dont_pass_line', 'place_dont_come_bet', 'dont_come_bet_odds_on_4', 'dont_come_bet_odds_on_5', 
+      'dont_come_bet_odds_on_6', 'dont_come_bet_odds_on_8', 'dont_come_bet_odds_on_9', 'dont_come_bet_odds_on_10', 'dont_come_bet_flat_on_4', 
+      'dont_come_bet_flat_on_5', 'dont_come_bet_flat_on_6', 'dont_come_bet_flat_on_8', 'dont_come_bet_flat_on_9', 'dont_come_bet_flat_on_10',]
   
   
   angular.forEach(places_to_watch, function(value) {

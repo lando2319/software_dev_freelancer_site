@@ -88,6 +88,12 @@ function PayPlaceBets($scope, total_of_dice) {
 
 function ComesGoToThe($scope, total_of_dice) {
       if (total_of_dice == 4) {
+          $scope.bank_roll_actual -= $scope.dont_come_bet_flat_on_4
+          $scope.bank_roll_actual -= $scope.dont_come_bet_odds_on_4
+          $scope.dont_come_bet_flat_on_4 = 0
+          $scope.dont_come_bet_odds_on_4 = 0
+          $scope.dont_come_bet_flat_on_4 = $scope.place_dont_come_bet
+          $scope.place_dont_come_bet = 0
           if ($scope.come_bet_flat_on_4 == $scope.place_come_bet && $scope.place_come_bet != 0) {
               $scope.bank_roll_actual += ($scope.come_bet_odds_on_4 * 3)
               $scope.bank_roll_actual += ($scope.come_bet_flat_on_4 * 2)
@@ -104,6 +110,12 @@ function ComesGoToThe($scope, total_of_dice) {
 
       }
       if (total_of_dice == 5) {
+          $scope.bank_roll_actual -= $scope.dont_come_bet_flat_on_5
+          $scope.bank_roll_actual -= $scope.dont_come_bet_odds_on_5
+          $scope.dont_come_bet_flat_on_5 = 0
+          $scope.dont_come_bet_odds_on_5 = 0
+          $scope.dont_come_bet_flat_on_5 = $scope.place_dont_come_bet
+          $scope.place_dont_come_bet = 0
           if ($scope.come_bet_flat_on_5 == $scope.place_come_bet && $scope.place_come_bet != 0) {
               $scope.bank_roll_actual += ($scope.come_bet_odds_on_5 * 2.5)
               $scope.bank_roll_actual += ($scope.come_bet_flat_on_5 * 2)
@@ -120,6 +132,12 @@ function ComesGoToThe($scope, total_of_dice) {
 
       }
       if (total_of_dice == 6) {
+          $scope.bank_roll_actual -= $scope.dont_come_bet_flat_on_6
+          $scope.bank_roll_actual -= $scope.dont_come_bet_odds_on_6
+          $scope.dont_come_bet_flat_on_6 = 0
+          $scope.dont_come_bet_odds_on_6 = 0
+          $scope.dont_come_bet_flat_on_6 = $scope.place_dont_come_bet
+          $scope.place_dont_come_bet = 0
           if ($scope.come_bet_flat_on_6 == $scope.place_come_bet && $scope.place_come_bet != 0) {
               $scope.bank_roll_actual += ($scope.come_bet_odds_on_6 * 2.2)
               $scope.bank_roll_actual += ($scope.come_bet_flat_on_6 * 2)
@@ -136,6 +154,12 @@ function ComesGoToThe($scope, total_of_dice) {
 
       }
       if (total_of_dice == 8) {
+          $scope.bank_roll_actual -= $scope.dont_come_bet_flat_on_8
+          $scope.bank_roll_actual -= $scope.dont_come_bet_odds_on_8
+          $scope.dont_come_bet_flat_on_8 = 0
+          $scope.dont_come_bet_odds_on_8 = 0
+          $scope.dont_come_bet_flat_on_8 = $scope.place_dont_come_bet
+          $scope.place_dont_come_bet = 0
           if ($scope.come_bet_flat_on_8 == $scope.place_come_bet && $scope.place_come_bet != 0) {
               $scope.bank_roll_actual += ($scope.come_bet_odds_on_8 * 1.2)
               $scope.bank_roll_actual += ($scope.come_bet_flat_on_8 * 2)
@@ -152,6 +176,12 @@ function ComesGoToThe($scope, total_of_dice) {
 
       }
       if (total_of_dice == 9) {
+          $scope.bank_roll_actual -= $scope.dont_come_bet_flat_on_9
+          $scope.bank_roll_actual -= $scope.dont_come_bet_odds_on_9
+          $scope.dont_come_bet_flat_on_9 = 0
+          $scope.dont_come_bet_odds_on_9 = 0
+          $scope.dont_come_bet_flat_on_9 = $scope.place_dont_come_bet
+          $scope.place_dont_come_bet = 0
           if ($scope.come_bet_flat_on_9 == $scope.place_come_bet && $scope.place_come_bet != 0) {
               $scope.bank_roll_actual += ($scope.come_bet_odds_on_9 * 3)
               $scope.bank_roll_actual += ($scope.come_bet_flat_on_9 * 2)
@@ -168,6 +198,12 @@ function ComesGoToThe($scope, total_of_dice) {
 
       }
       if (total_of_dice == 10) {
+          $scope.bank_roll_actual -= $scope.dont_come_bet_flat_on_10
+          $scope.bank_roll_actual -= $scope.dont_come_bet_odds_on_10
+          $scope.dont_come_bet_flat_on_10 = 0
+          $scope.dont_come_bet_odds_on_10 = 0
+          $scope.dont_come_bet_flat_on_10 = $scope.place_dont_come_bet
+          $scope.place_dont_come_bet = 0
           if ($scope.come_bet_flat_on_10 == $scope.place_come_bet && $scope.place_come_bet != 0) {
               $scope.bank_roll_actual += ($scope.come_bet_odds_on_10 * 3)
               $scope.bank_roll_actual += ($scope.come_bet_flat_on_10 * 2)
@@ -187,13 +223,17 @@ function ComesGoToThe($scope, total_of_dice) {
 
 function ComeAway($scope, total_of_dice) {
       $scope.bank_roll_actual -= $scope.place_come_bet 
+      $scope.bank_roll_actual += $scope.place_dont_come_bet 
       $scope.place_come_bet = 0
       $scope.the_call_is = total_of_dice
 }
 
 function PayTheLastCome($scope, total_of_dice) {
-      $scope.bank_roll_actual += $scope.place_come_bet 
+      $scope.bank_roll_actual += $scope.place_come_bet
       $scope.the_call_is = total_of_dice
+      $scope.bank_roll_actual -= $scope.place_dont_come_bet 
+      $scope.place_dont_come_bet = 0
+      $scope.place_come_bet = 0
 }
 
 function SevenOut($scope, total_of_dice) {
