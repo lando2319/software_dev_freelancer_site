@@ -106,6 +106,10 @@ function RollDice($scope) {
   $scope.prop_bet_on_5_4 = 0
   $scope.prop_bet_on_6_4 = 0
   $scope.prop_bet_on_5_5 = 0
+
+  $scope.place_bet_on_4_button = function() {
+    $scope.place_bet_on_the_4 += 5
+  }
   // rolling the dice
   $scope.roll = function() {
     var current_roll_dice_2= new Array(1,2,3,4,5,6);

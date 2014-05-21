@@ -10,6 +10,34 @@
 
 
 
+        <table>
+          <tr>
+            <td class="col-md-2">
+              Four</p>
+              <input type="button" id="btnSearch" class="btn btn-primary btn-xs" ng-model="dice" value="Place Bet" ng-click="place_bet_on_4_button();" />
+            </td>
+            <td class="col-md-2">
+              Four</p>
+              <input type="button" id="btnSearch" class="btn btn-primary btn-xs" ng-model="dice" value="Place Bet" ng-click="place_bet_on_4_button();" />
+            </td>
+            <td class="col-md-2">
+              Four</p>
+              <input type="button" id="btnSearch" class="btn btn-primary btn-xs" ng-model="dice" value="Place Bet" ng-click="place_bet_on_4_button();" />
+            </td>
+            <td class="col-md-2">
+              Four</p>
+              <input type="button" id="btnSearch" class="btn btn-primary btn-xs" ng-model="dice" value="Place Bet" ng-click="place_bet_on_4_button();" />
+            </td>
+            <td class="col-md-2">
+              Four</p>
+              <input type="button" id="btnSearch" class="btn btn-primary btn-xs" ng-model="dice" value="Place Bet" ng-click="place_bet_on_4_button();" />
+            </td>
+            <td class="col-md-2">
+              Four</p>
+              <input type="button" id="btnSearch" class="btn btn-primary btn-xs" ng-model="dice" value="Place Bet" ng-click="place_bet_on_4_button();" />
+            </td>
+          </tr>
+        </table>
 
 
 
@@ -23,19 +51,9 @@
           <table class="table table-striped">
             <thead>
               <tr>
-                <th><h2><span>{{ four }}</span></h2></th>
-                <th><h2><span>{{ five }}</span></h2></th>
-                <th><h2><span>{{ six }}</span></h2></th>
-                <th><h2><span>{{ eight }}</span></h2></th>
-                <th><h2><span>{{ nine }}</span></h2></th>
-                <th><h2><span>{{ ten }}</span></h2></th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
                 <td>
                   <div ng-show="dont_come_bet_flat_on_4 != 0 "> 
-                    <label>Dont Come Bet (Lay)</label> <input type="number" id="btnSearch" ng-model="dont_come_bet_odds_on_4" min="0" max="1000" /></p>
+                    <input type="number" id="btnSearch" ng-model="dont_come_bet_odds_on_4" min="0" max="1000" /></p>
                     <label>Dont Come Bet (Flat)</label> <input type="number" id="btnSearch" ng-disabled=true ng-model="dont_come_bet_flat_on_4" min="0" max="1000" /></p>
                   </div>
                   <div ng-show="come_bet_flat_on_4 != 0 "> 
@@ -94,9 +112,20 @@
                   </div>
                 </td>
               </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><h2><span>{{ four }}</span></h2></td>
+                <td><h2><span>{{ five }}</span></h2></td>
+                <td><h2><span>{{ six }}</span></h2></td>
+                <td><h2><span>{{ eight }}</span></h2></td>
+                <td><h2><span>{{ nine }}</span></h2></td>
+                <td><h2><span>{{ ten }}</span></h2></td>
+              </tr>
               <tr>
                 <td>
                   <div ng-show="point_is != 4 "> 
+                    <input type="button" id="btnSearch" class="btn btn-primary btn-xs" ng-model="dice" value="Place Bet" ng-click="place_bet_on_4_button();" />
                     <label>Place Bet</label> <input type="number" id="btnSearch" ng-disabled="place_bets_are_off" ng-model="place_bet_on_the_4" min="0" max="1000" /></p>
                   </div>
                 </td>
