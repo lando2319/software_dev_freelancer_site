@@ -1,5 +1,8 @@
 SoftwareDevFreelancerSite::Application.routes.draw do
   root :to => 'landing#landing'
+
+  get '/landing/landing_2' => 'landing#landing_2'
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
