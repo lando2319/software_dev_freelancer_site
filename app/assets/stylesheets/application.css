@@ -18,6 +18,17 @@
  */
 
 /*! normalize.css v3.0.0 | MIT License | git.io/normalize */
+
+@import url(http://fonts.googleapis.com/css?family=Vidaloka);
+
+.point_num_font {
+   font-family: 'Vidaloka', serif;
+}
+
+.point_num {
+   text-align: center;
+}
+
 html {
   font-family: sans-serif;
   -webkit-text-size-adjust: 100%;
@@ -5795,9 +5806,12 @@ button.close {
     display: none !important;
   }
 }
+
 @media (max-width: 768px){
   .btn {
    font-size: 0.5em;
   }  
 }
+
+
 /*# sourceMappingURL=bootstrap.css.map */
