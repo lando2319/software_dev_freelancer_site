@@ -5795,4 +5795,9 @@ button.close {
     display: none !important;
   }
 }
+@media (max-width: 768px){
+  .btn {
+   font-size: 0.5em;
+  }  
+}
 /*# sourceMappingURL=bootstrap.css.map */
