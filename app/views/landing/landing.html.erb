@@ -41,6 +41,9 @@
             <button class="btn btn-primary btn-lg ng-pristine ng-valid" type="button" ng-model="dice" value="Place Bet" ng-click="place_bet_on_10_button();"><span class="badge">{{ place_bet_on_the_10 }}</span></button>
           </div> <!-- /.col -->
         </div>
+        <div ng-show="game_status != 'Come Out Roll'"> 
+            <button class="btn btn-primary btn-lg ng-pristine ng-valid" type="button" ng-model="dice" value="Place Bet" ng-click="place_dont_come_bet_button();">Don't<br>Come<br>Bar<br><span class="badge">{{ place_dont_come_bet }}</span></button>
+        </div>
         <div class="row">
           <div ng-show="dont_come_bet_flat_on_4 != 0 "> 
             <input type="number" id="btnSearch" ng-model="dont_come_bet_odds_on_4" min="0" max="1000" /></p>
@@ -90,10 +93,6 @@
             <label>Come Bet (Odds)</label> <input type="number" id="btnSearch" ng-disabled='odds_on_come_bets_are_off' ng-model="come_bet_odds_on_10" min="0" max="1000" /></p>
             <label>Come Bet (Flat)</label> <input type="number" id="btnSearch" ng-disabled=true ng-model="come_bet_flat_on_10" min="0" max="1000" /></p>
           </div>
-        </div>
-        <center><h1>Don't COME</h1></center>
-        <div ng-show="game_status != 'Come Out Roll'"> 
-          <label>Don't Come Bet</label> <input type="number" id="btnSearch" ng-model="place_dont_come_bet" min="0" max="1000" /></p>
         </div>
         <center><h1>COME</h1></center>
         <div ng-show="game_status != 'Come Out Roll'"> 
