@@ -6,43 +6,42 @@
     <form action="">
       <fieldset ng-controller="RollDice">
         <legend>Craps Game: 1 Min / 1000 Max | 10X odds | Hard Ways are off on the comeout roll | We do take hop bets</legend>
-        <input type="button" id="btnSearch" class="btn btn-default btn-lg" ng-model="dice" value="roll the dice" ng-click="roll();" />
         <div class="row">
-          <div class="col-xs-2 point_num">
-            <div class="point_num_font">
+          <div class="col-xs-2">
+            <div class="point_num point_num_font">
               <h2><span class="ng-binding"><span>{{ four }}</span></span></h2>
+              <button class="btn btn-primary btn-lg ng-pristine ng-valid" type="button" ng-model="dice" value="Place Bet" ng-click="place_bet_on_4_button();"><span class="badge">{{ place_bet_on_the_4 }}</span></button>
             </div>
-            <button class="btn btn-primary btn-lg ng-pristine ng-valid" type="button" ng-model="dice" value="Place Bet" ng-click="place_bet_on_4_button();"><span class="badge">{{ place_bet_on_the_4 }}</span></button>
           </div> <!-- /.col -->
-          <div class="col-xs-2 point_num">
-            <div class="point_num_font">
+          <div class="col-xs-2">
+            <div class="point_num point_num_font">
               <h2><span class="ng-binding"><span>{{ five }}</span></span></h2>
+              <button class="btn btn-primary btn-lg ng-pristine ng-valid" type="button" ng-model="dice" value="Place Bet" ng-click="place_bet_on_5_button();"><span class="badge">{{ place_bet_on_the_5 }}</span></button>
             </div>
-            <button class="btn btn-primary btn-lg ng-pristine ng-valid" type="button" ng-model="dice" value="Place Bet" ng-click="place_bet_on_5_button();"><span class="badge">{{ place_bet_on_the_5 }}</span></button>
           </div> <!-- /.col -->
-          <div class="col-xs-2 point_num">
-            <div class="point_num_font">
+          <div class="col-xs-2">
+            <div class="point_num point_num_font">
               <h2><span class="ng-binding"><span>{{ six }}</span></span></h2>
+              <button class="btn btn-primary btn-lg ng-pristine ng-valid" type="button" ng-model="dice" value="Place Bet" ng-click="place_bet_on_6_button();"><span class="badge">{{ place_bet_on_the_6 }}</span></button>
             </div>
-            <button class="btn btn-primary btn-lg ng-pristine ng-valid" type="button" ng-model="dice" value="Place Bet" ng-click="place_bet_on_6_button();"><span class="badge">{{ place_bet_on_the_6 }}</span></button>
           </div> <!-- /.col -->
-          <div class="col-xs-2 point_num">
-            <div class="point_num_font">
+          <div class="col-xs-2">
+            <div class="point_num point_num_font">
               <h2><span class="ng-binding"><span>{{ eight }}</span></span></h2>
+              <button class="btn btn-primary btn-lg ng-pristine ng-valid" type="button" ng-model="dice" value="Place Bet" ng-click="place_bet_on_8_button();"><span class="badge">{{ place_bet_on_the_8 }}</span></button>
             </div>
-            <button class="btn btn-primary btn-lg ng-pristine ng-valid" type="button" ng-model="dice" value="Place Bet" ng-click="place_bet_on_8_button();"><span class="badge">{{ place_bet_on_the_8 }}</span></button>
           </div> <!-- /.col -->
-          <div class="col-xs-2 point_num">
-            <div class="point_num_font">
+          <div class="col-xs-2">
+            <div class="point_num point_num_font">
               <h2><span class="ng-binding"><span>{{ nine }}</span></span></h2>
+              <button class="btn btn-primary btn-lg ng-pristine ng-valid" type="button" ng-model="dice" value="Place Bet" ng-click="place_bet_on_9_button();"><span class="badge">{{ place_bet_on_the_9 }}</span></button>
             </div>
-            <button class="btn btn-primary btn-lg ng-pristine ng-valid" type="button" ng-model="dice" value="Place Bet" ng-click="place_bet_on_9_button();"><span class="badge">{{ place_bet_on_the_9 }}</span></button>
           </div> <!-- /.col -->
-          <div class="col-xs-2 point_num">
-            <div class="point_num_font">
+          <div class="col-xs-2">
+            <div class="point_num point_num_font">
               <h2><span class="ng-binding"><span>{{ ten }}</span></span></h2>
+              <button class="btn btn-primary btn-lg ng-pristine ng-valid" type="button" ng-model="dice" value="Place Bet" ng-click="place_bet_on_10_button();"><span class="badge">{{ place_bet_on_the_10 }}</span></button>
             </div>
-            <button class="btn btn-primary btn-lg ng-pristine ng-valid" type="button" ng-model="dice" value="Place Bet" ng-click="place_bet_on_10_button();"><span class="badge">{{ place_bet_on_the_10 }}</span></button>
           </div> <!-- /.col -->
         </div>
         <div class="row">
@@ -122,74 +121,35 @@
           <label>Place Odds Behind The Line </label> <input type="number" id="btnSearch" ng-model="odds_behind_the_dont_pass_line" min="0" max="1000" /></p>
         </div>
         <div>
-              <center><h3>Prop Bets</h3></center>
-              <center><h4>Hop Bets</h4></center>
-              <center><h5>One Roll Bets</h5></center>
-              <center><h5>Low Side Pays 16 for 1 (example: 3-1 dice must roll 3-1 or 1-3)</h5></center>
-              <center><h5>High Side Pays 31 for 1 (example: 2-2 dice must roll 2-2)</h5></center>
-              <tr>
-                <th><h2><span>Four</span></h2></th>
-                <th><h2><span>Five</span></h2></th>
-                <th><h2><span>Six</span></h2></th>
-                <th><h2><span>Eight</span></h2></th>
-                <th><h2><span>Nine</span></h2></th>
-                <th><h2><span>Ten</span></h2></th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>
-                  <label>3-1</label> <input type="number" id="btnSearch" ng-model="prop_bet_on_3_1" min="0" max="1000"  /></p>
-                  <label>2-2</label> <input type="number" id="btnSearch" ng-model="prop_bet_on_2_2" min="0" max="1000"  /></p>
-                </td>
-                <td>
-                  <label>3-2</label> <input type="number" id="btnSearch" ng-model="prop_bet_on_3_2" min="0" max="1000"  /></p>
-                  <label>4-1</label> <input type="number" id="btnSearch" ng-model="prop_bet_on_4_1" min="0" max="1000"  /></p>
-                </td>
-                <td>
-                  <label>5-1</label> <input type="number" id="btnSearch" ng-model="prop_bet_on_5_1" min="0" max="1000"  /></p>
-                  <label>4-2</label> <input type="number" id="btnSearch" ng-model="prop_bet_on_4_2" min="0" max="1000"  /></p>
-                  <label>3-3</label> <input type="number" id="btnSearch" ng-model="prop_bet_on_3_3" min="0" max="1000"  /></p>
-                </td>
-                <td>
-                  <label>6-2</label> <input type="number" id="btnSearch" ng-model="prop_bet_on_6_2" min="0" max="1000"  /></p>
-                  <label>5-3</label> <input type="number" id="btnSearch" ng-model="prop_bet_on_5_3" min="0" max="1000"  /></p>
-                  <label>4-4</label> <input type="number" id="btnSearch" ng-model="prop_bet_on_4_4" min="0" max="1000"  /></p>
-                </td>
-                <td>
-                  <label>6-3</label> <input type="number" id="btnSearch" ng-model="prop_bet_on_6_3" min="0" max="1000"  /></p>
-                  <label>5-4</label> <input type="number" id="btnSearch" ng-model="prop_bet_on_5_4" min="0" max="1000"  /></p>
-                </td>
-                <td>
-                  <label>6-4</label> <input type="number" id="btnSearch" ng-model="prop_bet_on_6_4" min="0" max="1000"  /></p>
-                  <label>5-5</label> <input type="number" id="btnSearch" ng-model="prop_bet_on_5_5" min="0" max="1000"  /></p>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                </td>
-                <td>
-                </td>
-                <td>
-                  <h4>Horn Numbers</h4>
-                  <label>Aces</label> <input type="number" id="btnSearch" ng-model="prop_bet_aces" min="0" max="1000"  /></p>
-                  <label>Ace Deuce</label> <input type="number" id="btnSearch" ng-model="prop_bet_ace_deuce" min="0" max="1000"  /></p>
-                  <label>Twelve</label> <input type="number" id="btnSearch" ng-model="prop_bet_twelve" min="0" max="1000"  /></p>
-                  <label>Yo Eleven</label> <input type="number" id="btnSearch" ng-model="prop_bet_yo" min="0" max="1000"  /></p>
-                </td>
-                <td>
-                  <h4>Red</h4>
-                  <label>6-1</label> <input type="number" id="btnSearch" ng-model="prop_bet_on_6_1" min="0" max="1000"  /></p>
-                  <label>5-2</label> <input type="number" id="btnSearch" ng-model="prop_bet_on_5_2" min="0" max="1000"  /></p>
-                  <label>4-3</label> <input type="number" id="btnSearch" ng-model="prop_bet_on_4_3" min="0" max="1000"  /></p>
-                </td>
-                <td>
-                </td>
-                <td>
-                </td>
-              </tr>
-            </tbody>
-          </table>
+          <input type="button" id="btnSearch" class="btn btn-default btn-lg" ng-model="dice" value="roll the dice" ng-click="roll();" />
+          <center><h3>Prop Bets</h3></center>
+          <center><h4>Hop Bets</h4></center>
+          <center><h5>One Roll Bets</h5></center>
+          <center><h5>Low Side Pays 16 for 1 (example: 3-1 dice must roll 3-1 or 1-3)</h5></center>
+          <center><h5>High Side Pays 31 for 1 (example: 2-2 dice must roll 2-2)</h5></center>
+          <label>3-1</label> <input type="number" id="btnSearch" ng-model="prop_bet_on_3_1" min="0" max="1000"  /></p>
+          <label>2-2</label> <input type="number" id="btnSearch" ng-model="prop_bet_on_2_2" min="0" max="1000"  /></p>
+          <label>3-2</label> <input type="number" id="btnSearch" ng-model="prop_bet_on_3_2" min="0" max="1000"  /></p>
+          <label>4-1</label> <input type="number" id="btnSearch" ng-model="prop_bet_on_4_1" min="0" max="1000"  /></p>
+          <label>5-1</label> <input type="number" id="btnSearch" ng-model="prop_bet_on_5_1" min="0" max="1000"  /></p>
+          <label>4-2</label> <input type="number" id="btnSearch" ng-model="prop_bet_on_4_2" min="0" max="1000"  /></p>
+          <label>3-3</label> <input type="number" id="btnSearch" ng-model="prop_bet_on_3_3" min="0" max="1000"  /></p>
+          <label>6-2</label> <input type="number" id="btnSearch" ng-model="prop_bet_on_6_2" min="0" max="1000"  /></p>
+          <label>5-3</label> <input type="number" id="btnSearch" ng-model="prop_bet_on_5_3" min="0" max="1000"  /></p>
+          <label>4-4</label> <input type="number" id="btnSearch" ng-model="prop_bet_on_4_4" min="0" max="1000"  /></p>
+          <label>6-3</label> <input type="number" id="btnSearch" ng-model="prop_bet_on_6_3" min="0" max="1000"  /></p>
+          <label>5-4</label> <input type="number" id="btnSearch" ng-model="prop_bet_on_5_4" min="0" max="1000"  /></p>
+          <label>6-4</label> <input type="number" id="btnSearch" ng-model="prop_bet_on_6_4" min="0" max="1000"  /></p>
+          <label>5-5</label> <input type="number" id="btnSearch" ng-model="prop_bet_on_5_5" min="0" max="1000"  /></p>
+          <h4>Horn Numbers</h4>
+          <label>Aces</label> <input type="number" id="btnSearch" ng-model="prop_bet_aces" min="0" max="1000"  /></p>
+          <label>Ace Deuce</label> <input type="number" id="btnSearch" ng-model="prop_bet_ace_deuce" min="0" max="1000"  /></p>
+          <label>Twelve</label> <input type="number" id="btnSearch" ng-model="prop_bet_twelve" min="0" max="1000"  /></p>
+          <label>Yo Eleven</label> <input type="number" id="btnSearch" ng-model="prop_bet_yo" min="0" max="1000"  /></p>
+          <h4>Red</h4>
+          <label>6-1</label> <input type="number" id="btnSearch" ng-model="prop_bet_on_6_1" min="0" max="1000"  /></p>
+          <label>5-2</label> <input type="number" id="btnSearch" ng-model="prop_bet_on_5_2" min="0" max="1000"  /></p>
+          <label>4-3</label> <input type="number" id="btnSearch" ng-model="prop_bet_on_4_3" min="0" max="1000"  /></p>
 
           <h3>Advanced Options</h3>
           <input type="checkbox" ng-model="place_bets_are_off" /><label>Place Bets Off </label></p>
