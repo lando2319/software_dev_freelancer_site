@@ -110,6 +110,21 @@ function RollDice($scope) {
   $scope.place_bet_on_4_button = function() {
     $scope.place_bet_on_the_4 += 5
   }
+  $scope.place_bet_on_5_button = function() {
+    $scope.place_bet_on_the_5 += 5
+  }
+  $scope.place_bet_on_6_button = function() {
+    $scope.place_bet_on_the_6 += 6
+  }
+  $scope.place_bet_on_8_button = function() {
+    $scope.place_bet_on_the_8 += 6
+  }
+  $scope.place_bet_on_9_button = function() {
+    $scope.place_bet_on_the_9 += 5
+  }
+  $scope.place_bet_on_10_button = function() {
+    $scope.place_bet_on_the_10 += 5
+  }
   // rolling the dice
   $scope.roll = function() {
     var current_roll_dice_2= new Array(1,2,3,4,5,6);
