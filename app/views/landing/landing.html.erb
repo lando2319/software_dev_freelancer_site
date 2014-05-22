@@ -7,121 +7,94 @@
       <fieldset ng-controller="RollDice">
         <legend>Craps Game: 1 Min / 1000 Max | 10X odds | Hard Ways are off on the comeout roll | We do take hop bets</legend>
         <input type="button" id="btnSearch" class="btn btn-default btn-lg" ng-model="dice" value="roll the dice" ng-click="roll();" />
-        <table>
-          <tr>
-            <td>
-              <div class="col-xs-2 point_num">
-                <div class="point_num_font">
-                  <h2><span class="ng-binding"><span>{{ four }}</span></span></h2>
-                </div>
-                <button class="btn btn-primary btn-lg ng-pristine ng-valid" type="button" ng-model="dice" value="Place Bet" ng-click="place_bet_on_4_button();"><span class="badge">{{ place_bet_on_the_4 }}</span></button>
-              </div> <!-- /.col -->
-            </td>
-            <td>
-              <div class="col-xs-2 point_num">
-                <div class="point_num_font">
-                  <h2><span class="ng-binding"><span>{{ five }}</span></span></h2>
-                </div>
-                <button class="btn btn-primary btn-lg ng-pristine ng-valid" type="button" ng-model="dice" value="Place Bet" ng-click="place_bet_on_4_button();"><span class="badge">89</span></button>
-              </div> <!-- /.col -->
-            </td>
-            <td>
-              <div class="col-xs-2 point_num">
-                <div class="point_num_font">
-                  <h2><span class="ng-binding"><span>{{ six }}</span></span></h2>
-                </div>
-                <button class="btn btn-primary btn-lg ng-pristine ng-valid" type="button" ng-model="dice" value="Place Bet" ng-click="place_bet_on_4_button();"><span class="badge">89</span></button>
-              </div> <!-- /.col -->
-            </td>
-            <td>
-              <div class="col-xs-2 point_num">
-                <div class="point_num_font">
-                  <h2><span class="ng-binding"><span>{{ eight }}</span></span></h2>
-                </div>
-                <button class="btn btn-primary btn-lg ng-pristine ng-valid" type="button" ng-model="dice" value="Place Bet" ng-click="place_bet_on_4_button();"><span class="badge">89</span></button>
-              </div> <!-- /.col -->
-    
-            </td>
-            <td>
-              <div class="col-xs-2 point_num">
-                <div class="point_num_font">
-                  <h2><span class="ng-binding"><span>{{ nine }}</span></span></h2>
-                </div>
-                <button class="btn btn-primary btn-lg ng-pristine ng-valid" type="button" ng-model="dice" value="Place Bet" ng-click="place_bet_on_4_button();"><span class="badge">89</span></button>
-              </div> <!-- /.col -->
-            </td>
-            <td>
-              <div class="col-xs-2 point_num">
-                <div class="point_num_font">
-                  <h2><span class="ng-binding"><span>{{ ten }}</span></span></h2>
-                </div>
-                <button class="btn btn-primary btn-lg ng-pristine ng-valid" type="button" ng-model="dice" value="Place Bet" ng-click="place_bet_on_4_button();"><span class="badge">89</span></button>
-              </div> <!-- /.col -->
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <div ng-show="dont_come_bet_flat_on_4 != 0 "> 
-                <input type="number" id="btnSearch" ng-model="dont_come_bet_odds_on_4" min="0" max="1000" /></p>
-                <label>Dont Come Bet (Flat)</label> <input type="number" id="btnSearch" ng-disabled=true ng-model="dont_come_bet_flat_on_4" min="0" max="1000" /></p>
-              </div>
-              <div ng-show="come_bet_flat_on_4 != 0 "> 
-                <label>Come Bet (Odds)</label> <input type="number" id="btnSearch" ng-disabled='odds_on_come_bets_are_off' ng-model="come_bet_odds_on_4" min="0" max="1000" /></p>
-                <label>Come Bet (Flat)</label> <input type="number" id="btnSearch" ng-disabled=true ng-model="come_bet_flat_on_4" min="0" max="1000" /></p>
-              </div>
-            </td>
-            <td>
-              <div ng-show="dont_come_bet_flat_on_5 != 0 "> 
-                <label>Dont Come Bet (Lay)</label> <input type="number" id="btnSearch" ng-model="dont_come_bet_odds_on_5" min="0" max="1000" /></p>
-                <label>Dont Come Bet (Flat)</label> <input type="number" id="btnSearch" ng-disabled=true ng-model="dont_come_bet_flat_on_5" min="0" max="1000" /></p>
-              </div>
-              <div ng-show="come_bet_flat_on_5 != 0 "> 
-                <label>Come Bet (Odds)</label> <input type="number" id="btnSearch" ng-disabled='odds_on_come_bets_are_off' ng-model="come_bet_odds_on_5" min="0" max="1000" /></p>
-                <label>Come Bet (Flat)</label> <input type="number" id="btnSearch" ng-disabled=true ng-model="come_bet_flat_on_5" min="0" max="1000" /></p>
-              </div>
-            </td>
-            <td>
-              <div ng-show="dont_come_bet_flat_on_6 != 0 "> 
-                <label>Dont Come Bet (Lay)</label> <input type="number" id="btnSearch" ng-model="dont_come_bet_odds_on_6" min="0" max="1000" /></p>
-                <label>Dont Come Bet (Flat)</label> <input type="number" id="btnSearch" ng-disabled=true ng-model="dont_come_bet_flat_on_6" min="0" max="1000" /></p>
-              </div>
-              <div ng-show="come_bet_flat_on_6 != 0 "> 
-                <label>Come Bet (Odds)</label> <input type="number" id="btnSearch" ng-disabled='odds_on_come_bets_are_off' ng-model="come_bet_odds_on_6" min="0" max="1000" /></p>
-                <label>Come Bet (Flat)</label> <input type="number" id="btnSearch" ng-disabled=true ng-model="come_bet_flat_on_6" min="0" max="1000" /></p>
-              </div>
-            </td>
-            <td>
-              <div ng-show="dont_come_bet_flat_on_8 != 0 "> 
-                <label>Dont Come Bet (Lay)</label> <input type="number" id="btnSearch" ng-model="dont_come_bet_odds_on_8" min="0" max="1000" /></p>
-                <label>Dont Come Bet (Flat)</label> <input type="number" id="btnSearch" ng-disabled=true ng-model="dont_come_bet_flat_on_8" min="0" max="1000" /></p>
-              </div>
-              <div ng-show="come_bet_flat_on_8 != 0 "> 
-                <label>Come Bet (Odds)</label> <input type="number" id="btnSearch" ng-disabled='odds_on_come_bets_are_off' ng-model="come_bet_odds_on_8" min="0" max="1000" /></p>
-                <label>Come Bet (Flat)</label> <input type="number" id="btnSearch" ng-disabled=true ng-model="come_bet_flat_on_8" min="0" max="1000" /></p>
-              </div>
-            </td>
-            <td>
-              <div ng-show="dont_come_bet_flat_on_9 != 0 "> 
-                <label>Dont Come Bet (Lay)</label> <input type="number" id="btnSearch" ng-model="dont_come_bet_odds_on_9" min="0" max="1000" /></p>
-                <label>Dont Come Bet (Flat)</label> <input type="number" id="btnSearch" ng-disabled=true ng-model="dont_come_bet_flat_on_9" min="0" max="1000" /></p>
-              </div>
-              <div ng-show="come_bet_flat_on_9 != 0 "> 
-                <label>Come Bet (Odds)</label> <input type="number" id="btnSearch" ng-disabled='odds_on_come_bets_are_off' ng-model="come_bet_odds_on_9" min="0" max="1000" /></p>
-                <label>Come Bet (Flat)</label> <input type="number" id="btnSearch" ng-disabled=true ng-model="come_bet_flat_on_9" min="0" max="1000" /></p>
-              </div>
-            </td>
-            <td>
-              <div ng-show="dont_come_bet_flat_on_10 != 0 "> 
-                <label>Dont Come Bet (Lay)</label> <input type="number" id="btnSearch" ng-model="dont_come_bet_odds_on_10" min="0" max="1000" /></p>
-                <label>Dont Come Bet (Flat)</label> <input type="number" id="btnSearch" ng-disabled=true ng-model="dont_come_bet_flat_on_10" min="0" max="1000" /></p>
-              </div>
-              <div ng-show="come_bet_flat_on_10 != 0 "> 
-                <label>Come Bet (Odds)</label> <input type="number" id="btnSearch" ng-disabled='odds_on_come_bets_are_off' ng-model="come_bet_odds_on_10" min="0" max="1000" /></p>
-                <label>Come Bet (Flat)</label> <input type="number" id="btnSearch" ng-disabled=true ng-model="come_bet_flat_on_10" min="0" max="1000" /></p>
-              </div>
-            </td>
-          </tr>
-        </table>
+        <div class="row">
+          <div class="col-xs-2 point_num">
+            <div class="point_num_font">
+              <h2><span class="ng-binding"><span>{{ four }}</span></span></h2>
+            </div>
+            <button class="btn btn-primary btn-lg ng-pristine ng-valid" type="button" ng-model="dice" value="Place Bet" ng-click="place_bet_on_4_button();"><span class="badge">{{ place_bet_on_the_4 }}</span></button>
+          </div> <!-- /.col -->
+          <div class="col-xs-2 point_num">
+            <div class="point_num_font">
+              <h2><span class="ng-binding"><span>{{ five }}</span></span></h2>
+            </div>
+            <button class="btn btn-primary btn-lg ng-pristine ng-valid" type="button" ng-model="dice" value="Place Bet" ng-click="place_bet_on_4_button();"><span class="badge">89</span></button>
+          </div> <!-- /.col -->
+          <div class="col-xs-2 point_num">
+            <div class="point_num_font">
+              <h2><span class="ng-binding"><span>{{ six }}</span></span></h2>
+            </div>
+            <button class="btn btn-primary btn-lg ng-pristine ng-valid" type="button" ng-model="dice" value="Place Bet" ng-click="place_bet_on_4_button();"><span class="badge">89</span></button>
+          </div> <!-- /.col -->
+          <div class="col-xs-2 point_num">
+            <div class="point_num_font">
+              <h2><span class="ng-binding"><span>{{ eight }}</span></span></h2>
+            </div>
+            <button class="btn btn-primary btn-lg ng-pristine ng-valid" type="button" ng-model="dice" value="Place Bet" ng-click="place_bet_on_4_button();"><span class="badge">89</span></button>
+          </div> <!-- /.col -->
+          <div class="col-xs-2 point_num">
+            <div class="point_num_font">
+              <h2><span class="ng-binding"><span>{{ nine }}</span></span></h2>
+            </div>
+            <button class="btn btn-primary btn-lg ng-pristine ng-valid" type="button" ng-model="dice" value="Place Bet" ng-click="place_bet_on_4_button();"><span class="badge">89</span></button>
+          </div> <!-- /.col -->
+          <div class="col-xs-2 point_num">
+            <div class="point_num_font">
+              <h2><span class="ng-binding"><span>{{ ten }}</span></span></h2>
+            </div>
+            <button class="btn btn-primary btn-lg ng-pristine ng-valid" type="button" ng-model="dice" value="Place Bet" ng-click="place_bet_on_4_button();"><span class="badge">89</span></button>
+          </div> <!-- /.col -->
+        </div>
+        <div class="row">
+          <div ng-show="dont_come_bet_flat_on_4 != 0 "> 
+            <input type="number" id="btnSearch" ng-model="dont_come_bet_odds_on_4" min="0" max="1000" /></p>
+            <label>Dont Come Bet (Flat)</label> <input type="number" id="btnSearch" ng-disabled=true ng-model="dont_come_bet_flat_on_4" min="0" max="1000" /></p>
+          </div>
+          <div ng-show="come_bet_flat_on_4 != 0 "> 
+            <label>Come Bet (Odds)</label> <input type="number" id="btnSearch" ng-disabled='odds_on_come_bets_are_off' ng-model="come_bet_odds_on_4" min="0" max="1000" /></p>
+            <label>Come Bet (Flat)</label> <input type="number" id="btnSearch" ng-disabled=true ng-model="come_bet_flat_on_4" min="0" max="1000" /></p>
+          </div>
+          <div ng-show="dont_come_bet_flat_on_5 != 0 "> 
+            <label>Dont Come Bet (Lay)</label> <input type="number" id="btnSearch" ng-model="dont_come_bet_odds_on_5" min="0" max="1000" /></p>
+            <label>Dont Come Bet (Flat)</label> <input type="number" id="btnSearch" ng-disabled=true ng-model="dont_come_bet_flat_on_5" min="0" max="1000" /></p>
+          </div>
+          <div ng-show="come_bet_flat_on_5 != 0 "> 
+            <label>Come Bet (Odds)</label> <input type="number" id="btnSearch" ng-disabled='odds_on_come_bets_are_off' ng-model="come_bet_odds_on_5" min="0" max="1000" /></p>
+            <label>Come Bet (Flat)</label> <input type="number" id="btnSearch" ng-disabled=true ng-model="come_bet_flat_on_5" min="0" max="1000" /></p>
+          </div>
+          <div ng-show="dont_come_bet_flat_on_6 != 0 "> 
+            <label>Dont Come Bet (Lay)</label> <input type="number" id="btnSearch" ng-model="dont_come_bet_odds_on_6" min="0" max="1000" /></p>
+            <label>Dont Come Bet (Flat)</label> <input type="number" id="btnSearch" ng-disabled=true ng-model="dont_come_bet_flat_on_6" min="0" max="1000" /></p>
+          </div>
+          <div ng-show="come_bet_flat_on_6 != 0 "> 
+            <label>Come Bet (Odds)</label> <input type="number" id="btnSearch" ng-disabled='odds_on_come_bets_are_off' ng-model="come_bet_odds_on_6" min="0" max="1000" /></p>
+            <label>Come Bet (Flat)</label> <input type="number" id="btnSearch" ng-disabled=true ng-model="come_bet_flat_on_6" min="0" max="1000" /></p>
+          </div>
+          <div ng-show="dont_come_bet_flat_on_8 != 0 "> 
+            <label>Dont Come Bet (Lay)</label> <input type="number" id="btnSearch" ng-model="dont_come_bet_odds_on_8" min="0" max="1000" /></p>
+            <label>Dont Come Bet (Flat)</label> <input type="number" id="btnSearch" ng-disabled=true ng-model="dont_come_bet_flat_on_8" min="0" max="1000" /></p>
+          </div>
+          <div ng-show="come_bet_flat_on_8 != 0 "> 
+            <label>Come Bet (Odds)</label> <input type="number" id="btnSearch" ng-disabled='odds_on_come_bets_are_off' ng-model="come_bet_odds_on_8" min="0" max="1000" /></p>
+            <label>Come Bet (Flat)</label> <input type="number" id="btnSearch" ng-disabled=true ng-model="come_bet_flat_on_8" min="0" max="1000" /></p>
+          </div>
+          <div ng-show="dont_come_bet_flat_on_9 != 0 "> 
+            <label>Dont Come Bet (Lay)</label> <input type="number" id="btnSearch" ng-model="dont_come_bet_odds_on_9" min="0" max="1000" /></p>
+            <label>Dont Come Bet (Flat)</label> <input type="number" id="btnSearch" ng-disabled=true ng-model="dont_come_bet_flat_on_9" min="0" max="1000" /></p>
+          </div>
+          <div ng-show="come_bet_flat_on_9 != 0 "> 
+            <label>Come Bet (Odds)</label> <input type="number" id="btnSearch" ng-disabled='odds_on_come_bets_are_off' ng-model="come_bet_odds_on_9" min="0" max="1000" /></p>
+            <label>Come Bet (Flat)</label> <input type="number" id="btnSearch" ng-disabled=true ng-model="come_bet_flat_on_9" min="0" max="1000" /></p>
+          </div>
+          <div ng-show="dont_come_bet_flat_on_10 != 0 "> 
+            <label>Dont Come Bet (Lay)</label> <input type="number" id="btnSearch" ng-model="dont_come_bet_odds_on_10" min="0" max="1000" /></p>
+            <label>Dont Come Bet (Flat)</label> <input type="number" id="btnSearch" ng-disabled=true ng-model="dont_come_bet_flat_on_10" min="0" max="1000" /></p>
+          </div>
+          <div ng-show="come_bet_flat_on_10 != 0 "> 
+            <label>Come Bet (Odds)</label> <input type="number" id="btnSearch" ng-disabled='odds_on_come_bets_are_off' ng-model="come_bet_odds_on_10" min="0" max="1000" /></p>
+            <label>Come Bet (Flat)</label> <input type="number" id="btnSearch" ng-disabled=true ng-model="come_bet_flat_on_10" min="0" max="1000" /></p>
+          </div>
+        </div>
         <center><h1>Don't COME</h1></center>
         <div ng-show="game_status != 'Come Out Roll'"> 
           <label>Don't Come Bet</label> <input type="number" id="btnSearch" ng-model="place_dont_come_bet" min="0" max="1000" /></p>
@@ -149,8 +122,6 @@
           <label>Place Odds Behind The Line </label> <input type="number" id="btnSearch" ng-model="odds_behind_the_dont_pass_line" min="0" max="1000" /></p>
         </div>
         <div>
-          <table>
-            <thead>
               <center><h3>Prop Bets</h3></center>
               <center><h4>Hop Bets</h4></center>
               <center><h5>One Roll Bets</h5></center>

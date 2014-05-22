@@ -26,12 +26,12 @@ function RollDice($scope) {
   $scope.odds_on_come_bets_are_off = true
 
   // Sets each possible point with the default stat.
-  $scope.four = "Four"
-  $scope.five = "Five"
-  $scope.six = "Six"
-  $scope.eight = "Eigth"
-  $scope.nine = "Nine"
-  $scope.ten = "Ten"
+  $scope.four = "4"
+  $scope.five = "5"
+  $scope.six = "6"
+  $scope.eight = "8"
+  $scope.nine = "9"
+  $scope.ten = "10"
 
   // Sets all betting values to 0
   $scope.bank_roll_actual = 100
