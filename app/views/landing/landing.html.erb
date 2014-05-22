@@ -42,7 +42,7 @@
           </div> <!-- /.col -->
         </div>
         <div ng-show="game_status != 'Come Out Roll'"> 
-            <button class="btn btn-primary btn-lg ng-pristine ng-valid" type="button" ng-model="dice" value="Place Bet" ng-click="place_dont_come_bet_button();">Don't<br>Come<br>Bar<br><span class="badge">{{ place_dont_come_bet }}</span></button>
+            <button class="btn btn-primary btn-lg dont_come_bar ng-pristine ng-valid" type="button" ng-model="dice" value="Place Bet" ng-click="place_dont_come_bet_button();">Don't<br>Come<br>Bar<br><span class="badge">{{ place_dont_come_bet }}</span></button>
         </div>
         <div class="row">
           <div ng-show="dont_come_bet_flat_on_4 != 0 "> 

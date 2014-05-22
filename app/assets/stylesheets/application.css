@@ -22,11 +22,17 @@
 @import url(http://fonts.googleapis.com/css?family=Vidaloka);
 
 .point_num_font {
-   font-family: 'Vidaloka', serif;
+  font-family: 'Vidaloka', serif;
 }
 
 .point_num {
-   text-align: center;
+  text-align: center;
+}
+
+.dont_come_bar {
+  color: #fff;
+  background-color: #428bca;
+  border-color: #357ebd;
 }
 
 html {
