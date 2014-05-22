@@ -1,9 +1,5 @@
 <html ng-app>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<button type="button" class="btn btn-primary btn-lg">Large button</button>
-<button type="button" class="btn btn-primary">Default button</button>
-<button type="button" class="btn btn-primary btn-sm">Small button</button>
-<button type="button" class="btn btn-primary btn-xs">Mini button</button>
   <h1>Dice Game</h1>
   <hr>
   <body>
@@ -14,62 +10,53 @@
         <table>
           <tr>
             <td>
-              <h2><span>{{ four }}</span></h2></p>
-              <input type="button" id="btnSearch" class="btn btn-primary btn-lg" ng-model="dice" value="Place Bet" ng-click="place_bet_on_4_button();" />
+              <div class="col-xs-2 point_num">
+                <div class="point_num_font">
+                  <h2><span class="ng-binding"><span>{{ four }}</span></span></h2>
+                </div>
+                <button class="btn btn-primary btn-lg ng-pristine ng-valid" type="button" ng-model="dice" value="Place Bet" ng-click="place_bet_on_4_button();"><span class="badge">{{ place_bet_on_the_4 }}</span></button>
+              </div> <!-- /.col -->
             </td>
             <td>
-              <h2><span>{{ five }}</span></h2></p>
-              <input type="button" id="btnSearch" class="btn btn-primary btn-lg" ng-model="dice" value="Place Bet" ng-click="place_bet_on_4_button();" />
+              <div class="col-xs-2 point_num">
+                <div class="point_num_font">
+                  <h2><span class="ng-binding"><span>{{ five }}</span></span></h2>
+                </div>
+                <button class="btn btn-primary btn-lg ng-pristine ng-valid" type="button" ng-model="dice" value="Place Bet" ng-click="place_bet_on_4_button();"><span class="badge">89</span></button>
+              </div> <!-- /.col -->
             </td>
             <td>
-              <h2><span>{{ six }}</span></h2></p>
-              <input type="button" id="btnSearch" class="btn btn-primary btn-lg" ng-model="dice" value="Place Bet" ng-click="place_bet_on_4_button();" />
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <h2><span>{{ eight }}</span></h2></p>
-              <input type="button" id="btnSearch" class="btn btn-primary btn-lg" ng-model="dice" value="Place Bet" ng-click="place_bet_on_4_button();" />
+              <div class="col-xs-2 point_num">
+                <div class="point_num_font">
+                  <h2><span class="ng-binding"><span>{{ six }}</span></span></h2>
+                </div>
+                <button class="btn btn-primary btn-lg ng-pristine ng-valid" type="button" ng-model="dice" value="Place Bet" ng-click="place_bet_on_4_button();"><span class="badge">89</span></button>
+              </div> <!-- /.col -->
             </td>
             <td>
-              <h2><span>{{ nine }}</span></h2></p>
-              <input type="button" id="btnSearch" class="btn btn-primary btn-lg" ng-model="dice" value="Place Bet" ng-click="place_bet_on_4_button();" />
+              <div class="col-xs-2 point_num">
+                <div class="point_num_font">
+                  <h2><span class="ng-binding"><span>{{ eight }}</span></span></h2>
+                </div>
+                <button class="btn btn-primary btn-lg ng-pristine ng-valid" type="button" ng-model="dice" value="Place Bet" ng-click="place_bet_on_4_button();"><span class="badge">89</span></button>
+              </div> <!-- /.col -->
+    
             </td>
             <td>
-              <h2><span>{{ ten }}</span></h2></p>
-              <input type="button" id="btnSearch" class="btn btn-primary btn-lg" ng-model="dice" value="Place Bet" ng-click="place_bet_on_4_button();" />
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <div ng-show="point_is != 4 "> 
-                 <input type="number" id="btnSearch" ng-disabled="place_bets_are_off" ng-model="place_bet_on_the_4" min="0" max="1000" /></p>
-              </div>
+              <div class="col-xs-2 point_num">
+                <div class="point_num_font">
+                  <h2><span class="ng-binding"><span>{{ nine }}</span></span></h2>
+                </div>
+                <button class="btn btn-primary btn-lg ng-pristine ng-valid" type="button" ng-model="dice" value="Place Bet" ng-click="place_bet_on_4_button();"><span class="badge">89</span></button>
+              </div> <!-- /.col -->
             </td>
             <td>
-              <div ng-show="point_is != 5 "> 
-                 <input type="number" id="btnSearch" ng-disabled="place_bets_are_off" ng-model="place_bet_on_the_5" min="0" max="1000" /></p>
-              </div>
-            </td>
-            <td>
-              <div ng-show="point_is != 6 "> 
-                 <input type="number" id="btnSearch" ng-disabled="place_bets_are_off" ng-model="place_bet_on_the_6" min="0" max="1000" /></p>
-              </div>
-            </td>
-            <td>
-              <div ng-show="point_is != 8 "> 
-                 <input type="number" id="btnSearch" ng-disabled="place_bets_are_off" ng-model="place_bet_on_the_8" min="0" max="1000" /></p>
-              </div>
-            </td>
-            <td>
-              <div ng-show="point_is != 9 "> 
-                 <input type="number" id="btnSearch" ng-disabled="place_bets_are_off" ng-model="place_bet_on_the_9" min="0" max="1000" /></p>
-              </div>
-            </td>
-            <td>
-              <div ng-show="point_is != 10 "> 
-                 <input type="number" id="btnSearch" ng-disabled="place_bets_are_off" ng-model="place_bet_on_the_10" min="0" max="1000" /></p>
-              </div>
+              <div class="col-xs-2 point_num">
+                <div class="point_num_font">
+                  <h2><span class="ng-binding"><span>{{ ten }}</span></span></h2>
+                </div>
+                <button class="btn btn-primary btn-lg ng-pristine ng-valid" type="button" ng-model="dice" value="Place Bet" ng-click="place_bet_on_4_button();"><span class="badge">89</span></button>
+              </div> <!-- /.col -->
             </td>
           </tr>
           <tr>
