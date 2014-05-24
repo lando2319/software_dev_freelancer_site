@@ -129,6 +129,9 @@ function RollDice($scope) {
   $scope.place_come_bet_button = function() {
     $scope.place_come_bet += 5
   }
+  $scope.place_field_bet_button = function() {
+    $scope.field_bet += 5
+  }
   $scope.place_dont_come_bet_button = function() {
     $scope.place_dont_come_bet += 5
   }
