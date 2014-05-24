@@ -41,8 +41,14 @@
             <button class="btn btn-primary btn-lg ng-pristine ng-valid" type="button" ng-model="dice" value="Place Bet" ng-click="place_bet_on_10_button();"><span class="badge">{{ place_bet_on_the_10 }}</span></button>
           </div> <!-- /.col -->
         </div>
-        <div ng-show="game_status != 'Come Out Roll'"> 
-            <button class="btn btn-primary btn-lg dont_come_bar ng-pristine ng-valid" type="button" ng-model="dice" value="Place Bet" ng-click="place_dont_come_bet_button();">Don't<br>Come<br>Bar<br><span class="badge">{{ place_dont_come_bet }}</span></button>
+        <br>
+        <div class="row">
+          <div class="col-xs-2 point_num">
+            <button class="btn btn-primary btn-lg dont_come_bar ng-pristine ng-valid" ng-disabled="game_status == 'Come Out Roll'" type="button" ng-model="dice" value="Place Bet" ng-click="place_dont_come_bet_button();">Don't<br>Come<br>Bar<br><span class="badge">{{ place_dont_come_bet }}</span></button>
+          </div>
+          <div class="col-xs-2 point_num">
+            <button class="btn btn-primary btn-lg dont_come_bar ng-pristine ng-valid" ng-disabled="game_status == 'Come Out Roll'" type="button" ng-model="dice" value="Place Bet" ng-click="place_come_bet_button();">Come<br><span class="badge">{{ place_come_bet }}</span></button>
+          </div>
         </div>
         <div class="row">
           <div ng-show="dont_come_bet_flat_on_4 != 0 "> 
