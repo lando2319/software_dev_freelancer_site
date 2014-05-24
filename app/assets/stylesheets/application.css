@@ -5815,7 +5815,7 @@ button.close {
 
 @media (max-width: 768px){
   .btn {
-   font-size: 1em;
+   font-size: 0.5em;
   }  
 }
 
