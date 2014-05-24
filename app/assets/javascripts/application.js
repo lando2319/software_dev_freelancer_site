@@ -135,6 +135,18 @@ function RollDice($scope) {
   $scope.place_dont_come_bet_button = function() {
     $scope.place_dont_come_bet += 5
   }
+  $scope.line_bet_button = function() {
+    $scope.line_bet += 5
+  }
+  $scope.odds_behind_the_line_button = function() {
+    $scope.odds_behind_the_line += 5
+  }
+  $scope.dont_pass_line_bet_button = function() {
+    $scope.dont_pass_line_bet += 5
+  }
+  $scope.odds_behind_the_dont_pass_line_button = function() {
+    $scope.odds_behind_the_dont_pass_line += 5
+  }
   // rolling the dice
   $scope.roll = function() {
     var current_roll_dice_2= new Array(1,2,3,4,5,6);
