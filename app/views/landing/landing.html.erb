@@ -3,6 +3,17 @@
   <body>
     <form action="">
       <fieldset ng-controller="RollDice">
+        <div class="btn-group">
+          <button type="button" class="btn btn-default">Default</button>
+          <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button>
+          <ul class="dropdown-menu">
+            <li><a href="#">Action</a></li>
+            <li><a href="#">Another action</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li class="divider"></li>
+            <li><a href="#">Separated link</a></li>
+          </ul>
+        </div>
         <div class="row">
           <div class="col-xs-2 point_num">
             <div ng-show="dont_come_bet_flat_on_4 != 0 "> 
