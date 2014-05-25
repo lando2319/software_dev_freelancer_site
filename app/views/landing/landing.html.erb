@@ -138,7 +138,7 @@
           </div>
         </div>
         <hr>
-        <div class="btn-group btn-block dropup">
+        <div id="propBets" class="btn-group btn-block dropup">
           <button type="button" class="btn btn-default">Prop Bets</button>
           <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button>
           <ul class="dropdown-menu">
@@ -186,3 +186,10 @@
     Entertainment Purposes Only Craps Game: 1 Min / 1000 Max | 10X odds | Hard Ways are off on the comeout roll | We do take hop bets
   </body>
 </html>
+<script>
+$('#propBets .dropdown-menu').on({
+  "click":function(e){
+      e.stopPropagation();
+    }
+});
+</script>
