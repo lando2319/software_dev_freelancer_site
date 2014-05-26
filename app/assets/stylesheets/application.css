@@ -25,6 +25,11 @@
   font-family: 'Vidaloka', serif;
 }
 
+.craps_num {
+  text-align: center;
+  color: black;
+}
+
 .point_num {
   text-align: center;
 }
