@@ -299,7 +299,8 @@ function RollDice($scope) {
       'prop_bet_on_4_2', 'prop_bet_on_3_3', 'prop_bet_on_6_2', 'prop_bet_on_5_3', 'prop_bet_on_4_2', 'prop_bet_on_6_3', 'prop_bet_on_5_4', 
       'prop_bet_on_6_4', 'prop_bet_on_5_5', 'dont_pass_line_bet', 'odds_behind_the_dont_pass_line', 'place_dont_come_bet', 'dont_come_bet_odds_on_4', 'dont_come_bet_odds_on_5', 
       'dont_come_bet_odds_on_6', 'dont_come_bet_odds_on_8', 'dont_come_bet_odds_on_9', 'dont_come_bet_odds_on_10', 'dont_come_bet_flat_on_4', 
-      'dont_come_bet_flat_on_5', 'dont_come_bet_flat_on_6', 'dont_come_bet_flat_on_8', 'dont_come_bet_flat_on_9', 'dont_come_bet_flat_on_10',]
+      'dont_come_bet_flat_on_5', 'dont_come_bet_flat_on_6', 'dont_come_bet_flat_on_8', 'dont_come_bet_flat_on_9', 'dont_come_bet_flat_on_10',
+      'prop_bet_hard_4', 'prop_bet_hard_6', 'prop_bet_hard_8', 'prop_bet_hard_10', 'prop_bet_red']
   
   
   angular.forEach(places_to_watch, function(value) {
