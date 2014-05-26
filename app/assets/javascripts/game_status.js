@@ -29,37 +29,31 @@ function SetsThePoint($scope, total_of_dice) {
         $scope.come_bet_odds_on_4 = 0
         $scope.bank_roll_actual += $scope.come_bet_flat_on_4
         $scope.come_bet_flat_on_4 = 0
-        $scope.four = "Point Is Four"
       }
       if (total_of_dice == 5) {
         $scope.come_bet_odds_on_5 = 0
         $scope.bank_roll_actual += $scope.come_bet_flat_on_5
         $scope.come_bet_flat_on_5 = 0
-        $scope.five = "Point Is Five"
       }
       if (total_of_dice == 6) {
         $scope.come_bet_odds_on_6 = 0
         $scope.bank_roll_actual += $scope.come_bet_flat_on_6
         $scope.come_bet_flat_on_6 = 0
-        $scope.six = "Point Is Six"
       }
       if (total_of_dice == 8) {
         $scope.come_bet_odds_on_8 = 0
         $scope.bank_roll_actual += $scope.come_bet_flat_on_8
         $scope.come_bet_flat_on_8 = 0
-        $scope.eight = "Point Is Eight"
       }
       if (total_of_dice == 9) {
         $scope.come_bet_odds_on_9 = 0
         $scope.bank_roll_actual += $scope.come_bet_flat_on_9
         $scope.come_bet_flat_on_9 = 0
-        $scope.nine = "Point Is Nine"
       }
       if (total_of_dice == 10) {
         $scope.come_bet_odds_on_10 = 0
         $scope.bank_roll_actual += $scope.come_bet_flat_on_10 
         $scope.come_bet_flat_on_10 = 0
-        $scope.ten = "Point Is Ten"
       }
 }
 
