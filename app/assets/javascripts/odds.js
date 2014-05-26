@@ -55,16 +55,22 @@ function EvaluateTheField($scope, total_of_dice) {
 
 function PropBets($scope, random_1, random_2) {
     if (random_1 == 1 && random_2 == 1) {
+      var stay_up_craps = $scope.prop_bet_craps
+      $scope.bank_roll_actual += $scope.prop_bet_craps * 7
       var stay_up = $scope.prop_bet_aces
       $scope.bank_roll_actual += $scope.prop_bet_aces * 30
       ClearAllProps($scope)
       $scope.prop_bet_aces = stay_up
+      $scope.prop_bet_craps = stay_up_craps
     }
     else if ((random_1 == 2 && random_2 == 1) || (random_1 == 1 && random_2 == 2)) {
+      var stay_up_craps = $scope.prop_bet_craps
+      $scope.bank_roll_actual += $scope.prop_bet_craps * 7
       var stay_up = $scope.prop_bet_ace_deuce
       $scope.bank_roll_actual += $scope.prop_bet_ace_deuce * 15
       ClearAllProps($scope)
       $scope.prop_bet_ace_deuce = stay_up
+      $scope.prop_bet_craps = stay_up_craps
     }
     else if ((random_1 == 3 && random_2 == 1) || (random_1 == 1 && random_2 == 3)) {
       var stay_up = $scope.prop_bet_on_3_1
@@ -184,10 +190,13 @@ function PropBets($scope, random_1, random_2) {
       $scope.prop_bet_yo = stay_up
     }
     else if (random_1 == 6 && random_2 == 6) {
+      var stay_up_craps = $scope.prop_bet_craps
+      $scope.bank_roll_actual += $scope.prop_bet_craps * 7
       var stay_up = $scope.prop_bet_twelve
       $scope.bank_roll_actual += $scope.prop_bet_twelve * 30
       ClearAllProps($scope)
       $scope.prop_bet_twelve = stay_up
+      $scope.prop_bet_craps = stay_up_craps
     }
 }
 
@@ -196,6 +205,9 @@ $scope.bank_roll_actual -=   $scope.prop_bet_aces
 $scope.bank_roll_actual -=   $scope.prop_bet_ace_deuce
 $scope.bank_roll_actual -=   $scope.prop_bet_twelve
 $scope.bank_roll_actual -=   $scope.prop_bet_yo
+
+$scope.bank_roll_actual -=   $scope.prop_bet_red
+$scope.bank_roll_actual -=   $scope.prop_bet_craps
 
 $scope.bank_roll_actual -=   $scope.prop_bet_on_6_1
 $scope.bank_roll_actual -=   $scope.prop_bet_on_5_2
@@ -222,6 +234,7 @@ $scope.bank_roll_actual -=   $scope.prop_bet_on_5_5
   $scope.prop_bet_yo = 0
 
   $scope.prop_bet_red = 0
+  $scope.prop_bet_craps = 0
 
   $scope.prop_bet_on_6_1 = 0
   $scope.prop_bet_on_5_2 = 0
