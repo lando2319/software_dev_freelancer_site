@@ -91,6 +91,7 @@ function RollDice($scope) {
   $scope.prop_bet_hard_10 = 0
 
   $scope.prop_bet_craps = 0
+  $scope.prop_bet_red = 0
 
   $scope.prop_bet_aces = 0
   $scope.prop_bet_ace_deuce = 0
@@ -158,6 +159,9 @@ function RollDice($scope) {
     $scope.odds_behind_the_dont_pass_line += 5
   }
 
+  $scope.prop_bet_red_button = function() {
+    $scope.prop_bet_red += 1
+  }
   $scope.prop_bet_craps_button = function() {
     $scope.prop_bet_craps += 1
   }
