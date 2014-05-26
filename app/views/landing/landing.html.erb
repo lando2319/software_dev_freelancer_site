@@ -195,53 +195,56 @@
                   </td>
                 </tr>
               </table>
-              <div class="btn-toolbar btn-group">
-                <div class="row">
-                  <div class="col-xs-2 point_num point_num_font">
-                    <h3>4</h3>
-                    <div class="btn-group-vertical">
-                      <button class="btn btn-default ng-pristine ng-valid" type="button" ng-model="dice" value="Place Bet" ng-click="prop_bet_on_3_1_button();">3-1 <span class="badge">{{ prop_bet_on_3_1 }}</span></button>
-                      <button class="btn btn-default ng-pristine ng-valid" type="button" ng-model="dice" value="Place Bet" ng-click="prop_bet_on_2_2_button();">2-2 <span class="badge">{{ prop_bet_on_2_2 }}</span></button>
+              <table>
+                <tr>
+                  <td>
+                    <div class="btn-toolbar">
+                      <h3>4</h3>
+                      <div class="btn-group">
+                        <button class="btn btn-default ng-pristine ng-valid" type="button" ng-model="dice" value="Place Bet" ng-click="prop_bet_on_3_1_button();">3-1 <span class="badge">{{ prop_bet_on_3_1 }}</span></button>
+                        <button class="btn btn-default ng-pristine ng-valid" type="button" ng-model="dice" value="Place Bet" ng-click="prop_bet_on_4_1_button();">4-1 <span class="badge">{{ prop_bet_on_4_1 }}</span></button>
+                        <button class="btn btn-default ng-pristine ng-valid" type="button" ng-model="dice" value="Place Bet" ng-click="prop_bet_on_5_1_button();">5-1 <span class="badge">{{ prop_bet_on_5_1 }}</span></button>
+                        <button class="btn btn-default ng-pristine ng-valid" type="button" ng-model="dice" value="Place Bet" ng-click="prop_bet_on_6_2_button();">6-2 <span class="badge">{{ prop_bet_on_6_2 }}</span></button>
+                        <button class="btn btn-default ng-pristine ng-valid" type="button" ng-model="dice" value="Place Bet" ng-click="prop_bet_on_6_3_button();">6-3 <span class="badge">{{ prop_bet_on_6_3 }}</span></button>
+                        <button class="btn btn-default ng-pristine ng-valid" type="button" ng-model="dice" value="Place Bet" ng-click="prop_bet_on_5_5_button();">5-5 <span class="badge">{{ prop_bet_on_5_5 }}</span></button>
+                      </div>
                     </div>
-                  </div>
-                  <div class="col-xs-2 point_num point_num_font">
-                    <h3>5</h3>
-                    <div class="btn-group-vertical">
-                      <button class="btn btn-default ng-pristine ng-valid" type="button" ng-model="dice" value="Place Bet" ng-click="prop_bet_on_4_1_button();">4-1 <span class="badge">{{ prop_bet_on_4_1 }}</span></button>
-                      <button class="btn btn-default ng-pristine ng-valid" type="button" ng-model="dice" value="Place Bet" ng-click="prop_bet_on_3_2_button();">3-2 <span class="badge">{{ prop_bet_on_3_2 }}</span></button>
-                    </div>
-                  </div>
-                  <div class="col-xs-2 point_num point_num_font">
-                    <h3>6</h3>
-                    <div class="btn-group-vertical">
-                      <button class="btn btn-default ng-pristine ng-valid" type="button" ng-model="dice" value="Place Bet" ng-click="prop_bet_on_5_1_button();">5-1 <span class="badge">{{ prop_bet_on_5_1 }}</span></button>
-                      <button class="btn btn-default ng-pristine ng-valid" type="button" ng-model="dice" value="Place Bet" ng-click="prop_bet_on_4_2_button();">4-2 <span class="badge">{{ prop_bet_on_4_2 }}</span></button>
-                      <button class="btn btn-default ng-pristine ng-valid" type="button" ng-model="dice" value="Place Bet" ng-click="prop_bet_on_3_3_button();">3-3 <span class="badge">{{ prop_bet_on_3_3 }}</span></button>
-                    </div>
-                  </div>
-                  <div class="col-xs-2 point_num point_num_font">
-                    <h3>8</h3>
-                    <div class="btn-group-vertical">
-                      <button class="btn btn-default ng-pristine ng-valid" type="button" ng-model="dice" value="Place Bet" ng-click="prop_bet_on_6_2_button();">6-2 <span class="badge">{{ prop_bet_on_6_2 }}</span></button>
-                      <button class="btn btn-default ng-pristine ng-valid" type="button" ng-model="dice" value="Place Bet" ng-click="prop_bet_on_5_3_button();">5-3 <span class="badge">{{ prop_bet_on_5_3 }}</span></button>
-                      <button class="btn btn-default ng-pristine ng-valid" type="button" ng-model="dice" value="Place Bet" ng-click="prop_bet_on_4_4_button();">4-4 <span class="badge">{{ prop_bet_on_4_4 }}</span></button>
-                    </div>
-                  </div>
-                  <div class="col-xs-2 point_num point_num_font">
-                    <h3>9</h3>
-                    <div class="btn-group-vertical">
-                      <button class="btn btn-default ng-pristine ng-valid" type="button" ng-model="dice" value="Place Bet" ng-click="prop_bet_on_6_3_button();">6-3 <span class="badge">{{ prop_bet_on_6_3 }}</span></button>
-                      <button class="btn btn-default ng-pristine ng-valid" type="button" ng-model="dice" value="Place Bet" ng-click="prop_bet_on_5_4_button();">5-4 <span class="badge">{{ prop_bet_on_5_4 }}</span></button>
-                    </div>
-                  </div>
-                  <div class="col-xs-2 point_num point_num_font">
-                    <h3>10</h3>
-                    <div class="btn-group-vertical">
-                      <button class="btn btn-default ng-pristine ng-valid" type="button" ng-model="dice" value="Place Bet" ng-click="prop_bet_on_6_4_button();">6-4 <span class="badge">{{ prop_bet_on_6_4 }}</span></button>
-                      <button class="btn btn-default ng-pristine ng-valid" type="button" ng-model="dice" value="Place Bet" ng-click="prop_bet_on_5_5_button();">5-5 <span class="badge">{{ prop_bet_on_5_5 }}</span></button>
-                    </div>
-                  </div>
+                  </td>
+                </tr>
+              </table>
+              <button class="btn btn-default ng-pristine ng-valid" type="button" ng-model="dice" value="Place Bet" ng-click="prop_bet_on_2_2_button();">2-2 <span class="badge">{{ prop_bet_on_2_2 }}</span></button>
+              <div class="col-xs-2 point_num point_num_font">
+                <h3>5</h3>
+                <div class="btn-group-vertical">
+                  <button class="btn btn-default ng-pristine ng-valid" type="button" ng-model="dice" value="Place Bet" ng-click="prop_bet_on_3_2_button();">3-2 <span class="badge">{{ prop_bet_on_3_2 }}</span></button>
                 </div>
+              </div>
+              <div class="col-xs-2 point_num point_num_font">
+                <h3>6</h3>
+                <div class="btn-group-vertical">
+                  <button class="btn btn-default ng-pristine ng-valid" type="button" ng-model="dice" value="Place Bet" ng-click="prop_bet_on_4_2_button();">4-2 <span class="badge">{{ prop_bet_on_4_2 }}</span></button>
+                  <button class="btn btn-default ng-pristine ng-valid" type="button" ng-model="dice" value="Place Bet" ng-click="prop_bet_on_3_3_button();">3-3 <span class="badge">{{ prop_bet_on_3_3 }}</span></button>
+                </div>
+              </div>
+              <div class="col-xs-2 point_num point_num_font">
+                <h3>8</h3>
+                <div class="btn-group-vertical">
+                  <button class="btn btn-default ng-pristine ng-valid" type="button" ng-model="dice" value="Place Bet" ng-click="prop_bet_on_5_3_button();">5-3 <span class="badge">{{ prop_bet_on_5_3 }}</span></button>
+                  <button class="btn btn-default ng-pristine ng-valid" type="button" ng-model="dice" value="Place Bet" ng-click="prop_bet_on_4_4_button();">4-4 <span class="badge">{{ prop_bet_on_4_4 }}</span></button>
+                </div>
+              </div>
+              <div class="col-xs-2 point_num point_num_font">
+                <h3>9</h3>
+                <div class="btn-group-vertical">
+                  <button class="btn btn-default ng-pristine ng-valid" type="button" ng-model="dice" value="Place Bet" ng-click="prop_bet_on_5_4_button();">5-4 <span class="badge">{{ prop_bet_on_5_4 }}</span></button>
+                </div>
+              </div>
+              <div class="col-xs-2 point_num point_num_font">
+                <h3>10</h3>
+                <div class="btn-group-vertical">
+                  <button class="btn btn-default ng-pristine ng-valid" type="button" ng-model="dice" value="Place Bet" ng-click="prop_bet_on_6_4_button();">6-4 <span class="badge">{{ prop_bet_on_6_4 }}</span></button>
+                </div>
+              </div>
               <h5>Low Side Pays 16 for 1 | High Side Pays 31 for 1</h5>
             </center>
           </ul>
