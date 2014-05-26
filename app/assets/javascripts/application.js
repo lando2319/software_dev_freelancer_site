@@ -248,6 +248,8 @@ function RollDice($scope) {
     var current_roll_dice_1= new Array(1,2,3,4,5,6);
     var random_1 = current_roll_dice_1[Math.floor(Math.random() * current_roll_dice_1.length)];
     $scope.die_two = random_1;
+    // random_1 = 5;
+    // random_2 = 2;
     var total_of_dice = random_1 + random_2;
       
     EvaluateTheField($scope, total_of_dice)

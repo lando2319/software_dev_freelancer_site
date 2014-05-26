@@ -109,22 +109,31 @@ function PropBets($scope, random_1, random_2) {
       $scope.prop_bet_on_3_3 = stay_up
     }
     else if ((random_1 == 6 && random_2 == 1) || (random_1 == 1 && random_2 == 6)) {
+      var stay_up_red = $scope.prop_bet_red
+      $scope.bank_roll_actual += $scope.prop_bet_red * 4
       var stay_up = $scope.prop_bet_on_6_1
       $scope.bank_roll_actual += $scope.prop_bet_on_6_1 * 15
       ClearAllProps($scope)
       $scope.prop_bet_on_6_1 = stay_up
+      $scope.prop_bet_red = stay_up_red
     }
     else if ((random_1 == 5 && random_2 == 2) || (random_1 == 2 && random_2 == 5)) {
+      var stay_up_red = $scope.prop_bet_red
+      $scope.bank_roll_actual += $scope.prop_bet_red * 4
       var stay_up = $scope.prop_bet_on_5_2
       $scope.bank_roll_actual += $scope.prop_bet_on_5_2 * 15
       ClearAllProps($scope)
       $scope.prop_bet_on_5_2 = stay_up
+      $scope.prop_bet_red = stay_up_red
     }
     else if ((random_1 == 4 && random_2 == 3) || (random_1 == 3 && random_2 == 4)) {
+      var stay_up_red = $scope.prop_bet_red
+      $scope.bank_roll_actual += $scope.prop_bet_red * 4
       var stay_up = $scope.prop_bet_on_4_3
       $scope.bank_roll_actual += $scope.prop_bet_on_4_3 * 15
       ClearAllProps($scope)
       $scope.prop_bet_on_4_3 = stay_up
+      $scope.prop_bet_red = stay_up_red
     }
     else if ((random_1 == 6 && random_2 == 2) || (random_1 == 2 && random_2 == 6)) {
       var stay_up = $scope.prop_bet_on_6_2
@@ -211,6 +220,8 @@ $scope.bank_roll_actual -=   $scope.prop_bet_on_5_5
   $scope.prop_bet_ace_deuce = 0
   $scope.prop_bet_twelve = 0
   $scope.prop_bet_yo = 0
+
+  $scope.prop_bet_red = 0
 
   $scope.prop_bet_on_6_1 = 0
   $scope.prop_bet_on_5_2 = 0
