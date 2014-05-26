@@ -4,6 +4,18 @@
     <form action="">
       <fieldset ng-controller="RollDice">
         <div class="row">
+          <center>
+            <div class="btn-toolbar btn-group">
+              <button class="btn btn-default btn-lg ng-pristine ng-valid" type="button" ng-model="dice" value="Place Bet" ng-click="place_bet_on_4_button();"><span class="point_num_font">4</span><br><span class="badge">{{ place_bet_on_the_4 }}</span></button>
+              <button class="btn btn-default btn-lg ng-pristine ng-valid" type="button" ng-model="dice" value="Place Bet" ng-click="place_bet_on_5_button();"><span class="point_num_font">5</span><br><span class="badge">{{ place_bet_on_the_5 }}</span></button>
+              <button class="btn btn-default btn-lg ng-pristine ng-valid" type="button" ng-model="dice" value="Place Bet" ng-click="place_bet_on_6_button();"><span class="point_num_font">6</span><br><span class="badge">{{ place_bet_on_the_6 }}</span></button>
+              <button class="btn btn-default btn-lg ng-pristine ng-valid" type="button" ng-model="dice" value="Place Bet" ng-click="place_bet_on_8_button();"><span class="point_num_font">8</span><br><span class="badge">{{ place_bet_on_the_8 }}</span></button>
+              <button class="btn btn-default btn-lg ng-pristine ng-valid" type="button" ng-model="dice" value="Place Bet" ng-click="place_bet_on_9_button();"><span class="point_num_font">9</span><br><span class="badge">{{ place_bet_on_the_9 }}</span></button>
+              <button class="btn btn-default btn-lg ng-pristine ng-valid" type="button" ng-model="dice" value="Place Bet" ng-click="place_bet_on_10_button();"><span class="point_num_font">10</span><br><span class="badge">{{ place_bet_on_the_10 }}</span></button>
+            </div>
+          </center>
+        </div>
+        <div class="row">
           <div class="col-xs-2 point_num">
             <div ng-show="dont_come_bet_flat_on_4 != 0 "> 
               <input type="number" id="btnSearch" ng-model="dont_come_bet_odds_on_4" min="0" max="1000" /></p>
@@ -16,7 +28,6 @@
               <label>Come Bet (Odds)</label> <input type="number" id="btnSearch" ng-disabled='odds_on_come_bets_are_off' ng-model="come_bet_odds_on_4" min="0" max="1000" /></p>
               <label>Come Bet (Flat)</label> <input type="number" id="btnSearch" ng-disabled=true ng-model="come_bet_flat_on_4" min="0" max="1000" /></p>
             </div>
-            <button class="btn btn-primary btn-lg ng-pristine ng-valid" type="button" ng-model="dice" value="Place Bet" ng-click="place_bet_on_4_button();"><span class="badge">{{ place_bet_on_the_4 }}</span></button>
           </div> <!-- /.col -->
           <div class="col-xs-2 point_num">
             <div ng-show="dont_come_bet_flat_on_5 != 0 "> 
@@ -30,7 +41,6 @@
               <label>Come Bet (Odds)</label> <input type="number" id="btnSearch" ng-disabled='odds_on_come_bets_are_off' ng-model="come_bet_odds_on_5" min="0" max="1000" /></p>
               <label>Come Bet (Flat)</label> <input type="number" id="btnSearch" ng-disabled=true ng-model="come_bet_flat_on_5" min="0" max="1000" /></p>
             </div>
-            <button class="btn btn-primary btn-lg ng-pristine ng-valid" type="button" ng-model="dice" value="Place Bet" ng-click="place_bet_on_5_button();"><span class="badge">{{ place_bet_on_the_5 }}</span></button>
           </div> <!-- /.col -->
           <div class="col-xs-2 point_num">
             <div ng-show="dont_come_bet_flat_on_6 != 0 "> 
@@ -44,7 +54,6 @@
               <label>Come Bet (Odds)</label> <input type="number" id="btnSearch" ng-disabled='odds_on_come_bets_are_off' ng-model="come_bet_odds_on_6" min="0" max="1000" /></p>
               <label>Come Bet (Flat)</label> <input type="number" id="btnSearch" ng-disabled=true ng-model="come_bet_flat_on_6" min="0" max="1000" /></p>
             </div>
-            <button class="btn btn-primary btn-lg ng-pristine ng-valid" type="button" ng-model="dice" value="Place Bet" ng-click="place_bet_on_6_button();"><span class="badge">{{ place_bet_on_the_6 }}</span></button>
           </div> <!-- /.col -->
           <div class="col-xs-2 point_num">
             <div ng-show="dont_come_bet_flat_on_8 != 0 "> 
@@ -58,7 +67,6 @@
               <label>Come Bet (Odds)</label> <input type="number" id="btnSearch" ng-disabled='odds_on_come_bets_are_off' ng-model="come_bet_odds_on_8" min="0" max="1000" /></p>
               <label>Come Bet (Flat)</label> <input type="number" id="btnSearch" ng-disabled=true ng-model="come_bet_flat_on_8" min="0" max="1000" /></p>
             </div>
-            <button class="btn btn-primary btn-lg ng-pristine ng-valid" type="button" ng-model="dice" value="Place Bet" ng-click="place_bet_on_8_button();"><span class="badge">{{ place_bet_on_the_8 }}</span></button>
           </div> <!-- /.col -->
           <div class="col-xs-2 point_num">
             <div ng-show="dont_come_bet_flat_on_9 != 0 "> 
@@ -72,7 +80,6 @@
               <label>Come Bet (Odds)</label> <input type="number" id="btnSearch" ng-disabled='odds_on_come_bets_are_off' ng-model="come_bet_odds_on_9" min="0" max="1000" /></p>
               <label>Come Bet (Flat)</label> <input type="number" id="btnSearch" ng-disabled=true ng-model="come_bet_flat_on_9" min="0" max="1000" /></p>
             </div>
-            <button class="btn btn-primary btn-lg ng-pristine ng-valid" type="button" ng-model="dice" value="Place Bet" ng-click="place_bet_on_9_button();"><span class="badge">{{ place_bet_on_the_9 }}</span></button>
           </div> <!-- /.col -->
           <div class="col-xs-2 point_num">
             <div ng-show="dont_come_bet_flat_on_10 != 0 "> 
@@ -86,7 +93,6 @@
               <label>Come Bet (Odds)</label> <input type="number" id="btnSearch" ng-disabled='odds_on_come_bets_are_off' ng-model="come_bet_odds_on_10" min="0" max="1000" /></p>
               <label>Come Bet (Flat)</label> <input type="number" id="btnSearch" ng-disabled=true ng-model="come_bet_flat_on_10" min="0" max="1000" /></p>
             </div>
-            <button class="btn btn-primary btn-lg ng-pristine ng-valid" type="button" ng-model="dice" value="Place Bet" ng-click="place_bet_on_10_button();"><span class="badge">{{ place_bet_on_the_10 }}</span></button>
           </div> <!-- /.col -->
         </div>
         <br>
