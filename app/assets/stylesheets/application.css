@@ -24,6 +24,11 @@
   height: 20px,
 }
 
+.number_bets {
+  height: 70px;
+  width: 70px;
+}
+
 .point_num_font {
   font-family: 'Vidaloka', serif;
   text-align: center;
