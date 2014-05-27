@@ -5051,7 +5051,8 @@ a.list-group-item-danger.active:focus {
   border-bottom-color: #ebccd1;
 }
 .well {
-  min-height: 20px;
+  min-height: 550px;
+  max-width: 350px;
   padding: 19px;
   margin-bottom: 20px;
   background-color: #f5f5f5;
@@ -5806,6 +5807,11 @@ button.close {
 .darkside_colors {
   color: white;
   background-color: black;
+}
+
+.double_wide {
+  height: 70px;
+  width: 112px;
 }
 
 .number_bets {
