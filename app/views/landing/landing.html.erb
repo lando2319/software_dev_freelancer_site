@@ -18,7 +18,6 @@
                 </div>
               </center>
             </div>
-            <br>
             <div class="row">
               <center>
                 <div class="btn-toolbar btn-group">
@@ -43,7 +42,6 @@
                 </div>
               </center>
             </div>
-            <br>
             <div class="row">
               <div style="float: left;">
                 <button class="btn btn-default number_bets ng-pristine ng-valid" ng-disabled="game_status == 'Come Out Roll'" type="button" ng-model="dice" value="Place Bet" ng-click="place_dont_come_bet_button();">Don't<br>Come<br><span class="badge">{{ place_dont_come_bet }}</span></button>
@@ -51,13 +49,11 @@
                 <input type="button" id="btnSearch" class="btn btn-default btn-lg" ng-model="dice" value="roll the dice" ng-click="roll();" />
               </div>
             </div>
-            <br>
             <div class="row">
               <div style="float: left;">
                 <button class="btn btn-default double_wide ng-pristine ng-valid point_num_font" type="button" ng-model="dice" value="Place Bet" ng-click="place_field_bet_button();">Field <span class="badge">{{ field_bet }}</span><br>2-3-4-9-10-11-12<br></button>
               </div>
             </div>
-            <br>
             <div class="row">
               <div style="float: left;">
                 <button class="btn btn-default number_bets ng-pristine ng-valid" ng-disabled="game_status != 'Come Out Roll'" type="button" ng-model="dice" value="Place Bet" ng-click="dont_pass_line_bet_button();">Dont<br>Pass<br><span class="badge">{{ dont_pass_line_bet }}</span></button>
@@ -166,7 +162,6 @@
             Entertainment Purposes Only
           </div>
         </center>
-        <br>
         <center>
           <div class="row">
             <label>Die One: <span>{{ die_one }}</span></label>
