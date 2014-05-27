@@ -8,7 +8,7 @@
             <div class="row">
               <center>
                 <div class="btn-toolbar btn-group">
-                  <h4>Craps Game</h4>
+                  <h5>Craps Game</h5>
                   <button class="btn ng-pristine ng-valid number_bets darkside_colors" type="button" ng-disabled="dont_come_bet_flat_on_4 == 0" ng-model="dice"><span ng-hide="dont_come_bet_flat_on_4 != 0" class="point_num_font_darkside">NO<br>4</span><span class="badge" ng-show="dont_come_bet_flat_on_4 != 0">{{ dont_come_bet_lay_on_4 }}<hr>{{ dont_come_bet_flat_on_4  }}</span></button>
                   <button class="btn ng-pristine ng-valid number_bets darkside_colors" type="button" ng-disabled="dont_come_bet_flat_on_5 == 0" ng-model="dice"><span ng-hide="dont_come_bet_flat_on_5 != 0" class="point_num_font_darkside">NO<br>5</span><span class="badge" ng-show="dont_come_bet_flat_on_5 != 0">{{ dont_come_bet_lay_on_5 }}<hr>{{ dont_come_bet_flat_on_5 }}</span></button>
                   <button class="btn ng-pristine ng-valid number_bets darkside_colors" type="button" ng-disabled="dont_come_bet_flat_on_6 == 0" ng-model="dice"><span ng-hide="dont_come_bet_flat_on_6 != 0" class="point_num_font_darkside">NO<br>6</span><span class="badge" ng-show="dont_come_bet_flat_on_6 != 0">{{ dont_come_bet_lay_on_6 }}<hr>{{ dont_come_bet_flat_on_6 }}</span></button>
@@ -42,6 +42,12 @@
                 </div>
               </center>
             </div>
+            <label>One: <span>{{ die_one }}</span></label>
+            <label>Two: <span>{{ die_two }}</span></label>
+            <label>Dice Total: <span>{{ the_call_is }}</span></label>
+            <label><span>{{ game_status }}</span><span>{{ point_is }}</span></label>
+            <label>Base Dealer Call: <span>{{ base_dealer_call }}</span></label>
+            <label>Stickman Call: <span>{{ dealer_call }}</span></label>
             <div class="row">
               <div style="float: left;">
                 <button class="btn btn-default number_bets ng-pristine ng-valid" ng-disabled="game_status == 'Come Out Roll'" type="button" ng-model="dice" value="Place Bet" ng-click="place_dont_come_bet_button();">Don't<br>Come<br><span class="badge">{{ place_dont_come_bet }}</span></button>
@@ -52,6 +58,7 @@
             <div class="row">
               <div style="float: left;">
                 <button class="btn btn-default double_wide ng-pristine ng-valid point_num_font" type="button" ng-model="dice" value="Place Bet" ng-click="place_field_bet_button();">Field <span class="badge">{{ field_bet }}</span><br>2-3-4-9-10-11-12<br></button>
+                Bank Roll: {{ bank_roll_actual }}
               </div>
             </div>
             <div class="row">
@@ -164,13 +171,6 @@
         </center>
         <center>
           <div class="row">
-            <label>Die One: <span>{{ die_one }}</span></label>
-            <label>Die Two: <span>{{ die_two }}</span></label></p>
-            <label>Dice Total: <span>{{ the_call_is }}</span></label><span>{{ hard_soft }}</span></p>
-            <label>Game Status: <span>{{ game_status }}</span><span>{{ point_is }}</span></label></p>
-                <label>Base Dealer Call: <span>{{ base_dealer_call }}</span></label>
-                <label>Stickman Call: <span>{{ dealer_call }}</span></label>
-              <label>Bank Roll: <span>{{ bank_roll_actual }}</span></label></p>
           </div>
           <br>
         </center>
