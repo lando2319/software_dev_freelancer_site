@@ -20,39 +20,6 @@
 /*! normalize.css v3.0.0 | MIT License | git.io/normalize */
 
 @import url(http://fonts.googleapis.com/css?family=Vidaloka);
-.come_bet_button {
-  height: 20px,
-}
-
-.darkside {
-  color: white;
-  background-color: black;
-}
-
-.number_bets {
-  height: 70px;
-  width: 56px;
-}
-
-.point_num_font {
-  font-family: 'Vidaloka', serif;
-  text-align: center;
-}
-
-.craps_num {
-  text-align: center;
-  color: black;
-}
-
-.point_num {
-  text-align: center;
-}
-
-.dont_come_bar {
-  color: #fff;
-  background-color: #428bca;
-  border-color: #357ebd;
-}
 
 html {
   font-family: sans-serif;
@@ -5831,6 +5798,56 @@ button.close {
     display: none !important;
   }
 }
+
+.come_bet_button {
+  height: 20px,
+}
+
+.darkside_colors {
+  color: white;
+  background-color: black;
+}
+
+.number_bets {
+  height: 70px;
+  width: 56px;
+}
+
+.point_num_font_darkside {
+  font-family: 'Vidaloka', serif;
+  text-align: center;
+  font-weight: bold;
+  color: white;
+}
+
+.point_num_font {
+  font-family: 'Vidaloka', serif;
+  text-align: center;
+  font-weight: bold;
+  color: black;
+}
+
+.craps_num {
+  text-align: center;
+  color: black;
+}
+
+.point_num {
+  text-align: center;
+}
+
+.dont_come_bar {
+  color: #fff;
+  background-color: #428bca;
+  border-color: #357ebd;
+}
+
+
+
+
+
+
+
 
 /*@media (max-width: 768px){
   .btn {
