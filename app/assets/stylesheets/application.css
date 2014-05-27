@@ -4381,11 +4381,11 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   font-size: 12px;
   font-weight: bold;
   line-height: 1;
-  color: #fff;
+  color: black;
   text-align: center;
   white-space: nowrap;
   vertical-align: baseline;
-  background-color: #999;
+  background-color: white;
   border-radius: 10px;
 }
 .badge:empty {
