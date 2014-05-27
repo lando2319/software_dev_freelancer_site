@@ -77,12 +77,12 @@ function RollDice($scope) {
   $scope.dont_come_bet_flat_on_9 = 0
   $scope.dont_come_bet_flat_on_10 = 0
 
-  $scope.dont_come_bet_odds_on_4 = 0
-  $scope.dont_come_bet_odds_on_5 = 0
-  $scope.dont_come_bet_odds_on_6 = 0
-  $scope.dont_come_bet_odds_on_8 = 0
-  $scope.dont_come_bet_odds_on_9 = 0
-  $scope.dont_come_bet_odds_on_10 = 0
+  $scope.dont_come_bet_lay_on_4 = 0
+  $scope.dont_come_bet_lay_on_5 = 0
+  $scope.dont_come_bet_lay_on_6 = 0
+  $scope.dont_come_bet_lay_on_8 = 0
+  $scope.dont_come_bet_lay_on_9 = 0
+  $scope.dont_come_bet_lay_on_10 = 0
   
   // Prop Bets
   $scope.prop_bet_hard_6 = 0
