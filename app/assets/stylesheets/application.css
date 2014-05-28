@@ -5834,7 +5834,12 @@ button.close {
 
 .double_wide {
   height: 50px;
-  width: 130px;
+  width: 116px;
+}
+
+.number_bets_short_and_stout {
+  height: 50px;
+  width: 56px;
 }
 
 .number_bets_short {
@@ -5852,6 +5857,10 @@ button.close {
   text-align: center;
   font-weight: bold;
   color: white;
+}
+
+.field_num_size {
+  font-size: 12px;
 }
 
 .point_num_size {
