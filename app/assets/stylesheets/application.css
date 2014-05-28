@@ -3043,8 +3043,28 @@ input[type="button"].btn-block {
   -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
           box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
 }
+.dropdown-menu.pull-right-about {
+  right: -86px;
+  left: auto;
+}
+.dropdown-menu.pull-right-help {
+  right: -43px;
+  left: auto;
+}
+.dropdown-menu.pull-right-game-info {
+  right: -94px;
+  left: auto;
+}
+.dropdown-menu.pull-right-adv {
+  right: -175px;
+  left: auto;
+}
+.dropdown-menu.pull-right-prop-bets {
+  right: -222px;
+  left: auto;
+}
 .dropdown-menu.pull-right {
-  right: 30px;
+  right: 0;
   left: auto;
 }
 .dropdown-menu .divider {
@@ -5054,7 +5074,7 @@ a.list-group-item-danger.active:focus {
   min-height: 495px;
   max-width: 340px;
   padding: 19px;
-  padding-top: 0px;
+  padding-top: 2px;
   padding-bottom: 0px;
   margin-bottom: 20px;
   margin-top: 10px;
@@ -5839,6 +5859,10 @@ button.close {
   text-align: center;
   font-weight: bold;
   color: black;
+}
+
+.disclaimer_for_game {
+  font-size: 10px;
 }
 
 .craps_num {
