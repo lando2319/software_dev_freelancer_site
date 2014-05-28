@@ -3044,7 +3044,7 @@ input[type="button"].btn-block {
           box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
 }
 .dropdown-menu.pull-right {
-  right: 0;
+  right: 30px;
   left: auto;
 }
 .dropdown-menu .divider {

@@ -5,7 +5,13 @@
       <fieldset ng-controller="RollDice">
         <center>
           <div class="well">
-            <label>Call Is: <span>{{ dealer_call }}</span></label>
+            <div class="btn-group dropup">
+              <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown">About</button>
+              <ul class="dropdown-menu pull-right">
+                Craps game built in AngularJS
+              </ul>
+            </div>
+            </p>
             <div class="row">
               <center>
                 <div class="btn-toolbar btn-group">
@@ -69,14 +75,15 @@
               <div style="float: left;">
                 <button class="btn btn-default ng-pristine ng-valid number_bets_short" ng-disabled="game_status == 'Come Out Roll'" type="button" ng-model="dice" value="Place Bet" ng-click="odds_behind_the_dont_pass_line_button();">Lay<br><span class="badge">{{ odds_behind_the_dont_pass_line }}</span></button>
                 <button class="btn btn-default ng-pristine ng-valid number_bets_short" ng-disabled="game_status == 'Come Out Roll'" type="button" ng-model="dice" value="Place Bet" ng-click="odds_behind_the_line_button();">Odds<br><span class="badge">{{ odds_behind_the_line }}</span></button>
-                <label>One: <span>{{ die_one }}</span></label>
-                <label>Two: <span>{{ die_two }}</span></label>
-                <label>Dice Total: <span>{{ the_call_is }}</span></label>
+                <span>{{ die_one }} | </span>
+                <span>{{ die_two }} = </span>
+                <span>{{ the_call_is }}</span>
+                <label>Call: <span>{{ dealer_call }}</span></label>
               </div>
             </div>
             </p>
             <div class="btn-group dropup">
-              <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">Props <span class="caret"></span></button>
+              <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">Props</button>
               <ul class="dropdown-menu">
                 <center>
                   <h4>Hard Ways<h4>
@@ -150,10 +157,8 @@
               </ul>
             </div>
             <div class="btn-group dropup">
-              <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">Info<span class="caret"></span></button>
+              <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">Adv</button>
               <ul class="dropdown-menu">
-                5 min / 1000 max
-                <hr>
                 <h3>Advanced Options</h3>
                 <input type="checkbox" ng-model="place_bets_are_off" /><label>Place Bets Off </label></p>
                 <span>{{ place_bets_off_message }}</span></p>
@@ -162,18 +167,19 @@
               </ul>
             </div>
             <div class="btn-group dropup">
-              <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">Help<span class="caret"></span></button>
+              <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">Game Info</button>
+              <ul class="dropdown-menu">
+                5 min / 1000 max
+              </ul>
+            </div>
+            <div class="btn-group dropup">
+              <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">Help</button>
               <ul class="dropdown-menu">
                 Seven you win, Seven you lose
               </ul>
             </div>
-            <div class="btn-group dropup">
-              <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">About<span class="caret"></span></button>
-              <ul class="dropdown-menu">
-                Craps game built in AngularJS
-              </ul>
-            </div>
-            Entertainment Purposes Only
+            </p>
+            Demonstrational Purposes Only
           </div>
         </center>
       </fieldset>
