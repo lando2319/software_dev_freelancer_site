@@ -66,14 +66,14 @@
             <div class="row">
               <div style="float: left;">
                 </p>
-                <button class="btn btn-default number_bets ng-pristine ng-valid" ng-disabled="game_status != 'Come Out Roll'" type="button" ng-model="dice" value="Place Bet" ng-click="dont_pass_line_bet_button();"><span class="point_num_font">Don't<br>Pass</span><br><span class="badge">{{ dont_pass_line_bet }}</span></button>
+                <button class="btn btn-pristine number_bets ng-pristine ng-valid darkside_colors" ng-disabled="game_status != 'Come Out Roll'" type="button" ng-model="dice" ng-click="dont_pass_line_bet_button();"><span class="point_num_font_darkside">Don't<br>Pass<br></span><span class="badge">{{ dont_pass_line_bet }}</span></button>
                 <button class="btn btn-default number_bets ng-pristine ng-valid" ng-disabled="game_status != 'Come Out Roll'" type="button" ng-model="dice" value="Place Bet" ng-click="line_bet_button();"><span class="point_num_font">Pass<br>Line</span><br><span class="badge">{{ line_bet }}</span></button>
                 <label>Bank Roll<span>{{ bank_roll_actual }}</span></label>
               </div>
             </div>
             <div class="row">
               <div style="float: left;">
-                <button class="btn btn-default ng-pristine ng-valid number_bets_short_and_stout" ng-disabled="game_status == 'Come Out Roll'" type="button" ng-model="dice" value="Place Bet" ng-click="odds_behind_the_dont_pass_line_button();"><span class="point_num_font">Lay</span><br><span class="badge">{{ odds_behind_the_dont_pass_line }}</span></button>
+                <button class="btn btn-pristine ng-pristine ng-valid darkside_colors number_bets_short_and_stout" ng-disabled="dont_pass_line_bet == 0 || game_status == 'Come Out Roll'" type="button" ng-model="dice" ng-click="odds_behind_the_dont_pass_line_button();"><span class="point_num_font_darkside">Lay<br></span><span class="badge">{{ odds_behind_the_dont_pass_line }}</span></button>
                 <button class="btn btn-default ng-pristine ng-valid number_bets_short_and_stout" ng-disabled="game_status == 'Come Out Roll'" type="button" ng-model="dice" value="Place Bet" ng-click="odds_behind_the_line_button();"><span class="point_num_font">Odds</span><br><span class="badge">{{ odds_behind_the_line }}</span></button>
                 <span>{{ die_one }} | </span>
                 <span>{{ die_two }} = </span>
