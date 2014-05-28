@@ -5051,8 +5051,8 @@ a.list-group-item-danger.active:focus {
   border-bottom-color: #ebccd1;
 }
 .well {
-  min-height: 550px;
-  max-width: 350px;
+  min-height: 495px;
+  max-width: 340px;
   padding: 19px;
   padding-top: 0px;
   padding-bottom: 0px;
