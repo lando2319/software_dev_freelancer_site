@@ -1,0 +1,111 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require_self
+ *= require_tree .
+ */
+/*!
+ * Bootstrap v3.1.1 (http://getbootstrap.com)
+ * Copyright 2011-2014 Twitter, Inc.
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+ */
+
+/*! normalize.css v3.0.0 | MIT License | git.io/normalize */
+
+/*All SASS Variables go before @import "bootstrap"*/
+@import "bootstrap";
+@import url(http://fonts.googleapis.com/css?family=Vidaloka);
+
+
+.come_bet_button {
+  height: 20px,
+}
+
+.darkside_colors {
+  color: white;
+  background-color: black;
+}
+
+.double_wide {
+  height: 50px;
+  width: 116px;
+}
+
+.number_bets_short_and_stout {
+  height: 50px;
+  width: 56px;
+}
+
+.number_bets_short {
+  height: 50px;
+  width: 52px;
+}
+
+.number_bets {
+  height: 70px;
+  width: 56px;
+}
+
+.point_num_font_darkside {
+  font-family: 'Vidaloka', serif;
+  text-align: center;
+  font-weight: bold;
+  color: white;
+}
+
+.field_num_size {
+  font-size: 12px;
+}
+
+.point_num_size {
+  font-size: 30px;
+}
+
+.point_num_font {
+  font-family: 'Vidaloka', serif;
+  text-align: center;
+  font-weight: bold;
+  color: black;
+}
+
+.disclaimer_for_game {
+  font-size: 10px;
+}
+
+.craps_num {
+  text-align: center;
+  color: black;
+}
+
+.point_num {
+  text-align: center;
+}
+
+.dont_come_bar {
+  color: #fff;
+  background-color: #428bca;
+  border-color: #357ebd;
+}
+
+
+
+
+
+
+
+
+/*@media (max-width: 768px){
+  .btn {
+   font-size: 0.5em;
+  }
+}
+
+
+/*# sourceMappingURL=bootstrap.css.map */

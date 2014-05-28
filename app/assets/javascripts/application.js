@@ -11,10 +11,9 @@
 // GO AFTER THE REQUIRES BELOW.
 //
 
-//= bootstrap
-
 //= require jquery
 //= require jquery_ujs
+//= require bootstrap
 //= require_tree .
 //= require angular
 
@@ -41,7 +40,7 @@ function RollDice($scope) {
   $scope.line_bet = 0
   $scope.odds_behind_the_line = 0
   $scope.field_bet = 0
-  
+
   $scope.place_bet_on_the_4 = 0
   $scope.place_bet_on_the_5 = 0
   $scope.place_bet_on_the_6 = 0
@@ -83,7 +82,7 @@ function RollDice($scope) {
   $scope.dont_come_bet_lay_on_8 = 0
   $scope.dont_come_bet_lay_on_9 = 0
   $scope.dont_come_bet_lay_on_10 = 0
-  
+
   // Prop Bets
   $scope.prop_bet_hard_6 = 0
   $scope.prop_bet_hard_8 = 0
@@ -96,7 +95,7 @@ function RollDice($scope) {
   $scope.prop_bet_aces = 0
   $scope.prop_bet_ace_deuce = 0
   $scope.prop_bet_twelve = 0
-  
+
   $scope.prop_bet_yo = 0
 
   $scope.prop_bet_on_6_1 = 0
@@ -251,7 +250,7 @@ function RollDice($scope) {
     // random_1 = 5;
     // random_2 = 2;
     var total_of_dice = random_1 + random_2;
-      
+
     EvaluateTheField($scope, total_of_dice)
     PropBets($scope, random_1, random_2)
 
@@ -291,25 +290,25 @@ function RollDice($scope) {
   };
 
   // connecting each place to bet with bank_roll_actual
-  var places_to_watch = 
-    ['line_bet', 'odds_behind_the_line', 'place_come_bet', 'come_bet_odds_on_4', 'come_bet_odds_on_5', 
-      'come_bet_odds_on_6', 'come_bet_odds_on_8', 'come_bet_odds_on_9', 'come_bet_odds_on_10', 'come_bet_flat_on_4', 
-      'come_bet_flat_on_5', 'come_bet_flat_on_6', 'come_bet_flat_on_8', 'come_bet_flat_on_9', 'come_bet_flat_on_10', 
-      'place_bet_on_the_4', 'place_bet_on_the_5', 'place_bet_on_the_6', 'place_bet_on_the_8', 'place_bet_on_the_9', 
-      'place_bet_on_the_10', 'prop_bet_aces', 'prop_bet_ace_deuce', 'prop_bet_twelve', 'prop_bet_yo', 'prop_bet_on_6_1', 
-      'prop_bet_on_5_2', 'prop_bet_on_4_3', 'prop_bet_on_3_1', 'prop_bet_on_2_2', 'prop_bet_on_3_2', 'prop_bet_on_4_1', 'prop_bet_on_5_1', 
-      'prop_bet_on_4_2', 'prop_bet_on_3_3', 'prop_bet_on_6_2', 'prop_bet_on_5_3', 'prop_bet_on_4_2', 'prop_bet_on_6_3', 'prop_bet_on_5_4', 
-      'prop_bet_on_6_4', 'prop_bet_on_5_5', 'dont_pass_line_bet', 'odds_behind_the_dont_pass_line', 'place_dont_come_bet', 'dont_come_bet_lay_on_4', 'dont_come_bet_lay_on_5', 
-      'dont_come_bet_lay_on_6', 'dont_come_bet_lay_on_8', 'dont_come_bet_lay_on_9', 'dont_come_bet_flat_on_10', 'dont_come_bet_flat_on_4', 
+  var places_to_watch =
+    ['line_bet', 'odds_behind_the_line', 'place_come_bet', 'come_bet_odds_on_4', 'come_bet_odds_on_5',
+      'come_bet_odds_on_6', 'come_bet_odds_on_8', 'come_bet_odds_on_9', 'come_bet_odds_on_10', 'come_bet_flat_on_4',
+      'come_bet_flat_on_5', 'come_bet_flat_on_6', 'come_bet_flat_on_8', 'come_bet_flat_on_9', 'come_bet_flat_on_10',
+      'place_bet_on_the_4', 'place_bet_on_the_5', 'place_bet_on_the_6', 'place_bet_on_the_8', 'place_bet_on_the_9',
+      'place_bet_on_the_10', 'prop_bet_aces', 'prop_bet_ace_deuce', 'prop_bet_twelve', 'prop_bet_yo', 'prop_bet_on_6_1',
+      'prop_bet_on_5_2', 'prop_bet_on_4_3', 'prop_bet_on_3_1', 'prop_bet_on_2_2', 'prop_bet_on_3_2', 'prop_bet_on_4_1', 'prop_bet_on_5_1',
+      'prop_bet_on_4_2', 'prop_bet_on_3_3', 'prop_bet_on_6_2', 'prop_bet_on_5_3', 'prop_bet_on_4_2', 'prop_bet_on_6_3', 'prop_bet_on_5_4',
+      'prop_bet_on_6_4', 'prop_bet_on_5_5', 'dont_pass_line_bet', 'odds_behind_the_dont_pass_line', 'place_dont_come_bet', 'dont_come_bet_lay_on_4', 'dont_come_bet_lay_on_5',
+      'dont_come_bet_lay_on_6', 'dont_come_bet_lay_on_8', 'dont_come_bet_lay_on_9', 'dont_come_bet_flat_on_10', 'dont_come_bet_flat_on_4',
       'dont_come_bet_flat_on_5', 'dont_come_bet_flat_on_6', 'dont_come_bet_flat_on_8', 'dont_come_bet_flat_on_9', 'dont_come_bet_flat_on_10',
       'prop_bet_hard_4', 'prop_bet_hard_6', 'prop_bet_hard_8', 'prop_bet_hard_10', 'prop_bet_red']
-  
-  
+
+
   angular.forEach(places_to_watch, function(value) {
     $scope.$watch(value, function(newVal, oldVal) {
         AdjustBankRoll($scope, newVal, oldVal)
     });
-  }) 
+  })
 
   function AdjustBankRoll($scope, newVal, oldVal) {
       the_difference = newVal - oldVal
