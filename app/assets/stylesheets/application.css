@@ -5854,6 +5854,10 @@ button.close {
   color: white;
 }
 
+.point_num_size {
+  font-size: 30px;
+}
+
 .point_num_font {
   font-family: 'Vidaloka', serif;
   text-align: center;
