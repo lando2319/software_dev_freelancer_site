@@ -482,7 +482,7 @@ h6,
   font-size: 12px;
 }
 p {
-  margin: 0 0 10px;
+  margin: 0 0 5px;
 }
 .lead {
   margin-bottom: 20px;
@@ -5813,8 +5813,13 @@ button.close {
 }
 
 .double_wide {
-  height: 70px;
-  width: 112px;
+  height: 50px;
+  width: 130px;
+}
+
+.number_bets_short {
+  height: 50px;
+  width: 56px;
 }
 
 .number_bets {
