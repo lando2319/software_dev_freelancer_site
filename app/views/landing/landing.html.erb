@@ -6,45 +6,51 @@
         <div class="container">
           <div class="well">
             <div class="col-xs-12 col-lg-6">
-              <div class="btn-toolbar btn-group">
-                <button class="btn btn-default ng-pristine ng-valid darkside_colors" type="button" ng-disabled="dont_come_bet_flat_on_4 == 0" ng-model="dice"><span ng-hide="dont_come_bet_flat_on_4 != 0" class="point_num_font_darkside">NO<br>4</span><span class="badge" ng-show="dont_come_bet_flat_on_4 != 0">{{ dont_come_bet_lay_on_4 }}<hr>{{ dont_come_bet_flat_on_4  }}</span></button>
-                <button class="btn btn-default ng-pristine ng-valid darkside_colors" type="button" ng-disabled="dont_come_bet_flat_on_5 == 0" ng-model="dice"><span ng-hide="dont_come_bet_flat_on_5 != 0" class="point_num_font_darkside">NO<br>5</span><span class="badge" ng-show="dont_come_bet_flat_on_5 != 0">{{ dont_come_bet_lay_on_5 }}<hr>{{ dont_come_bet_flat_on_5 }}</span></button>
-                <button class="btn btn-default ng-pristine ng-valid darkside_colors" type="button" ng-disabled="dont_come_bet_flat_on_6 == 0" ng-model="dice"><span ng-hide="dont_come_bet_flat_on_6 != 0" class="point_num_font_darkside">NO<br>6</span><span class="badge" ng-show="dont_come_bet_flat_on_6 != 0">{{ dont_come_bet_lay_on_6 }}<hr>{{ dont_come_bet_flat_on_6 }}</span></button>
-                <button class="btn btn-default ng-pristine ng-valid darkside_colors" type="button" ng-disabled="dont_come_bet_flat_on_8 == 0" ng-model="dice"><span ng-hide="dont_come_bet_flat_on_8 != 0" class="point_num_font_darkside">NO<br>8</span><span class="badge" ng-show="dont_come_bet_flat_on_8 != 0">{{ dont_come_bet_lay_on_8 }}<hr>{{ dont_come_bet_flat_on_8 }}</span></button>
-                <button class="btn btn-default ng-pristine ng-valid darkside_colors" type="button" ng-disabled="dont_come_bet_flat_on_9 == 0" ng-model="dice"><span ng-hide="dont_come_bet_flat_on_9 != 0" class="point_num_font_darkside">NO<br>9</span><span class="badge" ng-show="dont_come_bet_flat_on_9 != 0">{{ dont_come_bet_lay_on_9 }}<hr>{{ dont_come_bet_flat_on_9 }}</span></button>
-                <button class="btn btn-default ng-pristine ng-valid darkside_colors" type="button" ng-disabled="dont_come_bet_flat_on_10 == 0" ng-model="dice"><span ng-hide="dont_come_bet_flat_on_10 != 0" class="point_num_font_darkside">NO<br>10</span><span class="badge" ng-show="dont_come_bet_flat_on_10 != 0">{{ dont_come_bet_lay_on_10 }}<hr>{{ dont_come_bet_flat_on_10 }}</span></button>
+              <div class="row">
+                <div class="btn-toolbar btn-group">
+                  <button class="btn btn-default ng-pristine ng-valid darkside_colors" type="button" ng-disabled="dont_come_bet_flat_on_4 == 0" ng-model="dice"><span ng-hide="dont_come_bet_flat_on_4 != 0" class="point_num_font_darkside">NO<br>4</span><span class="badge" ng-show="dont_come_bet_flat_on_4 != 0">{{ dont_come_bet_lay_on_4 }}<hr>{{ dont_come_bet_flat_on_4  }}</span></button>
+                  <button class="btn btn-default ng-pristine ng-valid darkside_colors" type="button" ng-disabled="dont_come_bet_flat_on_5 == 0" ng-model="dice"><span ng-hide="dont_come_bet_flat_on_5 != 0" class="point_num_font_darkside">NO<br>5</span><span class="badge" ng-show="dont_come_bet_flat_on_5 != 0">{{ dont_come_bet_lay_on_5 }}<hr>{{ dont_come_bet_flat_on_5 }}</span></button>
+                  <button class="btn btn-default ng-pristine ng-valid darkside_colors" type="button" ng-disabled="dont_come_bet_flat_on_6 == 0" ng-model="dice"><span ng-hide="dont_come_bet_flat_on_6 != 0" class="point_num_font_darkside">NO<br>6</span><span class="badge" ng-show="dont_come_bet_flat_on_6 != 0">{{ dont_come_bet_lay_on_6 }}<hr>{{ dont_come_bet_flat_on_6 }}</span></button>
+                  <button class="btn btn-default ng-pristine ng-valid darkside_colors" type="button" ng-disabled="dont_come_bet_flat_on_8 == 0" ng-model="dice"><span ng-hide="dont_come_bet_flat_on_8 != 0" class="point_num_font_darkside">NO<br>8</span><span class="badge" ng-show="dont_come_bet_flat_on_8 != 0">{{ dont_come_bet_lay_on_8 }}<hr>{{ dont_come_bet_flat_on_8 }}</span></button>
+                  <button class="btn btn-default ng-pristine ng-valid darkside_colors" type="button" ng-disabled="dont_come_bet_flat_on_9 == 0" ng-model="dice"><span ng-hide="dont_come_bet_flat_on_9 != 0" class="point_num_font_darkside">NO<br>9</span><span class="badge" ng-show="dont_come_bet_flat_on_9 != 0">{{ dont_come_bet_lay_on_9 }}<hr>{{ dont_come_bet_flat_on_9 }}</span></button>
+                  <button class="btn btn-default ng-pristine ng-valid darkside_colors" type="button" ng-disabled="dont_come_bet_flat_on_10 == 0" ng-model="dice"><span ng-hide="dont_come_bet_flat_on_10 != 0" class="point_num_font_darkside">NO<br>10</span><span class="badge" ng-show="dont_come_bet_flat_on_10 != 0">{{ dont_come_bet_lay_on_10 }}<hr>{{ dont_come_bet_flat_on_10 }}</span></button>
+                </div>
               </div>
-              <br>
-              <div class="btn-toolbar btn-group">
-                <button class="btn btn-default ng-pristine ng-valid" type="button" ng-disabled="come_bet_flat_on_4 == 0" ng-model="dice"><span ng-hide="come_bet_flat_on_4 != 0" class="point_num_font point_num_size">4</span><span class="badge" ng-show="come_bet_flat_on_4 != 0">{{ come_bet_flat_on_4 }}<hr>{{ come_bet_odds_on_4  }}</span></button>
-                <button class="btn btn-default ng-pristine ng-valid" type="button" ng-disabled="come_bet_flat_on_4 == 0" ng-model="dice"><span ng-hide="come_bet_flat_on_5 != 0" class="point_num_font point_num_size">5</span><span class="badge" ng-show="come_bet_flat_on_5 != 0">{{ come_bet_flat_on_5 }}<hr>{{ come_bet_odds_on_5  }}</span></button>
-                <button class="btn btn-default ng-pristine ng-valid" type="button" ng-disabled="come_bet_flat_on_4 == 0" ng-model="dice"><span ng-hide="come_bet_flat_on_6 != 0" class="point_num_font point_num_size">6</span><span class="badge" ng-show="come_bet_flat_on_6 != 0">{{ come_bet_flat_on_6 }}<hr>{{ come_bet_odds_on_6  }}</span></button>
-                <button class="btn btn-default ng-pristine ng-valid" type="button" ng-disabled="come_bet_flat_on_4 == 0" ng-model="dice"><span ng-hide="come_bet_flat_on_8 != 0" class="point_num_font point_num_size">8</span><span class="badge" ng-show="come_bet_flat_on_8 != 0">{{ come_bet_flat_on_8 }}<hr>{{ come_bet_odds_on_8  }}</span></button>
-                <button class="btn btn-default ng-pristine ng-valid" type="button" ng-disabled="come_bet_flat_on_4 == 0" ng-model="dice"><span ng-hide="come_bet_flat_on_9 != 0" class="point_num_font point_num_size">9</span><span class="badge" ng-show="come_bet_flat_on_9 != 0">{{ come_bet_flat_on_9 }}<hr>{{ come_bet_odds_on_9  }}</span></button>
-                <button class="btn btn-default ng-pristine ng-valid" type="button" ng-disabled="come_bet_flat_on_4 == 0" ng-model="dice"><span ng-hide="come_bet_flat_on_10 != 0" class="point_num_font point_num_size">10</span><span class="badge" ng-show="come_bet_flat_on_10 != 0">{{ come_bet_flat_on_10 }}<hr>{{ come_bet_odds_on_10 }}</span></button>
+              <div class="row">
+                <div class="btn-toolbar btn-group">
+                  <button class="btn btn-default ng-pristine ng-valid" type="button" ng-disabled="come_bet_flat_on_4 == 0" ng-model="dice"><span ng-hide="come_bet_flat_on_4 != 0" class="point_num_font point_num_size">4</span><span class="badge" ng-show="come_bet_flat_on_4 != 0">{{ come_bet_flat_on_4 }}<hr>{{ come_bet_odds_on_4  }}</span></button>
+                  <button class="btn btn-default ng-pristine ng-valid" type="button" ng-disabled="come_bet_flat_on_4 == 0" ng-model="dice"><span ng-hide="come_bet_flat_on_5 != 0" class="point_num_font point_num_size">5</span><span class="badge" ng-show="come_bet_flat_on_5 != 0">{{ come_bet_flat_on_5 }}<hr>{{ come_bet_odds_on_5  }}</span></button>
+                  <button class="btn btn-default ng-pristine ng-valid" type="button" ng-disabled="come_bet_flat_on_4 == 0" ng-model="dice"><span ng-hide="come_bet_flat_on_6 != 0" class="point_num_font point_num_size">6</span><span class="badge" ng-show="come_bet_flat_on_6 != 0">{{ come_bet_flat_on_6 }}<hr>{{ come_bet_odds_on_6  }}</span></button>
+                  <button class="btn btn-default ng-pristine ng-valid" type="button" ng-disabled="come_bet_flat_on_4 == 0" ng-model="dice"><span ng-hide="come_bet_flat_on_8 != 0" class="point_num_font point_num_size">8</span><span class="badge" ng-show="come_bet_flat_on_8 != 0">{{ come_bet_flat_on_8 }}<hr>{{ come_bet_odds_on_8  }}</span></button>
+                  <button class="btn btn-default ng-pristine ng-valid" type="button" ng-disabled="come_bet_flat_on_4 == 0" ng-model="dice"><span ng-hide="come_bet_flat_on_9 != 0" class="point_num_font point_num_size">9</span><span class="badge" ng-show="come_bet_flat_on_9 != 0">{{ come_bet_flat_on_9 }}<hr>{{ come_bet_odds_on_9  }}</span></button>
+                  <button class="btn btn-default ng-pristine ng-valid" type="button" ng-disabled="come_bet_flat_on_4 == 0" ng-model="dice"><span ng-hide="come_bet_flat_on_10 != 0" class="point_num_font point_num_size">10</span><span class="badge" ng-show="come_bet_flat_on_10 != 0">{{ come_bet_flat_on_10 }}<hr>{{ come_bet_odds_on_10 }}</span></button>
+                </div>
               </div>
-              <br>
-              <div class="btn-toolbar btn-group">
-                <button class="btn btn-default ng-pristine ng-valid" type="button" ng-model="dice" value="Place Bet" ng-click="place_bet_on_4_button();"><span class="badge">{{ place_bet_on_the_4 }}</span></button>
-                <button class="btn btn-default ng-pristine ng-valid" type="button" ng-model="dice" value="Place Bet" ng-click="place_bet_on_5_button();"><span class="badge">{{ place_bet_on_the_5 }}</span></button>
-                <button class="btn btn-default ng-pristine ng-valid" type="button" ng-model="dice" value="Place Bet" ng-click="place_bet_on_6_button();"><span class="badge">{{ place_bet_on_the_6 }}</span></button>
-                <button class="btn btn-default ng-pristine ng-valid" type="button" ng-model="dice" value="Place Bet" ng-click="place_bet_on_8_button();"><span class="badge">{{ place_bet_on_the_8 }}</span></button>
-                <button class="btn btn-default ng-pristine ng-valid" type="button" ng-model="dice" value="Place Bet" ng-click="place_bet_on_9_button();"><span class="badge">{{ place_bet_on_the_9 }}</span></button>
-                <button class="btn btn-default ng-pristine ng-valid" type="button" ng-model="dice" value="Place Bet" ng-click="place_bet_on_10_button();"><span class="badge">{{ place_bet_on_the_10 }}</span></button>
+              <div class="row">
+                <div class="btn-toolbar btn-group">
+                  <button class="btn btn-default ng-pristine ng-valid" type="button" ng-model="dice" value="Place Bet" ng-click="place_bet_on_4_button();"><span class="badge">{{ place_bet_on_the_4 }}</span></button>
+                  <button class="btn btn-default ng-pristine ng-valid" type="button" ng-model="dice" value="Place Bet" ng-click="place_bet_on_5_button();"><span class="badge">{{ place_bet_on_the_5 }}</span></button>
+                  <button class="btn btn-default ng-pristine ng-valid" type="button" ng-model="dice" value="Place Bet" ng-click="place_bet_on_6_button();"><span class="badge">{{ place_bet_on_the_6 }}</span></button>
+                  <button class="btn btn-default ng-pristine ng-valid" type="button" ng-model="dice" value="Place Bet" ng-click="place_bet_on_8_button();"><span class="badge">{{ place_bet_on_the_8 }}</span></button>
+                  <button class="btn btn-default ng-pristine ng-valid" type="button" ng-model="dice" value="Place Bet" ng-click="place_bet_on_9_button();"><span class="badge">{{ place_bet_on_the_9 }}</span></button>
+                  <button class="btn btn-default ng-pristine ng-valid" type="button" ng-model="dice" value="Place Bet" ng-click="place_bet_on_10_button();"><span class="badge">{{ place_bet_on_the_10 }}</span></button>
+                </div>
               </div>
-              <br>
-              <div class="btn-toolbar btn-group">
-                <button class="btn btn-pristine ng-pristine ng-valid darkside_colors" ng-disabled="game_status == 'Come Out Roll'" type="button" ng-model="dice" value="Place Bet" ng-click="place_dont_come_bet_button();"><span class="point_num_font_darkside">Don't<br>Come<br></span><span class="badge">{{ place_dont_come_bet }}</span></button>
-                <button class="btn btn-default ng-pristine ng-valid" ng-disabled="game_status == 'Come Out Roll'" type="button" ng-model="dice" value="Place Bet" ng-click="place_come_bet_button();"><span class="point_num_font">Come<br>Bet<br></span><span class="badge">{{ place_come_bet }}</span></button>
+              <div class="row">
+                <div class="btn-toolbar btn-group">
+                  <button class="btn btn-pristine ng-pristine ng-valid darkside_colors" ng-disabled="game_status == 'Come Out Roll'" type="button" ng-model="dice" value="Place Bet" ng-click="place_dont_come_bet_button();"><span class="point_num_font_darkside">Don't<br>Come<br></span><span class="badge">{{ place_dont_come_bet }}</span></button>
+                  <button class="btn btn-default ng-pristine ng-valid" ng-disabled="game_status == 'Come Out Roll'" type="button" ng-model="dice" value="Place Bet" ng-click="place_come_bet_button();"><span class="point_num_font">Come<br>Bet<br></span><span class="badge">{{ place_come_bet }}</span></button>
+                </div>
+                <span>{{ die_one }} | </span>
+                <span>{{ die_two }} = </span>
+                <span>{{ the_call_is }}</span>
+                <label>Call: <span>{{ dealer_call }}</span></label>
+                <label><span>{{ bank_roll_actual }}</span></label>
+                <label><span>{{ base_dealer_call }}</span></label>
               </div>
-              <span>{{ die_one }} | </span>
-              <span>{{ die_two }} = </span>
-              <span>{{ the_call_is }}</span>
-              <label>Call: <span>{{ dealer_call }}</span></label>
-              <label>Bank Roll<span>{{ bank_roll_actual }}</span></label>
-              <label>Base Dealer Call: <span>{{ base_dealer_call }}</span></label>
-              <br>
-              <button class="btn btn-default double_wide ng-pristine ng-valid" type="button" ng-model="dice" value="Place Bet" ng-click="place_field_bet_button();"><span class="point_num_font">Field </span><span class="badge">{{ field_bet }}</span><br><span class="point_num_font field_num_size">2-3-4-9-10-11-12</span>
+              <div class="row">
+                <button class="btn btn-default double_wide ng-pristine ng-valid" type="button" ng-model="dice" value="Place Bet" ng-click="place_field_bet_button();"><span class="point_num_font">Field </span><span class="badge">{{ field_bet }}</span><br><span class="point_num_font field_num_size">2-3-4-9-10-11-12</span>
+                </div>
             </div>
             <div class="col-xs-12 col-lg-6">
               <button class="btn btn-pristine ng-pristine ng-valid darkside_colors" ng-disabled="game_status != 'Come Out Roll'" type="button" ng-model="dice" ng-click="dont_pass_line_bet_button();"><span class="point_num_font_darkside">Don't<br>Pass<br></span><span class="badge">{{ dont_pass_line_bet }}</span></button>
