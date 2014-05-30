@@ -38,6 +38,45 @@ body {
       background-attachment: fixed;       
 }
 
+.btn-darkest {
+  color: #ffffff;
+  background-color: #777777;
+  border-color: #777777;
+  height: 36px;
+}
+.btn-darkest:hover,
+.btn-darkest:focus,
+.btn-darkest:active,
+.btn-darkest.active,
+.open .dropdown-toggle.btn-darkest {
+  color: #ffffff;
+  background-color: #636363;
+  border-color: #585858;
+}
+.btn-darkest:active,
+.btn-darkest.active,
+.open .dropdown-toggle.btn-darkest {
+  background-image: none;
+}
+.btn-darkest.disabled,
+.btn-darkest[disabled],
+fieldset[disabled] .btn-darkest,
+.btn-darkest.disabled:hover,
+.btn-darkest[disabled]:hover,
+fieldset[disabled] .btn-darkest:hover,
+.btn-darkest.disabled:focus,
+.btn-darkest[disabled]:focus,
+fieldset[disabled] .btn-darkest:focus,
+.btn-darkest.disabled:active,
+.btn-darkest[disabled]:active,
+fieldset[disabled] .btn-darkest:active,
+.btn-darkest.disabled.active,
+.btn-darkest[disabled].active,
+fieldset[disabled] .btn-darkest.active {
+  background-color: #777777;
+  border-color: #777777;
+}
+
 .container {
   position: absolute;
   top: 5%;
