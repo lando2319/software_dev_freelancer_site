@@ -38,10 +38,12 @@
                   </div>
                 </div>
                 <div class="row">
-                  <div class="btn-toolbar btn-group">
-                    <button class="btn btn-pristine ng-pristine ng-valid darkside_colors" ng-disabled="game_status == 'Come Out Roll'" type="button" ng-model="dice" value="Place Bet" ng-click="place_dont_come_bet_button();"><span class="point_num_font_darkside">Don't<br>Come<br></span><span class="badge">{{ place_dont_come_bet }}</span></button>
-                    <button class="btn btn-default ng-pristine ng-valid" ng-disabled="game_status == 'Come Out Roll'" type="button" ng-model="dice" value="Place Bet" ng-click="place_come_bet_button();"><span class="point_num_font">Come<br>Bet<br></span><span class="badge">{{ place_come_bet }}</span></button>
+                  <div class="btn-group btn-group-justified">
+                    <a class="btn btn-default ng-pristine ng-valid" ng-disabled="game_status == 'Come Out Roll'" type="button" ng-model="dice" value="Place Bet" ng-click="place_dont_come_bet_button();"><span class="point_num_font">Don't<br>Come<br></span><span class="badge">{{ place_dont_come_bet }}</span></a>
+                    <a class="btn btn-default ng-pristine ng-valid" ng-disabled="game_status == 'Come Out Roll'" type="button" ng-model="dice" value="Place Bet" ng-click="place_come_bet_button();"><span class="point_num_font">Come<br>Bet<br></span><span class="badge">{{ place_come_bet }}</span></a>
                   </div>
+                </div>
+                <div class="row">
                   <span>{{ die_one }} | </span>
                   <span>{{ die_two }} = </span>
                   <span>{{ the_call_is }}</span>
@@ -50,7 +52,9 @@
                   <label><span>{{ base_dealer_call }}</span></label>
                 </div>
                 <div class="row">
-                  <button class="btn btn-default double_wide ng-pristine ng-valid" type="button" ng-model="dice" value="Place Bet" ng-click="place_field_bet_button();"><span class="point_num_font">Field </span><span class="badge">{{ field_bet }}</span><br><span class="point_num_font field_num_size">2-3-4-9-10-11-12</span>
+                  <div class="btn-group btn-group-justified">
+                    <a class="btn btn-default double_wide ng-pristine ng-valid" type="button" ng-model="dice" value="Place Bet" ng-click="place_field_bet_button();"><span class="point_num_font">Field </span><span class="badge">{{ field_bet }}</span><br><span class="point_num_font field_num_size">2-3-4-9-10-11-12</span></a>
+                  </div>
                   </div>
                 </div>
                 <div class="col-ms-4 col-sm-4 col-md-4 col-lg-4">
