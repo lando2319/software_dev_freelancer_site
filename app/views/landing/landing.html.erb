@@ -44,10 +44,11 @@
                     <a class="btn btn-default ng-pristine ng-valid" ng-disabled="game_status == 'Come Out Roll'" type="button" ng-model="dice" value="Place Bet" ng-click="place_come_bet_button();"><span class="point_num_font">Come Bet </span><span class="badge">{{ place_come_bet }}</span></a>
                   </div>
                 </div>
-                <div class="row">
-                  <span>{{ die_one }} | </span>
-                  <span>{{ die_two }} = </span>
+                <div class="row dealer_calls">
+                  <span>Die One {{ die_one }} | </span>
+                  <span>Die Two {{ die_two }} = </span>
                   <span>{{ the_call_is }}</span>
+                  <br>
                   <label>Call: <span>{{ dealer_call }}</span></label>
                   <label><span>{{ bank_roll_actual }}</span></label>
                   <label><span>{{ base_dealer_call }}</span></label>
@@ -56,7 +57,6 @@
                   <div class="btn-group btn-group-justified">
                     <a class="btn btn-default ng-pristine ng-valid" type="button" ng-model="dice" value="Place Bet" ng-click="place_field_bet_button();"><span class="point_num_font">Field </span><span class="badge">{{ field_bet }}</span><span class="point_num_font">   2-3-4-9-10-11-12</span></a>
                   </div>
-                  Entertainment Purposes Only
                 </div>
               </div>
               <div class="col-ms-4 col-sm-4 col-md-4 col-lg-4">
@@ -220,6 +220,9 @@
                         </div>
                       </div>
                     </div>
+                  </div>
+                  <div class="row disclaimer_for_game">
+                    Entertainment Purposes Only
                   </div>
                 </div>
                 <div class="row">
