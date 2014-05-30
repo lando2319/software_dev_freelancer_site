@@ -62,13 +62,13 @@
               <div class="col-ms-4 col-sm-4 col-md-4 col-lg-4">
                 <div class="row">
                   <div class="btn-group btn-group-justified">
-                    <a class="btn btn-default ng-pristine ng-valid darkside_colors" ng-disabled="game_status != 'Come Out Roll'" type="button" ng-model="dice" ng-click="dont_pass_line_bet_button();"><span class="point_num_font_darkside">Don't Pass </span><span class="badge">{{ dont_pass_line_bet }}</span></a>
+                    <a class="btn btn-darkest ng-pristine ng-valid" ng-disabled="game_status != 'Come Out Roll'" type="button" ng-model="dice" ng-click="dont_pass_line_bet_button();"><span class="point_num_font_darkside">Don't Pass </span><span class="badge">{{ dont_pass_line_bet }}</span></a>
                     <a class="btn btn-default ng-pristine ng-valid" ng-disabled="game_status != 'Come Out Roll'" type="button" ng-model="dice" value="Place Bet" ng-click="line_bet_button();"><span class="point_num_font">Pass Line </span><span class="badge">{{ line_bet }}</span></a>
                   </div>
                 </div>
                 <div class="row">
                   <div class="btn-group btn-group-justified">
-                    <a class="btn btn-pristine ng-pristine ng-valid darkside_colors" ng-disabled="dont_pass_line_bet == 0 || game_status == 'Come Out Roll'" type="button" ng-model="dice" ng-click="odds_behind_the_dont_pass_line_button();"><span class="point_num_font_darkside">Lay </span><span class="badge">{{ odds_behind_the_dont_pass_line }}</span></a>
+                    <a class="btn btn-darkest ng-pristine ng-valid darkside_colors" ng-disabled="dont_pass_line_bet == 0 || game_status == 'Come Out Roll'" type="button" ng-model="dice" ng-click="odds_behind_the_dont_pass_line_button();"><span class="point_num_font_darkside">Lay </span><span class="badge">{{ odds_behind_the_dont_pass_line }}</span></a>
                     <a class="btn btn-default ng-pristine ng-valid" ng-disabled="game_status == 'Come Out Roll'" type="button" ng-model="dice" value="Place Bet" ng-click="odds_behind_the_line_button();"><span class="point_num_font">Odds </span><span class="badge">{{ odds_behind_the_line }}</span></a>
                   </div>
                 </div>
