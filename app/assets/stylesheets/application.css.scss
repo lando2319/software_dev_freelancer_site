@@ -23,8 +23,19 @@
 @import "bootstrap";
 @import url(http://fonts.googleapis.com/css?family=Vidaloka);
 
+body {
+     background: url('craps_buzz.jpg');
+     -webkit-background-size: cover;
+     -moz-background-size: cover;
+     -o-background-size: cover;
+     background-size: cover;
+     background-repeat:no-repeat;
+     background-attachment:fixed;
+     background-position:center; 
+}
+
 .container {
-  margin-top: 5px;
+  margin-top: 10%;
 }
 
 .come_bet_numbers {
