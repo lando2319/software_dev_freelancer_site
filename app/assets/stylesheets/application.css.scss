@@ -25,13 +25,13 @@
 
 body {
      background: url('https://s3.amazonaws.com/craps_buzz/craps_buzz.jpg');
-     -webkit-background-size: cover;
-     -moz-background-size: cover;
-     -o-background-size: cover;
+     //-webkit-background-size: cover;
+     //-moz-background-size: cover;
+     //-o-background-size: cover;
      background-size: cover;
      background-repeat:no-repeat;
      background-attachment:fixed;
-     background-position:center; 
+     background-position:center center; 
 //body {
 //    height: 100%;
 //    margin: 0;
