@@ -4,7 +4,7 @@
     <form action="">
       <fieldset ng-controller="RollDice">
           <div class="well">
-            <div class="col-xs-12 col-sm-6 col-md-8 col-lg-8">
+            <div class="col-xs-12 col-ms-8 col-sm-6 col-md-8 col-lg-8">
               <div class="row">
                 <div class="btn-toolbar btn-group">
                   <button class="btn btn-default ng-pristine ng-valid darkside_colors" type="button" ng-disabled="dont_come_bet_flat_on_4 == 0" ng-model="dice"><span ng-hide="dont_come_bet_flat_on_4 != 0" class="point_num_font_darkside">NO<br>4</span><span class="badge" ng-show="dont_come_bet_flat_on_4 != 0">{{ dont_come_bet_lay_on_4 }}<hr>{{ dont_come_bet_flat_on_4  }}</span></button>
@@ -51,7 +51,7 @@
                 <button class="btn btn-default double_wide ng-pristine ng-valid" type="button" ng-model="dice" value="Place Bet" ng-click="place_field_bet_button();"><span class="point_num_font">Field </span><span class="badge">{{ field_bet }}</span><br><span class="point_num_font field_num_size">2-3-4-9-10-11-12</span>
                 </div>
             </div>
-            <div class="col-sm-6 col-md-4 col-lg-4">
+            <div class="col-ms-4 col-sm-4 col-md-4 col-lg-4">
               <div class="row">
                 <button class="btn btn-pristine ng-pristine ng-valid darkside_colors" ng-disabled="game_status != 'Come Out Roll'" type="button" ng-model="dice" ng-click="dont_pass_line_bet_button();"><span class="point_num_font_darkside">Don't<br>Pass<br></span><span class="badge">{{ dont_pass_line_bet }}</span></button>
                 <button class="btn btn-default ng-pristine ng-valid" ng-disabled="game_status != 'Come Out Roll'" type="button" ng-model="dice" value="Place Bet" ng-click="line_bet_button();"><span class="point_num_font">Pass<br>Line</span><br><span class="badge">{{ line_bet }}</span></button>
