@@ -8,13 +8,13 @@
             <div class="well">
               <div class="col-xs-12 col-ms-8 col-sm-6 col-md-8 col-lg-6">
                 <div class="row">
-                  <div class="btn-toolbar btn-group">
-                    <button class="btn btn-default ng-pristine ng-valid" type="button" ng-disabled="dont_come_bet_flat_on_4 == 0" ng-model="dice"><span ng-hide="dont_come_bet_flat_on_4 != 0" class="point_num_font_darkside">NO<br>4</span><span class="badge" ng-show="dont_come_bet_flat_on_4 != 0">{{ dont_come_bet_lay_on_4 }}<hr>{{ dont_come_bet_flat_on_4  }}</span></button>
-                    <button class="btn btn-default ng-pristine ng-valid" type="button" ng-disabled="dont_come_bet_flat_on_5 == 0" ng-model="dice"><span ng-hide="dont_come_bet_flat_on_5 != 0" class="point_num_font_darkside">NO<br>5</span><span class="badge" ng-show="dont_come_bet_flat_on_5 != 0">{{ dont_come_bet_lay_on_5 }}<hr>{{ dont_come_bet_flat_on_5 }}</span></button>
-                    <button class="btn btn-default ng-pristine ng-valid" type="button" ng-disabled="dont_come_bet_flat_on_6 == 0" ng-model="dice"><span ng-hide="dont_come_bet_flat_on_6 != 0" class="point_num_font_darkside">NO<br>6</span><span class="badge" ng-show="dont_come_bet_flat_on_6 != 0">{{ dont_come_bet_lay_on_6 }}<hr>{{ dont_come_bet_flat_on_6 }}</span></button>
-                    <button class="btn btn-default ng-pristine ng-valid" type="button" ng-disabled="dont_come_bet_flat_on_8 == 0" ng-model="dice"><span ng-hide="dont_come_bet_flat_on_8 != 0" class="point_num_font_darkside">NO<br>8</span><span class="badge" ng-show="dont_come_bet_flat_on_8 != 0">{{ dont_come_bet_lay_on_8 }}<hr>{{ dont_come_bet_flat_on_8 }}</span></button>
-                    <button class="btn btn-default ng-pristine ng-valid" type="button" ng-disabled="dont_come_bet_flat_on_9 == 0" ng-model="dice"><span ng-hide="dont_come_bet_flat_on_9 != 0" class="point_num_font_darkside">NO<br>9</span><span class="badge" ng-show="dont_come_bet_flat_on_9 != 0">{{ dont_come_bet_lay_on_9 }}<hr>{{ dont_come_bet_flat_on_9 }}</span></button>
-                    <button class="btn btn-default ng-pristine ng-valid" type="button" ng-disabled="dont_come_bet_flat_on_10 == 0" ng-model="dice"><span ng-hide="dont_come_bet_flat_on_10 != 0" class="point_num_font_darkside">NO<br>10</span><span class="badge" ng-show="dont_come_bet_flat_on_10 != 0">{{ dont_come_bet_lay_on_10 }}<hr>{{ dont_come_bet_flat_on_10 }}</span></button>
+                  <div class="btn-group btn-group-justified">
+                    <button class="btn btn-default point_numbers ng-pristine ng-valid" type="button" ng-disabled="dont_come_bet_flat_on_4 == 0" ng-click="place_bet_on_4_button();" ng-model="dice">{{ dont_come_bet_flat_on_4 }} \<span class="badge">{{ dont_come_bet_lay_on_4 }}</span></button>
+                    <button class="btn btn-default point_numbers ng-pristine ng-valid" type="button" ng-disabled="dont_come_bet_flat_on_5 == 0" ng-model="dice">{{ dont_come_bet_flat_on_4 }} \<span class="badge">{{ dont_come_bet_lay_on_5 }}</span></button>
+                    <button class="btn btn-default point_numbers ng-pristine ng-valid" type="button" ng-disabled="dont_come_bet_flat_on_6 == 0" ng-model="dice">{{ dont_come_bet_flat_on_4 }} \<span class="badge">{{ dont_come_bet_lay_on_6 }}</span></button>
+                    <button class="btn btn-default point_numbers ng-pristine ng-valid" type="button" ng-disabled="dont_come_bet_flat_on_8 == 0" ng-model="dice">{{ dont_come_bet_flat_on_4 }} \<span class="badge">{{ dont_come_bet_lay_on_8 }}</span></button>
+                    <button class="btn btn-default point_numbers ng-pristine ng-valid" type="button" ng-disabled="dont_come_bet_flat_on_9 == 0" ng-model="dice">{{ dont_come_bet_flat_on_4 }} \<span class="badge">{{ dont_come_bet_lay_on_9 }}</span></button>
+                    <button class="btn btn-default point_numbers ng-pristine ng-valid" type="button" ng-disabled="dont_come_bet_flat_on_10 == 0" ng-model="dice">{{ dont_come_bet_flat_on_4 }} \<span class="badge">{{ dont_come_bet_lay_on_10 }}</span></button>
                   </div>
                 </div>
                 <div class="row">

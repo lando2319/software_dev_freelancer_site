@@ -82,12 +82,12 @@
 }
 
 .point_numbers {
-  height: 50px;
+  min-width: 54px;
 }
 
-.btn-default {
-  min-width: 30px;
-}
+//.btn-default {
+//  min-width: 56px;
+//}
 
 $grid-float-breakpoint:     480px;
 // Bootstrap Mid-Small - col-ms-* - the missing grid set for Bootstrap3.
