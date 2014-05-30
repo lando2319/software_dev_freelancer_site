@@ -25,17 +25,14 @@
 
 .container {
   margin-top: 50px;
-  max-width: 99%;
 }
 
 .come_bet_numbers {
   width: 100%;
-  margin: 0px;
 }
 
 .well {
   padding: 5px;
-  margin: 0px;
 }
 
 .come_bet_button {
@@ -84,7 +81,13 @@
   border-color: #357ebd;
 }
 
+.point_numbers {
+  height: 50px;
+}
 
+.btn-default {
+  min-width: 30px;
+}
 
 $grid-float-breakpoint:     480px;
 // Bootstrap Mid-Small - col-ms-* - the missing grid set for Bootstrap3.
