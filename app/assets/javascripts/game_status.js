@@ -29,31 +29,37 @@ function SetsThePoint($scope, total_of_dice) {
         $scope.come_bet_odds_on_4 = 0
         $scope.bank_roll_actual += $scope.come_bet_flat_on_4
         $scope.come_bet_flat_on_4 = 0
+        $scope.four = "Point Is 4"
       }
       if (total_of_dice == 5) {
         $scope.come_bet_odds_on_5 = 0
         $scope.bank_roll_actual += $scope.come_bet_flat_on_5
         $scope.come_bet_flat_on_5 = 0
+        $scope.five = "Point Is 5"
       }
       if (total_of_dice == 6) {
         $scope.come_bet_odds_on_6 = 0
         $scope.bank_roll_actual += $scope.come_bet_flat_on_6
         $scope.come_bet_flat_on_6 = 0
+        $scope.six = "Point Is 6"
       }
       if (total_of_dice == 8) {
         $scope.come_bet_odds_on_8 = 0
         $scope.bank_roll_actual += $scope.come_bet_flat_on_8
         $scope.come_bet_flat_on_8 = 0
+        $scope.eight = "Point Is 8"
       }
       if (total_of_dice == 9) {
         $scope.come_bet_odds_on_9 = 0
         $scope.bank_roll_actual += $scope.come_bet_flat_on_9
         $scope.come_bet_flat_on_9 = 0
+        $scope.nine = "Point Is 9"
       }
       if (total_of_dice == 10) {
         $scope.come_bet_odds_on_10 = 0
         $scope.bank_roll_actual += $scope.come_bet_flat_on_10 
         $scope.come_bet_flat_on_10 = 0
+        $scope.ten = "Point Is 10"
       }
 }
 
@@ -267,12 +273,12 @@ function SevenOut($scope, total_of_dice) {
         $scope.place_bets_off_message = "Place Bets were off, will work once new point is established"
       } 
       
-      $scope.four = "Four"
-      $scope.five = "Five"
-      $scope.six = "Six"
-      $scope.eight = "Eight"
-      $scope.nine = "Nine"
-      $scope.ten = "Ten"
+      $scope.four = "4"
+      $scope.five = "5"
+      $scope.six = "6"
+      $scope.eight = "8"
+      $scope.nine = "9"
+      $scope.ten = "10"
       $scope.point_is = ""
       $scope.game_status = "Come Out Roll"
       $scope.dealer_call = "Seven Out Line Away"

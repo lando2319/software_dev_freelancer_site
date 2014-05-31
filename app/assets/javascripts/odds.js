@@ -7,8 +7,8 @@ function FourAndTenTrueOdds($scope, total_of_dice) {
         $scope.bank_roll_actual -= ($scope.odds_behind_the_dont_pass_line * 1.5)
         $scope.odds_behind_the_dont_pass_line = 0
     }
-    $scope.four = "Four"
-    $scope.ten = "Ten"
+    $scope.four = "4"
+    $scope.ten = "10"
 }
 
 function FiveAndNineTrueOdds($scope, total_of_dice) {
@@ -20,8 +20,8 @@ function FiveAndNineTrueOdds($scope, total_of_dice) {
       $scope.bank_roll_actual -= ($scope.odds_behind_the_dont_pass_line * (2 / 3))
       $scope.odds_behind_the_dont_pass_line = 0
     }
-    $scope.five = "Five"
-    $scope.nine = "Nine"
+    $scope.five = "5"
+    $scope.nine = "9"
 }
 
 function SixAndEightTrueOdds($scope, total_of_dice) {
@@ -33,8 +33,8 @@ function SixAndEightTrueOdds($scope, total_of_dice) {
       $scope.bank_roll_actual -= ($scope.odds_behind_the_dont_pass_line * (5 / 6))
       $scope.odds_behind_the_dont_pass_line = 0
     }
-    $scope.eight = "Eight"
-    $scope.six = "Six"
+    $scope.eight = "8"
+    $scope.six = "6"
 }
 
 function EvaluateTheField($scope, total_of_dice) {
