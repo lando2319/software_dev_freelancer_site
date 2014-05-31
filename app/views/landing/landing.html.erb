@@ -30,12 +30,12 @@
                 </div>
                 <div class="row">
                   <div class="btn-group btn-group-justified">
-                    <a class="btn btn-default ng-pristine ng-valid" type="button" ng-model="dice" value="Place Bet" ng-click="place_bet_on_4_button();"><span class="badge">{{ place_bet_on_the_4 }}</span></a>
-                    <a class="btn btn-default ng-pristine ng-valid" type="button" ng-model="dice" value="Place Bet" ng-click="place_bet_on_5_button();"><span class="badge">{{ place_bet_on_the_5 }}</span></a>
-                    <a class="btn btn-default ng-pristine ng-valid" type="button" ng-model="dice" value="Place Bet" ng-click="place_bet_on_6_button();"><span class="badge">{{ place_bet_on_the_6 }}</span></a>
-                    <a class="btn btn-default ng-pristine ng-valid" type="button" ng-model="dice" value="Place Bet" ng-click="place_bet_on_8_button();"><span class="badge">{{ place_bet_on_the_8 }}</span></a>
-                    <a class="btn btn-default ng-pristine ng-valid" type="button" ng-model="dice" value="Place Bet" ng-click="place_bet_on_9_button();"><span class="badge">{{ place_bet_on_the_9 }}</span></a>
-                    <a class="btn btn-default ng-pristine ng-valid" type="button" ng-model="dice" value="Place Bet" ng-click="place_bet_on_10_button();"><span class="badge">{{ place_bet_on_the_10 }}</span></a>
+                    <a class="btn btn-default ng-pristine ng-valid" type="button" ng-model="dice" ng-click="place_bet_on_4_button();"><span class="badge">{{ place_bet_on_the_4 }}</span></a>
+                    <a class="btn btn-default ng-pristine ng-valid" type="button" ng-model="dice" ng-click="place_bet_on_5_button();"><span class="badge">{{ place_bet_on_the_5 }}</span></a>
+                    <a class="btn btn-default ng-pristine ng-valid" type="button" ng-model="dice" ng-click="place_bet_on_6_button();"><span class="badge">{{ place_bet_on_the_6 }}</span></a>
+                    <a class="btn btn-default ng-pristine ng-valid" type="button" ng-model="dice" ng-click="place_bet_on_8_button();"><span class="badge">{{ place_bet_on_the_8 }}</span></a>
+                    <a class="btn btn-default ng-pristine ng-valid" type="button" ng-model="dice" ng-click="place_bet_on_9_button();"><span class="badge">{{ place_bet_on_the_9 }}</span></a>
+                    <a class="btn btn-default ng-pristine ng-valid" type="button" ng-model="dice" ng-click="place_bet_on_10_button();"><span class="badge">{{ place_bet_on_the_10 }}</span></a>
                   </div>
                 </div>
                 <div class="row">
@@ -68,7 +68,7 @@
                 </div>
                 <div class="row">
                   <div class="btn-group btn-group-justified">
-                    <a class="btn btn-darkest ng-pristine ng-valid darkside_colors" ng-disabled="dont_pass_line_bet == 0 || game_status == 'Come Out Roll'" type="button" ng-model="dice" ng-click="odds_behind_the_dont_pass_line_button();"><span class="point_num_font_darkside">Lay </span><span class="badge">{{ odds_behind_the_dont_pass_line }}</span></a>
+                    <a class="btn btn-darkest ng-pristine ng-valid" ng-disabled="dont_pass_line_bet == 0 || game_status == 'Come Out Roll'" type="button" ng-model="dice" ng-click="odds_behind_the_dont_pass_line_button();"><span class="point_num_font_darkside">Lay </span><span class="badge">{{ odds_behind_the_dont_pass_line }}</span></a>
                     <a class="btn btn-default ng-pristine ng-valid" ng-disabled="line_bet == 0 || game_status == 'Come Out Roll'" type="button" ng-model="dice" value="Place Bet" ng-click="odds_behind_the_line_button();"><span class="point_num_font">Odds </span><span class="badge">{{ odds_behind_the_line }}</span></a>
                   </div>
                 </div>
