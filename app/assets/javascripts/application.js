@@ -21,7 +21,9 @@
 //= require game_status
 //= require odds
 
-function RollDice($scope) {
+var crapsGame = angular.module('crapsGame', []);
+
+crapsGame.controller('crapsGameplay', ['$scope', function($scope) {
   // sets game status
   $scope.game_status = "Come Out Roll"
   $scope.place_bets_are_off = true
@@ -116,6 +118,8 @@ function RollDice($scope) {
   $scope.prop_bet_on_5_4 = 0
   $scope.prop_bet_on_6_4 = 0
   $scope.prop_bet_on_5_5 = 0
+
+
 
   $scope.place_bet_on_4_button = function() {
     $scope.place_bet_on_the_4 += 5
@@ -291,7 +295,7 @@ function RollDice($scope) {
 
   // connecting each place to bet with bank_roll_actual
   var places_to_watch =
-    ['line_bet', 'odds_behind_the_line', 'place_come_bet', 'come_bet_odds_on_4', 'come_bet_odds_on_5',
+    ['line_bet', 'odds_behind_the_line', 'place_come_bet', 'field_bet', 'come_bet_odds_on_4', 'come_bet_odds_on_5',
       'come_bet_odds_on_6', 'come_bet_odds_on_8', 'come_bet_odds_on_9', 'come_bet_odds_on_10', 'come_bet_flat_on_4',
       'come_bet_flat_on_5', 'come_bet_flat_on_6', 'come_bet_flat_on_8', 'come_bet_flat_on_9', 'come_bet_flat_on_10',
       'place_bet_on_the_4', 'place_bet_on_the_5', 'place_bet_on_the_6', 'place_bet_on_the_8', 'place_bet_on_the_9',
@@ -314,5 +318,4 @@ function RollDice($scope) {
       the_difference = newVal - oldVal
       $scope.bank_roll_actual -= the_difference
   }
-}
-
+}]);
