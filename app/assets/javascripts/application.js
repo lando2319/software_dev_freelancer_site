@@ -16,12 +16,13 @@
 //= require bootstrap
 //= require_tree .
 //= require angular
+//= require angular-animate
 
 //= require the_call_is
 //= require game_status
 //= require odds
 
-var crapsGame = angular.module('crapsGame', []);
+var crapsGame = angular.module('crapsGame', ['ngAnimate']);
 
 crapsGame.controller('crapsGameplay', ['$scope', function($scope) {
   // sets game status
