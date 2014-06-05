@@ -7,15 +7,12 @@
         <div class="container">
           <div>
             <div class="well">
-              <div class="col-xs-12 col-ms-8 col-sm-8 col-md-8 col-lg-8">
+              <div class="col-xs-6 col-ms-4 col-sm-4 col-md-4 col-lg-4">
                 <div class="row">
                   <div class="btn-group btn-group-justified">
                     <a class="btn btn-darkest ng-pristine ng-valid" type="button" ng-disabled="dont_come_bet_flat_on_4 == 0" ng-click="dont_come_bet_lay_on_4_button();" ng-model="dice"><span class="badge" ng-show="dont_come_bet_flat_on_4 != 0">{{ dont_come_bet_flat_on_4 }} \ {{ dont_come_bet_lay_on_4 }}</span></span></a>
                     <a class="btn btn-darkest ng-pristine ng-valid" type="button" ng-disabled="dont_come_bet_flat_on_5 == 0" ng-click="dont_come_bet_lay_on_5_button();" ng-model="dice"><span class="badge" ng-show="dont_come_bet_flat_on_5 != 0">{{ dont_come_bet_flat_on_5 }} \ {{ dont_come_bet_lay_on_5 }}</span></a>
                     <a class="btn btn-darkest ng-pristine ng-valid" type="button" ng-disabled="dont_come_bet_flat_on_6 == 0" ng-click="dont_come_bet_lay_on_6_button();" ng-model="dice"><span class="badge" ng-show="dont_come_bet_flat_on_6 != 0">{{ dont_come_bet_flat_on_6 }} \ {{ dont_come_bet_lay_on_6 }}</span></a>
-                    <a class="btn btn-darkest ng-pristine ng-valid" type="button" ng-disabled="dont_come_bet_flat_on_8 == 0" ng-click="dont_come_bet_lay_on_8_button();" ng-model="dice"><span class="badge" ng-show="dont_come_bet_flat_on_8 != 0">{{ dont_come_bet_flat_on_8 }} \ {{ dont_come_bet_lay_on_8 }}</span></a>
-                    <a class="btn btn-darkest ng-pristine ng-valid" type="button" ng-disabled="dont_come_bet_flat_on_9 == 0" ng-click="dont_come_bet_lay_on_9_button();" ng-model="dice"><span class="badge" ng-show="dont_come_bet_flat_on_9 != 0">{{ dont_come_bet_flat_on_9 }} \ {{ dont_come_bet_lay_on_9 }}</span></a>
-                    <a class="btn btn-darkest ng-pristine ng-valid" type="button" ng-disabled="dont_come_bet_flat_on_10 == 0" ng-click="dont_come_bet_lay_on_10_button();" ng-model="dice"><span class="badge" ng-show="dont_come_bet_flat_on_10 != 0">{{ dont_come_bet_flat_on_10 }} \ {{ dont_come_bet_lay_on_10 }}</span></a>
                   </div>
                 </div>
                 <div class="row">
@@ -23,9 +20,6 @@
                     <a class="btn btn-default ng-pristine ng-valid" type="button" ng-disabled="come_bet_flat_on_4 == 0" ng-model="dice"><span ng-hide="come_bet_flat_on_4 != 0" class="point_num_font point_num_size">{{ four }}</span><span class="badge" ng-show="come_bet_flat_on_4 != 0">{{ come_bet_flat_on_4 }} \ {{ come_bet_odds_on_4  }}</span></a>
                     <a class="btn btn-default ng-pristine ng-valid" type="button" ng-disabled="come_bet_flat_on_4 == 0" ng-model="dice"><span ng-hide="come_bet_flat_on_5 != 0" class="point_num_font point_num_size">{{ five }}</span><span class="badge" ng-show="come_bet_flat_on_5 != 0">{{ come_bet_flat_on_5 }} \ {{ come_bet_odds_on_5  }}</span></a>
                     <a class="btn btn-default ng-pristine ng-valid" type="button" ng-disabled="come_bet_flat_on_4 == 0" ng-model="dice"><span ng-hide="come_bet_flat_on_6 != 0" class="point_num_font point_num_size">{{ six }}</span><span class="badge" ng-show="come_bet_flat_on_6 != 0">{{ come_bet_flat_on_6 }} \ {{ come_bet_odds_on_6  }}</span></a>
-                    <a class="btn btn-default ng-pristine ng-valid" type="button" ng-disabled="come_bet_flat_on_4 == 0" ng-model="dice"><span ng-hide="come_bet_flat_on_8 != 0" class="point_num_font point_num_size">{{ eight }}</span><span class="badge" ng-show="come_bet_flat_on_8 != 0">{{ come_bet_flat_on_8 }} \ {{ come_bet_odds_on_8  }}</span></a>
-                    <a class="btn btn-default ng-pristine ng-valid" type="button" ng-disabled="come_bet_flat_on_4 == 0" ng-model="dice"><span ng-hide="come_bet_flat_on_9 != 0" class="point_num_font point_num_size">{{ nine }}</span><span class="badge" ng-show="come_bet_flat_on_9 != 0">{{ come_bet_flat_on_9 }} \ {{ come_bet_odds_on_9  }}</span></a>
-                    <a class="btn btn-default ng-pristine ng-valid" type="button" ng-disabled="come_bet_flat_on_4 == 0" ng-model="dice"><span ng-hide="come_bet_flat_on_10 != 0" class="point_num_font point_num_size">{{ ten }}</span><span class="badge" ng-show="come_bet_flat_on_10 != 0">{{ come_bet_flat_on_10 }} \ {{ come_bet_odds_on_10 }}</span></a>
                   </div>
                 </div>
                 <div class="row">
@@ -33,9 +27,6 @@
                     <a class="btn btn-default ng-pristine ng-valid" type="button" ng-model="dice" ng-click="place_bet_on_4_button();"><span class="badge">{{ place_bet_on_the_4 }}</span></a>
                     <a class="btn btn-default ng-pristine ng-valid" type="button" ng-model="dice" ng-click="place_bet_on_5_button();"><span class="badge">{{ place_bet_on_the_5 }}</span></a>
                     <a class="btn btn-default ng-pristine ng-valid" type="button" ng-model="dice" ng-click="place_bet_on_6_button();"><span class="badge">{{ place_bet_on_the_6 }}</span></a>
-                    <a class="btn btn-default ng-pristine ng-valid" type="button" ng-model="dice" ng-click="place_bet_on_8_button();"><span class="badge">{{ place_bet_on_the_8 }}</span></a>
-                    <a class="btn btn-default ng-pristine ng-valid" type="button" ng-model="dice" ng-click="place_bet_on_9_button();"><span class="badge">{{ place_bet_on_the_9 }}</span></a>
-                    <a class="btn btn-default ng-pristine ng-valid" type="button" ng-model="dice" ng-click="place_bet_on_10_button();"><span class="badge">{{ place_bet_on_the_10 }}</span></a>
                   </div>
                 </div>
                 <div class="row">
@@ -44,7 +35,35 @@
                     <a class="btn btn-default ng-pristine ng-valid" ng-disabled="game_status == 'Come Out Roll'" type="button" ng-model="dice" value="Place Bet" ng-click="place_come_bet_button();"><span class="point_num_font">Come Bet </span><span class="badge">{{ place_come_bet }}</span></a>
                   </div>
                 </div>
-                <div class="row dealer_calls">
+                <div class="row">
+                  <div class="btn-group btn-group-justified">
+                    <a class="btn btn-default ng-pristine ng-valid" type="button" ng-model="dice" value="Place Bet" ng-click="place_field_bet_button();"><span class="point_num_font">Field </span><span class="badge">{{ field_bet }}</span><span class="point_num_font">   2-3-4-9-10-11-12</span></a>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xs-6 col-ms-4 col-sm-4 col-md-4 col-lg-4">
+                <div class="row">
+                  <div class="btn-group btn-group-justified">
+                    <a class="btn btn-darkest ng-pristine ng-valid" type="button" ng-disabled="dont_come_bet_flat_on_8 == 0" ng-click="dont_come_bet_lay_on_8_button();" ng-model="dice"><span class="badge" ng-show="dont_come_bet_flat_on_8 != 0">{{ dont_come_bet_flat_on_8 }} \ {{ dont_come_bet_lay_on_8 }}</span></a>
+                    <a class="btn btn-darkest ng-pristine ng-valid" type="button" ng-disabled="dont_come_bet_flat_on_9 == 0" ng-click="dont_come_bet_lay_on_9_button();" ng-model="dice"><span class="badge" ng-show="dont_come_bet_flat_on_9 != 0">{{ dont_come_bet_flat_on_9 }} \ {{ dont_come_bet_lay_on_9 }}</span></a>
+                    <a class="btn btn-darkest ng-pristine ng-valid" type="button" ng-disabled="dont_come_bet_flat_on_10 == 0" ng-click="dont_come_bet_lay_on_10_button();" ng-model="dice"><span class="badge" ng-show="dont_come_bet_flat_on_10 != 0">{{ dont_come_bet_flat_on_10 }} \ {{ dont_come_bet_lay_on_10 }}</span></a>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="btn-group btn-group-justified">
+                    <a class="btn btn-default ng-pristine ng-valid" type="button" ng-disabled="come_bet_flat_on_4 == 0" ng-model="dice"><span ng-hide="come_bet_flat_on_8 != 0" class="point_num_font point_num_size">{{ eight }}</span><span class="badge" ng-show="come_bet_flat_on_8 != 0">{{ come_bet_flat_on_8 }} \ {{ come_bet_odds_on_8  }}</span></a>
+                    <a class="btn btn-default ng-pristine ng-valid" type="button" ng-disabled="come_bet_flat_on_4 == 0" ng-model="dice"><span ng-hide="come_bet_flat_on_9 != 0" class="point_num_font point_num_size">{{ nine }}</span><span class="badge" ng-show="come_bet_flat_on_9 != 0">{{ come_bet_flat_on_9 }} \ {{ come_bet_odds_on_9  }}</span></a>
+                    <a class="btn btn-default ng-pristine ng-valid" type="button" ng-disabled="come_bet_flat_on_4 == 0" ng-model="dice"><span ng-hide="come_bet_flat_on_10 != 0" class="point_num_font point_num_size">{{ ten }}</span><span class="badge" ng-show="come_bet_flat_on_10 != 0">{{ come_bet_flat_on_10 }} \ {{ come_bet_odds_on_10 }}</span></a>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="btn-group btn-group-justified">
+                    <a class="btn btn-default ng-pristine ng-valid" type="button" ng-model="dice" ng-click="place_bet_on_8_button();"><span class="badge">{{ place_bet_on_the_8 }}</span></a>
+                    <a class="btn btn-default ng-pristine ng-valid" type="button" ng-model="dice" ng-click="place_bet_on_9_button();"><span class="badge">{{ place_bet_on_the_9 }}</span></a>
+                    <a class="btn btn-default ng-pristine ng-valid" type="button" ng-model="dice" ng-click="place_bet_on_10_button();"><span class="badge">{{ place_bet_on_the_10 }}</span></a>
+                  </div>
+                </div>
+                <div class="row dice_size">
                   <span ng-show="die_one == 1">&#x2680</span>
                   <span ng-show="die_one == 2">&#x2681</span>
                   <span ng-show="die_one == 3">&#x2682</span>
@@ -57,16 +76,13 @@
                   <span ng-show="die_two == 4">&#x2683</span>
                   <span ng-show="die_two == 5">&#x2684</span>
                   <span ng-show="die_two == 6">&#x2685</span>
+                </div>
+                <div class="row dealer_calls">
                   <span>{{ the_call_is }}</span>
                   <br>
                   <label>Call: <span>{{ dealer_call }}</span></label>
                   <label><span>{{ bank_roll_actual }}</span></label>
                   <label><span>{{ base_dealer_call }}</span></label>
-                </div>
-                <div class="row">
-                  <div class="btn-group btn-group-justified">
-                    <a class="btn btn-default ng-pristine ng-valid" type="button" ng-model="dice" value="Place Bet" ng-click="place_field_bet_button();"><span class="point_num_font">Field </span><span class="badge">{{ field_bet }}</span><span class="point_num_font">   2-3-4-9-10-11-12</span></a>
-                  </div>
                 </div>
               </div>
               <div class="col-xs-12 col-ms-4 col-sm-4 col-md-4 col-lg-4">
