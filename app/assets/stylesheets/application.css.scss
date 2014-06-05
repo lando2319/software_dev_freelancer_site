@@ -119,9 +119,17 @@ fieldset[disabled] .btn-darkest.active {
   letter-spacing: -12px;
   text-align: center;
   font-size: 80px;
+  opacity: 0;
+  -webkit-transition:all linear 0.5s;
+  -moz-transition:all linear 0.5s;
+  -o-transition:all linear 0.5s;
+  transition:all linear 0.5s;
+  display:block!important;
 }
 
-
+.dice_fade {
+  opacity: 1;
+}
 
 
 

@@ -25,6 +25,7 @@
 var crapsGame = angular.module('crapsGame', ['ngAnimate']);
 
 crapsGame.controller('crapsGameplay', ['$scope', function($scope) {
+  $scope.hide_dice = false
   // sets game status
   $scope.game_status = "Come Out Roll"
   $scope.place_bets_are_off = true
@@ -248,6 +249,7 @@ crapsGame.controller('crapsGameplay', ['$scope', function($scope) {
   
   // rolling the dice
   $scope.roll = function() {
+    $scope.hide_dice = !$scope.hide_dice
     var current_roll_dice_2= new Array(1,2,3,4,5,6);
     var random_2 = current_roll_dice_2[Math.floor(Math.random() * current_roll_dice_2.length)];
     $scope.die_one = random_2;
@@ -294,6 +296,8 @@ crapsGame.controller('crapsGameplay', ['$scope', function($scope) {
     else if (total_of_dice == 12) {
       TheCallIs12($scope, total_of_dice)
     }
+
+
   };
 
   // connecting each place to bet with bank_roll_actual
@@ -322,3 +326,16 @@ crapsGame.controller('crapsGameplay', ['$scope', function($scope) {
       $scope.bank_roll_actual -= the_difference
   }
 }]);
+
+crapsGame.directive("diceRollActual", function($animate) {
+    return function(scope, element, attrs) {
+        scope.$watch(attrs.diceRollActual, function(newVal) {
+            if (newVal) {
+                $animate.addClass(element, "dice_fade_in")
+            } else {
+                $animate.removeClass(element, "dice_fade_in")
+            }
+        })
+    }
+});
+
