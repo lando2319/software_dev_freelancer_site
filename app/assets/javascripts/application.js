@@ -243,6 +243,7 @@ crapsGame.controller('crapsGameplay', ['$scope', function($scope) {
   $scope.prop_bet_on_5_5_button = function() {
     $scope.prop_bet_on_5_5 += 1
   }
+  
   // rolling the dice
   $scope.roll = function() {
     var current_roll_dice_2= new Array(1,2,3,4,5,6);

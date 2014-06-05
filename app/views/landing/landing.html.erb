@@ -45,8 +45,18 @@
                   </div>
                 </div>
                 <div class="row dealer_calls">
-                  <span>Die One {{ die_one }} | </span>
-                  <span>Die Two {{ die_two }} = </span>
+                  <span ng-show="die_one == 1">&#x2680</span>
+                  <span ng-show="die_one == 2">&#x2681</span>
+                  <span ng-show="die_one == 3">&#x2682</span>
+                  <span ng-show="die_one == 4">&#x2683</span>
+                  <span ng-show="die_one == 5">&#x2684</span>
+                  <span ng-show="die_one == 6">&#x2685</span>
+                  <span ng-show="die_two == 1">&#x2680</span>
+                  <span ng-show="die_two == 2">&#x2681</span>
+                  <span ng-show="die_two == 3">&#x2682</span>
+                  <span ng-show="die_two == 4">&#x2683</span>
+                  <span ng-show="die_two == 5">&#x2684</span>
+                  <span ng-show="die_two == 6">&#x2685</span>
                   <span>{{ the_call_is }}</span>
                   <br>
                   <label>Call: <span>{{ dealer_call }}</span></label>
