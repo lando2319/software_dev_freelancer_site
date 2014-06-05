@@ -244,6 +244,7 @@ crapsGame.controller('crapsGameplay', ['$scope', function($scope) {
   $scope.prop_bet_on_5_5_button = function() {
     $scope.prop_bet_on_5_5 += 1
   }
+
   
   // rolling the dice
   $scope.roll = function() {
