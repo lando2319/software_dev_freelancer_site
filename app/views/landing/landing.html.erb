@@ -31,14 +31,15 @@
                 </div>
                 <div class="row">
                   <div class="btn-group btn-group-justified">
-                    <a class="btn btn-darkest ng-pristine ng-valid" ng-disabled="game_status == 'Come Out Roll'" type="button" ng-model="dice" value="Place Bet" ng-click="place_dont_come_bet_button();"><span class="point_num_font_darkside">Don't Come </span><span class="badge">{{ place_dont_come_bet }}</span></a>
-                    <a class="btn btn-default ng-pristine ng-valid" ng-disabled="game_status == 'Come Out Roll'" type="button" ng-model="dice" value="Place Bet" ng-click="place_come_bet_button();"><span class="point_num_font">Come Bet </span><span class="badge">{{ place_come_bet }}</span></a>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="btn-group btn-group-justified">
                     <a class="btn btn-default ng-pristine ng-valid" type="button" ng-model="dice" value="Place Bet" ng-click="place_field_bet_button();"><span class="point_num_font">Field </span><span class="badge">{{ field_bet }}</span><span class="point_num_font">   2-3-4-9-10-11-12</span></a>
                   </div>
+                </div>
+                <div class="row dealer_calls">
+                  <span>{{ the_call_is }}</span>
+                  <br>
+                  <label>Call: <span>{{ dealer_call }}</span></label>
+                  <label><span>{{ bank_roll_actual }}</span></label>
+                  <label><span>{{ base_dealer_call }}</span></label>
                 </div>
               </div>
               <div class="col-xs-6 col-ms-4 col-sm-4 col-md-4 col-lg-4">
@@ -63,6 +64,12 @@
                     <a class="btn btn-default ng-pristine ng-valid" type="button" ng-model="dice" ng-click="place_bet_on_10_button();"><span class="badge">{{ place_bet_on_the_10 }}</span></a>
                   </div>
                 </div>
+                <div class="row">
+                  <div class="btn-group btn-group-justified">
+                    <a class="btn btn-darkest ng-pristine ng-valid" ng-disabled="game_status == 'Come Out Roll'" type="button" ng-model="dice" value="Place Bet" ng-click="place_dont_come_bet_button();"><span class="point_num_font_darkside">Don't Come </span><span class="badge">{{ place_dont_come_bet }}</span></a>
+                    <a class="btn btn-default ng-pristine ng-valid" ng-disabled="game_status == 'Come Out Roll'" type="button" ng-model="dice" value="Place Bet" ng-click="place_come_bet_button();"><span class="point_num_font">Come Bet </span><span class="badge">{{ place_come_bet }}</span></a>
+                  </div>
+                </div>
                 <div class="row dice_size">
                   <span ng-show="die_one == 1">&#x2680</span>
                   <span ng-show="die_one == 2">&#x2681</span>
@@ -76,13 +83,6 @@
                   <span ng-show="die_two == 4">&#x2683</span>
                   <span ng-show="die_two == 5">&#x2684</span>
                   <span ng-show="die_two == 6">&#x2685</span>
-                </div>
-                <div class="row dealer_calls">
-                  <span>{{ the_call_is }}</span>
-                  <br>
-                  <label>Call: <span>{{ dealer_call }}</span></label>
-                  <label><span>{{ bank_roll_actual }}</span></label>
-                  <label><span>{{ base_dealer_call }}</span></label>
                 </div>
               </div>
               <div class="col-xs-12 col-ms-4 col-sm-4 col-md-4 col-lg-4">
