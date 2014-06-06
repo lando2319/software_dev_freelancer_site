@@ -331,9 +331,9 @@ crapsGame.directive("diceRollActual", function($animate) {
     return function(scope, element, attrs) {
         scope.$watch(attrs.diceRollActual, function(newVal) {
             if (newVal) {
-                $animate.addClass(element, "dice_fade_in")
+                $animate.addClass(element, "dice_fade")
             } else {
-                $animate.removeClass(element, "dice_fade_in")
+                $animate.removeClass(element, "dice_fade")
             }
         })
     }
