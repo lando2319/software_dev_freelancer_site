@@ -26,6 +26,8 @@ var crapsGame = angular.module('crapsGame', ['ngAnimate']);
 
 crapsGame.controller('crapsGameplay', ['$scope', function($scope) {
   $scope.hide_dice = false
+  $scope.increase_decrease = "+"
+  $scope.bet_denomination = 5
   // sets game status
   $scope.game_status = "Come Out Roll"
   $scope.place_bets_are_off = true
@@ -123,127 +125,144 @@ crapsGame.controller('crapsGameplay', ['$scope', function($scope) {
 
 
 
+  $scope.increase_decrease_button = function() {
+    if ($scope.increase_decrease == "+") {
+        $scope.increase_decrease = "-"
+    } else {
+        $scope.increase_decrease = "+"
+    }
+  }
+  $scope.bet_denomination_button = function() {
+    console.log($scope.bet_denomination)
+    if ($scope.bet_denomination == 1 ) {
+        $scope.bet_denomination = 5
+    } else if ($scope.bet_denomination == 5 ) {
+        $scope.bet_denomination = 25
+    } else {
+        $scope.bet_denomination = 1
+    }
+  }
   $scope.place_bet_on_4_button = function() {
-    $scope.place_bet_on_the_4 += 5
+    $scope.increase_decrease == "-" ? $scope.place_bet_on_the_4 -= $scope.bet_denomination : $scope.place_bet_on_the_4 += $scope.bet_denomination
   }
   $scope.place_bet_on_5_button = function() {
-    $scope.place_bet_on_the_5 += 5
+    $scope.increase_decrease == "-" ? $scope.place_bet_on_the_5 -= $scope.bet_denomination : $scope.place_bet_on_the_5 += $scope.bet_denomination
   }
   $scope.place_bet_on_6_button = function() {
-    $scope.place_bet_on_the_6 += 6
+    $scope.increase_decrease == "-" ? $scope.place_bet_on_the_6 -= $scope.bet_denomination : $scope.place_bet_on_the_6 += $scope.bet_denomination
   }
   $scope.place_bet_on_8_button = function() {
-    $scope.place_bet_on_the_8 += 6
+    $scope.increase_decrease == "-" ? $scope.place_bet_on_the_8 -= $scope.bet_denomination : $scope.place_bet_on_the_8 += $scope.bet_denomination
   }
   $scope.place_bet_on_9_button = function() {
-    $scope.place_bet_on_the_9 += 5
+    $scope.increase_decrease == "-" ? $scope.place_bet_on_the_9 -= $scope.bet_denomination : $scope.place_bet_on_the_9 += $scope.bet_denomination
   }
   $scope.place_bet_on_10_button = function() {
-    $scope.place_bet_on_the_10 += 5
+    $scope.increase_decrease == "-" ? $scope.place_bet_on_the_10 -= $scope.bet_denomination : $scope.place_bet_on_the_10 += $scope.bet_denomination
   }
 
   $scope.place_come_bet_button = function() {
-    $scope.place_come_bet += 5
+    $scope.increase_decrease == "-" ? $scope.place_come_bet -= $scope.bet_denomination : $scope.place_come_bet += $scope.bet_denomination
   }
   $scope.place_field_bet_button = function() {
-    $scope.field_bet += 5
+    $scope.increase_decrease == "-" ? $scope.field_bet -= $scope.bet_denomination : $scope.field_bet += $scope.bet_denomination
   }
   $scope.place_dont_come_bet_button = function() {
-    $scope.place_dont_come_bet += 5
+    $scope.increase_decrease == "-" ? $scope.place_dont_come_bet -= $scope.bet_denomination : $scope.place_dont_come_bet += $scope.bet_denomination
   }
   $scope.line_bet_button = function() {
-    $scope.line_bet += 5
+    $scope.increase_decrease == "-" ? $scope.line_bet -= $scope.bet_denomination : $scope.line_bet += $scope.bet_denomination
   }
   $scope.odds_behind_the_line_button = function() {
-    $scope.odds_behind_the_line += 5
+    $scope.increase_decrease == "-" ? $scope.odds_behind_the_line -= $scope.bet_denomination : $scope.odds_behind_the_line += $scope.bet_denomination
   }
   $scope.dont_pass_line_bet_button = function() {
-    $scope.dont_pass_line_bet += 5
+    $scope.increase_decrease == "-" ? $scope.dont_pass_line_bet -= $scope.bet_denomination : $scope.dont_pass_line_bet += $scope.bet_denomination
   }
   $scope.odds_behind_the_dont_pass_line_button = function() {
-    $scope.odds_behind_the_dont_pass_line += 5
+    $scope.increase_decrease == "-" ? $scope.odds_behind_the_dont_pass_line -= $scope.bet_denomination : $scope.odds_behind_the_dont_pass_line += $scope.bet_denomination
   }
 
   $scope.prop_bet_red_button = function() {
-    $scope.prop_bet_red += 1
+    $scope.increase_decrease == "-" ? $scope.prop_bet_red -= $scope.bet_denomination : $scope.prop_bet_red += $scope.bet_denomination
   }
   $scope.prop_bet_craps_button = function() {
-    $scope.prop_bet_craps += 1
+    $scope.increase_decrease == "-" ? $scope.prop_bet_craps -= $scope.bet_denomination : $scope.prop_bet_craps += $scope.bet_denomination
   }
   $scope.prop_bet_hard_6_button = function() {
-    $scope.prop_bet_hard_6 += 1
+    $scope.increase_decrease == "-" ? $scope.prop_bet_hard_6 -= $scope.bet_denomination : $scope.prop_bet_hard_6 += $scope.bet_denomination
   }
   $scope.prop_bet_hard_8_button = function() {
-    $scope.prop_bet_hard_8 += 1
+    $scope.increase_decrease == "-" ? $scope.prop_bet_hard_8 -= $scope.bet_denomination : $scope.prop_bet_hard_8 += $scope.bet_denomination
   }
   $scope.prop_bet_hard_4_button = function() {
-    $scope.prop_bet_hard_4 += 1
+    $scope.increase_decrease == "-" ? $scope.prop_bet_hard_4 -= $scope.bet_denomination : $scope.prop_bet_hard_4 += $scope.bet_denomination
   }
   $scope.prop_bet_hard_10_button = function() {
-    $scope.prop_bet_hard_10 += 1
+    $scope.increase_decrease == "-" ? $scope.prop_bet_hard_10 -= $scope.bet_denomination : $scope.prop_bet_hard_10 += $scope.bet_denomination
   }
   $scope.prop_bet_aces_button = function() {
-    $scope.prop_bet_aces += 1
+    $scope.increase_decrease == "-" ? $scope.prop_bet_aces -= $scope.bet_denomination : $scope.prop_bet_aces += $scope.bet_denomination
   }
   $scope.prop_bet_ace_deuce_button = function() {
-    $scope.prop_bet_ace_deuce += 1
+    $scope.increase_decrease == "-" ? $scope.prop_bet_ace_deuce -= $scope.bet_denomination : $scope.prop_bet_ace_deuce += $scope.bet_denomination
   }
   $scope.prop_bet_twelve_button = function() {
-    $scope.prop_bet_twelve += 1
+    $scope.increase_decrease == "-" ? $scope.prop_bet_twelve -= $scope.bet_denomination : $scope.prop_bet_twelve += $scope.bet_denomination
   }
   $scope.prop_bet_yo_button = function() {
-    $scope.prop_bet_yo += 1
+    $scope.increase_decrease == "-" ? $scope.prop_bet_yo -= $scope.bet_denomination : $scope.prop_bet_yo += $scope.bet_denomination
   }
   $scope.prop_bet_on_6_1_button = function() {
-    $scope.prop_bet_on_6_1 += 1
+    $scope.increase_decrease == "-" ? $scope.prop_bet_on_6_1 -= $scope.bet_denomination : $scope.prop_bet_on_6_1 += $scope.bet_denomination
   }
   $scope.prop_bet_on_5_2_button = function() {
-    $scope.prop_bet_on_5_2 += 1
+    $scope.increase_decrease == "-" ? $scope.prop_bet_on_5_2 -= $scope.bet_denomination : $scope.prop_bet_on_5_2 += $scope.bet_denomination
   }
   $scope.prop_bet_on_4_3_button = function() {
-    $scope.prop_bet_on_4_3 += 1
+    $scope.increase_decrease == "-" ? $scope.prop_bet_on_4_3 -= $scope.bet_denomination : $scope.prop_bet_on_4_3 += $scope.bet_denomination
   }
   $scope.prop_bet_on_3_1_button = function() {
-    $scope.prop_bet_on_3_1 += 1
+    $scope.increase_decrease == "-" ? $scope.prop_bet_on_3_1 -= $scope.bet_denomination : $scope.prop_bet_on_3_1 += $scope.bet_denomination
   }
   $scope.prop_bet_on_2_2_button = function() {
-    $scope.prop_bet_on_2_2 += 1
+    $scope.increase_decrease == "-" ? $scope.prop_bet_on_2_2 -= $scope.bet_denomination : $scope.prop_bet_on_2_2 += $scope.bet_denomination
   }
   $scope.prop_bet_on_3_2_button = function() {
-    $scope.prop_bet_on_3_2 += 1
+    $scope.increase_decrease == "-" ? $scope.prop_bet_on_3_2 -= $scope.bet_denomination : $scope.prop_bet_on_3_2 += $scope.bet_denomination
   }
   $scope.prop_bet_on_4_1_button = function() {
-    $scope.prop_bet_on_4_1 += 1
+    $scope.increase_decrease == "-" ? $scope.prop_bet_on_4_1 -= $scope.bet_denomination : $scope.prop_bet_on_4_1 += $scope.bet_denomination
   }
   $scope.prop_bet_on_5_1_button = function() {
-    $scope.prop_bet_on_5_1 += 1
+    $scope.increase_decrease == "-" ? $scope.prop_bet_on_5_1 -= $scope.bet_denomination : $scope.prop_bet_on_5_1 += $scope.bet_denomination
   }
   $scope.prop_bet_on_4_2_button = function() {
-    $scope.prop_bet_on_4_2 += 1
+    $scope.increase_decrease == "-" ? $scope.prop_bet_on_4_2 -= $scope.bet_denomination : $scope.prop_bet_on_4_2 += $scope.bet_denomination
   }
   $scope.prop_bet_on_3_3_button = function() {
-    $scope.prop_bet_on_3_3 += 1
+    $scope.increase_decrease == "-" ? $scope.prop_bet_on_3_3 -= $scope.bet_denomination : $scope.prop_bet_on_3_3 += $scope.bet_denomination
   }
   $scope.prop_bet_on_6_2_button = function() {
-    $scope.prop_bet_on_6_2 += 1
+    $scope.increase_decrease == "-" ? $scope.prop_bet_on_6_2 -= $scope.bet_denomination : $scope.prop_bet_on_6_2 += $scope.bet_denomination
   }
   $scope.prop_bet_on_5_3_button = function() {
-    $scope.prop_bet_on_5_3 += 1
+    $scope.increase_decrease == "-" ? $scope.prop_bet_on_5_3 -= $scope.bet_denomination : $scope.prop_bet_on_5_3 += $scope.bet_denomination
   }
   $scope.prop_bet_on_4_4_button = function() {
-    $scope.prop_bet_on_4_4 += 1
+    $scope.increase_decrease == "-" ? $scope.prop_bet_on_4_4 -= $scope.bet_denomination : $scope.prop_bet_on_4_4 += $scope.bet_denomination
   }
   $scope.prop_bet_on_6_3_button = function() {
-    $scope.prop_bet_on_6_3 += 1
+    $scope.increase_decrease == "-" ? $scope.prop_bet_on_6_3 -= $scope.bet_denomination : $scope.prop_bet_on_6_3 += $scope.bet_denomination
   }
   $scope.prop_bet_on_5_4_button = function() {
-    $scope.prop_bet_on_5_4 += 1
+    $scope.increase_decrease == "-" ? $scope.prop_bet_on_5_4 -= $scope.bet_denomination : $scope.prop_bet_on_5_4 += $scope.bet_denomination
   }
   $scope.prop_bet_on_6_4_button = function() {
-    $scope.prop_bet_on_6_4 += 1
+    $scope.increase_decrease == "-" ? $scope.prop_bet_on_6_4 -= $scope.bet_denomination : $scope.prop_bet_on_6_4 += $scope.bet_denomination
   }
   $scope.prop_bet_on_5_5_button = function() {
-    $scope.prop_bet_on_5_5 += 1
+    $scope.increase_decrease == "-" ? $scope.prop_bet_on_5_5 -= $scope.bet_denomination : $scope.prop_bet_on_5_5 += $scope.bet_denomination
   }
 
   

@@ -355,3 +355,4 @@ function HitsThePoint($scope, total_of_dice) {
           SixAndEightTrueOdds($scope, total_of_dice)
       }
 }
+
