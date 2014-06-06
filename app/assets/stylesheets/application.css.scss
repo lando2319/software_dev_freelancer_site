@@ -22,6 +22,7 @@
 /*All SASS Variables go before @import "bootstrap"*/
 @import "bootstrap";
 @import url(http://fonts.googleapis.com/css?family=Vidaloka);
+@import url(http://fonts.googleapis.com/css?family=Oswald);
 
 body {
      background: url('https://s3.amazonaws.com/craps_buzz/craps_buzz.jpg');
@@ -151,6 +152,7 @@ fieldset[disabled] .btn-darkest.active {
 
 .dealer_calls {
   text-align: center;
+  font-family: 'Oswald', sans-serif;
 }
 
 .disclaimer_for_game {

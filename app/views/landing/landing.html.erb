@@ -35,11 +35,13 @@
                   </div>
                 </div>
                 <div class="row dealer_calls">
-                  <span>{{ the_call_is }}</span>
+                  <label><span>{{ game_status }}</span></label>
                   <br>
-                  <label>Call: <span>{{ dealer_call }}</span></label>
-                  <label><span>{{ bank_roll_actual }}</span></label>
-                  <label><span>{{ base_dealer_call }}</span></label>
+                  <label><span>{{ dealer_call }}</span></label>
+                  <br>
+                  <label><span>Base Dealer Message Here</span></label>
+                  <br>
+                  <label><span>stats here</span></label>
                 </div>
               </div>
               <div class="col-xs-6 col-ms-4 col-sm-4 col-md-4 col-lg-4">
@@ -99,13 +101,14 @@
                   </div>
                 </div>
                 <div class="row">
-                  <div class="btn-group btn-group-justified">
-                    <a class="btn btn-darkest ng-pristine ng-valid" type="button" ng-model="dice" ng-click="increase_decrease_button();">{{ increase_decrease }}</span></a>
-                  <a class="btn btn-default ng-pristine ng-valid" type="button" ng-model="dice" ng-click="bet_denomination_button();">{{ increase_decrease }}{{ bet_denomination }}</span></a>
-                  </div>
+                  <input type="button" id="btnSearch" class="btn btn-default btn-lg btn-block" ng-disabled="(line_bet + dont_pass_line_bet) < 1 " ng-model="dice" value="roll the dice" ng-click="roll();" />
                 </div>
                 <div class="row">
-                  <input type="button" id="btnSearch" class="btn btn-default btn-lg btn-block" ng-disabled="(line_bet + dont_pass_line_bet) < 1 " ng-model="dice" value="roll the dice" ng-click="roll();" />
+                  <div class="btn-group btn-group-justified">
+                    <a class="btn btn-darkest ng-pristine ng-valid" type="button" ng-model="dice" ng-click="increase_decrease_button();">{{ increase_decrease }}</span></a>
+                    <a class="btn btn-default ng-pristine ng-valid" type="button" ng-model="dice" ng-click="bet_denomination_button();">{{ increase_decrease }}{{ bet_denomination }}</span></a>
+                    <a class="btn btn-default ng-pristine ng-valid" ng-model="dice">{{ bank_roll_actual }}</span></a>
+                  </div>
                 </div>
                 <div class="row">
                   <div class="btn-group btn-group-justified">
