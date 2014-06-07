@@ -25,10 +25,12 @@
 var crapsGame = angular.module('crapsGame', ['ngAnimate']);
 
 crapsGame.controller('crapsGameplay', ['$scope', function($scope) {
-  $scope.hide_dice = false
+  $scope.die_one = 2
+  $scope.die_two = 2
   $scope.increase_decrease = "+"
   $scope.bet_denomination = 5
   // sets game status
+  $scope.headline_statement = "You Need a Line Bet"
   $scope.game_status = "Come Out Roll"
   $scope.place_bets_are_off = true
   $scope.odds_on_come_bets_are_off = true
