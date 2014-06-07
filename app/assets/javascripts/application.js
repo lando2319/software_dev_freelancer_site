@@ -271,6 +271,7 @@ crapsGame.controller('crapsGameplay', ['$scope', function($scope) {
 
   
   // rolling the dice
+  // $scope.roll = Dice.roll()
   $scope.roll = function() {
     NewGameCall($scope, "this is a shortcut")
     $scope.hide_dice = !$scope.hide_dice
