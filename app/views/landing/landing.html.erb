@@ -70,9 +70,6 @@
                     <a class="btn btn-default ng-pristine ng-valid" ng-disabled="game_status == 'Come Out Roll'" type="button" ng-model="dice" value="Place Bet" ng-click="place_come_bet_button();"><span class="point_num_font">Come Bet </span><span class="badge">{{ place_come_bet }}</span></a>
                   </div>
                 </div>
-                <div class="row dealer_calls">
-                  <label><span>{{ dealer_call }}</span></label>
-                </div>
                 <div class="row dice_size text-animated-two" dice-roll-actual="hide_dice">
                   <span ng-show="die_one == 1">&#x2680</span>
                   <span ng-show="die_one == 2">&#x2681</span>
@@ -88,6 +85,7 @@
                   <span ng-show="die_two == 6">&#x2685</span>
                 </div>
                 <div class="row dealer_calls">
+                  <label><span>{{ dealer_call }}</span></label>
                   <label><span ng-show="game_status == 'Come Out Roll' && (line_bet == dont_pass_line_bet) && line_bet == 0">You Need a Line Bet</span></label>
                   <label><span ng-show="game_status == 'Come Out Roll' && (line_bet == dont_pass_line_bet) && line_bet != 0">Pick A Side</span></label>
                   <label><span ng-show="game_status == 'Come Out Roll' && (line_bet > dont_pass_line_bet)">7 or 11 to Win</span></label>
