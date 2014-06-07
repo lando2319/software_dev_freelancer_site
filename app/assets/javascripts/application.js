@@ -25,6 +25,7 @@
 var crapsGame = angular.module('crapsGame', ['ngAnimate']);
 
 crapsGame.controller('crapsGameplay', ['$scope', function($scope) {
+  $scope.dealer_call = "Come Out Roll"
   $scope.die_one = 2
   $scope.die_two = 2
   $scope.increase_decrease = "+"
