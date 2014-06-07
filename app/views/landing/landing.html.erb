@@ -87,7 +87,10 @@
                   <span ng-show="die_two == 6">&#x2685</span>
                 </div>
                 <div class="row dealer_calls">
-                  <label>{{ headline_statement }}</label>
+                  <label><span ng-show="game_status == 'Come Out Roll' && (line_bet == dont_pass_line_bet) && line_bet == 0">You Need a Line Bet</span></label>
+                  <label><span ng-show="game_status == 'Come Out Roll' && (line_bet == dont_pass_line_bet) && line_bet != 0">Pick A Side</span></label>
+                  <label><span ng-show="game_status == 'Come Out Roll' && (line_bet > dont_pass_line_bet)">7 or 11 to Win</span></label>
+                  <label><span ng-show="game_status == 'Come Out Roll' && (line_bet < dont_pass_line_bet)">2 or 3 to Win</span></label>
                 </div>
               </div>
               <div class="col-xs-12 col-ms-4 col-sm-4 col-md-4 col-lg-4">
