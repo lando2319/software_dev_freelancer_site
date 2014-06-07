@@ -115,8 +115,8 @@ fieldset[disabled] .btn-darkest.active {
 }
 
 .dice_size {
-  margin-top: -43px;
-  margin-bottom: -26px;
+  margin-top: -38px;
+  margin-bottom: -24px;
   letter-spacing: -12px;
   text-align: center;
   font-size: 80px;
@@ -130,8 +130,6 @@ fieldset[disabled] .btn-darkest.active {
 .dice_fade {
   opacity: 1;
 }
-
-
 
 
 
@@ -155,6 +153,11 @@ fieldset[disabled] .btn-darkest.active {
   font-family: 'Roboto Condensed', sans-serif;
   line-height: 16px;
 }
+
+.dealer_calls_micro {
+  line-height: 12px;
+}
+
 
 .disclaimer_for_game {
   font-size: 10px;
