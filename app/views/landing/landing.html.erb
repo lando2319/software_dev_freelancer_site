@@ -35,11 +35,11 @@
                   </div>
                 </div>
                 <div class="row dealer_calls">
-                  <label><span>{{ game_status }}</span></label>
-                  <br>
-                  <label><span>Base Dealer Message Here</span></label>
-                  <br>
-                  <label><span>stats here</span></label>
+                  <ul>
+                    <li ng-repeat="game_call in game_calls">
+                      <span class="last_roll-{{game_call.last_roll}}">{{game_call.call_actual}}</span>
+                    </li>
+                  </ul>
                 </div>
               </div>
               <div class="col-xs-6 col-ms-4 col-sm-4 col-md-4 col-lg-4">

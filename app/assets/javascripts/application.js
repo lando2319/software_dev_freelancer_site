@@ -25,6 +25,7 @@
 var crapsGame = angular.module('crapsGame', ['ngAnimate']);
 
 crapsGame.controller('crapsGameplay', ['$scope', function($scope) {
+  $scope.game_calls = [{call_actual: "Need a Line Bet to Shoot", last_roll: true}]
   $scope.dealer_call = "Come Out Roll"
   $scope.die_one = 2
   $scope.die_two = 2
@@ -271,6 +272,7 @@ crapsGame.controller('crapsGameplay', ['$scope', function($scope) {
   
   // rolling the dice
   $scope.roll = function() {
+    NewGameCall($scope, "this is a shortcut")
     $scope.hide_dice = !$scope.hide_dice
     var current_roll_dice_2= new Array(1,2,3,4,5,6);
     var random_2 = current_roll_dice_2[Math.floor(Math.random() * current_roll_dice_2.length)];
@@ -363,3 +365,6 @@ crapsGame.directive("diceRollActual", function($animate) {
     }
 });
 
+function NewGameCall($scope, new_game_call_actual) {
+    $scope.game_calls.push({call_actual: new_game_call_actual, done:false});    
+}
