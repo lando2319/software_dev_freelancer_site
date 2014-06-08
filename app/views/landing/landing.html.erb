@@ -2,6 +2,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
   <body>
                   <%#= image_tag "craps_buzz.jpg" %>
+    <div ng-controller="newController">
+      {{ die_one_actual }}
+    </div>
     <form action="">
       <fieldset ng-controller="crapsGameplay">
         <div class="container">
