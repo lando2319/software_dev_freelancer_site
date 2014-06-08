@@ -26,22 +26,23 @@
 var crapsGame = angular.module('crapsGame', ['ngAnimate']);
 
 crapsGame.factory('diceRollingFactory', function() {
-    return { dieOne: 2 }
-//  $scope.dice_are_rolling = function() {
-//    var current_roll_dice_2= new Array(1,2,3,4,5,6);
-//    var random_2 = current_roll_dice_2[Math.floor(Math.random() * current_roll_dice_2.length)];
-//    $scope.die_one_actual = random_2;
-//    var current_roll_dice_1= new Array(1,2,3,4,5,6);
-//    var random_1 = current_roll_dice_1[Math.floor(Math.random() * current_roll_dice_1.length)];
-//    $scope.die_two_actual = random_1;
-//    // random_1 = 5;
-//    // random_2 = 2;
-//    var total_of_dice = random_1 + random_2;
-//    }
-})
+  return {
+      roll_dice: function() {
+        var current_roll_dice_2= new Array(1,2,3,4,5,6);
+        var random_2 = current_roll_dice_2[Math.floor(Math.random() * current_roll_dice_2.length)];
+        var current_roll_dice_1= new Array(1,2,3,4,5,6);
+        var random_1 = current_roll_dice_1[Math.floor(Math.random() * current_roll_dice_1.length)];
+
+      return random_1 
+      }
+  }  
+});
+
 
 crapsGame.controller('newController', ['$scope', 'diceRollingFactory', function($scope, diceRollingFactory) {
-     $scope.die_one_actual = diceRollingFactory.dieOne
+    $scope.dice_are_rolling = function() {
+      $scope.die_one_actual = diceRollingFactory.roll_dice();
+    }
 }]);
 
 crapsGame.controller('crapsGameplay', ['$scope', function($scope) {
