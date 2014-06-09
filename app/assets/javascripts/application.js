@@ -32,39 +32,46 @@ crapsGame.factory('diceRollingFactory', function() {
         var random_2 = current_roll_dice_2[Math.floor(Math.random() * current_roll_dice_2.length)];
         var current_roll_dice_1= new Array(1,2,3,4,5,6);
         var random_1 = current_roll_dice_1[Math.floor(Math.random() * current_roll_dice_1.length)];
-
-      return random_1 
+      return [random_1, random_2] 
       }
   }  
 });
 
+crapsGame.service('diceService', function() {
+  this.change_denomination = function(a) {
+    if (a == 1) {
+        return 5
+    } else if (a == 5) {
+        return 25
+    } else {
+        return 1
+    }
+  }
+
+});
 
 crapsGame.controller('newController', ['$scope', 'diceRollingFactory', function($scope, diceRollingFactory) {
     $scope.dice_are_rolling = function() {
-      $scope.die_one_actual = diceRollingFactory.roll_dice();
+      var this_var = diceRollingFactory.roll_dice();
+      $scope.die_one_actual = this_var[0]
+      $scope.die_two_actual = this_var[1]
     }
 }]);
 
-crapsGame.controller('crapsGameplay', ['$scope', function($scope) {
+crapsGame.controller('crapsGameplay', ['$scope', 'diceRollingFactory', 'diceService', function($scope, diceRollingFactory, diceService) {
   OpeningBetValues($scope)
 
-  $scope.increase_decrease_button = function() {
-    if ($scope.increase_decrease == "+") {
-        $scope.increase_decrease = "-"
-    } else {
-        $scope.increase_decrease = "+"
-    }
-  }
+  $scope.increase_decrease_button = function() { $scope.increase_decrease == "+" ? $scope.increase_decrease = "-" : $scope.increase_decrease = "+" }
   $scope.bet_denomination_button = function() {
-    console.log($scope.bet_denomination)
-    if ($scope.bet_denomination == 1 ) {
-        $scope.bet_denomination = 5
-    } else if ($scope.bet_denomination == 5 ) {
-        $scope.bet_denomination = 25
-    } else {
-        $scope.bet_denomination = 1
-    }
+    $scope.bet_denomination = diceService.change_denomination($scope.bet_denomination)
   }
+
+
+
+
+
+
+
   $scope.place_bet_on_4_button = function() {
     $scope.increase_decrease == "-" ? $scope.place_bet_on_the_4 -= $scope.bet_denomination : $scope.place_bet_on_the_4 += $scope.bet_denomination
   }
