@@ -47,16 +47,7 @@ crapsGame.service('diceService', function() {
         return 1
     }
   }
-
 });
-
-crapsGame.controller('newController', ['$scope', 'diceRollingFactory', function($scope, diceRollingFactory) {
-    $scope.dice_are_rolling = function() {
-      var this_var = diceRollingFactory.roll_dice();
-      $scope.die_one_actual = this_var[0]
-      $scope.die_two_actual = this_var[1]
-    }
-}]);
 
 crapsGame.controller('crapsGameplay', ['$scope', 'diceRollingFactory', 'diceService', function($scope, diceRollingFactory, diceService) {
   OpeningBetValues($scope)
@@ -67,7 +58,7 @@ crapsGame.controller('crapsGameplay', ['$scope', 'diceRollingFactory', 'diceServ
   }
 
 
-
+  
 
 
 
