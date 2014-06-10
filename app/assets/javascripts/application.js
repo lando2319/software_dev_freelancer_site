@@ -82,6 +82,26 @@ crapsGame.controller('crapsGameplay', ['$scope', 'diceRollingFactory', 'diceServ
     $scope.increase_decrease == "-" ? $scope.place_bet_on_the_10 -= $scope.bet_denomination : $scope.place_bet_on_the_10 += $scope.bet_denomination
   }
 
+
+  $scope.come_bet_odds_on_4_button = function() {
+    $scope.increase_decrease == "-" ? $scope.come_bet_odds_on_4 -= $scope.bet_denomination : $scope.come_bet_odds_on_4 += $scope.bet_denomination
+  }
+  $scope.come_bet_odds_on_5_button = function() {
+    $scope.increase_decrease == "-" ? $scope.come_bet_odds_on_5 -= $scope.bet_denomination : $scope.come_bet_odds_on_5 += $scope.bet_denomination
+  }
+  $scope.come_bet_odds_on_6_button = function() {
+    $scope.increase_decrease == "-" ? $scope.come_bet_odds_on_6 -= $scope.bet_denomination : $scope.come_bet_odds_on_6 += $scope.bet_denomination
+  }
+  $scope.come_bet_odds_on_8_button = function() {
+    $scope.increase_decrease == "-" ? $scope.come_bet_odds_on_8 -= $scope.bet_denomination : $scope.come_bet_odds_on_8 += $scope.bet_denomination
+  }
+  $scope.come_bet_odds_on_9_button = function() {
+    $scope.increase_decrease == "-" ? $scope.come_bet_odds_on_9 -= $scope.bet_denomination : $scope.come_bet_odds_on_9 += $scope.bet_denomination
+  }
+  $scope.come_bet_odds_on_10_button = function() {
+    $scope.increase_decrease == "-" ? $scope.come_bet_odds_on_10 -= $scope.bet_denomination : $scope.come_bet_odds_on_10 += $scope.bet_denomination
+  }
+
   $scope.place_come_bet_button = function() {
     $scope.increase_decrease == "-" ? $scope.place_come_bet -= $scope.bet_denomination : $scope.place_come_bet += $scope.bet_denomination
   }
