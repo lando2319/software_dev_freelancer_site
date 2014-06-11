@@ -8,8 +8,8 @@ function FourAndTenTrueOdds($scope, total_of_dice) {
     }
     else {
         PlayerGameCalls($scope, $scope.odd_behind_the_line, "LOST", " Odds Behind The Line")
-        $scope.bank_roll_actual -= $scope.odds_behind_the_dont_pass_line
-        $scope.odds_behind_the_dont_pass_line = 0
+        $scope.bank_roll_actual -= $scope.odds_behind_the_line
+        $scope.odds_behind_the_line = 0
     }
     $scope.four = "4"
     $scope.ten = "10"
@@ -25,8 +25,8 @@ function FiveAndNineTrueOdds($scope, total_of_dice) {
     }
     else {
         PlayerGameCalls($scope, $scope.odd_behind_the_line, "LOST", " Odds Behind The Line")
-        $scope.bank_roll_actual -= $scope.odds_behind_the_dont_pass_line
-        $scope.odds_behind_the_dont_pass_line = 0
+        $scope.bank_roll_actual -= $scope.odds_behind_the_line
+        $scope.odds_behind_the_line = 0
     }
     $scope.five = "5"
     $scope.nine = "9"
@@ -42,8 +42,8 @@ function SixAndEightTrueOdds($scope, total_of_dice) {
     }
     else {
         PlayerGameCalls($scope, $scope.odd_behind_the_line, "LOST", " Odds Behind The Line")
-        $scope.bank_roll_actual -= $scope.odds_behind_the_dont_pass_line
-        $scope.odds_behind_the_dont_pass_line = 0
+        $scope.bank_roll_actual -= $scope.odds_behind_the_line
+        $scope.odds_behind_the_line = 0
     }
     $scope.eight = "8"
     $scope.six = "6"
