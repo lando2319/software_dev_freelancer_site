@@ -243,9 +243,13 @@ function SevenOut($scope, total_of_dice) {
 
       LineAway($scope, total_of_dice)
 
-      FourAndTenTrueOdds($scope, total_of_dice)
-      FiveAndNineTrueOdds($scope, total_of_dice)
-      SixAndEightTrueOdds($scope, total_of_dice)
+      if (total_of_dice == 4 || 10) {
+          FourAndTenTrueOdds($scope, total_of_dice)
+      } else if (total_of_dice == 5 || 9) {
+          FiveAndNineTrueOdds($scope, total_of_dice)
+      } else {
+          SixAndEightTrueOdds($scope, total_of_dice)
+      }
 
       if ($scope.odds_on_come_bets_are_off != true) {
         LoseFlatAndOddsOnComeBets($scope, total_of_dice)

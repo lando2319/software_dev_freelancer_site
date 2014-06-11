@@ -1,11 +1,14 @@
 function FourAndTenTrueOdds($scope, total_of_dice) {
     if (total_of_dice != 7) {
-        $scope.bank_roll_actual += ($scope.odds_behind_the_line * 3)
+        var starting_bet = $scope.odds_behind_the_line
+        var ending_bet = $scope.odds_behind_the_line * 2
+        $scope.bank_roll_actual += ending_bet + starting_bet
         $scope.odds_behind_the_line = 0
+        PlayerGameCalls($scope, $scope.odds_behind_the_line, "WON", " Odds Behind the Line (1 pays 2)", starting_bet, ending_bet)
     }
     else {
-        console.log("testing")
-        $scope.bank_roll_actual += ($scope.odds_behind_the_dont_pass_line * 1.5)
+        PlayerGameCalls($scope, $scope.odd_behind_the_line, "LOST", " Odds Behind The Line")
+        $scope.bank_roll_actual -= $scope.odds_behind_the_dont_pass_line
         $scope.odds_behind_the_dont_pass_line = 0
     }
     $scope.four = "4"
@@ -14,12 +17,16 @@ function FourAndTenTrueOdds($scope, total_of_dice) {
 
 function FiveAndNineTrueOdds($scope, total_of_dice) {
     if (total_of_dice != 7) {
-        $scope.bank_roll_actual += ($scope.odds_behind_the_line * 2.5)
+        var starting_bet = $scope.odds_behind_the_line
+        var ending_bet = $scope.odds_behind_the_line * 1.5
+        $scope.bank_roll_actual += ending_bet + starting_bet
         $scope.odds_behind_the_line = 0
+        PlayerGameCalls($scope, $scope.odds_behind_the_line, "WON", " Odds Behind the Line (2 pays 3)", starting_bet, ending_bet)
     }
     else {
-      $scope.bank_roll_actual += ($scope.odds_behind_the_dont_pass_line * (2 / 3))
-      $scope.odds_behind_the_dont_pass_line = 0
+        PlayerGameCalls($scope, $scope.odd_behind_the_line, "LOST", " Odds Behind The Line")
+        $scope.bank_roll_actual -= $scope.odds_behind_the_dont_pass_line
+        $scope.odds_behind_the_dont_pass_line = 0
     }
     $scope.five = "5"
     $scope.nine = "9"
@@ -27,12 +34,16 @@ function FiveAndNineTrueOdds($scope, total_of_dice) {
 
 function SixAndEightTrueOdds($scope, total_of_dice) {
     if (total_of_dice != 7) {
-      $scope.bank_roll_actual += ($scope.odds_behind_the_line * 2.2)
-      $scope.odds_behind_the_line = 0
+        var starting_bet = $scope.odds_behind_the_line
+        var ending_bet = $scope.odds_behind_the_line * 1.2
+        $scope.bank_roll_actual += ending_bet + starting_bet
+        $scope.odds_behind_the_line = 0
+        PlayerGameCalls($scope, $scope.odds_behind_the_line, "WON", " Odds Behind the Line (5 pays 6)", starting_bet, ending_bet)
     }
     else {
-      $scope.bank_roll_actual += ($scope.odds_behind_the_dont_pass_line * (5 / 6))
-      $scope.odds_behind_the_dont_pass_line = 0
+        PlayerGameCalls($scope, $scope.odd_behind_the_line, "LOST", " Odds Behind The Line")
+        $scope.bank_roll_actual -= $scope.odds_behind_the_dont_pass_line
+        $scope.odds_behind_the_dont_pass_line = 0
     }
     $scope.eight = "8"
     $scope.six = "6"
