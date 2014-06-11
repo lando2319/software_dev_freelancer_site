@@ -47,21 +47,19 @@ crapsGame.service('diceService', function() {
         return 1
     }
   }
+ 
 });
 
 crapsGame.controller('crapsGameplay', ['$scope', 'diceRollingFactory', 'diceService', function($scope, diceRollingFactory, diceService) {
+  $scope.game_calls = [{call_actual: "Need a Line Bet to Shoot", last_roll: true}]
   OpeningBetValues($scope)
+
+  $scope.game_calls = [{call_actual: "You Need A Line Bet", last_roll: true}]
 
   $scope.increase_decrease_button = function() { $scope.increase_decrease == "+" ? $scope.increase_decrease = "-" : $scope.increase_decrease = "+" }
   $scope.bet_denomination_button = function() {
     $scope.bet_denomination = diceService.change_denomination($scope.bet_denomination)
   }
-
-
-  
-
-
-
 
   $scope.place_bet_on_4_button = function() {
     $scope.increase_decrease == "-" ? $scope.place_bet_on_the_4 -= $scope.bet_denomination : $scope.place_bet_on_the_4 += $scope.bet_denomination
@@ -210,6 +208,7 @@ crapsGame.controller('crapsGameplay', ['$scope', 'diceRollingFactory', 'diceServ
   // rolling the dice
   // $scope.roll = Dice.roll()
   $scope.roll = function() {
+    $scope.game_calls = []
     $scope.hide_dice = !$scope.hide_dice
     var current_roll_dice_2= new Array(1,2,3,4,5,6);
     var random_2 = current_roll_dice_2[Math.floor(Math.random() * current_roll_dice_2.length)];
@@ -220,6 +219,8 @@ crapsGame.controller('crapsGameplay', ['$scope', 'diceRollingFactory', 'diceServ
     // random_1 = 5;
     // random_2 = 2;
     var total_of_dice = random_1 + random_2;
+
+    //NewGameCall($scope, "")
 
     EvaluateTheField($scope, total_of_dice)
     PropBets($scope, random_1, random_2)
@@ -301,4 +302,8 @@ crapsGame.directive("diceRollActual", function($animate) {
         })
     }
 });
+
+function NewGameCall($scope, new_game_call_actual) {
+    $scope.game_calls.push({call_actual: new_game_call_actual, done:false});    
+}
 

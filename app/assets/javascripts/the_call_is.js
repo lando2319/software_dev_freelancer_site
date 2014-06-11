@@ -93,3 +93,7 @@ function PointNumbers($scope, total_of_dice) {
     }
 }
 
+function GameCalls($scope, scope_actual, win_or_lose, named_bet) {
+      var field_bet_winning_var = "You " + win_or_lose + " " + scope_actual + " in the " + named_bet
+      $scope.game_calls = [{call_actual: field_bet_winning_var, last_roll: true}]
+}
