@@ -54,7 +54,7 @@ crapsGame.controller('crapsGameplay', ['$scope', 'diceRollingFactory', 'diceServ
   OpeningBetValues($scope)
 
   $scope.player_game_calls = [{call_actual: "You Need A Line Bet", player_rescue: true}]
-  $scope.player_game_calls = [{call_actual: "24 Pays 28 for your Place Bet on 8", player_rescue: true}]
+  $scope.player_game_calls = [{call_actual: "You Won 28 for your 24 place bet on Eight", player_rescue: true}]
 
   $scope.increase_decrease_button = function() { $scope.increase_decrease == "+" ? $scope.increase_decrease = "-" : $scope.increase_decrease = "+" }
   $scope.bet_denomination_button = function() {
