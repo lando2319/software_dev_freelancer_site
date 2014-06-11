@@ -39,19 +39,29 @@ function SixAndEightTrueOdds($scope, total_of_dice) {
 }
 
 function EvaluateTheField($scope, total_of_dice) {
-    if (total_of_dice == 2) {
-        $scope.bank_roll_actual += $scope.field_bet * 2
-    }
-    if (total_of_dice == 3 || total_of_dice == 4 || total_of_dice == 9 || total_of_dice == 10 || total_of_dice == 11) {
-        $scope.bank_roll_actual += $scope.field_bet
-        PlayerGameCalls($scope, $scope.field_bet, "won", "field bet")
-    }
-    if (total_of_dice == 12) {
-        $scope.bank_roll_actual += $scope.field_bet * 3
-    }
-    if (total_of_dice == 5 || total_of_dice == 6 || total_of_dice == 7 || total_of_dice == 8) {
-        $scope.bank_roll_actual -= $scope.field_bet
-        $scope.field_bet = 0
+    if ($scope.field_bet > 0) {
+        if (total_of_dice == 2) {
+            var starting_bet = $scope.field_bet
+            var ending_bet = $scope.field_bet * 2
+            $scope.bank_roll_actual += ending_bet
+            PlayerGameCalls($scope, $scope.field_bet, "WON", " Field Bet", starting_bet, ending_bet)
+        }
+        if (total_of_dice == 3 || total_of_dice == 4 || total_of_dice == 9 || total_of_dice == 10 || total_of_dice == 11) {
+            $scope.bank_roll_actual += $scope.field_bet
+            var starting_bet = $scope.field_bet
+            PlayerGameCalls($scope, $scope.field_bet, "WON", " Field Bet", starting_bet, starting_bet)
+        }
+        if (total_of_dice == 12) {
+            var starting_bet = $scope.field_bet
+            var ending_bet = $scope.field_bet * 3
+            $scope.bank_roll_actual += ending_bet
+            PlayerGameCalls($scope, $scope.field_bet, "WON", " Field Bet", starting_bet, ending_bet)
+        }
+        if (total_of_dice == 5 || total_of_dice == 6 || total_of_dice == 7 || total_of_dice == 8) {
+            $scope.bank_roll_actual -= $scope.field_bet
+            $scope.field_bet = 0
+            PlayerGameCalls($scope, $scope.field_bet, "LOST", " Field Bet")
+        }
     }
 }
 
