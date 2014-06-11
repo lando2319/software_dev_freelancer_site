@@ -45,7 +45,7 @@ function EvaluateTheField($scope, total_of_dice) {
     if (total_of_dice == 3 || total_of_dice == 4 || total_of_dice == 9 || total_of_dice == 10 || total_of_dice == 11) {
         $scope.bank_roll_actual += $scope.field_bet
           
-        GameCalls($scope, $scope.field_bet, "won", "field")
+        PlayerGameCalls($scope, $scope.field_bet, "won", "field")
     }
     if (total_of_dice == 12) {
         $scope.bank_roll_actual += $scope.field_bet * 3

@@ -51,10 +51,9 @@ crapsGame.service('diceService', function() {
 });
 
 crapsGame.controller('crapsGameplay', ['$scope', 'diceRollingFactory', 'diceService', function($scope, diceRollingFactory, diceService) {
-  $scope.game_calls = [{call_actual: "Need a Line Bet to Shoot", last_roll: true}]
   OpeningBetValues($scope)
 
-  $scope.game_calls = [{call_actual: "You Need A Line Bet", last_roll: true}]
+  $scope.player_game_calls = [{call_actual: "You Need A Line Bet", player_rescue: true}]
 
   $scope.increase_decrease_button = function() { $scope.increase_decrease == "+" ? $scope.increase_decrease = "-" : $scope.increase_decrease = "+" }
   $scope.bet_denomination_button = function() {
