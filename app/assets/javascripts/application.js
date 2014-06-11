@@ -54,6 +54,7 @@ crapsGame.controller('crapsGameplay', ['$scope', 'diceRollingFactory', 'diceServ
   OpeningBetValues($scope)
 
   $scope.player_game_calls = [{call_actual: "You Need A Line Bet", player_rescue: true}]
+  $scope.player_game_calls = [{call_actual: "24 Pays 28 for your Place Bet on 8", player_rescue: true}]
 
   $scope.increase_decrease_button = function() { $scope.increase_decrease == "+" ? $scope.increase_decrease = "-" : $scope.increase_decrease = "+" }
   $scope.bet_denomination_button = function() {
@@ -207,7 +208,7 @@ crapsGame.controller('crapsGameplay', ['$scope', 'diceRollingFactory', 'diceServ
   // rolling the dice
   // $scope.roll = Dice.roll()
   $scope.roll = function() {
-    $scope.game_calls = []
+    $scope.player_game_calls = []
     $scope.hide_dice = !$scope.hide_dice
     var current_roll_dice_2= new Array(1,2,3,4,5,6);
     var random_2 = current_roll_dice_2[Math.floor(Math.random() * current_roll_dice_2.length)];
