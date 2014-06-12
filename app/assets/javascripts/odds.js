@@ -3,11 +3,15 @@ function FourAndTenTrueOdds($scope, total_of_dice) {
         var starting_bet = $scope.odds_behind_the_line
         var ending_bet = $scope.odds_behind_the_line * 2
         $scope.bank_roll_actual += ending_bet + starting_bet
+        if ($scope.odds_behind_the_line > 0) {
+            PlayerGameCalls($scope, $scope.odds_behind_the_line, "WON", " Odds Behind the Line (1 pays 2)", starting_bet, ending_bet)
+        }
         $scope.odds_behind_the_line = 0
-        PlayerGameCalls($scope, $scope.odds_behind_the_line, "WON", " Odds Behind the Line (1 pays 2)", starting_bet, ending_bet)
     }
     else {
-        PlayerGameCalls($scope, $scope.odd_behind_the_line, "LOST", " Odds Behind The Line")
+        if ($scope.odds_behind_the_line > 0) {
+            PlayerGameCalls($scope, $scope.odd_behind_the_line, "LOST", " Odds Behind The Line")
+        }
         $scope.bank_roll_actual -= $scope.odds_behind_the_line
         $scope.odds_behind_the_line = 0
     }
@@ -20,11 +24,15 @@ function FiveAndNineTrueOdds($scope, total_of_dice) {
         var starting_bet = $scope.odds_behind_the_line
         var ending_bet = $scope.odds_behind_the_line * 1.5
         $scope.bank_roll_actual += ending_bet + starting_bet
+        if ($scope.odds_behind_the_line > 0) {
+            PlayerGameCalls($scope, $scope.odds_behind_the_line, "WON", " Odds Behind the Line (2 pays 3)", starting_bet, ending_bet)
+        } 
         $scope.odds_behind_the_line = 0
-        PlayerGameCalls($scope, $scope.odds_behind_the_line, "WON", " Odds Behind the Line (2 pays 3)", starting_bet, ending_bet)
     }
     else {
-        PlayerGameCalls($scope, $scope.odd_behind_the_line, "LOST", " Odds Behind The Line")
+        if ($scope.odds_behind_the_line > 0) {
+          PlayerGameCalls($scope, $scope.odd_behind_the_line, "LOST", " Odds Behind The Line")
+        }
         $scope.bank_roll_actual -= $scope.odds_behind_the_line
         $scope.odds_behind_the_line = 0
     }
@@ -37,11 +45,15 @@ function SixAndEightTrueOdds($scope, total_of_dice) {
         var starting_bet = $scope.odds_behind_the_line
         var ending_bet = $scope.odds_behind_the_line * 1.2
         $scope.bank_roll_actual += ending_bet + starting_bet
+        if ($scope.odds_behind_the_line > 0) {
+            PlayerGameCalls($scope, $scope.odds_behind_the_line, "WON", " Odds Behind the Line (5 pays 6)", starting_bet, ending_bet)
+        }
         $scope.odds_behind_the_line = 0
-        PlayerGameCalls($scope, $scope.odds_behind_the_line, "WON", " Odds Behind the Line (5 pays 6)", starting_bet, ending_bet)
     }
     else {
-        PlayerGameCalls($scope, $scope.odd_behind_the_line, "LOST", " Odds Behind The Line")
+        if ($scope.odds_behind_the_line > 0) {
+            PlayerGameCalls($scope, $scope.odd_behind_the_line, "LOST", " Odds Behind The Line")
+        }
         $scope.bank_roll_actual -= $scope.odds_behind_the_line
         $scope.odds_behind_the_line = 0
     }
