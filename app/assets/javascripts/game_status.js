@@ -14,7 +14,8 @@ function LineAway($scope, total_of_dice) {
     $scope.dealer_call = "Craps Line Away"
     $scope.the_call_is = total_of_dice
     if ($scope.line_bet > 0) {
-        PlayerGameCalls($scope, $scope.line_bet, "LOST", " Line Bet")
+        var current_game_message = ($scope.odds_behind_the_line > 0 ? " Line Bet and Odds" : " Line Bet")
+        PlayerGameCalls($scope, $scope.line_bet, "LOST", current_game_message)
         $scope.bank_roll_actual -= $scope.line_bet 
         $scope.line_bet = 0
     }
@@ -262,6 +263,7 @@ function PayTheLastCome($scope, total_of_dice) {
 
 function SevenOut($scope, total_of_dice) {
       $scope.the_call_is = total_of_dice
+      LineAway($scope, total_of_dice)
       if ($scope.place_come_bet > 0) {
           PlayerGameCalls($scope, $scope.place_come_bet, "WON", " Last Come Bet")
           $scope.bank_roll_actual += $scope.place_come_bet * 2
@@ -283,7 +285,6 @@ function SevenOut($scope, total_of_dice) {
       } 
 
 
-      LineAway($scope, total_of_dice)
 
       if ($scope.place_bets_are_off != true) {
           if ($scope.place_bet_on_the_4 > 0) {
