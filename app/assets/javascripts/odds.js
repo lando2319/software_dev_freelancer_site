@@ -82,9 +82,9 @@ function PropBets($scope, random_1, random_2) {
             var stay_up = $scope.prop_bet_aces
             var stay_up_payout = $scope.prop_bet_aces * 30
             $scope.bank_roll_actual += stay_up_payout
-            PlayerGameCalls($scope, $scope.prop_bet_aces, "WON", " Aces Bet", stay_up, stay_up_payout)
+            PlayerGameCalls($scope, $scope.prop_bet_aces, "WON", " Prop Bet on Aces Bet", stay_up, stay_up_payout)
         } else {
-            PlayerGameCalls($scope, $scope.prop_bet_aces, "LOST", " Aces Bet")
+            PlayerGameCalls($scope, $scope.prop_bet_aces, "LOST", " Prop Bet on Aces Bet")
             $scope.prop_bet_aces = 0
         }
     } 
@@ -93,9 +93,9 @@ function PropBets($scope, random_1, random_2) {
             var stay_up = $scope.prop_bet_twelve
             var stay_up_payout = $scope.prop_bet_twelve * 30
             $scope.bank_roll_actual += stay_up_payout
-            PlayerGameCalls($scope, $scope.prop_bet_aces, "WON", " Twelve Bet", stay_up, stay_up_payout)
+            PlayerGameCalls($scope, $scope.prop_bet_aces, "WON", " Prop Bet on Twelve Bet", stay_up, stay_up_payout)
         } else {
-            PlayerGameCalls($scope, $scope.prop_bet_twelve, "LOST", " Twelve Bet")
+            PlayerGameCalls($scope, $scope.prop_bet_twelve, "LOST", " Prop Bet on Twelve Bet")
             $scope.prop_bet_twelve = 0
         }
     } 

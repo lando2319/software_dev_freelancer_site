@@ -301,7 +301,3 @@ crapsGame.directive("diceRollActual", function($animate) {
     }
 });
 
-function NewGameCall($scope, new_game_call_actual) {
-    $scope.game_calls.push({call_actual: new_game_call_actual, done:false});    
-}
-
