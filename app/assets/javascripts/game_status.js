@@ -256,9 +256,8 @@ function PayTheLastCome($scope, total_of_dice) {
 
 function SevenOut($scope, total_of_dice) {
       $scope.the_call_is = total_of_dice
-      $scope.bank_roll_actual += $scope.place_come_bet * 2 
+      $scope.bank_roll_actual += $scope.place_come_bet * 2
       $scope.place_come_bet = 0
-      console.log($scope.point_is)
       if ($scope.point_is == 4 || $scope.point_is == 10) {
           FourAndTenTrueOdds($scope, total_of_dice)
       } else if ($scope.point_is == 5 || $scope.point_is == 9) {
@@ -353,35 +352,48 @@ function GiveBackTheOdds($scope, total_of_dice) {
 }
 
 function LoseFlatAndOddsOnComeBets($scope, total_of_dice) {
-      $scope.bank_roll_actual -= $scope.come_bet_odds_on_4 
-      $scope.bank_roll_actual -= $scope.come_bet_odds_on_5 
-      $scope.bank_roll_actual -= $scope.come_bet_odds_on_6 
-      $scope.bank_roll_actual -= $scope.come_bet_odds_on_8 
-      $scope.bank_roll_actual -= $scope.come_bet_odds_on_9 
-      $scope.bank_roll_actual -= $scope.come_bet_odds_on_10
-
-
-      $scope.bank_roll_actual -= $scope.come_bet_flat_on_4 
-      $scope.bank_roll_actual -= $scope.come_bet_flat_on_5 
-      $scope.bank_roll_actual -= $scope.come_bet_flat_on_6 
-      $scope.bank_roll_actual -= $scope.come_bet_flat_on_8 
-      $scope.bank_roll_actual -= $scope.come_bet_flat_on_9 
-      $scope.bank_roll_actual -= $scope.come_bet_flat_on_10
-
-      $scope.come_bet_flat_on_4 = 0        
-      $scope.come_bet_flat_on_5 = 0 
-      $scope.come_bet_flat_on_6 = 0 
-      $scope.come_bet_flat_on_8 = 0 
-      $scope.come_bet_flat_on_9 = 0 
-      $scope.come_bet_flat_on_10 = 0
-
-      $scope.come_bet_odds_on_4 = 0        
-      $scope.come_bet_odds_on_5 = 0 
-      $scope.come_bet_odds_on_6 = 0 
-      $scope.come_bet_odds_on_8 = 0 
-      $scope.come_bet_odds_on_9 = 0 
-      $scope.come_bet_odds_on_10 = 0
-
+    if ($scope.come_bet_flat_on_4 > 0) {
+        $scope.bank_roll_actual -= $scope.come_bet_flat_on_4 
+        $scope.bank_roll_actual -= $scope.come_bet_odds_on_4 
+        PlayerGameCalls($scope, $scope.come_bet_odds_on_4, "LOST", " You Lost Your Come Bet on Four")
+        $scope.come_bet_odds_on_4 = 0        
+        $scope.come_bet_flat_on_4 = 0        
+    }
+    if ($scope.come_bet_flat_on_5 > 0) {
+        $scope.bank_roll_actual -= $scope.come_bet_odds_on_5 
+        $scope.bank_roll_actual -= $scope.come_bet_flat_on_5 
+        PlayerGameCalls($scope, $scope.come_bet_odds_on_5, "LOST", " You Lost Your Come Bet on Five")
+        $scope.come_bet_flat_on_5 = 0 
+        $scope.come_bet_odds_on_5 = 0 
+    }
+    if ($scope.come_bet_flat_on_6 > 0) {
+        $scope.bank_roll_actual -= $scope.come_bet_odds_on_6 
+        $scope.bank_roll_actual -= $scope.come_bet_flat_on_6 
+        PlayerGameCalls($scope, $scope.come_bet_odds_on_6, "LOST", " You Lost Your Come Bet on Six")
+        $scope.come_bet_flat_on_6 = 0 
+        $scope.come_bet_odds_on_6 = 0 
+    }
+    if ($scope.come_bet_flat_on_8 > 0) {
+        $scope.bank_roll_actual -= $scope.come_bet_odds_on_8 
+        $scope.bank_roll_actual -= $scope.come_bet_flat_on_8 
+        PlayerGameCalls($scope, $scope.come_bet_odds_on_8, "LOST", " You Lost Your Come Bet on Eight")
+        $scope.come_bet_flat_on_8 = 0 
+        $scope.come_bet_odds_on_8 = 0 
+    }
+    if ($scope.come_bet_flat_on_9 > 0) {
+        $scope.bank_roll_actual -= $scope.come_bet_odds_on_9 
+        $scope.bank_roll_actual -= $scope.come_bet_flat_on_9 
+        PlayerGameCalls($scope, $scope.come_bet_odds_on_9, "LOST", " You Lost Your Come Bet on Nine")
+        $scope.come_bet_flat_on_9 = 0 
+        $scope.come_bet_odds_on_9 = 0
+    }
+    if ($scope.come_bet_flat_on_10 > 0) {
+        $scope.bank_roll_actual -= $scope.come_bet_odds_on_10
+        $scope.bank_roll_actual -= $scope.come_bet_flat_on_10
+        PlayerGameCalls($scope, $scope.come_bet_odds_on_10, "LOST", " You Lost Your Come Bet on Ten")
+        $scope.come_bet_flat_on_10 = 0
+        $scope.come_bet_odds_on_10 = 0 
+    }
 }
 
 
