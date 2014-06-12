@@ -278,19 +278,37 @@ function SevenOut($scope, total_of_dice) {
       LineAway($scope, total_of_dice)
 
       if ($scope.place_bets_are_off != true) {
-        $scope.bank_roll_actual -= $scope.place_bet_on_the_4 
-        $scope.bank_roll_actual -= $scope.place_bet_on_the_5 
-        $scope.bank_roll_actual -= $scope.place_bet_on_the_6 
-        $scope.bank_roll_actual -= $scope.place_bet_on_the_8 
-        $scope.bank_roll_actual -= $scope.place_bet_on_the_9 
-        $scope.bank_roll_actual -= $scope.place_bet_on_the_10
+          if ($scope.place_bet_on_the_4 > 0) {
+              $scope.bank_roll_actual -= $scope.place_bet_on_the_4 
+              PlayerGameCalls($scope, $scope.place_bet_on_the_4, "LOST", " Place Bet on the Four")
+              $scope.place_bet_on_the_4 = 0        
+          }
+          if ($scope.place_bet_on_the_5 > 0) {
+              $scope.bank_roll_actual -= $scope.place_bet_on_the_5 
+              PlayerGameCalls($scope, $scope.place_bet_on_the_5, "LOST", " Place Bet on the Five")
+              $scope.place_bet_on_the_5 = 0 
+          }
+          if ($scope.place_bet_on_the_6 > 0) {
+              $scope.bank_roll_actual -= $scope.place_bet_on_the_6 
+              PlayerGameCalls($scope, $scope.place_bet_on_the_6, "LOST", " Place Bet on the Six")
+              $scope.place_bet_on_the_6 = 0 
+          }
+          if ($scope.place_bet_on_the_8 > 0) {
+              $scope.bank_roll_actual -= $scope.place_bet_on_the_8 
+              PlayerGameCalls($scope, $scope.place_bet_on_the_8, "LOST", " Place Bet on the Eight")
+              $scope.place_bet_on_the_8 = 0 
+          }
+          if ($scope.place_bet_on_the_9 > 0) {
+              $scope.bank_roll_actual -= $scope.place_bet_on_the_9 
+              PlayerGameCalls($scope, $scope.place_bet_on_the_9, "LOST", " Place Bet on the Nine")
+              $scope.place_bet_on_the_9 = 0 
+          }
+          if ($scope.place_bet_on_the_10 > 0) {
+              $scope.bank_roll_actual -= $scope.place_bet_on_the_10
+              PlayerGameCalls($scope, $scope.place_bet_on_the_10, "LOST", " Place Bet on the Ten")
+              $scope.place_bet_on_the_10 = 0
+          }
 
-        $scope.place_bet_on_the_4 = 0        
-        $scope.place_bet_on_the_5 = 0 
-        $scope.place_bet_on_the_6 = 0 
-        $scope.place_bet_on_the_8 = 0 
-        $scope.place_bet_on_the_9 = 0 
-        $scope.place_bet_on_the_10 = 0
       }
       else if ($scope.place_bets_are_off == true) {
         $scope.place_bets_off_message = "Place Bets were off, will work once new point is established"
