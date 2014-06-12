@@ -262,9 +262,11 @@ function PayTheLastCome($scope, total_of_dice) {
 
 function SevenOut($scope, total_of_dice) {
       $scope.the_call_is = total_of_dice
-      PlayerGameCalls($scope, $scope.place_come_bet, "WON", " Last Come Bet")
-      $scope.bank_roll_actual += $scope.place_come_bet * 2
-      $scope.place_come_bet = 0
+      if ($scope.place_come_bet > 0) {
+          PlayerGameCalls($scope, $scope.place_come_bet, "WON", " Last Come Bet")
+          $scope.bank_roll_actual += $scope.place_come_bet * 2
+          $scope.place_come_bet = 0
+      }
       if ($scope.point_is == 4 || $scope.point_is == 10) {
           FourAndTenTrueOdds($scope, total_of_dice)
       } else if ($scope.point_is == 5 || $scope.point_is == 9) {
