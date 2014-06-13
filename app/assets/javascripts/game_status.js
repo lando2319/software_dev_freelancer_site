@@ -49,6 +49,7 @@ function FrontLineWinner($scope, total_of_dice)
 function LineAway($scope, total_of_dice) {
     $scope.dealer_call = "Craps Line Away"
     $scope.the_call_is = total_of_dice
+     console.log($scope.dont_pass_line_bet > 0 && $scope.odds_behind_the_dont_pass_line > 0)
     if ($scope.dont_pass_line_bet > 0 && $scope.odds_behind_the_dont_pass_line == 0) {
         var stay_up = $scope.dont_pass_line_bet
         var stay_up_payout = $scope.dont_pass_line_bet
@@ -57,24 +58,18 @@ function LineAway($scope, total_of_dice) {
     } 
     if ($scope.dont_pass_line_bet > 0 && $scope.odds_behind_the_dont_pass_line > 0) {
         var stay_up = $scope.odds_behind_the_dont_pass_line
-        if (total_of_dice == 4 || total_of_dice == 10) {
+        if ($scope.point_is == 4 || $scope.point_is == 10) {
             var stay_up_payout = $scope.odds_behind_the_dont_pass_line * .5
             var odds_game_message = " Lay on the Don't Pass (pays half), Even money for the Flat Bet"
-            $scope.four = "4"
-            $scope.ten = "10"
-        } else if (total_of_dice == 5 || total_of_dice == 9) {
+        } else if ($scope.point_is == 5 || $scope.point_is == 9) {
             var stay_up_payout = $scope.odds_behind_the_dont_pass_line * (2/3)
             var odds_game_message = " Lay on the Don't Pass (pays 2/3), Even money for the Flat Bet"
-            $scope.five = "5"
-            $scope.nine = "9"
-        } else if (total_of_dice == 6 || total_of_dice == 8) {
-            var stay_up_payout = $scope.odds_behind_the_dont_pass_line * (6/5)
+        } else if ($scope.point_is == 6 || $scope.point_is == 8) {
+            var stay_up_payout = $scope.odds_behind_the_dont_pass_line * (5/6)
             var odds_game_message = " Odds Behind the Line (6 pays 5), Even money for the Flat Bet"
-            $scope.eight = "8"
-            $scope.six = "6"
         }
         PlayerGameCalls($scope, $scope.odds_behind_the_dont_pass_line, "WON", odds_game_message, stay_up, stay_up_payout)
-        $scope.odds_behind_the_line = 0
+        $scope.odds_behind_the_dont_pass_line = 0
     }
 
     if ($scope.line_bet > 0) {
@@ -85,7 +80,12 @@ function LineAway($scope, total_of_dice) {
         $scope.line_bet = 0
         $scope.odds_behind_the_line = 0
     } 
-
+    $scope.eight = "8"
+    $scope.six = "6"
+    $scope.five = "5"
+    $scope.nine = "9"
+    $scope.four = "4"
+    $scope.ten = "10"
 }
 
 function SetsThePoint($scope, total_of_dice) {
@@ -328,7 +328,7 @@ function SevenOut($scope, total_of_dice) {
       LineAway($scope, total_of_dice)
       if ($scope.place_come_bet > 0) {
           PlayerGameCalls($scope, $scope.place_come_bet, "WON", " Last Come Bet")
-          $scope.bank_roll_actual += $scope.place_come_bet * 2
+          $scope.bank_roll_actual += $scope.place_come_bet 
           $scope.place_come_bet = 0
       }
       if ($scope.odds_on_come_bets_are_off != true) {
@@ -377,12 +377,6 @@ function SevenOut($scope, total_of_dice) {
         $scope.place_bets_off_message = "Place Bets were off, will work once new point is established"
       } 
       
-      $scope.four = "4"
-      $scope.five = "5"
-      $scope.six = "6"
-      $scope.eight = "8"
-      $scope.nine = "9"
-      $scope.ten = "10"
       $scope.point_is = ""
       $scope.game_status = "Come Out Roll"
       $scope.dealer_call = "Seven Out Line Away"

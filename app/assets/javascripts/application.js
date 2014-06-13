@@ -206,6 +206,7 @@ crapsGame.controller('crapsGameplay', ['$scope', 'diceRollingFactory', 'diceServ
   // rolling the dice
   // $scope.roll = Dice.roll()
   $scope.roll = function() {
+    console.log($scope.dont_pass_line_bet > 0 && $scope.odds_behind_the_dont_pass_line == 0)
     $scope.player_game_calls = []
     $scope.hide_dice = !$scope.hide_dice
     var current_roll_dice_2= new Array(1,2,3,4,5,6);
