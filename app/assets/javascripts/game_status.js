@@ -326,7 +326,9 @@ function SevenOut($scope, total_of_dice) {
       $scope.the_call_is = total_of_dice
       LineAway($scope, total_of_dice)
       if ($scope.place_come_bet > 0) {
-          PlayerGameCalls($scope, $scope.place_come_bet, "WON", " Last Come Bet")
+          var stay_up = $scope.place_come_bet
+          var stay_up_payout = $scope.place_come_bet
+          PlayerGameCalls($scope, $scope.place_come_bet, "WON", " Come Bet", stay_up, stay_up_payout)
           $scope.bank_roll_actual += $scope.place_come_bet 
           $scope.place_come_bet = 0
       }
