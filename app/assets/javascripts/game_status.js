@@ -15,13 +15,13 @@ function FrontLineWinner($scope, total_of_dice)
         var stay_up = $scope.odds_behind_the_line
         if (total_of_dice == 4 || total_of_dice == 10) {
             var stay_up_payout = $scope.odds_behind_the_line * 2
-            var odds_game_message = " Odds Behind the Line (pays double), Even money for the Flat Bet"
+            var odds_game_message = " Odds Behind the Line (pays double), Even money for the Line Bet"
         } else if (total_of_dice == 5 || total_of_dice == 9) {
             var stay_up_payout = $scope.odds_behind_the_line * 1.5
-            var odds_game_message = " Odds Behind the Line (2 pays 3), Even money for the Flat Bet"
+            var odds_game_message = " Odds Behind the Line (2 pays 3), Even money for the Line Bet"
         } else if (total_of_dice == 6 || total_of_dice == 8) {
             var stay_up_payout = $scope.odds_behind_the_line * 1.2
-            var odds_game_message = " Odds Behind the Line (5 pays 6), Even money for the Flat Bet"
+            var odds_game_message = " Odds Behind the Line (5 pays 6), Even money for the Line Bet"
         }
         PlayerGameCalls($scope, $scope.place_bet_on_the_4, "WON", odds_game_message, stay_up, stay_up_payout)
         $scope.bank_roll_actual += stay_up_payout
@@ -49,7 +49,6 @@ function FrontLineWinner($scope, total_of_dice)
 function LineAway($scope, total_of_dice) {
     $scope.dealer_call = "Craps Line Away"
     $scope.the_call_is = total_of_dice
-     console.log($scope.dont_pass_line_bet > 0 && $scope.odds_behind_the_dont_pass_line > 0)
     if ($scope.dont_pass_line_bet > 0 && $scope.odds_behind_the_dont_pass_line == 0) {
         var stay_up = $scope.dont_pass_line_bet
         var stay_up_payout = $scope.dont_pass_line_bet
@@ -60,13 +59,13 @@ function LineAway($scope, total_of_dice) {
         var stay_up = $scope.odds_behind_the_dont_pass_line
         if ($scope.point_is == 4 || $scope.point_is == 10) {
             var stay_up_payout = $scope.odds_behind_the_dont_pass_line * .5
-            var odds_game_message = " Lay on the Don't Pass (pays half), Even money for the Flat Bet"
+            var odds_game_message = " Lay on the Don't Pass (pays half), Even money for the Don't Pass Bet"
         } else if ($scope.point_is == 5 || $scope.point_is == 9) {
             var stay_up_payout = $scope.odds_behind_the_dont_pass_line * (2/3)
-            var odds_game_message = " Lay on the Don't Pass (pays 2/3), Even money for the Flat Bet"
+            var odds_game_message = " Lay on the Don't Pass (pays 2/3), Even money for the Don't Pass Bet"
         } else if ($scope.point_is == 6 || $scope.point_is == 8) {
             var stay_up_payout = $scope.odds_behind_the_dont_pass_line * (5/6)
-            var odds_game_message = " Odds Behind the Line (6 pays 5), Even money for the Flat Bet"
+            var odds_game_message = " Odds Behind the Line (6 pays 5), Even money for the Don't Pass Bet"
         }
         PlayerGameCalls($scope, $scope.odds_behind_the_dont_pass_line, "WON", odds_game_message, stay_up, stay_up_payout)
         $scope.odds_behind_the_dont_pass_line = 0
