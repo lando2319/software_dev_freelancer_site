@@ -79,7 +79,6 @@ function PointNumbers($scope, total_of_dice) {
     }
     else if ($scope.game_status == "Point is " && ($scope.point_is == total_of_dice)) {
         FrontLineWinner($scope, total_of_dice)
-        HitsThePoint($scope, total_of_dice)
         ComesGoToThe($scope, total_of_dice)
         $scope.point_is = ""
         $scope.game_status = "Come Out Roll"

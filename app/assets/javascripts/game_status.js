@@ -3,27 +3,89 @@
 
 function FrontLineWinner($scope, total_of_dice)
 {
-			$scope.dealer_call = "Front Line Winner"
-      $scope.the_call_is = total_of_dice
-      $scope.bank_roll_actual += $scope.line_bet
-      $scope.bank_roll_actual -= $scope.dont_pass_line_bet
-      $scope.dont_pass_line_bet = 0
+    $scope.dealer_call = "Front Line Winner"
+    $scope.the_call_is = total_of_dice
+    if ($scope.line_bet > 0 && $scope.odds_behind_the_line == 0) {
+        var stay_up = $scope.line_bet
+        var stay_up_payout = $scope.line_bet
+        $scope.bank_roll_actual += $scope.line_bet
+        PlayerGameCalls($scope, $scope.line_bet, "WON", " Pass Line Bet", stay_up, stay_up_payout)
+    } 
+    if ($scope.line_bet > 0 && $scope.odds_behind_the_line > 0) {
+        var stay_up = $scope.odds_behind_the_line
+        if (total_of_dice == 4 || total_of_dice == 10) {
+            var stay_up_payout = $scope.odds_behind_the_line * 2
+            var odds_game_message = " Odds Behind the Line (pays double), Even money for the Flat Bet"
+        } else if (total_of_dice == 5 || total_of_dice == 9) {
+            var stay_up_payout = $scope.odds_behind_the_line * 1.5
+            var odds_game_message = " Odds Behind the Line (2 pays 3), Even money for the Flat Bet"
+        } else if (total_of_dice == 6 || total_of_dice == 8) {
+            var stay_up_payout = $scope.odds_behind_the_line * 1.2
+            var odds_game_message = " Odds Behind the Line (5 pays 6), Even money for the Flat Bet"
+        }
+        PlayerGameCalls($scope, $scope.place_bet_on_the_4, "WON", odds_game_message, stay_up, stay_up_payout)
+        $scope.bank_roll_actual += stay_up_payout
+        $scope.bank_roll_actual += $scope.line_bet
+        $scope.odds_behind_the_line = 0
+    }
+
+    if ($scope.dont_pass_line_bet > 0) {
+        $scope.bank_roll_actual -= $scope.dont_pass_line_bet
+        $scope.bank_roll_actual -= $scope.odds_behind_the_dont_pass_line
+        var current_game_message = ($scope.odds_behind_the_dont_pass_line == 0 ? " Don't Pass Line Bet" : " Don't Pass Line Bet with Lay")
+        PlayerGameCalls($scope, $scope.dont_pass_line_bet, "LOST", current_game_message)
+        $scope.dont_pass_line_bet = 0
+        $scope.odds_behind_the_dont_pass_line = 0
+    } 
+
+    $scope.eight = "8"
+    $scope.six = "6"
+    $scope.five = "5"
+    $scope.nine = "9"
+    $scope.four = "4"
+    $scope.ten = "10"
 }
 
 function LineAway($scope, total_of_dice) {
     $scope.dealer_call = "Craps Line Away"
     $scope.the_call_is = total_of_dice
-    if ($scope.line_bet > 0) {
-        var current_game_message = ($scope.odds_behind_the_line > 0 ? " Line Bet and Odds" : " Line Bet")
-        PlayerGameCalls($scope, $scope.line_bet, "LOST", current_game_message)
-        $scope.bank_roll_actual -= $scope.line_bet 
-        $scope.line_bet = 0
-    }
-    if ($scope.dont_pass_line_bet > 0) {
-        PlayerGameCalls($scope, $scope.dont_pass_line_bet, "LOST", " Don't Pass Line Bet")
+    if ($scope.dont_pass_line_bet > 0 && $scope.odds_behind_the_dont_pass_line == 0) {
+        var stay_up = $scope.dont_pass_line_bet
+        var stay_up_payout = $scope.dont_pass_line_bet
         $scope.bank_roll_actual += $scope.dont_pass_line_bet
-        $scope.point_is = ""
+        PlayerGameCalls($scope, $scope.dont_pass_line_bet, "WON", " Don't Pass Line Bet", stay_up, stay_up_payout)
+    } 
+    if ($scope.dont_pass_line_bet > 0 && $scope.odds_behind_the_dont_pass_line > 0) {
+        var stay_up = $scope.odds_behind_the_dont_pass_line
+        if (total_of_dice == 4 || total_of_dice == 10) {
+            var stay_up_payout = $scope.odds_behind_the_dont_pass_line * .5
+            var odds_game_message = " Lay on the Don't Pass (pays half), Even money for the Flat Bet"
+            $scope.four = "4"
+            $scope.ten = "10"
+        } else if (total_of_dice == 5 || total_of_dice == 9) {
+            var stay_up_payout = $scope.odds_behind_the_dont_pass_line * (2/3)
+            var odds_game_message = " Lay on the Don't Pass (pays 2/3), Even money for the Flat Bet"
+            $scope.five = "5"
+            $scope.nine = "9"
+        } else if (total_of_dice == 6 || total_of_dice == 8) {
+            var stay_up_payout = $scope.odds_behind_the_dont_pass_line * (6/5)
+            var odds_game_message = " Odds Behind the Line (6 pays 5), Even money for the Flat Bet"
+            $scope.eight = "8"
+            $scope.six = "6"
+        }
+        PlayerGameCalls($scope, $scope.odds_behind_the_dont_pass_line, "WON", odds_game_message, stay_up, stay_up_payout)
+        $scope.odds_behind_the_line = 0
     }
+
+    if ($scope.line_bet > 0) {
+        $scope.bank_roll_actual -= $scope.line_bet
+        $scope.bank_roll_actual -= $scope.odds_behind_the_line
+        var current_game_message = ($scope.odds_behind_the_line == 0 ? " Pass Line Bet" : " Pass Line Bet with Odds")
+        PlayerGameCalls($scope, $scope.line_bet, "LOST", current_game_message)
+        $scope.line_bet = 0
+        $scope.odds_behind_the_line = 0
+    } 
+
 }
 
 function SetsThePoint($scope, total_of_dice) {
@@ -269,14 +331,6 @@ function SevenOut($scope, total_of_dice) {
           $scope.bank_roll_actual += $scope.place_come_bet * 2
           $scope.place_come_bet = 0
       }
-      if ($scope.point_is == 4 || $scope.point_is == 10) {
-          FourAndTenTrueOdds($scope, total_of_dice)
-      } else if ($scope.point_is == 5 || $scope.point_is == 9) {
-          FiveAndNineTrueOdds($scope, total_of_dice)
-      } else {
-          SixAndEightTrueOdds($scope, total_of_dice)
-      }
-
       if ($scope.odds_on_come_bets_are_off != true) {
         LoseFlatAndOddsOnComeBets($scope, total_of_dice)
       }
@@ -426,17 +480,3 @@ function LoseFlatAndOddsOnComeBets($scope, total_of_dice) {
         $scope.come_bet_odds_on_10 = 0 
     }
 }
-
-
-function HitsThePoint($scope, total_of_dice) {
-      if (total_of_dice == 4 || total_of_dice == 10) {
-          FourAndTenTrueOdds($scope, total_of_dice)
-      }
-      if (total_of_dice == 5 || total_of_dice == 9) {
-          FiveAndNineTrueOdds($scope, total_of_dice)
-      }
-      if (total_of_dice == 6 || total_of_dice == 8) {
-          SixAndEightTrueOdds($scope, total_of_dice)
-      }
-}
-
