@@ -70,10 +70,14 @@ crapsGame.controller('crapsGameplay', ['$scope', 'diceRollingFactory', 'diceServ
         }
   })
 
+  var gameButtonsMisc = ['place_come_bet']
 
-  $scope.place_come_bet_button = function() {
-    $scope.increase_decrease == "-" ? $scope.place_come_bet -= $scope.bet_denomination : $scope.place_come_bet += $scope.bet_denomination
-  }
+  angular.forEach(gameButtonsMisc, function(value) {
+      $scope[value + "_button"] = function() {
+          $scope.increase_decrease == "-" ? $scope[value] -= $scope.bet_denomination : $scope[value] += $scope.bet_denomination
+      }
+  })
+
   $scope.place_field_bet_button = function() {
     $scope.increase_decrease == "-" ? $scope.field_bet -= $scope.bet_denomination : $scope.field_bet += $scope.bet_denomination
   }
