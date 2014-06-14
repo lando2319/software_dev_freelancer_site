@@ -90,9 +90,6 @@ crapsGame.controller('crapsGameplay', ['$scope', 'diceRollingFactory', 'diceServ
   }
 
 
-  
-  // rolling the dice
-  // $scope.roll = Dice.roll()
   $scope.roll = function() {
     $scope.player_game_calls = []
     $scope.hide_dice = !$scope.hide_dice
@@ -106,45 +103,12 @@ crapsGame.controller('crapsGameplay', ['$scope', 'diceRollingFactory', 'diceServ
     // random_2 = 2;
     var total_of_dice = random_1 + random_2;
 
-    //NewGameCall($scope, "")
-
     EvaluateTheField($scope, total_of_dice)
     PropBets($scope, random_1, random_2)
 
-    if (total_of_dice == 2) {
-      TheCallIs2($scope, total_of_dice)
-    }
-    else if (total_of_dice == 3) {
-      TheCallIs3($scope, total_of_dice)
-    }
-    else if (total_of_dice == 4) {
-      TheCallIs4($scope, total_of_dice)
-    }
-    else if (total_of_dice == 5) {
-      TheCallIs5($scope, total_of_dice)
-    }
-    else if (total_of_dice == 6) {
-      TheCallIs6($scope, total_of_dice)
-    }
-    else if (total_of_dice == 7) {
-      TheCallIs7($scope, total_of_dice)
-    }
-    else if (total_of_dice == 8) {
-      TheCallIs8($scope, total_of_dice)
-    }
-    else if (total_of_dice == 9) {
-      TheCallIs9($scope, total_of_dice)
-    }
-    else if (total_of_dice == 10) {
-      TheCallIs10($scope, total_of_dice)
-    }
-    else if (total_of_dice == 11) {
-      TheCallIs11($scope, total_of_dice)
-    }
-    else if (total_of_dice == 12) {
-      TheCallIs12($scope, total_of_dice)
-    }
+    var possibleGameCalls = {2:TheCallIs2, 3:TheCallIs3, 4:TheCallIs4, 5:TheCallIs5, 6:TheCallIs6, 7:TheCallIs7, 8:TheCallIs8, 9:TheCallIs9, 10:TheCallIs10, 11:TheCallIs11, 12:TheCallIs12}
 
+    possibleGameCalls[total_of_dice]($scope, total_of_dice)
 
   };
 
@@ -175,6 +139,7 @@ crapsGame.controller('crapsGameplay', ['$scope', 'diceRollingFactory', 'diceServ
   }
 }]);
 
+// creates the dice fade effect
 crapsGame.directive("diceRollActual", function($animate) {
     return function(scope, element, attrs) {
         scope.$watch(attrs.diceRollActual, function(newVal) {
