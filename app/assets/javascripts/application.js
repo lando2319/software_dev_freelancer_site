@@ -59,33 +59,17 @@ crapsGame.controller('crapsGameplay', ['$scope', 'diceRollingFactory', 'diceServ
     $scope.bet_denomination = diceService.change_denomination($scope.bet_denomination)
   }
 
-  var scopeNumVars = ['4','5','6','8','9','10'];
+  var pointNumVars = ['4','5','6','8','9','10'];
 
-  angular.forEach(scopeNumVars, function(value) {
+  angular.forEach(pointNumVars, function(value) {
         $scope['place_bet_on_'+value+'_button'] = function() {
             $scope.increase_decrease == "-" ? $scope['place_bet_on_the_'+value] -= $scope.bet_denomination : $scope['place_bet_on_the_'+value] += $scope.bet_denomination
         }
+        $scope['come_bet_odds_on_'+value+'_button'] = function() {
+            $scope.increase_decrease == "-" ? $scope['come_bet_odds_on_'+value] -= $scope.bet_denomination : $scope['come_bet_odds_on_'+value] += $scope.bet_denomination
+        }
   })
 
-
-  $scope.come_bet_odds_on_4_button = function() {
-    $scope.increase_decrease == "-" ? $scope.come_bet_odds_on_4 -= $scope.bet_denomination : $scope.come_bet_odds_on_4 += $scope.bet_denomination
-  }
-  $scope.come_bet_odds_on_5_button = function() {
-    $scope.increase_decrease == "-" ? $scope.come_bet_odds_on_5 -= $scope.bet_denomination : $scope.come_bet_odds_on_5 += $scope.bet_denomination
-  }
-  $scope.come_bet_odds_on_6_button = function() {
-    $scope.increase_decrease == "-" ? $scope.come_bet_odds_on_6 -= $scope.bet_denomination : $scope.come_bet_odds_on_6 += $scope.bet_denomination
-  }
-  $scope.come_bet_odds_on_8_button = function() {
-    $scope.increase_decrease == "-" ? $scope.come_bet_odds_on_8 -= $scope.bet_denomination : $scope.come_bet_odds_on_8 += $scope.bet_denomination
-  }
-  $scope.come_bet_odds_on_9_button = function() {
-    $scope.increase_decrease == "-" ? $scope.come_bet_odds_on_9 -= $scope.bet_denomination : $scope.come_bet_odds_on_9 += $scope.bet_denomination
-  }
-  $scope.come_bet_odds_on_10_button = function() {
-    $scope.increase_decrease == "-" ? $scope.come_bet_odds_on_10 -= $scope.bet_denomination : $scope.come_bet_odds_on_10 += $scope.bet_denomination
-  }
 
   $scope.place_come_bet_button = function() {
     $scope.increase_decrease == "-" ? $scope.place_come_bet -= $scope.bet_denomination : $scope.place_come_bet += $scope.bet_denomination
