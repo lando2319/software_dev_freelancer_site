@@ -59,24 +59,13 @@ crapsGame.controller('crapsGameplay', ['$scope', 'diceRollingFactory', 'diceServ
     $scope.bet_denomination = diceService.change_denomination($scope.bet_denomination)
   }
 
-  $scope.place_bet_on_4_button = function() {
-    $scope.increase_decrease == "-" ? $scope.place_bet_on_the_4 -= $scope.bet_denomination : $scope.place_bet_on_the_4 += $scope.bet_denomination
-  }
-  $scope.place_bet_on_5_button = function() {
-    $scope.increase_decrease == "-" ? $scope.place_bet_on_the_5 -= $scope.bet_denomination : $scope.place_bet_on_the_5 += $scope.bet_denomination
-  }
-  $scope.place_bet_on_6_button = function() {
-    $scope.increase_decrease == "-" ? $scope.place_bet_on_the_6 -= $scope.bet_denomination : $scope.place_bet_on_the_6 += $scope.bet_denomination
-  }
-  $scope.place_bet_on_8_button = function() {
-    $scope.increase_decrease == "-" ? $scope.place_bet_on_the_8 -= $scope.bet_denomination : $scope.place_bet_on_the_8 += $scope.bet_denomination
-  }
-  $scope.place_bet_on_9_button = function() {
-    $scope.increase_decrease == "-" ? $scope.place_bet_on_the_9 -= $scope.bet_denomination : $scope.place_bet_on_the_9 += $scope.bet_denomination
-  }
-  $scope.place_bet_on_10_button = function() {
-    $scope.increase_decrease == "-" ? $scope.place_bet_on_the_10 -= $scope.bet_denomination : $scope.place_bet_on_the_10 += $scope.bet_denomination
-  }
+  var scopeNumVars = ['4','5','6','8','9','10'];
+
+  angular.forEach(scopeNumVars, function(value) {
+        $scope['place_bet_on_'+value+'_button'] = function() {
+            $scope.increase_decrease == "-" ? $scope['place_bet_on_the_'+value] -= $scope.bet_denomination : $scope['place_bet_on_the_'+value] += $scope.bet_denomination
+        }
+  })
 
 
   $scope.come_bet_odds_on_4_button = function() {

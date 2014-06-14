@@ -202,7 +202,7 @@ function ComesGoToThe($scope, total_of_dice) {
         if ($scope['come_bet_flat_on_'+scopeNum[total_of_dice]] != 0) {
             var stay_up = ($scope['come_bet_odds_on_'+scopeNum[total_of_dice]])
             var stay_up_payout= ($scope['come_bet_odds_on_'+scopeNum[total_of_dice]] * trueOdds[total_of_dice])
-            $scope.bank_roll_actual += stay_up_payout + stay_up
+            $scope.bank_roll_actual += (stay_up_payout + stay_up)
             var come_bet_message = " Odds on Come Bet, Even money for the Come Bet"
             PlayerGameCalls($scope, $scope.line_bet, "WON", come_bet_message, stay_up, stay_up_payout)
             $scope['come_bet_flat_on_'+scopeNum[total_of_dice]] = 0
