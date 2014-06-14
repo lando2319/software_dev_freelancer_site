@@ -18,7 +18,6 @@
 //= require angular
 //= require angular-animate
 
-//= require the_call_is
 //= require game_status
 //= require odds
 //= require opening_bet_values
@@ -79,25 +78,49 @@ crapsGame.controller('crapsGameplay', ['$scope', 'diceService', function($scope,
 
 
   $scope.roll = function() {
-    $scope.player_game_calls = []
-    $scope.hide_dice = !$scope.hide_dice
-    var current_roll_dice_2= new Array(1,2,3,4,5,6);
-    var random_2 = current_roll_dice_2[Math.floor(Math.random() * current_roll_dice_2.length)];
-    $scope.die_one = random_2;
-    var current_roll_dice_1= new Array(1,2,3,4,5,6);
-    var random_1 = current_roll_dice_1[Math.floor(Math.random() * current_roll_dice_1.length)];
-    $scope.die_two = random_1;
-    // random_1 = 5;
-    // random_2 = 2;
-    var total_of_dice = random_1 + random_2;
+      $scope.player_game_calls = []
+      $scope.hide_dice = !$scope.hide_dice
+      var current_roll_dice_2= new Array(1,2,3,4,5,6);
+      var random_2 = current_roll_dice_2[Math.floor(Math.random() * current_roll_dice_2.length)];
+      // random_2 = 2;
+      $scope.die_one = random_2;
+      var current_roll_dice_1= new Array(1,2,3,4,5,6);
+      var random_1 = current_roll_dice_1[Math.floor(Math.random() * current_roll_dice_1.length)];
+      // random_1 = 1;
+      $scope.die_two = random_1;
+      var total_of_dice = random_1 + random_2;
 
-    EvaluateTheField($scope, total_of_dice)
-    PropBets($scope, random_1, random_2)
+      EvaluateTheField($scope, total_of_dice)
+      PropBets($scope, random_1, random_2)
 
-    var possibleGameCalls = {2:TheCallIs2, 3:TheCallIs3, 4:TheCallIs4, 5:TheCallIs5, 6:TheCallIs6, 7:TheCallIs7, 8:TheCallIs8, 9:TheCallIs9, 10:TheCallIs10, 11:TheCallIs11, 12:TheCallIs12}
-
-    possibleGameCalls[total_of_dice]($scope, total_of_dice)
-
+      if (total_of_dice == 2 || total_of_dice == 3 || total_of_dice == 12) {
+          if ($scope.game_status == "Come Out Roll" ) {
+              LineAway($scope, total_of_dice)
+          }
+          else if ($scope.game_status == "Point is ") {
+              ComeAway($scope, total_of_dice)
+          }
+      }
+      if (total_of_dice == 4 || total_of_dice == 5 || total_of_dice == 6 || total_of_dice == 8 || total_of_dice == 9 || total_of_dice == 10 ) {
+          PointNumbers($scope, total_of_dice)
+      }
+      if (total_of_dice == 7) {
+          if ($scope.game_status == "Come Out Roll" ) {
+              FrontLineWinner($scope, total_of_dice)
+              GiveBackTheOdds($scope, total_of_dice)
+          }
+          else if ($scope.game_status == "Point is ") {
+              SevenOut($scope, total_of_dice)
+          }
+      }
+      if (total_of_dice == 11) {
+          if ($scope.game_status == "Come Out Roll" ) {
+              FrontLineWinner($scope, total_of_dice)
+          }
+          else if ($scope.game_status == "Point is ") {
+              PayTheLastCome($scope, total_of_dice)
+          }
+      }
   };
 
   // connecting each place to bet with bank_roll_actual
@@ -142,3 +165,41 @@ crapsGame.directive("diceRollActual", function($animate) {
     }
 });
 
+function PointNumbers($scope, total_of_dice) {
+    if ($scope.game_status == "Come Out Roll") {
+        SetsThePoint($scope, total_of_dice)
+        ComesGoToThe($scope, total_of_dice)
+        PayPlaceBets($scope, total_of_dice)
+        $scope.odds_on_come_bets_are_off = false
+        $scope.place_bets_are_off = false 
+    }
+    else if ($scope.game_status == "Point is " && ($scope.point_is == total_of_dice)) {
+        FrontLineWinner($scope, total_of_dice)
+        ComesGoToThe($scope, total_of_dice)
+        $scope.point_is = ""
+        $scope.game_status = "Come Out Roll"
+        $scope.place_bets_are_off = true 
+        $scope.odds_on_come_bets_are_off = true 
+    }
+    else if ($scope.game_status == "Point is " && ($scope.point_is != total_of_dice)) {
+        $scope.the_call_is = total_of_dice
+        ComesGoToThe($scope, total_of_dice)
+        PayPlaceBets($scope, total_of_dice)
+    }
+}
+
+function PlayerGameCalls($scope, scope_actual, win_or_lose, named_bet, starting_bet, ending_bet) {
+    if (win_or_lose == "WON") {
+        var bet_winning_var = "You " + win_or_lose + " " + ending_bet + " for your " + starting_bet + named_bet
+
+        $scope.player_game_calls.push({call_actual: bet_winning_var})
+
+    }
+    else {
+        var bet_losing_var = "You " + win_or_lose + " your " + named_bet
+
+        $scope.player_game_calls.push({call_actual: bet_losing_var, losing_bet: true})
+
+
+    }
+}
