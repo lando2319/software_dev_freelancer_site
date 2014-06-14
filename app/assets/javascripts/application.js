@@ -25,18 +25,6 @@
 
 var crapsGame = angular.module('crapsGame', ['ngAnimate']);
 
-crapsGame.factory('diceRollingFactory', function() {
-  return {
-      roll_dice: function() {
-        var current_roll_dice_2= new Array(1,2,3,4,5,6);
-        var random_2 = current_roll_dice_2[Math.floor(Math.random() * current_roll_dice_2.length)];
-        var current_roll_dice_1= new Array(1,2,3,4,5,6);
-        var random_1 = current_roll_dice_1[Math.floor(Math.random() * current_roll_dice_1.length)];
-      return [random_1, random_2] 
-      }
-  }  
-});
-
 crapsGame.service('diceService', function() {
   this.change_denomination = function(a) {
     if (a == 1) {
@@ -50,7 +38,7 @@ crapsGame.service('diceService', function() {
  
 });
 
-crapsGame.controller('crapsGameplay', ['$scope', 'diceRollingFactory', 'diceService', function($scope, diceRollingFactory, diceService) {
+crapsGame.controller('crapsGameplay', ['$scope', 'diceService', function($scope, diceService) {
   OpeningBetValues($scope)
   $scope.player_game_calls = [{call_actual: "You Need A Line Bet", player_rescue: true}]
 
