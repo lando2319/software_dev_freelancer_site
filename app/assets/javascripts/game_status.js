@@ -173,138 +173,47 @@ function PayPlaceBets($scope, total_of_dice) {
 
 
 function ComesGoToThe($scope, total_of_dice) {
-      if (total_of_dice == 4) {
-          $scope.bank_roll_actual -= $scope.dont_come_bet_flat_on_4
-          $scope.bank_roll_actual -= $scope.dont_come_bet_lay_on_4
-          $scope.dont_come_bet_flat_on_4 = 0
-          $scope.dont_come_bet_lay_on_4 = 0
-          $scope.dont_come_bet_flat_on_4 = $scope.place_dont_come_bet
-          $scope.place_dont_come_bet = 0
-          if ($scope.come_bet_flat_on_4 == $scope.place_come_bet && $scope.place_come_bet != 0) {
-              $scope.bank_roll_actual += ($scope.come_bet_odds_on_4 * 3)
-              $scope.bank_roll_actual += ($scope.come_bet_flat_on_4 * 2)
-              $scope.base_dealer_message = "Off and On"
-          }
-          else if ($scope.come_bet_flat_on_4 != $scope.place_come_bet) {
-              $scope.bank_roll_actual += ($scope.come_bet_odds_on_4 * 3)
-              $scope.bank_roll_actual += ($scope.come_bet_flat_on_4 * 2)
-              $scope.come_bet_odds_on_4 = 0
-              $scope.come_bet_flat_on_4 = 0
-              $scope.come_bet_flat_on_4 = $scope.place_come_bet 
-              $scope.place_come_bet = 0
-          }
+    var scopeNum = {4:'4', 5:'5', 6:'6', 8:'8', 9:'9', 10:'10'};
+    var writtenWord = {4:'Four', 5:'Five', 6:'Six', 8:'Eight', 9:'Nine', 10:'Ten'};
+    var trueOdds = {4:2, 5:1.5, 6:1.2, 8:1.2, 9:1.5, 10:2};
 
-      }
-      if (total_of_dice == 5) {
-          $scope.bank_roll_actual -= $scope.dont_come_bet_flat_on_5
-          $scope.bank_roll_actual -= $scope.dont_come_bet_lay_on_5
-          $scope.dont_come_bet_flat_on_5 = 0
-          $scope.dont_come_bet_lay_on_5 = 0
-          $scope.dont_come_bet_flat_on_5 = $scope.place_dont_come_bet
-          $scope.place_dont_come_bet = 0
-          if ($scope.come_bet_flat_on_5 == $scope.place_come_bet && $scope.place_come_bet != 0) {
-              $scope.bank_roll_actual += ($scope.come_bet_odds_on_5 * 2.5)
-              $scope.bank_roll_actual += ($scope.come_bet_flat_on_5 * 2)
-              $scope.base_dealer_message = "Off and On"
-          }
-          else if ($scope.come_bet_flat_on_5 != $scope.place_come_bet) {
-              $scope.bank_roll_actual += ($scope.come_bet_odds_on_5 * 2.5)
-              $scope.bank_roll_actual += ($scope.come_bet_flat_on_5 * 2)
-              $scope.come_bet_odds_on_5 = 0
-              $scope.come_bet_flat_on_5 = 0
-              $scope.come_bet_flat_on_5 = $scope.place_come_bet 
-              $scope.place_come_bet = 0
-          }
+    if ($scope['dont_come_flat_on_'+scopeNum[total_of_dice]] > 0) {
+        $scope.bank_roll_actual -= $scope['dont_come_bet_flat_on_'+scopeNum[total_of_dice]]
+        $scope.bank_roll_actual -= $scope['dont_come_bet_lay_on_'+scopeNum[total_of_dice]]
+        var come_bet_message = ($scope['dont_come_bet_lay_on_'+scopeNum[total_of_dice]] > 0 ? " Don't Come Bet with Lay" : " Don't Come Bet")
+        PlayerGameCalls($scope, $scope.line_bet, "LOST", come_bet_message)
+        $scope['dont_come_bet_flat_on_'+scopeNum[total_of_dice]] = 0
+        $scope['dont_come_bet_lay_on_'+scopeNum[total_of_dice]] = 0
+    }
 
-      }
-      if (total_of_dice == 6) {
-          $scope.bank_roll_actual -= $scope.dont_come_bet_flat_on_6
-          $scope.bank_roll_actual -= $scope.dont_come_bet_lay_on_6
-          $scope.dont_come_bet_flat_on_6 = 0
-          $scope.dont_come_bet_lay_on_6 = 0
-          $scope.dont_come_bet_flat_on_6 = $scope.place_dont_come_bet
-          $scope.place_dont_come_bet = 0
-          if ($scope.come_bet_flat_on_6 == $scope.place_come_bet && $scope.place_come_bet != 0) {
-              $scope.bank_roll_actual += ($scope.come_bet_odds_on_6 * 2.2)
-              $scope.bank_roll_actual += ($scope.come_bet_flat_on_6 * 2)
-              $scope.base_dealer_message = "Off and On"
-          }
-          else if ($scope.come_bet_flat_on_6 != $scope.place_come_bet) {
-              $scope.bank_roll_actual += ($scope.come_bet_odds_on_6 * 1.2)
-              $scope.bank_roll_actual += ($scope.come_bet_flat_on_6 * 2)
-              $scope.come_bet_odds_on_6 = 0
-              $scope.come_bet_flat_on_6 = 0
-              $scope.come_bet_flat_on_6 = $scope.place_come_bet 
-              $scope.place_come_bet = 0
-          }
+    if ($scope.place_dont_come_bet > 0) {
+        $scope['dont_come_bet_flat_on_'+scopeNum[total_of_dice]] = $scope.place_dont_come_bet
+        $scope.place_dont_come_bet = 0
+        $scope.player_game_calls = [{call_actual: ("Don't Come Bet Traveled to the " + writtenWord[total_of_dice] + " click it to lay odds" ), player_rescue: true}]
+    }
 
-      }
-      if (total_of_dice == 8) {
-          $scope.bank_roll_actual -= $scope.dont_come_bet_flat_on_8
-          $scope.bank_roll_actual -= $scope.dont_come_bet_lay_on_8
-          $scope.dont_come_bet_flat_on_8 = 0
-          $scope.dont_come_bet_lay_on_8 = 0
-          $scope.dont_come_bet_flat_on_8 = $scope.place_dont_come_bet
-          $scope.place_dont_come_bet = 0
-          if ($scope.come_bet_flat_on_8 == $scope.place_come_bet && $scope.place_come_bet != 0) {
-              $scope.bank_roll_actual += ($scope.come_bet_odds_on_8 * 1.2)
-              $scope.bank_roll_actual += ($scope.come_bet_flat_on_8 * 2)
-              $scope.base_dealer_message = "Off and On"
-          }
-          else if ($scope.come_bet_flat_on_8 != $scope.place_come_bet) {
-              $scope.bank_roll_actual += ($scope.come_bet_odds_on_8 * 1.2)
-              $scope.bank_roll_actual += ($scope.come_bet_flat_on_8 * 2)
-              $scope.come_bet_odds_on_8 = 0
-              $scope.come_bet_flat_on_8 = 0
-              $scope.come_bet_flat_on_8 = $scope.place_come_bet 
-              $scope.place_come_bet = 0
-          }
-
-      }
-      if (total_of_dice == 9) {
-          $scope.bank_roll_actual -= $scope.dont_come_bet_flat_on_9
-          $scope.bank_roll_actual -= $scope.dont_come_bet_lay_on_9
-          $scope.dont_come_bet_flat_on_9 = 0
-          $scope.dont_come_bet_lay_on_9 = 0
-          $scope.dont_come_bet_flat_on_9 = $scope.place_dont_come_bet
-          $scope.place_dont_come_bet = 0
-          if ($scope.come_bet_flat_on_9 == $scope.place_come_bet && $scope.place_come_bet != 0) {
-              $scope.bank_roll_actual += ($scope.come_bet_odds_on_9 * 3)
-              $scope.bank_roll_actual += ($scope.come_bet_flat_on_9 * 2)
-              $scope.base_dealer_message = "Off and On"
-          }
-          else if ($scope.come_bet_flat_on_9 != $scope.place_come_bet) {
-              $scope.bank_roll_actual += ($scope.come_bet_odds_on_9 * 3)
-              $scope.bank_roll_actual += ($scope.come_bet_flat_on_9 * 2)
-              $scope.come_bet_odds_on_9 = 0
-              $scope.come_bet_flat_on_9 = 0
-              $scope.come_bet_flat_on_9 = $scope.place_come_bet 
-              $scope.place_come_bet = 0
-          }
-
-      }
-      if (total_of_dice == 10) {
-          $scope.bank_roll_actual -= $scope.dont_come_bet_flat_on_10
-          $scope.bank_roll_actual -= $scope.dont_come_bet_lay_on_10
-          $scope.dont_come_bet_flat_on_10 = 0
-          $scope.dont_come_bet_lay_on_10 = 0
-          $scope.dont_come_bet_flat_on_10 = $scope.place_dont_come_bet
-          $scope.place_dont_come_bet = 0
-          if ($scope.come_bet_flat_on_10 == $scope.place_come_bet && $scope.place_come_bet != 0) {
-              $scope.bank_roll_actual += ($scope.come_bet_odds_on_10 * 3)
-              $scope.bank_roll_actual += ($scope.come_bet_flat_on_10 * 2)
-              $scope.base_dealer_message = "Off and On"
-          }
-          else if ($scope.come_bet_flat_on_10 != $scope.place_come_bet) {
-              $scope.bank_roll_actual += ($scope.come_bet_odds_on_10 * 3)
-              $scope.bank_roll_actual += ($scope.come_bet_flat_on_10 * 2)
-              $scope.come_bet_odds_on_10 = 0
-              $scope.come_bet_flat_on_10 = 0
-              $scope.come_bet_flat_on_10 = $scope.place_come_bet 
-              $scope.place_come_bet = 0
-          }
-
-      }
+    if ($scope['come_bet_flat_on_'+scopeNum[total_of_dice]] == $scope.place_come_bet && $scope.place_come_bet != 0) {
+        var stay_up = ($scope['come_bet_odds_on_'+scopeNum[total_of_dice]])
+        var stay_up_payout= ($scope['come_bet_odds_on_'+scopeNum[total_of_dice]] * trueOdds[total_of_dice])
+        $scope.bank_roll_actual += stay_up_payout + stay_up
+        var come_bet_message = " Odds on Come Bet (off and on), Even money for the Come Bet"
+        PlayerGameCalls($scope, $scope.line_bet, "WON", come_bet_message, stay_up, stay_up_payout)
+    } else if ($scope['come_bet_flat_on_'+scopeNum[total_of_dice]] != $scope.place_come_bet) {
+        if ($scope['come_bet_flat_on_'+scopeNum[total_of_dice]] != 0) {
+            var stay_up = ($scope['come_bet_odds_on_'+scopeNum[total_of_dice]])
+            var stay_up_payout= ($scope['come_bet_odds_on_'+scopeNum[total_of_dice]] * trueOdds[total_of_dice])
+            $scope.bank_roll_actual += stay_up_payout + stay_up
+            var come_bet_message = " Odds on Come Bet, Even money for the Come Bet"
+            PlayerGameCalls($scope, $scope.line_bet, "WON", come_bet_message, stay_up, stay_up_payout)
+            $scope['come_bet_flat_on_'+scopeNum[total_of_dice]] = 0
+            $scope['come_bet_odds_on_'+scopeNum[total_of_dice]] = 0
+        }
+        if ($scope.place_come_bet != 0) {
+            $scope['come_bet_flat_on_'+scopeNum[total_of_dice]] = $scope.place_come_bet
+            $scope.place_come_bet = 0
+            $scope.player_game_calls = [{call_actual: ("Come Bet Traveled to the " + writtenWord[total_of_dice] + " click it to place odds" ), player_rescue: true}]
+        }
+    }
 }
 
 function ComeAway($scope, total_of_dice) {
