@@ -172,10 +172,17 @@ function ComesGoToThe($scope, total_of_dice) {
 }
 
 function ComeAway($scope, total_of_dice) {
-      $scope.bank_roll_actual -= $scope.place_come_bet 
-      $scope.bank_roll_actual += $scope.place_dont_come_bet 
-      $scope.place_come_bet = 0
-      $scope.the_call_is = total_of_dice
+    if ($scope.place_come_bet > 0) {
+        $scope.bank_roll_actual -= $scope.place_come_bet 
+        PlayerGameCalls($scope, $scope.place_come_bet, "LOST", " Come Bet")
+        $scope.place_come_bet = 0
+    }
+    if ($scope.place_dont_come_bet > 0) {
+        var stay_up = $scope.place_dont_come_bet
+        var stay_up_payout = $scope.place_dont_come_bet
+        $scope.bank_roll_actual += $scope.place_dont_come_bet 
+        PlayerGameCalls($scope, $scope.place_dont_come_bet, "WON", " Don't Come Bet", stay_up, stay_up_payout)
+    }
 }
 
 function PayTheLastCome($scope, total_of_dice) {
