@@ -93,41 +93,21 @@ function SetsThePoint($scope, total_of_dice) {
       $scope.point_is = total_of_dice
       $scope.the_call_is = total_of_dice
       $scope.place_bets_off_message = ""
-      if (total_of_dice == 4) {
-        $scope.come_bet_odds_on_4 = 0
-        $scope.bank_roll_actual += $scope.come_bet_flat_on_4
-        $scope.come_bet_flat_on_4 = 0
-        $scope.four = "ON"
-      }
-      if (total_of_dice == 5) {
-        $scope.come_bet_odds_on_5 = 0
-        $scope.bank_roll_actual += $scope.come_bet_flat_on_5
-        $scope.come_bet_flat_on_5 = 0
-        $scope.five = "ON"
-      }
-      if (total_of_dice == 6) {
-        $scope.come_bet_odds_on_6 = 0
-        $scope.bank_roll_actual += $scope.come_bet_flat_on_6
-        $scope.come_bet_flat_on_6 = 0
-        $scope.six = "ON"
-      }
-      if (total_of_dice == 8) {
-        $scope.come_bet_odds_on_8 = 0
-        $scope.bank_roll_actual += $scope.come_bet_flat_on_8
-        $scope.come_bet_flat_on_8 = 0
-        $scope.eight = "ON"
-      }
-      if (total_of_dice == 9) {
-        $scope.come_bet_odds_on_9 = 0
-        $scope.bank_roll_actual += $scope.come_bet_flat_on_9
-        $scope.come_bet_flat_on_9 = 0
-        $scope.nine = "ON"
-      }
-      if (total_of_dice == 10) {
-        $scope.come_bet_odds_on_10 = 0
-        $scope.bank_roll_actual += $scope.come_bet_flat_on_10 
-        $scope.come_bet_flat_on_10 = 0
-        $scope.ten = "ON"
+
+    var scopeNum = {4:'4', 5:'5', 6:'6', 8:'8', 9:'9', 10:'10'};
+    var writtenWordCap = {4:'Four', 5:'Five', 6:'Six', 8:'Eight', 9:'Nine', 10:'Ten'};
+    var writtenWord = {4:'four', 5:'five', 6:'six', 8:'eight', 9:'nine', 10:'ten'};
+
+      if (total_of_dice == scopeNum[total_of_dice]) {
+        $scope['come_bet_odds_on_'+scopeNum[total_of_dice]] = 0
+        $scope.bank_roll_actual += $scope['come_bet_odds_on_'+scopeNum[total_of_dice]]
+        $scope['come_bet_odds_on_'+scopeNum[total_of_dice]] = 0
+        $scope[writtenWord[total_of_dice]] = "ON"
+        var current_game_message = "You Now Have a Point Of " + writtenWordCap[total_of_dice] 
+        $scope.player_game_calls.push({call_actual: current_game_message, player_rescue: true})
+        var current_game_message = ($scope.line_bet > $scope.dont_pass_line_bet ? (writtenWordCap[total_of_dice] + " Rolls You Win, Seven Rolls you Lose") : (" Seven Rolls You Win, " + writtenWordCap[total_of_dice] + " Rolls you Lose"))
+        $scope.player_game_calls.push({call_actual: current_game_message, player_rescue: true})
+
       }
 }
 
