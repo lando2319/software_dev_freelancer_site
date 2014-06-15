@@ -113,7 +113,7 @@ function SetsThePoint($scope, total_of_dice) {
 
 function PayPlaceBets($scope, total_of_dice) {
     var scopeNum = {4:'4', 5:'5', 6:'6', 8:'8', 9:'9', 10:'10'};
-    var writtenWord = {4:'Four (5 pays 9)', 5:'Five (5 pays 7)', 6:'Six (6 pays 7)', 8:'Eight (6 pays 7)', 9:'Nine (5 pays 7)', 10:'Ten (5 pays 9'};
+    var writtenWord = {4:'Four (5 pays 9)', 5:'Five (5 pays 7)', 6:'Six (6 pays 7)', 8:'Eight (6 pays 7)', 9:'Nine (5 pays 7)', 10:'Ten (5 pays 9)'};
     var placeBetOdds = {4:1.8, 5:1.4, 6:1.16667, 8:1.16667, 9:1.4, 10:1.8};
 
     if (total_of_dice == scopeNum[total_of_dice] && $scope['place_bet_on_the_'+scopeNum[total_of_dice]] > 0) {
@@ -122,7 +122,6 @@ function PayPlaceBets($scope, total_of_dice) {
         var current_game_message = " Place Bet on the " + writtenWord[total_of_dice]
         PlayerGameCalls($scope, $scope.place_bet_on_the_4, "WON", current_game_message, stay_up, stay_up_payout)
         $scope.place_bets_are_off == false ? $scope.bank_roll_actual += stay_up_payout : $scope.place_bets_off_message = "Bets are off"
-        console.log(scopeNum[total_of_dice])
     }
 }
 
@@ -167,7 +166,7 @@ function ComesGoToThe($scope, total_of_dice) {
         if ($scope.place_come_bet != 0) {
             $scope['come_bet_flat_on_'+scopeNum[total_of_dice]] = $scope.place_come_bet
             $scope.place_come_bet = 0
-            $scope.player_game_calls = [{call_actual: ("Come Bet Traveled to the " + writtenWord[total_of_dice] + " click it to place odds" ), player_rescue: true}]
+            $scope.player_game_calls.push({call_actual: ("Come Bet Traveled to the " + writtenWord[total_of_dice] + " click it to place odds" ), player_rescue: true})
         }
     }
 }
@@ -204,43 +203,18 @@ function SevenOut($scope, total_of_dice) {
         GiveBackTheOdds($scope, total_of_dice)
       } 
 
-
-
       if ($scope.place_bets_are_off != true) {
-          if ($scope.place_bet_on_the_4 > 0) {
-              $scope.bank_roll_actual -= $scope.place_bet_on_the_4 
-              PlayerGameCalls($scope, $scope.place_bet_on_the_4, "LOST", " Place Bet on the Four")
-              $scope.place_bet_on_the_4 = 0        
-          }
-          if ($scope.place_bet_on_the_5 > 0) {
-              $scope.bank_roll_actual -= $scope.place_bet_on_the_5 
-              PlayerGameCalls($scope, $scope.place_bet_on_the_5, "LOST", " Place Bet on the Five")
-              $scope.place_bet_on_the_5 = 0 
-          }
-          if ($scope.place_bet_on_the_6 > 0) {
-              $scope.bank_roll_actual -= $scope.place_bet_on_the_6 
-              PlayerGameCalls($scope, $scope.place_bet_on_the_6, "LOST", " Place Bet on the Six")
-              $scope.place_bet_on_the_6 = 0 
-          }
-          if ($scope.place_bet_on_the_8 > 0) {
-              $scope.bank_roll_actual -= $scope.place_bet_on_the_8 
-              PlayerGameCalls($scope, $scope.place_bet_on_the_8, "LOST", " Place Bet on the Eight")
-              $scope.place_bet_on_the_8 = 0 
-          }
-          if ($scope.place_bet_on_the_9 > 0) {
-              $scope.bank_roll_actual -= $scope.place_bet_on_the_9 
-              PlayerGameCalls($scope, $scope.place_bet_on_the_9, "LOST", " Place Bet on the Nine")
-              $scope.place_bet_on_the_9 = 0 
-          }
-          if ($scope.place_bet_on_the_10 > 0) {
-              $scope.bank_roll_actual -= $scope.place_bet_on_the_10
-              PlayerGameCalls($scope, $scope.place_bet_on_the_10, "LOST", " Place Bet on the Ten")
-              $scope.place_bet_on_the_10 = 0
-          }
-
-      }
-      else if ($scope.place_bets_are_off == true) {
-        $scope.place_bets_off_message = "Place Bets were off, will work once new point is established"
+          var pointNumVars = {'4':' Four','5':' Five','6':' Six','8':' Eight','9':' Nine','10':' Ten'};
+          angular.forEach(pointNumVars, function(written_word, num_actual) {
+              console.log(num_actual)
+              if ($scope['place_bet_on_the_'+num_actual] > 0) {
+                  $scope.bank_roll_actual -= $scope['place_bet_on_the_'+num_actual] 
+                  PlayerGameCalls($scope, $scope['place_bet_on_the_'+num_actual], "LOST", " Place Bet on the "+written_word)
+                  $scope['place_bet_on_the_'+num_actual] = 0        
+              }
+          })
+      } else if ($scope.place_bets_are_off == true) {
+        $scope.player_game_calls.push({call_actual: "Place Bets were off, will work once next point is established", player_rescue: true})
       } 
       
       $scope.point_is = ""
