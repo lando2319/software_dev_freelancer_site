@@ -179,23 +179,23 @@ function ComeAway($scope, total_of_dice) {
 }
 
 function PayTheLastCome($scope, total_of_dice) {
-      $scope.bank_roll_actual += $scope.place_come_bet
-      $scope.the_call_is = total_of_dice
-      $scope.bank_roll_actual -= $scope.place_dont_come_bet 
-      $scope.place_dont_come_bet = 0
-      $scope.place_come_bet = 0
+    if ($scope.place_come_bet > 0) {
+        var stay_up = $scope.place_come_bet
+        var stay_up_payout = $scope.place_come_bet
+        PlayerGameCalls($scope, $scope.place_come_bet, "WON", " Come Bet", stay_up, stay_up_payout)
+        $scope.place_come_bet = 0
+    }
+    if ($scope.place_dont_come_bet > 0) {
+        $scope.bank_roll_actual -= $scope.place_dont_come_bet 
+        PlayerGameCalls($scope, $scope.place_dont_come_bet, "LOST", " Don't Come Bet")
+        $scope.place_dont_come_bet = 0
+    }
 }
 
 function SevenOut($scope, total_of_dice) {
       $scope.the_call_is = total_of_dice
       LineAway($scope, total_of_dice)
-      if ($scope.place_come_bet > 0) {
-          var stay_up = $scope.place_come_bet
-          var stay_up_payout = $scope.place_come_bet
-          PlayerGameCalls($scope, $scope.place_come_bet, "WON", " Come Bet", stay_up, stay_up_payout)
-          $scope.bank_roll_actual += $scope.place_come_bet 
-          $scope.place_come_bet = 0
-      }
+      PayTheLastCome($scope, total_of_dice)
       if ($scope.odds_on_come_bets_are_off != true) {
         LoseFlatAndOddsOnComeBets($scope, total_of_dice)
       }
