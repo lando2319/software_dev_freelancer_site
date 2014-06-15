@@ -206,7 +206,6 @@ function SevenOut($scope, total_of_dice) {
       if ($scope.place_bets_are_off != true) {
           var pointNumVars = {'4':' Four','5':' Five','6':' Six','8':' Eight','9':' Nine','10':' Ten'};
           angular.forEach(pointNumVars, function(written_word, num_actual) {
-              console.log(num_actual)
               if ($scope['place_bet_on_the_'+num_actual] > 0) {
                   $scope.bank_roll_actual -= $scope['place_bet_on_the_'+num_actual] 
                   PlayerGameCalls($scope, $scope['place_bet_on_the_'+num_actual], "LOST", " Place Bet on the "+written_word)
