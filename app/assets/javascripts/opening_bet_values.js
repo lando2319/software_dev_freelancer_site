@@ -77,11 +77,11 @@ function OpeningBetValues($scope)
   $scope.prop_bet_craps = 0
   $scope.prop_bet_red = 0
 
-  $scope.prop_bet_aces = 0
-  $scope.prop_bet_ace_deuce = 0
-  $scope.prop_bet_twelve = 0
+  $scope.prop_bet_on_1_1 = 0
+  $scope.prop_bet_on_2_1 = 0
+  $scope.prop_bet_on_6_6 = 0
 
-  $scope.prop_bet_yo = 0
+  $scope.prop_bet_on_6_5 = 0
 
   $scope.prop_bet_on_6_1 = 0
   $scope.prop_bet_on_5_2 = 0
