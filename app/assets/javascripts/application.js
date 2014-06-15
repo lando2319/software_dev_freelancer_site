@@ -184,6 +184,7 @@ crapsGame.directive("diceRollActual", function($animate) {
     }
 });
 
+// win/lose announcement
 function PlayerGameCalls($scope, scope_actual, win_or_lose, named_bet, starting_bet, ending_bet) {
     if (win_or_lose == "WON") {
         var bet_winning_var = "You " + win_or_lose + " " + ending_bet + " for your " + starting_bet + named_bet
