@@ -112,41 +112,17 @@ function SetsThePoint($scope, total_of_dice) {
 }
 
 function PayPlaceBets($scope, total_of_dice) {
-    if (total_of_dice == 4 && $scope.place_bet_on_the_4 > 0) {
-        var stay_up = $scope.place_bet_on_the_4
-        var stay_up_payout = $scope.place_bet_on_the_4 * 1.8
-        PlayerGameCalls($scope, $scope.place_bet_on_the_4, "WON", " Place Bet on the Four (5 pays 9)", stay_up, stay_up_payout)
+    var scopeNum = {4:'4', 5:'5', 6:'6', 8:'8', 9:'9', 10:'10'};
+    var writtenWord = {4:'Four (5 pays 9)', 5:'Five (5 pays 7)', 6:'Six (6 pays 7)', 8:'Eight (6 pays 7)', 9:'Nine (5 pays 7)', 10:'Ten (5 pays 9'};
+    var placeBetOdds = {4:1.8, 5:1.4, 6:1.16667, 8:1.16667, 9:1.4, 10:1.8};
+
+    if (total_of_dice == scopeNum[total_of_dice] && $scope['place_bet_on_the_'+scopeNum[total_of_dice]] > 0) {
+        var stay_up = $scope['place_bet_on_the_'+scopeNum[total_of_dice]]
+        var stay_up_payout = $scope['place_bet_on_the_'+scopeNum[total_of_dice]] * placeBetOdds[total_of_dice]
+        var current_game_message = " Place Bet on the " + writtenWord[total_of_dice]
+        PlayerGameCalls($scope, $scope.place_bet_on_the_4, "WON", current_game_message, stay_up, stay_up_payout)
         $scope.place_bets_are_off == false ? $scope.bank_roll_actual += stay_up_payout : $scope.place_bets_off_message = "Bets are off"
-    }
-    if (total_of_dice == 5 && $scope.place_bet_on_the_5 > 0) {
-        var stay_up = $scope.place_bet_on_the_5
-        var stay_up_payout = $scope.place_bet_on_the_5 * 1.4
-        PlayerGameCalls($scope, $scope.place_bet_on_the_5, "WON", " Place Bet on the Five (5 pays 7)", stay_up, stay_up_payout)
-        $scope.place_bets_are_off == false ? $scope.bank_roll_actual += stay_up_payout : $scope.place_bets_off_message = "Bets are off"
-    }
-    if (total_of_dice == 6 && $scope.place_bet_on_the_6 > 0) {
-        var stay_up = $scope.place_bet_on_the_6
-        var stay_up_payout = (($scope.place_bet_on_the_6 / 6) * 7)
-        PlayerGameCalls($scope, $scope.place_bet_on_the_5, "WON", " Place Bet on the Six (6 pays 8)", stay_up, stay_up_payout)
-        $scope.place_bets_are_off == false ? $scope.bank_roll_actual += stay_up_payout : $scope.place_bets_off_message = "Bets are off"
-    }
-    if (total_of_dice == 8 && $scope.place_bet_on_the_8 > 0) {
-        var stay_up = $scope.place_bet_on_the_8
-        var stay_up_payout = (($scope.place_bet_on_the_8 / 6) * 7)
-        PlayerGameCalls($scope, $scope.place_bet_on_the_8, "WON", " Place Bet on the Eight (6 pays 8)", stay_up, stay_up_payout)
-        $scope.place_bets_are_off == false ? $scope.bank_roll_actual += stay_up_payout : $scope.place_bets_off_message = "Bets are off"
-    }
-    if (total_of_dice == 9 && $scope.place_bet_on_the_9 > 0) {
-        var stay_up = $scope.place_bet_on_the_9
-        var stay_up_payout = $scope.place_bet_on_the_9 * 1.4
-        PlayerGameCalls($scope, $scope.place_bet_on_the_9, "WON", " Place Bet on the Nine (5 pays 7)", stay_up, stay_up_payout)
-        $scope.place_bets_are_off == false ? $scope.bank_roll_actual += stay_up_payout : $scope.place_bets_off_message = "Bets are off"
-    }
-    if (total_of_dice == 10 && $scope.place_bet_on_the_10 > 0) {
-        var stay_up = $scope.place_bet_on_the_10
-        var stay_up_payout = $scope.place_bet_on_the_10 * 1.8
-        PlayerGameCalls($scope, $scope.place_bet_on_the_10, "WON", " Place Bet on the Ten (5 pays 9)", stay_up, stay_up_payout)
-        $scope.place_bets_are_off == false ? $scope.bank_roll_actual += stay_up_payout : $scope.place_bets_off_message = "Bets are off"
+        console.log(scopeNum[total_of_dice])
     }
 }
 
