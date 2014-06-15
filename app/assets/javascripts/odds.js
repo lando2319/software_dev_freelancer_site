@@ -36,16 +36,20 @@ function PropBets($scope, random_1, random_2) {
         var prop_var_1 = pair_of_props_vars[0]
         var prop_var_2 = pair_of_props_vars[2]
       
-    //if ($scope[bet_actaul] > 0) {
+    if ($scope[bet_actual] > 0) {
          if ((prop_var_1 == random_1 && prop_var_2 == random_2) || (prop_var_1 == random_2 && prop_var_2 == random_1)) {
               var stay_up = $scope[bet_actual]
-              var stay_up_payout = $scope[bet_actual] * 30
+              var highside_payout = 30
+              var lowside_payout = 15
+              var stay_up_payout = $scope[bet_actual] * (random_1 == random_2 ? highside_payout : lowside_payout)
               $scope.bank_roll_actual += stay_up_payout
               PlayerGameCalls($scope, $scope[bet_actual], "WON", game_call_actual, stay_up, stay_up_payout)
          } else {
               PlayerGameCalls($scope, $scope[bet_actual], "LOST", game_call_actual)
+              $scope.bank_roll_actual -= $scope[bet_actual]
+              $scope[bet_actual] = 0
          }
-    //}
+    }
 })
 
     if ($scope.prop_bet_red > 0) {
