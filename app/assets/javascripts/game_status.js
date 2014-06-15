@@ -225,52 +225,38 @@ function SevenOut($scope, total_of_dice) {
 
 function GiveBackTheOdds($scope, total_of_dice) {
     $scope.odds_on_come_bets_message = "Odds were off, flat bet ALWAYS works"
-      // Lose the flat
-    if ($scope.come_bet_flat_on_4 > 0) {
-        $scope.bank_roll_actual -= $scope.come_bet_flat_on_4 
-        var odds_message = $scope.come_bet_odds_on_4 > 0 ? " Come Bet on Four, Odds Returned" : " Come Bet on Four"
-        PlayerGameCalls($scope, $scope.come_bet_flat_on_4, "LOST", odds_message)
-        $scope.come_bet_flat_on_4 = 0        
-        $scope.come_bet_odds_on_4 = 0        
-    }
-    if ($scope.come_bet_flat_on_5 > 0) {
-        $scope.bank_roll_actual -= $scope.come_bet_flat_on_5 
-        var odds_message = $scope.come_bet_odds_on_5 > 0 ? " Come Bet on Five, Odds Returned" : " Come Bet on Five"
-        PlayerGameCalls($scope, $scope.come_bet_flat_on_5, "LOST", odds_message)
-        $scope.come_bet_flat_on_5 = 0 
-        $scope.come_bet_odds_on_5 = 0 
-    }
-    if ($scope.come_bet_flat_on_6 > 0) {
-        $scope.bank_roll_actual -= $scope.come_bet_flat_on_6 
-        var odds_message = $scope.come_bet_odds_on_6 > 0 ? " Come Bet on Six, Odds Returned" : " Come Bet on Six"
-        PlayerGameCalls($scope, $scope.come_bet_flat_on_6, "LOST", odds_message)
-        $scope.come_bet_flat_on_6 = 0 
-        $scope.come_bet_odds_on_6 = 0 
-    }
-    if ($scope.come_bet_flat_on_8 > 0) {
-        $scope.bank_roll_actual -= $scope.come_bet_flat_on_8 
-        var odds_message = $scope.come_bet_odds_on_8 > 0 ? " Come Bet on Eight, Odds Returned" : " Come Bet on Eight"
-        PlayerGameCalls($scope, $scope.come_bet_flat_on_8, "LOST", odds_message)
-        $scope.come_bet_flat_on_8 = 0 
-        $scope.come_bet_odds_on_8 = 0 
-    }
-    if ($scope.come_bet_flat_on_9 > 0) {
-        $scope.bank_roll_actual -= $scope.come_bet_flat_on_9 
-        var odds_message = $scope.come_bet_odds_on_9 > 0 ? " Come Bet on Nine, Odds Returned" : " Come Bet on Nine"
-        PlayerGameCalls($scope, $scope.come_bet_flat_on_9, "LOST", odds_message)
-        $scope.come_bet_flat_on_9 = 0 
-        $scope.come_bet_odds_on_9 = 0 
-    }
-    if ($scope.come_bet_flat_on_10 > 0) {
-        $scope.bank_roll_actual -= $scope.come_bet_flat_on_10
-        var odds_message = $scope.come_bet_odds_on_10 > 0 ? " Come Bet on Ten, Odds Returned" : " Come Bet on Ten"
-        PlayerGameCalls($scope, $scope.come_bet_flat_on_10, "LOST", odds_message)
-        $scope.come_bet_flat_on_10 = 0
-        $scope.come_bet_odds_on_10 = 0
-    }
+
+    var pointNumVars = {'4':' Four','5':' Five','6':' Six','8':' Eight','9':' Nine','10':' Ten'};
+    angular.forEach(pointNumVars, function(written_word, num_actual) {
+        if ($scope['come_bet_flat_on_'+num_actual] > 0) {
+            $scope.bank_roll_actual -= $scope['come_bet_flat_on_'+num_actual] 
+            var odds_message = $scope['come_bet_odds_on_'+num_actual] > 0 ? (" Flat Bet on "+written_word+", Odds Are off on the come out roll") : " Flat Bet on Four"
+            PlayerGameCalls($scope, $scope['come_bet_flat_on_'+num_actual], "LOST", odds_message)
+            $scope['come_bet_flat_on_'+num_actual] = 0        
+            $scope['come_bet_odds_on_'+num_actual] = 0        
+        }
+    })
 }
 
 function LoseFlatAndOddsOnComeBets($scope, total_of_dice) {
+
+
+
+
+//    var pointNumVars = {'4':' Four','5':' Five','6':' Six','8':' Eight','9':' Nine','10':' Ten'};
+//    angular.forEach(pointNumVars, function(written_word, num_actual) {
+//        if ($scope['come_bet_flat_on_'+num_actual] > 0) {
+//            $scope.bank_roll_actual -= $scope['come_bet_flat_on_'+num_actual] 
+//            var odds_message = $scope['come_bet_odds_on_'+num_actual] > 0 ? (" Flat Bet on "+written_word+", Odds Are off on the come out roll") : " Flat Bet on Four"
+//            PlayerGameCalls($scope, $scope['come_bet_flat_on_'+num_actual], "LOST", odds_message)
+//            $scope['come_bet_flat_on_'+num_actual] = 0        
+//            $scope['come_bet_odds_on_'+num_actual] = 0        
+//        }
+//    })
+
+
+
+
     if ($scope.come_bet_flat_on_4 > 0) {
         $scope.bank_roll_actual -= $scope.come_bet_flat_on_4 
         $scope.bank_roll_actual -= $scope.come_bet_odds_on_4 
