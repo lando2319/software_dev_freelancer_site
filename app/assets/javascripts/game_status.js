@@ -223,6 +223,50 @@ function SevenOut($scope, total_of_dice) {
         $scope.player_game_calls.push({call_actual: "Place Bets were off, will work once next point is established", player_rescue: true})
       } 
       
+
+
+
+
+
+      var pointNumVars = {'4':'Four','5':'Five','6':'Six','8':'Eight','9':'Nine','10':'Ten'};
+
+      angular.forEach(pointNumVars, function(written_word, bet_actual) {
+          if ($scope['dont_come_bet_flat_on_'+bet_actual] > 0 && $scope['dont_come_bet_lay_on_'+bet_actual] == 0) {
+              var stay_up = $scope['dont_come_bet_flat_on_'+bet_actual]
+              var stay_up_payout = $scope['dont_come_bet_flat_on_'+bet_actual]
+              $scope.bank_roll_actual += $scope['dont_come_bet_flat_on_'+bet_actual]
+              PlayerGameCalls($scope, $scope['dont_come_bet_flat_on_'+bet_actual], "WON", " Don't Come Bet on the "+written_word, stay_up, stay_up_payout)
+          } 
+          if ($scope['dont_come_bet_flat_on_'+bet_actual] > 0 && $scope['dont_come_bet_lay_on_'+bet_actual] > 0) {
+              var stay_up = $scope['dont_come_bet_lay_on_'+bet_actual]
+              if ($scope.point_is == 4 || $scope.point_is == 10) {
+                  var stay_up_payout = $scope$scope['dont_come_bet_lay_on_'+bet_actual] * .5
+                  var odds_game_message = " Lay on the "+written_word+" (pays half), Even money for the Flat Bet"
+              } else if ($scope.point_is == 5 || $scope.point_is == 9) {
+                  var stay_up_payout = $scope['dont_come_bet_lay_on_'+bet_actual] * (2/3)
+                  var odds_game_message = " Lay on the "+written_word+" (pays 2/3), Even money for the Flat Bet"
+              } else if ($scope.point_is == 6 || $scope.point_is == 8) {
+                  var stay_up_payout = $scope['dont_come_bet_lay_on_'+bet_actual] * (5/6)
+                  var odds_game_message = " Lay on the "+written_word+" (6 pays 5), Even money for the Flat Bet"
+              }
+              PlayerGameCalls($scope, $scope['dont_come_bet_lay_on_'+bet_actual], "WON", odds_game_message, stay_up, stay_up_payout)
+          }
+          $scope['dont_come_bet_lay_on_'+bet_actual] = 0
+          $scope['dont_come_bet_flat_on_'+bet_actual] = 0
+      })
+
+
+
+
+
+
+
+
+
+
+
+
+    
       $scope.point_is = ""
       $scope.game_status = "Come Out Roll"
       $scope.dealer_call = "Seven Out Line Away"
