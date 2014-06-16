@@ -223,11 +223,6 @@ function SevenOut($scope, total_of_dice) {
         $scope.player_game_calls.push({call_actual: "Place Bets were off, will work once next point is established", player_rescue: true})
       } 
       
-
-
-
-
-
       var pointNumVars = {'4':'Four','5':'Five','6':'Six','8':'Eight','9':'Nine','10':'Ten'};
 
       angular.forEach(pointNumVars, function(written_word, bet_actual) {
@@ -255,18 +250,6 @@ function SevenOut($scope, total_of_dice) {
           $scope['dont_come_bet_flat_on_'+bet_actual] = 0
       })
 
-
-
-
-
-
-
-
-
-
-
-
-    
       $scope.point_is = ""
       $scope.game_status = "Come Out Roll"
       $scope.dealer_call = "Seven Out Line Away"
