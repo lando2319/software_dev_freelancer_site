@@ -4,24 +4,24 @@ function EvaluateTheField($scope, total_of_dice) {
             var starting_bet = $scope.field_bet
             var ending_bet = $scope.field_bet * 2
             $scope.bank_roll_actual += ending_bet
-            //PlayerGameCalls($scope, $scope.field_bet, "WON", " Field Bet (two pays double)", starting_bet, ending_bet)
+            PlayerGameCalls($scope, "WON", " Field Bet (two pays double)", "#field_bet_modal", starting_bet, ending_bet)
         }
         if (total_of_dice == 3 || total_of_dice == 4 || total_of_dice == 9 || total_of_dice == 10 || total_of_dice == 11) {
             var starting_bet = $scope.field_bet
             var ending_bet = $scope.field_bet
             $scope.bank_roll_actual += ending_bet
-            //PlayerGameCalls($scope, $scope.field_bet, "WON", " Field Bet", starting_bet, ending_bet)
+            PlayerGameCalls($scope, "WON", " Field Bet", "#field_bet_modal", starting_bet, ending_bet)
         }
         if (total_of_dice == 12) {
             var starting_bet = $scope.field_bet
             var ending_bet = $scope.field_bet * 3
             $scope.bank_roll_actual += ending_bet
-            //PlayerGameCalls($scope, $scope.field_bet, "WON", " Field Bet (twelve pays triple)", starting_bet, ending_bet)
+            PlayerGameCalls($scope, "WON", " Field Bet (twelve pays triple)", "#field_bet_modal", starting_bet, ending_bet)
         }
         if (total_of_dice == 5 || total_of_dice == 6 || total_of_dice == 7 || total_of_dice == 8) {
             $scope.bank_roll_actual -= $scope.field_bet
             $scope.field_bet = 0
-            //PlayerGameCalls($scope, $scope.field_bet, "LOST", " Field Bet")
+            PlayerGameCalls($scope, "LOST", " Field Bet", "#field_bet_modal")
         }
     }
 }
