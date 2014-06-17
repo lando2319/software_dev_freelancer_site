@@ -170,6 +170,12 @@ fieldset[disabled] .btn-darkest.active {
   border-color: #357ebd;
 }
 
+.game_helper_button {
+  max-height: 10px;
+  font-size: 14px;
+  line-height: 0;
+}
+
 .point_numbers {
   min-width: 50px;
 }

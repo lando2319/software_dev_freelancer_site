@@ -17,12 +17,13 @@
 //= require_tree .
 //= require angular
 //= require angular-animate
+//= require angular-sanitize
 
 //= require game_status
 //= require odds
 //= require opening_bet_values
 
-var crapsGame = angular.module('crapsGame', ['ngAnimate']);
+var crapsGame = angular.module('crapsGame', ['ngAnimate', 'ngSanitize']);
 
 crapsGame.service('diceService', function() {
   this.change_denomination = function(a) {
@@ -39,6 +40,7 @@ crapsGame.service('diceService', function() {
 
 crapsGame.controller('crapsGameplay', ['$scope', 'diceService', function($scope, diceService) {
   OpeningBetValues($scope)
+  $scope.game_helper_modal = '#crapsHelp'
   $scope.player_game_calls = [{call_actual: "You Need A Line Bet", player_rescue: true}]
 
   $scope.increase_decrease_button = function() { $scope.increase_decrease == "+" ? $scope.increase_decrease = "-" : $scope.increase_decrease = "+" }
