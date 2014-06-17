@@ -4,26 +4,27 @@ function EvaluateTheField($scope, total_of_dice) {
             var starting_bet = $scope.field_bet
             var ending_bet = $scope.field_bet * 2
             $scope.bank_roll_actual += ending_bet
-            PlayerGameCalls($scope, "WON", " Field Bet (two pays double)", "#field_bet_modal", starting_bet, ending_bet)
+            //PlayerGameCalls($scope, "WON", " Field Bet (two pays double)", "#field_bet_modal", starting_bet, ending_bet)
         }
         if (total_of_dice == 3 || total_of_dice == 4 || total_of_dice == 9 || total_of_dice == 10 || total_of_dice == 11) {
             var starting_bet = $scope.field_bet
             var ending_bet = $scope.field_bet
             $scope.bank_roll_actual += ending_bet
             var game_helper_modal_headline = "Field Bet"
-            var game_helper_modal_message = " Was in the field. The Field consists of 2-3-4-9-10-11-12. Pays Even Money for 3-4-9-10-11. Double for 2 and Triple for 12"
-            PlayerGameCalls($scope, "WON", " Field Bet", "#field_bet_modal", game_helper_modal_message, game_helper_modal_headline, starting_bet, ending_bet)
+            var game_helper_modal_win_lose = "The Field is a One Roll Bet. It wins on any of the following numbers 2,3,4,9,10,11,12. Field Pays Even Money (2 pays double and 12 pays triple)"
+            var game_helper_modal_message = "The Dice Rolled " + total_of_dice + ". This is a Winner in the field. Your bet of " + starting_bet + " Paid " + ending_bet
+            PlayerGameCalls($scope, "WON", " Field Bet", "#field_bet_modal", game_helper_modal_message, game_helper_modal_headline, game_helper_modal_win_lose, starting_bet, ending_bet)
         }
         if (total_of_dice == 12) {
             var starting_bet = $scope.field_bet
             var ending_bet = $scope.field_bet * 3
             $scope.bank_roll_actual += ending_bet
-            PlayerGameCalls($scope, "WON", " Field Bet (twelve pays triple)", "#field_bet_modal", starting_bet, ending_bet)
+            //PlayerGameCalls($scope, "WON", " Field Bet (twelve pays triple)", "#field_bet_modal", starting_bet, ending_bet)
         }
         if (total_of_dice == 5 || total_of_dice == 6 || total_of_dice == 7 || total_of_dice == 8) {
             $scope.bank_roll_actual -= $scope.field_bet
             $scope.field_bet = 0
-            PlayerGameCalls($scope, "LOST", " Field Bet", "#field_bet_modal")
+            //PlayerGameCalls($scope, "LOST", " Field Bet", "#field_bet_modal")
         }
     }
 }
