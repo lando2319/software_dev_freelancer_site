@@ -197,7 +197,7 @@ function PlayerGameCalls($scope, win_or_lose, game_helper_modal_id, game_helper_
     }
     else if (win_or_lose == "INFO") {
         var bet_info_var = "You Placed a " + game_helper_modal_headline
-        $scope.player_game_calls.push({call_actual: bet_info_var, game_helper_modal_id: game_helper_modal_id, game_helper_modal_message: game_helper_modal_message, game_helper_modal_headline: game_helper_modal_headline, game_helper_modal_win_lose: game_helper_modal_win_lose})
+        $scope.player_game_calls.push({call_actual: bet_info_var, game_helper_modal_id: game_helper_modal_id, game_helper_modal_message: bet_info_var, game_helper_modal_headline: game_helper_modal_headline, game_helper_modal_win_lose: game_helper_modal_win_lose})
     }
 }
 
