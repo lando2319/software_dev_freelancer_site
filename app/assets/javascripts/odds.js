@@ -4,24 +4,24 @@ function EvaluateTheField($scope, total_of_dice) {
             var starting_bet = $scope.field_bet
             var ending_bet = $scope.field_bet * 2
             $scope.bank_roll_actual += ending_bet
-            PlayerGameCalls($scope, $scope.field_bet, "WON", " Field Bet (two pays double)", starting_bet, ending_bet)
+            //PlayerGameCalls($scope, $scope.field_bet, "WON", " Field Bet (two pays double)", starting_bet, ending_bet)
         }
         if (total_of_dice == 3 || total_of_dice == 4 || total_of_dice == 9 || total_of_dice == 10 || total_of_dice == 11) {
             var starting_bet = $scope.field_bet
             var ending_bet = $scope.field_bet
             $scope.bank_roll_actual += ending_bet
-            PlayerGameCalls($scope, $scope.field_bet, "WON", " Field Bet", starting_bet, ending_bet)
+            //PlayerGameCalls($scope, $scope.field_bet, "WON", " Field Bet", starting_bet, ending_bet)
         }
         if (total_of_dice == 12) {
             var starting_bet = $scope.field_bet
             var ending_bet = $scope.field_bet * 3
             $scope.bank_roll_actual += ending_bet
-            PlayerGameCalls($scope, $scope.field_bet, "WON", " Field Bet (twelve pays triple)", starting_bet, ending_bet)
+            //PlayerGameCalls($scope, $scope.field_bet, "WON", " Field Bet (twelve pays triple)", starting_bet, ending_bet)
         }
         if (total_of_dice == 5 || total_of_dice == 6 || total_of_dice == 7 || total_of_dice == 8) {
             $scope.bank_roll_actual -= $scope.field_bet
             $scope.field_bet = 0
-            PlayerGameCalls($scope, $scope.field_bet, "LOST", " Field Bet")
+            //PlayerGameCalls($scope, $scope.field_bet, "LOST", " Field Bet")
         }
     }
 }
@@ -46,9 +46,9 @@ function PropBets($scope, random_1, random_2) {
                   var lowside_payout = 15
                   var stay_up_payout = $scope[bet_actual] * (random_1 == random_2 ? highside_payout : lowside_payout)
                   $scope.bank_roll_actual += stay_up_payout
-                  PlayerGameCalls($scope, $scope[bet_actual], "WON", game_call_actual, stay_up, stay_up_payout)
+                  //PlayerGameCalls($scope, $scope[bet_actual], "WON", game_call_actual, stay_up, stay_up_payout)
              } else {
-                  PlayerGameCalls($scope, $scope[bet_actual], "LOST", game_call_actual)
+                  //PlayerGameCalls($scope, $scope[bet_actual], "LOST", game_call_actual)
                   $scope.bank_roll_actual -= $scope[bet_actual]
                   $scope[bet_actual] = 0
              }
@@ -60,9 +60,9 @@ function PropBets($scope, random_1, random_2) {
             var stay_up = $scope.prop_bet_red
             var stay_up_payout = $scope.prop_bet_red * 4
             $scope.bank_roll_actual += stay_up_payout
-            PlayerGameCalls($scope, $scope.prop_bet_red, "WON", " Prop Bet on Red (any seven)", stay_up, stay_up_payout)
+            //PlayerGameCalls($scope, $scope.prop_bet_red, "WON", " Prop Bet on Red (any seven)", stay_up, stay_up_payout)
         } else {
-            PlayerGameCalls($scope, $scope.prop_bet_red, "LOST", " Prop Bet on Red (any seven")
+            //PlayerGameCalls($scope, $scope.prop_bet_red, "LOST", " Prop Bet on Red (any seven")
             $scope.prop_bet_red = 0
         }
     }
@@ -71,9 +71,9 @@ function PropBets($scope, random_1, random_2) {
             var stay_up = $scope.prop_bet_craps
             var stay_up_payout = $scope.prop_bet_craps * 7
             $scope.bank_roll_actual += stay_up_payout
-            PlayerGameCalls($scope, $scope.prop_bet_craps, "WON", " Prop Bet on Craps", stay_up, stay_up_payout)
+            //PlayerGameCalls($scope, $scope.prop_bet_craps, "WON", " Prop Bet on Craps", stay_up, stay_up_payout)
         } else {
-            PlayerGameCalls($scope, $scope.prop_bet_craps, "LOST", " Prop Bet on Craps")
+            //PlayerGameCalls($scope, $scope.prop_bet_craps, "LOST", " Prop Bet on Craps")
             $scope.prop_bet_craps = 0
         }
     }
