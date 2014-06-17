@@ -40,9 +40,6 @@ crapsGame.service('diceService', function() {
 
 crapsGame.controller('crapsGameplay', ['$scope', 'diceService', function($scope, diceService) {
   OpeningBetValues($scope)
-  $scope.game_helper_modal_id = '#comeOutRollHelp'
-  $scope.game_helper_modal = 'comeOutRollHelp'
-  $scope.player_game_calls = [{call_actual: "You Need A Line Bet", player_rescue: true}]
 
   $scope.increase_decrease_button = function() { $scope.increase_decrease == "+" ? $scope.increase_decrease = "-" : $scope.increase_decrease = "+" }
   $scope.bet_denomination_button = function() {

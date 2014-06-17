@@ -7,6 +7,11 @@ function OpeningBetValues($scope)
   $scope.increase_decrease = "+"
   $scope.bet_denomination = 5
   // sets game status
+  $scope.game_helper_modal_id = '#comeOutRollHelp'
+  $scope.game_helper_modal = 'comeOutRollHelp'
+  $scope.game_helper_modal_message = 'As the shooter, or the person who throws the dice, you will need a line bet, Click on "Don\'t Pass" or "Pass Line"'
+  $scope.player_game_calls = [{call_actual: "You Need A Line Bet", player_rescue: true}]
+
   $scope.headline_statement = "You Need a Line Bet"
   $scope.game_status = "Come Out Roll"
   $scope.place_bets_are_off = true
