@@ -181,7 +181,7 @@ function PlayerGameCalls($scope, scope_actual, win_or_lose, named_bet, starting_
     if (win_or_lose == "WON") {
         var bet_winning_var = "You " + win_or_lose + " " + ending_bet + " for your " + starting_bet + named_bet
 
-        $scope.player_game_calls.push({call_actual: bet_winning_var})
+        $scope.player_game_calls.push({call_actual: bet_winning_var, game_helper_modal: "fieldBetHelper", game_helper_modal_id: "#fieldBetHelper"})
 
     }
     else {
