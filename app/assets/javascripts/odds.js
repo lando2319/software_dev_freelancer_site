@@ -10,8 +10,9 @@ function EvaluateTheField($scope, total_of_dice) {
             var starting_bet = $scope.field_bet
             var ending_bet = $scope.field_bet
             $scope.bank_roll_actual += ending_bet
+            var game_helper_modal_headline = "Field Bet"
             var game_helper_modal_message = " Was in the field. The Field consists of 2-3-4-9-10-11-12. Pays Even Money for 3-4-9-10-11. Double for 2 and Triple for 12"
-            PlayerGameCalls($scope, "WON", " Field Bet", "#field_bet_modal", game_helper_modal_message, starting_bet, ending_bet)
+            PlayerGameCalls($scope, "WON", " Field Bet", "#field_bet_modal", game_helper_modal_message, game_helper_modal_headline, starting_bet, ending_bet)
         }
         if (total_of_dice == 12) {
             var starting_bet = $scope.field_bet
