@@ -66,11 +66,17 @@ crapsGame.controller('crapsGameplay', ['$scope', 'diceService', function($scope,
   angular.forEach(gameButtonsMisc, function(value) {
       $scope[value + "_button"] = function() {
           $scope.increase_decrease == "-" ? $scope[value] -= $scope.bet_denomination : $scope[value] += $scope.bet_denomination
+          if ($scope[value] > 0) {
+              var game_helper_modal_headline = "Field Bet"
+              var game_helper_modal_win_lose = "The Field is a One Roll Bet. It wins on any of the following numbers 2,3,4,9,10,11,12. Field Pays Even Money (2 pays double and 12 pays triple)"
+              var game_helper_modal_message = ""
+              var game_helper_modal_id = "#"+value+"_modal"
+              PlayerGameCalls($scope, "INFO", game_helper_modal_id, game_helper_modal_message, game_helper_modal_headline, game_helper_modal_win_lose)
+          }
       }
   })
 
   $scope.roll = function() {
-      $scope.player_game_calls = []
       $scope.hide_dice = !$scope.hide_dice
       var current_roll_dice_2= new Array(1,2,3,4,5,6);
       var random_2 = current_roll_dice_2[Math.floor(Math.random() * current_roll_dice_2.length)];
@@ -182,11 +188,16 @@ function PlayerGameCalls($scope, win_or_lose, game_helper_modal_id, game_helper_
         var bet_winning_var = "You " + win_or_lose + " " + ending_bet + " for your " + starting_bet + " " + game_helper_modal_headline
         $scope.player_game_calls.push({call_actual: bet_winning_var, game_helper_modal_id: game_helper_modal_id, game_helper_modal_message: game_helper_modal_message, game_helper_modal_headline: game_helper_modal_headline, game_helper_modal_win_lose: game_helper_modal_win_lose})
     }
-    else {
+    else if (win_or_lose == "LOST") {
         var bet_losing_var = "You " + win_or_lose + " your " + game_helper_modal_headline
 
         $scope.player_game_calls.push({call_actual: bet_losing_var, game_helper_modal_id: game_helper_modal_id, game_helper_modal_message: game_helper_modal_message, game_helper_modal_headline: game_helper_modal_headline, game_helper_modal_win_lose: game_helper_modal_win_lose, losing_bet: true})
 
 
     }
+    else if (win_or_lose == "INFO") {
+        var bet_info_var = "You Placed a " + game_helper_modal_headline
+        $scope.player_game_calls.push({call_actual: bet_info_var, game_helper_modal_id: game_helper_modal_id, game_helper_modal_message: game_helper_modal_message, game_helper_modal_headline: game_helper_modal_headline, game_helper_modal_win_lose: game_helper_modal_win_lose})
+    }
 }
+
