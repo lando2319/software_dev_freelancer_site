@@ -63,21 +63,13 @@ crapsGame.controller('crapsGameplay', ['$scope', 'diceService', function($scope,
       'prop_bet_craps', 'prop_bet_hard_6', 'prop_bet_hard_8', 'prop_bet_hard_4', 'prop_bet_hard_10', 'prop_bet_on_1_1', 'prop_bet_on_2_1', 
       'prop_bet_on_6_6', 'prop_bet_on_6_5','prop_bet_on_6_1', 'prop_bet_on_5_2', 'prop_bet_on_4_3', 'prop_bet_on_3_1', 'prop_bet_on_2_2', 'prop_bet_on_3_2', 
       'prop_bet_on_4_1', 'prop_bet_on_5_1', 'prop_bet_on_4_2', 'prop_bet_on_3_3', 'prop_bet_on_6_2', 'prop_bet_on_5_3', 'prop_bet_on_4_4', 'prop_bet_on_6_3', 
-      'prop_bet_on_5_4', 'prop_bet_on_6_4', 'prop_bet_on_5_5',]
+      'prop_bet_on_5_4', 'prop_bet_on_6_4', 'prop_bet_on_5_5','field_bet','place_dont_come_bet']
 
   angular.forEach(gameButtonsMisc, function(value) {
       $scope[value + "_button"] = function() {
           $scope.increase_decrease == "-" ? $scope[value] -= $scope.bet_denomination : $scope[value] += $scope.bet_denomination
       }
   })
-
-  $scope.place_field_bet_button = function() {
-    $scope.increase_decrease == "-" ? $scope.field_bet -= $scope.bet_denomination : $scope.field_bet += $scope.bet_denomination
-  }
-  $scope.place_dont_come_bet_button = function() {
-    $scope.increase_decrease == "-" ? $scope.place_dont_come_bet -= $scope.bet_denomination : $scope.place_dont_come_bet += $scope.bet_denomination
-  }
-
 
   $scope.roll = function() {
       $scope.player_game_calls = []
