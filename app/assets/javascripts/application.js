@@ -177,17 +177,15 @@ crapsGame.directive("diceRollActual", function($animate) {
 });
 
 // win/lose announcement
-function PlayerGameCalls($scope, win_or_lose, named_bet, game_helper_modal_id, game_helper_modal_message, game_helper_modal_headline, game_helper_modal_win_lose, starting_bet, ending_bet) {
+function PlayerGameCalls($scope, win_or_lose, game_helper_modal_id, game_helper_modal_message, game_helper_modal_headline, game_helper_modal_win_lose, starting_bet, ending_bet) {
     if (win_or_lose == "WON") {
-        var bet_winning_var = "You " + win_or_lose + " " + ending_bet + " for your " + starting_bet + named_bet
-
+        var bet_winning_var = "You " + win_or_lose + " " + ending_bet + " for your " + starting_bet + " " + game_helper_modal_headline
         $scope.player_game_calls.push({call_actual: bet_winning_var, game_helper_modal_id: game_helper_modal_id, game_helper_modal_message: game_helper_modal_message, game_helper_modal_headline: game_helper_modal_headline, game_helper_modal_win_lose: game_helper_modal_win_lose})
-
     }
     else {
-        var bet_losing_var = "You " + win_or_lose + " your " + named_bet
+        var bet_losing_var = "You " + win_or_lose + " your " + game_helper_modal_headline
 
-        $scope.player_game_calls.push({call_actual: bet_losing_var, losing_bet: true})
+        $scope.player_game_calls.push({call_actual: bet_losing_var, game_helper_modal_id: game_helper_modal_id, game_helper_modal_message: game_helper_modal_message, game_helper_modal_headline: game_helper_modal_headline, game_helper_modal_win_lose: game_helper_modal_win_lose, losing_bet: true})
 
 
     }
