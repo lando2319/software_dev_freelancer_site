@@ -66,17 +66,32 @@ crapsGame.controller('crapsGameplay', ['$scope', 'diceService', function($scope,
   angular.forEach(gameButtonsMisc, function(value) {
       $scope[value + "_button"] = function() {
           $scope.increase_decrease == "-" ? $scope[value] -= $scope.bet_denomination : $scope[value] += $scope.bet_denomination
-          if ($scope[value] > 0 && value.match("field_bet")) {
+          if ($scope[value] > 0 && value == "odds_behind_the_line") {
+              var game_helper_modal_headline = "Odds behind the Pass Line. Wins on: " + $scope.point_is + " loses on 7"
+              var game_helper_modal_win_lose = "Once a point has been established you have the option of adding Odds to your Line Bet, like the pass line bet, only two numbers will affect the Odds behind the line, Rolling the Point will win and Rolling a Seven will lose."
+              var game_helper_modal_id = "#"+value+"_modal"
+              var game_helper_modal_message = "You Placed " + game_helper_modal_headline
+              PlayerGameCalls($scope, "INFO", game_helper_modal_id, game_helper_modal_message, game_helper_modal_headline, game_helper_modal_win_lose)
+          }
+          if ($scope[value] > 0 && value == "line_bet") {
+              var game_helper_modal_headline = "Pass Line Bet"
+              var game_helper_modal_win_lose = "The Pass Line during the \"Come Out Roll\" will win on 7 and 11, and lose on 2,3, and 12. Any other number becomes the point. Once the point has been established, only two numbers will affect the Pass Line, Rolling the Point will win and Rolling a Seven will lose."
+              var game_helper_modal_id = "#"+value+"_modal"
+              var game_helper_modal_message = "You Placed a " + game_helper_modal_headline
+              PlayerGameCalls($scope, "INFO", game_helper_modal_id, game_helper_modal_message, game_helper_modal_headline, game_helper_modal_win_lose)
+          }
+          if ($scope[value] > 0 && value == "field_bet") {
               var game_helper_modal_headline = "Field Bet"
               var game_helper_modal_win_lose = "The Field is a One Roll Bet. It wins on any of the following numbers 2,3,4,9,10,11,12. Field Pays Even Money (2 pays double and 12 pays triple)"
-              var game_helper_modal_message = ""
               var game_helper_modal_id = "#"+value+"_modal"
+              var game_helper_modal_message = "You Placed a " + game_helper_modal_headline
               PlayerGameCalls($scope, "INFO", game_helper_modal_id, game_helper_modal_message, game_helper_modal_headline, game_helper_modal_win_lose)
           }
       }
   })
 
   $scope.roll = function() {
+      $scope.player_game_calls = []
       $scope.hide_dice = !$scope.hide_dice
       var current_roll_dice_2= new Array(1,2,3,4,5,6);
       var random_2 = current_roll_dice_2[Math.floor(Math.random() * current_roll_dice_2.length)];
@@ -196,8 +211,7 @@ function PlayerGameCalls($scope, win_or_lose, game_helper_modal_id, game_helper_
 
     }
     else if (win_or_lose == "INFO") {
-        var bet_info_var = "You Placed a " + game_helper_modal_headline
-        $scope.player_game_calls.push({call_actual: bet_info_var, game_helper_modal_id: game_helper_modal_id, game_helper_modal_message: bet_info_var, game_helper_modal_headline: game_helper_modal_headline, game_helper_modal_win_lose: game_helper_modal_win_lose})
+        $scope.player_game_calls.push({call_actual: game_helper_modal_message, game_helper_modal_id: game_helper_modal_id, game_helper_modal_message: game_helper_modal_message, game_helper_modal_headline: game_helper_modal_headline, game_helper_modal_win_lose: game_helper_modal_win_lose})
     }
 }
 
