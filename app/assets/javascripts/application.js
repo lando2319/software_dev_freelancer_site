@@ -66,7 +66,7 @@ crapsGame.controller('crapsGameplay', ['$scope', 'diceService', function($scope,
   angular.forEach(gameButtonsMisc, function(value) {
       $scope[value + "_button"] = function() {
           $scope.increase_decrease == "-" ? $scope[value] -= $scope.bet_denomination : $scope[value] += $scope.bet_denomination
-          if ($scope[value] > 0) {
+          if ($scope[value] > 0 && value.match("field_bet")) {
               var game_helper_modal_headline = "Field Bet"
               var game_helper_modal_win_lose = "The Field is a One Roll Bet. It wins on any of the following numbers 2,3,4,9,10,11,12. Field Pays Even Money (2 pays double and 12 pays triple)"
               var game_helper_modal_message = ""
