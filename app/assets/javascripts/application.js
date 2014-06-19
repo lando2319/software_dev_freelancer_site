@@ -101,10 +101,24 @@ crapsGame.controller('crapsGameplay', ['$scope', 'diceService', function($scope,
                   var game_helper_modal_win_lose = "Twelve is a One Roll Bet. The dice must come 6-6 in order to win. Pays 31 for 1"
               } else {
                   var highside_lowside = (hop_1 == hop_2 ? " 31 for 1" : " 16 for 1")
-                  var game_helper_modal_headline = "Prop Bet "+hop_1+"-"+hop_2+" Hopping"
+                  var game_helper_modal_headline = "Prop Bet on "+hop_1+"-"+hop_2+" Hopping"
                   var highside_lowside_wording = (hop_1 == hop_2 ? (hop_1+"-"+hop_2) : (hop_1+"-"+hop_2+" or "+hop_2+"-"+hop_1))
                   var game_helper_modal_win_lose = hop_1+"-"+hop_2+" Hopping is a One Roll Bet. The dice must come "+highside_lowside_wording+" in order to win. Pays "+highside_lowside
               }
+              var game_helper_modal_id = "#"+value+"_modal"
+              var game_helper_modal_message = "You Placed a " + game_helper_modal_headline+ " for " + $scope[value]
+              PlayerGameCalls($scope, "INFO", game_helper_modal_id, game_helper_modal_message, game_helper_modal_headline, game_helper_modal_win_lose)
+          }
+          if ($scope[value] > 0 && value == "prop_bet_red") {
+              var game_helper_modal_headline = "Prop Bet on Any Seven"
+              var game_helper_modal_win_lose = "Any Seven is a One Roll Bet. The dice must roll Seven in order to win. Pays 5 for 1"
+              var game_helper_modal_id = "#"+value+"_modal"
+              var game_helper_modal_message = "You Placed a " + game_helper_modal_headline+ " for " + $scope[value]
+              PlayerGameCalls($scope, "INFO", game_helper_modal_id, game_helper_modal_message, game_helper_modal_headline, game_helper_modal_win_lose)
+          }
+          if ($scope[value] > 0 && value == "prop_bet_craps") {
+              var game_helper_modal_headline = "Prop Bet on Any Craps"
+              var game_helper_modal_win_lose = "Any Craps is a One Roll Bet. The dice must roll Craps (2,3, or 12) in order to win. Pays 8 for 1"
               var game_helper_modal_id = "#"+value+"_modal"
               var game_helper_modal_message = "You Placed a " + game_helper_modal_headline+ " for " + $scope[value]
               PlayerGameCalls($scope, "INFO", game_helper_modal_id, game_helper_modal_message, game_helper_modal_headline, game_helper_modal_win_lose)
