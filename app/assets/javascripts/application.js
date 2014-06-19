@@ -93,6 +93,9 @@ crapsGame.controller('crapsGameplay', ['$scope', 'diceService', function($scope,
               if (hop_1 == 1 && hop_2 == 1) {
                   var game_helper_modal_headline = "Prop Bet on Aces"
                   var game_helper_modal_win_lose = "Aces is a One Roll Bet. The dice must come 1-1 in order to win. Pays 31 for 1"
+              } else if ((hop_1 == 5 && hop_2 == 6) || (hop_1 == 6 && hop_2 == 5)) {
+                  var game_helper_modal_headline = "Prop Bet on Yo"
+                  var game_helper_modal_win_lose = "Ace Deuce is a One Roll Bet. The dice must come 6-5 or 5-6 in order to win. Pays 16 for 1"
               } else if ((hop_1 == 1 && hop_2 == 2) || (hop_1 == 2 && hop_2 == 1)) {
                   var game_helper_modal_headline = "Prop Bet on Ace Deuce"
                   var game_helper_modal_win_lose = "Ace Deuce is a One Roll Bet. The dice must come 2-1 or 1-2 in order to win. Pays 16 for 1"
@@ -119,6 +122,24 @@ crapsGame.controller('crapsGameplay', ['$scope', 'diceService', function($scope,
           if ($scope[value] > 0 && value == "prop_bet_craps") {
               var game_helper_modal_headline = "Prop Bet on Any Craps"
               var game_helper_modal_win_lose = "Any Craps is a One Roll Bet. The dice must roll Craps (2,3, or 12) in order to win. Pays 8 for 1"
+              var game_helper_modal_id = "#"+value+"_modal"
+              var game_helper_modal_message = "You Placed a " + game_helper_modal_headline+ " for " + $scope[value]
+              PlayerGameCalls($scope, "INFO", game_helper_modal_id, game_helper_modal_message, game_helper_modal_headline, game_helper_modal_win_lose)
+          }
+          if ($scope[value] > 0 && value.match("prop_bet_hard_")) {
+              if (value == "prop_bet_hard_4") {
+                  var game_helper_modal_headline = "Prop Bet on Hard Four"
+                  var game_helper_modal_win_lose = "Hard Four is a bet that the dice will come \"Hard\" (2-2). WINS on 2-2, LOSES on 7 or easy Four (3-1). Pays 7 for 1."
+              } else if (value == "prop_bet_hard_6") {
+                  var game_helper_modal_headline = "Prop Bet on Hard Six"
+                  var game_helper_modal_win_lose = "Hard Six is a bet that the dice will come \"Hard\" (3-3). WINS on 3-3, LOSES on 7 or easy Six (4-2 or 5-1). Pays 9 for 1."
+              } else if (value == "prop_bet_hard_8") {
+                  var game_helper_modal_headline = "Prop Bet on Hard Eight"
+                  var game_helper_modal_win_lose = "Hard Eight is a bet that the dice will come \"Hard\" (4-4). WINS on 4-4, LOSES on 7 or easy Eight (6-2 or 5-3). Pays 9 for 1."
+              } else {
+                  var game_helper_modal_headline = "Prop Bet on Hard Ten"
+                  var game_helper_modal_win_lose = "Hard Ten is a bet that the dice will come \"Hard\" (5-5). WINS on 5-5, LOSES on 7 or easy Ten (6-4). Pays 7 for 1."
+              }
               var game_helper_modal_id = "#"+value+"_modal"
               var game_helper_modal_message = "You Placed a " + game_helper_modal_headline+ " for " + $scope[value]
               PlayerGameCalls($scope, "INFO", game_helper_modal_id, game_helper_modal_message, game_helper_modal_headline, game_helper_modal_win_lose)
