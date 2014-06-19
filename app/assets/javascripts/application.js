@@ -23,7 +23,7 @@
 //= require odds
 //= require opening_bet_values
 
-var crapsGame = angular.module('crapsGame', ['ngAnimate', 'ngSanitize']);
+var crapsGame = angular.module('crapsGame', ['ngAnimate']);
 
 crapsGame.service('diceService', function() {
   this.change_denomination = function(a) {
@@ -67,22 +67,31 @@ crapsGame.controller('crapsGameplay', ['$scope', 'diceService', function($scope,
       $scope[value + "_button"] = function() {
           $scope.increase_decrease == "-" ? $scope[value] -= $scope.bet_denomination : $scope[value] += $scope.bet_denomination
           if ($scope[value] > 0 && value == "odds_behind_the_line") {
-              var game_helper_modal_headline = "Odds behind the Pass Line. Wins on: " + $scope.point_is + " loses on 7"
-              var game_helper_modal_win_lose = "Once a point has been established you have the option of adding Odds to your Line Bet, like the pass line bet, only two numbers will affect the Odds behind the line, Rolling the Point will win and Rolling a Seven will lose."
+              var game_helper_modal_headline = "Odds behind the Pass Line"
+              var game_helper_modal_win_lose = "WINS ON "+$scope.point_is+". LOSES ON 7. Once a point has been established you have the option of adding Odds to your Line Bet, like the pass line bet, only two numbers will affect the Odds behind the line, Rolling the Point will win and Rolling a Seven will lose."
               var game_helper_modal_id = "#"+value+"_modal"
-              var game_helper_modal_message = "You Placed " + game_helper_modal_headline
+              var game_helper_modal_message = "You Placed " + game_helper_modal_headline+ " for " + $scope[value]
               PlayerGameCalls($scope, "INFO", game_helper_modal_id, game_helper_modal_message, game_helper_modal_headline, game_helper_modal_win_lose)
           }
           if ($scope[value] > 0 && value == "line_bet") {
               var game_helper_modal_headline = "Pass Line Bet"
               var game_helper_modal_win_lose = "The Pass Line during the \"Come Out Roll\" will win on 7 and 11, and lose on 2,3, and 12. Any other number becomes the point. Once the point has been established, only two numbers will affect the Pass Line, Rolling the Point will win and Rolling a Seven will lose."
               var game_helper_modal_id = "#"+value+"_modal"
-              var game_helper_modal_message = "You Placed a " + game_helper_modal_headline
+              var game_helper_modal_message = "You Placed a " + game_helper_modal_headline+ " for " + $scope[value]
               PlayerGameCalls($scope, "INFO", game_helper_modal_id, game_helper_modal_message, game_helper_modal_headline, game_helper_modal_win_lose)
           }
           if ($scope[value] > 0 && value == "field_bet") {
               var game_helper_modal_headline = "Field Bet"
               var game_helper_modal_win_lose = "The Field is a One Roll Bet. It wins on any of the following numbers 2,3,4,9,10,11,12. Field Pays Even Money (2 pays double and 12 pays triple)"
+              var game_helper_modal_id = "#"+value+"_modal"
+              var game_helper_modal_message = "You Placed a " + game_helper_modal_headline+ " for " + $scope[value]
+              PlayerGameCalls($scope, "INFO", game_helper_modal_id, game_helper_modal_message, game_helper_modal_headline, game_helper_modal_win_lose)
+          }
+          if ($scope[value] > 0 && value.match("prop_bet_on_")) {
+              var hop_1 = value.slice(-3).slice(0,1)
+              var hop_2 = value.slice(-3).slice(-1)
+              var game_helper_modal_headline = "Prop Bet "+hop_1+"-"+hop_2+" Hopping"
+              var game_helper_modal_win_lose = hop_1+"-"+hop_2+" Hopping is a One Roll Bet. The dice must come "+hop_1+"-"+hop_2+" in order to win. Pays "+(hop_1 == hop_2 ? " 31 for 1" : " 16 for 1")
               var game_helper_modal_id = "#"+value+"_modal"
               var game_helper_modal_message = "You Placed a " + game_helper_modal_headline+ " for " + $scope[value]
               PlayerGameCalls($scope, "INFO", game_helper_modal_id, game_helper_modal_message, game_helper_modal_headline, game_helper_modal_win_lose)
@@ -220,7 +229,7 @@ function PlayerGameCalls($scope, win_or_lose, game_helper_modal_id, game_helper_
         $scope.player_game_calls_alt = []
         $scope.player_game_calls_alt = $scope.player_game_calls
         $scope.player_game_calls = []
-        angular.forEach($scope.player_game_calls_alt, function(value) {
+        angular.forEach($scope.player_game_calls_alt.reverse(), function(value) {
            if (value.done_here != true) {
                 $scope.player_game_calls.push(value)
            }
