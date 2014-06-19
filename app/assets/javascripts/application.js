@@ -84,7 +84,7 @@ crapsGame.controller('crapsGameplay', ['$scope', 'diceService', function($scope,
               var game_helper_modal_headline = "Field Bet"
               var game_helper_modal_win_lose = "The Field is a One Roll Bet. It wins on any of the following numbers 2,3,4,9,10,11,12. Field Pays Even Money (2 pays double and 12 pays triple)"
               var game_helper_modal_id = "#"+value+"_modal"
-              var game_helper_modal_message = "You Placed a " + game_helper_modal_headline
+              var game_helper_modal_message = "You Placed a " + game_helper_modal_headline+ " for " + $scope[value]
               PlayerGameCalls($scope, "INFO", game_helper_modal_id, game_helper_modal_message, game_helper_modal_headline, game_helper_modal_win_lose)
           }
       }
@@ -211,7 +211,20 @@ function PlayerGameCalls($scope, win_or_lose, game_helper_modal_id, game_helper_
 
     }
     else if (win_or_lose == "INFO") {
+        angular.forEach($scope.player_game_calls, function(value) {
+            if (game_helper_modal_id == value.game_helper_modal_id) {
+                value.done_here = true
+            }
+        })
         $scope.player_game_calls.push({call_actual: game_helper_modal_message, game_helper_modal_id: game_helper_modal_id, game_helper_modal_message: game_helper_modal_message, game_helper_modal_headline: game_helper_modal_headline, game_helper_modal_win_lose: game_helper_modal_win_lose})
+        $scope.player_game_calls_alt = []
+        $scope.player_game_calls_alt = $scope.player_game_calls
+        $scope.player_game_calls = []
+        angular.forEach($scope.player_game_calls_alt, function(value) {
+           if (value.done_here != true) {
+                $scope.player_game_calls.push(value)
+           }
+        })
     }
 }
 
