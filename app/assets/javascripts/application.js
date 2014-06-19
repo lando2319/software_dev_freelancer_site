@@ -90,8 +90,21 @@ crapsGame.controller('crapsGameplay', ['$scope', 'diceService', function($scope,
           if ($scope[value] > 0 && value.match("prop_bet_on_")) {
               var hop_1 = value.slice(-3).slice(0,1)
               var hop_2 = value.slice(-3).slice(-1)
-              var game_helper_modal_headline = "Prop Bet "+hop_1+"-"+hop_2+" Hopping"
-              var game_helper_modal_win_lose = hop_1+"-"+hop_2+" Hopping is a One Roll Bet. The dice must come "+hop_1+"-"+hop_2+" in order to win. Pays "+(hop_1 == hop_2 ? " 31 for 1" : " 16 for 1")
+              if (hop_1 == 1 && hop_2 == 1) {
+                  var game_helper_modal_headline = "Prop Bet on Aces"
+                  var game_helper_modal_win_lose = "Aces is a One Roll Bet. The dice must come 1-1 in order to win. Pays 31 for 1"
+              } else if ((hop_1 == 1 && hop_2 == 2) || (hop_1 == 2 && hop_2 == 1)) {
+                  var game_helper_modal_headline = "Prop Bet on Ace Deuce"
+                  var game_helper_modal_win_lose = "Ace Deuce is a One Roll Bet. The dice must come 2-1 or 1-2 in order to win. Pays 16 for 1"
+              } else if (hop_1 == 6 && hop_2 == 6) {
+                  var game_helper_modal_headline = "Prop Bet on Twelve"
+                  var game_helper_modal_win_lose = "Twelve is a One Roll Bet. The dice must come 6-6 in order to win. Pays 31 for 1"
+              } else {
+                  var highside_lowside = (hop_1 == hop_2 ? " 31 for 1" : " 16 for 1")
+                  var game_helper_modal_headline = "Prop Bet "+hop_1+"-"+hop_2+" Hopping"
+                  var highside_lowside_wording = (hop_1 == hop_2 ? (hop_1+"-"+hop_2) : (hop_1+"-"+hop_2+" or "+hop_2+"-"+hop_1))
+                  var game_helper_modal_win_lose = hop_1+"-"+hop_2+" Hopping is a One Roll Bet. The dice must come "+highside_lowside_wording+" in order to win. Pays "+highside_lowside
+              }
               var game_helper_modal_id = "#"+value+"_modal"
               var game_helper_modal_message = "You Placed a " + game_helper_modal_headline+ " for " + $scope[value]
               PlayerGameCalls($scope, "INFO", game_helper_modal_id, game_helper_modal_message, game_helper_modal_headline, game_helper_modal_win_lose)
