@@ -177,7 +177,11 @@ function ComesGoToThe($scope, total_of_dice) {
     if ($scope.place_dont_come_bet > 0) {
         $scope['dont_come_bet_flat_on_'+scopeNum[total_of_dice]] = $scope.place_dont_come_bet
         $scope.place_dont_come_bet = 0
-        //$scope.player_game_calls = [{call_actual: ("Don't Come Bet Traveled to the " + writtenWord[total_of_dice] + " click it to lay odds" ), player_rescue: true}]
+        var game_helper_modal_message = "Your Don't Come Bet Traveled to the "+writtenWord[total_of_dice] 
+        var game_helper_modal_win_lose = "Your Don't Come Bet just Traveled to the "+writtenWord[total_of_dice]+". This Bet will now LOSE on "+writtenWord[total_of_dice]+" and WIN on Seven. You also have the option to add a Lay. The Lay will win and lose on the same numbers, this is a way to increase your action against the "+writtenWord[total_of_dice]
+        var game_helper_modal_headline = "Don't Come Bet"
+        var game_helper_modal_id = "#dont_come_travels_modal"
+        PlayerGameCalls($scope, "PLAYER_RESCUE", game_helper_modal_id, game_helper_modal_message, game_helper_modal_headline, game_helper_modal_win_lose)
     }
 
     if ($scope['come_bet_flat_on_'+scopeNum[total_of_dice]] == $scope.place_come_bet && $scope.place_come_bet != 0) {
