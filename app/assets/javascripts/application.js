@@ -80,6 +80,20 @@ crapsGame.controller('crapsGameplay', ['$scope', 'diceService', function($scope,
   angular.forEach(gameButtonsMisc, function(value) {
       $scope[value + "_button"] = function() {
           $scope.increase_decrease == "-" ? $scope[value] -= $scope.bet_denomination : $scope[value] += $scope.bet_denomination
+          if ($scope[value] > 0 && value == "place_come_bet") {
+              var game_helper_modal_headline = "Come Bet"
+              var game_helper_modal_win_lose = "WINS ON 7 and 11. LOSES ON 2,3, or 12. Any other number and the Come Bet will Travel to that number, a which point the bet will win by rolling that number again or lose by rolling a 7, which ever come first."
+              var game_helper_modal_id = "#"+value+"_modal"
+              var game_helper_modal_message = "You Placed " + game_helper_modal_headline+ " for " + $scope[value]
+              PlayerGameCalls($scope, "INFO", game_helper_modal_id, game_helper_modal_message, game_helper_modal_headline, game_helper_modal_win_lose)
+          }
+          if ($scope[value] > 0 && value == "place_dont_come_bet") {
+              var game_helper_modal_headline = "Don't Come Bet"
+              var game_helper_modal_win_lose = "WINS ON 2, 3 or 12. LOSES ON 7 or 11. Any other number and the Don't Come Bet will Travel to that number, a which point the bet will lose by rolling that number again or win by rolling a 7, which ever come first."
+              var game_helper_modal_id = "#"+value+"_modal"
+              var game_helper_modal_message = "You Placed " + game_helper_modal_headline+ " for " + $scope[value]
+              PlayerGameCalls($scope, "INFO", game_helper_modal_id, game_helper_modal_message, game_helper_modal_headline, game_helper_modal_win_lose)
+          }
           if ($scope[value] > 0 && value == "odds_behind_the_line") {
               var game_helper_modal_headline = "Odds behind the Pass Line"
               var game_helper_modal_win_lose = "WINS ON "+$scope.point_is+". LOSES ON 7. Once a point has been established you have the option of adding Odds to your Line Bet, like the pass line bet, only two numbers will affect the Odds behind the line, Rolling the Point will win and Rolling a Seven will lose."
