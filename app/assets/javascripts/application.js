@@ -23,7 +23,7 @@
 //= require odds
 //= require opening_bet_values
 
-var crapsGame = angular.module('crapsGame', ['ngAnimate']);
+var crapsGame = angular.module('crapsGame', ['ngAnimate', 'ngSanitize']);
 
 crapsGame.service('diceService', function() {
   this.change_denomination = function(a) {
@@ -63,9 +63,19 @@ crapsGame.controller('crapsGameplay', ['$scope', 'diceService', function($scope,
             $scope.increase_decrease == "-" ? $scope['come_bet_odds_on_'+value] -= $scope.bet_denomination : $scope['come_bet_odds_on_'+value] += $scope.bet_denomination
             if ($scope['come_bet_odds_on_'+value] > 0) {
                 var game_helper_modal_headline = "Odds On Your Come Bet on "+value
-                var game_helper_modal_win_lose = "WINS ON "+$scope.point_is+". LOSES ON 7. Once a point has been established you have the option of adding Odds to your Line Bet, like the pass line bet, only two numbers will affect the Odds behind the line, Rolling the Point will win and Rolling a Seven will lose."
+                var game_helper_modal_win_lose = "WINS ON "+$scope.point_is+". LOSES ON 7. "
                 var game_helper_modal_id = "#come_bet_odds_on_"+value+"_modal"
                 var game_helper_modal_message = "You Placed " + game_helper_modal_headline+ " for " + $scope['come_bet_odds_on_'+value]
+                PlayerGameCalls($scope, "INFO", game_helper_modal_id, game_helper_modal_message, game_helper_modal_headline, game_helper_modal_win_lose)
+            }
+        }
+        $scope['dont_come_bet_lay_on_'+value+'_button'] = function() {
+            $scope.increase_decrease == "-" ? $scope['dont_come_bet_lay_on_'+value] -= $scope.bet_denomination : $scope['dont_come_bet_lay_on_'+value] += $scope.bet_denomination
+            if ($scope['dont_come_bet_lay_on_'+value] > 0) {
+                var game_helper_modal_headline = "Lay On Your Don't Come Bet on "+value
+                var game_helper_modal_win_lose = "Loses ON "+$scope.point_is+". WINS ON 7. "
+                var game_helper_modal_id = "#dont_come_bet_lay_on_"+value+"_modal"
+                var game_helper_modal_message = "You Placed " + game_helper_modal_headline+ " for " + $scope['dont_come_bet_lay_on_'+value]
                 PlayerGameCalls($scope, "INFO", game_helper_modal_id, game_helper_modal_message, game_helper_modal_headline, game_helper_modal_win_lose)
             }
         }
@@ -300,7 +310,7 @@ crapsGame.directive("diceRollActual", function($animate) {
 function PlayerGameCalls($scope, win_or_lose, game_helper_modal_id, game_helper_modal_message, game_helper_modal_headline, game_helper_modal_win_lose, starting_bet, ending_bet) {
     if (win_or_lose == "WON") {
         var bet_winning_var = "You " + win_or_lose + " " + ending_bet + " for your " + starting_bet + " " + game_helper_modal_headline
-        $scope.player_game_calls.push({call_actual: bet_winning_var, game_helper_modal_id: game_helper_modal_id, game_helper_modal_message: game_helper_modal_message, game_helper_modal_headline: game_helper_modal_headline, game_helper_modal_win_lose: game_helper_modal_win_lose})
+        $scope.player_game_calls.push({call_actual: bet_winning_var, game_helper_modal_id: game_helper_modal_id, game_helper_modal_message: game_helper_modal_message, game_helper_modal_headline: game_helper_modal_headline, game_helper_modal_win_lose: game_helper_modal_win_lose, winning_bet: true})
     }
     else if (win_or_lose == "LOST") {
         var bet_losing_var = "You " + win_or_lose + " your " + game_helper_modal_headline
