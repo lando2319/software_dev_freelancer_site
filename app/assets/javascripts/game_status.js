@@ -164,7 +164,7 @@ function ComesGoToThe($scope, total_of_dice) {
     if ($scope['dont_come_bet_flat_on_'+scopeNum[total_of_dice]] > 0) {
         $scope.bank_roll_actual -= $scope['dont_come_bet_flat_on_'+scopeNum[total_of_dice]]
         $scope.bank_roll_actual -= $scope['dont_come_bet_lay_on_'+scopeNum[total_of_dice]]
-        var come_bet_message = ($scope['dont_come_bet_lay_on_'+scopeNum[total_of_dice]] > 0 ? " Don't Come Bet with Lay" : " Don't Come Bet")
+        var come_bet_message = ($scope['dont_come_bet_lay_on_'+scopeNum[total_of_dice]] > 0 ? (" Don't Come Bet with Lay against the "+writtenWord[total_of_dice]) : (" Don't Come Bet against the "+writtenWord[total_of_dice]))
         var game_helper_modal_headline = come_bet_message 
         var game_helper_modal_win_lose = "Once a Don't Come Bet has traveled to a number, rolling that number again will lose, Wins on Seven."
         var game_helper_modal_id = "#dont_come_bet_flat_on_"+scopeNum[total_of_dice]+"_modal"
@@ -178,7 +178,7 @@ function ComesGoToThe($scope, total_of_dice) {
         $scope['dont_come_bet_flat_on_'+scopeNum[total_of_dice]] = $scope.place_dont_come_bet
         $scope.place_dont_come_bet = 0
         var game_helper_modal_message = "Your Don't Come Bet Traveled to the "+writtenWord[total_of_dice] 
-        var game_helper_modal_win_lose = "Your Don't Come Bet just Traveled to the "+writtenWord[total_of_dice]+". This Bet will now LOSE on "+writtenWord[total_of_dice]+" and WIN on Seven. You also have the option to add a Lay. The Lay will win and lose on the same numbers, this is a way to increase your action against the "+writtenWord[total_of_dice]
+        var game_helper_modal_win_lose = "Your Don't Come Bet just Traveled to the "+writtenWord[total_of_dice]+". This Bet will now LOSE on "+writtenWord[total_of_dice]+" and WIN on Seven. You also have the option to add a Lay by clicking on the bet. The Lay will win and lose on the same numbers, this is a way to increase your action against the "+writtenWord[total_of_dice]+"."
         var game_helper_modal_headline = "Don't Come Bet"
         var game_helper_modal_id = "#dont_come_travels_modal"
         PlayerGameCalls($scope, "PLAYER_RESCUE", game_helper_modal_id, game_helper_modal_message, game_helper_modal_headline, game_helper_modal_win_lose)
