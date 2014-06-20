@@ -81,15 +81,22 @@ function LineAway($scope, total_of_dice) {
             var stay_up_payout = $scope.odds_behind_the_dont_pass_line * (5/6)
             var odds_game_message = " Odds Behind the Line (6 pays 5), Even money for the Don't Pass Bet"
         }
-        //PlayerGameCalls($scope, $scope.odds_behind_the_dont_pass_line, "WON", odds_game_message, stay_up, stay_up_payout)
+        var game_helper_modal_headline = "Don't Pass Bet With Lay"
+        var game_helper_modal_win_lose = odds_game_message
+        var game_helper_modal_id = "#odds_behind_the_line_modal"
+        var game_helper_modal_message = "You Placed a Don't Pass Bet for "+$scope.dont_pass_line_bet+" with " + stay_up + " Lay, The Lay paid "+stay_up_payout+". The original Don't Pass Line Bet (or Flat) always pays even money. Total Payout was "+(stay_up_payout+stay_up+$scope.dont_pass_line_bet)
+        PlayerGameCalls($scope, "WON", game_helper_modal_id, game_helper_modal_message, game_helper_modal_headline, game_helper_modal_win_lose, stay_up, stay_up_payout)
         $scope.odds_behind_the_dont_pass_line = 0
     }
 
     if ($scope.line_bet > 0) {
         $scope.bank_roll_actual -= $scope.line_bet
         $scope.bank_roll_actual -= $scope.odds_behind_the_line
-        var current_game_message = ($scope.odds_behind_the_line == 0 ? " Pass Line Bet" : " Pass Line Bet with Odds")
-        //PlayerGameCalls($scope, $scope.line_bet, "LOST", current_game_message)
+        var game_helper_modal_headline = ($scope.odds_behind_the_line == 0 ? " Pass Line Bet" : " Pass Line Bet with Odds")
+        var game_helper_modal_win_lose = "The Pass Line during the \"Come Out Roll\" will win on 7 and 11, and lose on 2,3, and 12. Any other number becomes the point. Once the point has been established, only two numbers will affect the Pass Line, Rolling the Point will win and Rolling a Seven will lose."
+        var game_helper_modal_id = "#line_bet_modal"
+        var game_helper_modal_message = "You Placed " + game_helper_modal_headline
+        PlayerGameCalls($scope, "LOST", game_helper_modal_id, game_helper_modal_message, game_helper_modal_headline, game_helper_modal_win_lose)
         $scope.line_bet = 0
         $scope.odds_behind_the_line = 0
     } 
