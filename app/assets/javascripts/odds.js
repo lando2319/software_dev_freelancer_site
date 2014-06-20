@@ -108,9 +108,18 @@ function PropBets($scope, random_1, random_2) {
             var stay_up = $scope.prop_bet_red
             var stay_up_payout = $scope.prop_bet_red * 4
             $scope.bank_roll_actual += stay_up_payout
-            //PlayerGameCalls($scope, $scope.prop_bet_red, "WON", " Prop Bet on Red (any seven)", stay_up, stay_up_payout)
+            var game_helper_modal_headline = "Prop Bet on Any Seven"
+            var game_helper_modal_win_lose = "Any Seven is a One Roll Bet. The dice must roll Seven in order to win. Pays 5 for 1"
+            var game_helper_modal_id = "#prop_bet_red_modal"
+            var game_helper_modal_message = "You Placed a " + game_helper_modal_headline
+            PlayerGameCalls($scope, "WON", game_helper_modal_id, game_helper_modal_message, game_helper_modal_headline, game_helper_modal_win_lose, stay_up, stay_up_payout)
         } else {
-            //PlayerGameCalls($scope, $scope.prop_bet_red, "LOST", " Prop Bet on Red (any seven")
+            var game_helper_modal_headline = "Prop Bet on Any Seven"
+            var game_helper_modal_win_lose = "Any Seven is a One Roll Bet. The dice must roll Seven in order to win. Pays 5 for 1"
+            var game_helper_modal_id = "#prop_bet_red_modal"
+            var game_helper_modal_message = "You Placed a " + game_helper_modal_headline
+            PlayerGameCalls($scope, "LOST", game_helper_modal_id, game_helper_modal_message, game_helper_modal_headline, game_helper_modal_win_lose)
+            $scope.bank_roll_actual -= stay_up_payout
             $scope.prop_bet_red = 0
         }
     }
@@ -119,9 +128,18 @@ function PropBets($scope, random_1, random_2) {
             var stay_up = $scope.prop_bet_craps
             var stay_up_payout = $scope.prop_bet_craps * 7
             $scope.bank_roll_actual += stay_up_payout
-            //PlayerGameCalls($scope, $scope.prop_bet_craps, "WON", " Prop Bet on Craps", stay_up, stay_up_payout)
+            var game_helper_modal_headline = "Prop Bet on Any Craps"
+            var game_helper_modal_win_lose = "Any Craps is a One Roll Bet. The dice must roll Craps (2,3, or 12) in order to win. Pays 8 for 1"
+            var game_helper_modal_id = "#prop_bet_craps_modal"
+            var game_helper_modal_message = "You Placed a " + game_helper_modal_headline
+            PlayerGameCalls($scope, "WON", game_helper_modal_id, game_helper_modal_message, game_helper_modal_headline, game_helper_modal_win_lose, stay_up, stay_up_payout)
         } else {
-            //PlayerGameCalls($scope, $scope.prop_bet_craps, "LOST", " Prop Bet on Craps")
+            var game_helper_modal_headline = "Prop Bet on Any Craps"
+            var game_helper_modal_win_lose = "Any Craps is a One Roll Bet. The dice must roll Craps (2,3, or 12) in order to win. Pays 8 for 1"
+            var game_helper_modal_id = "#prop_bet_craps_modal"
+            var game_helper_modal_message = "You Placed a " + game_helper_modal_headline
+            PlayerGameCalls($scope, "LOST", game_helper_modal_id, game_helper_modal_message, game_helper_modal_headline, game_helper_modal_win_lose)
+            $scope.bank_roll_actual -= stay_up_payout
             $scope.prop_bet_craps = 0
         }
     }
