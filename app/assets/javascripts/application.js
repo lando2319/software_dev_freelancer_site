@@ -51,6 +51,13 @@ crapsGame.controller('crapsGameplay', ['$scope', 'diceService', function($scope,
   angular.forEach(pointNumVars, function(value) {
         $scope['place_bet_on_'+value+'_button'] = function() {
             $scope.increase_decrease == "-" ? $scope['place_bet_on_the_'+value] -= $scope.bet_denomination : $scope['place_bet_on_the_'+value] += $scope.bet_denomination
+            if ($scope['place_bet_on_the_'+value] > 0) {
+                var game_helper_modal_headline = "Odds On Your Come Bet on "+value
+                var game_helper_modal_win_lose = "WINS ON "+$scope.point_is+". LOSES ON 7. Once a point has been established you have the option of adding Odds to your Line Bet, like the pass line bet, only two numbers will affect the Odds behind the line, Rolling the Point will win and Rolling a Seven will lose."
+                var game_helper_modal_id = "#come_bet_odds_on_"+value+"_modal"
+                var game_helper_modal_message = "You Placed " + game_helper_modal_headline+ " for " + $scope['place_bet_on_the_'+value]
+                PlayerGameCalls($scope, "INFO", game_helper_modal_id, game_helper_modal_message, game_helper_modal_headline, game_helper_modal_win_lose)
+            }
         }
         $scope['come_bet_odds_on_'+value+'_button'] = function() {
             $scope.increase_decrease == "-" ? $scope['come_bet_odds_on_'+value] -= $scope.bet_denomination : $scope['come_bet_odds_on_'+value] += $scope.bet_denomination
