@@ -129,13 +129,13 @@
                     <a class="btn btn-default ng-pristine ng-valid" ng-disabled="line_bet == 0 || game_status == 'Come Out Roll'" type="button" ng-model="dice" value="Place Bet" ng-click="odds_behind_the_line_button();"><span class="point_num_font">Odds </span><span class="badge">{{ odds_behind_the_line }}</span></a>
                   </div>
                 </div>
+                <br>
                 <div class="row">
                 </div>
                 <div class="row">
                   <div class="btn-group btn-group-justified">
                     <a class="btn btn-darkest ng-pristine ng-valid" type="button" ng-model="dice" ng-click="increase_decrease_button();">{{ increase_decrease }}</span></a>
                     <a class="btn btn-default ng-pristine ng-valid" type="button" ng-model="dice" ng-click="bet_denomination_button();">{{ increase_decrease }}{{ bet_denomination }}</span></a>
-                    <a class="btn btn-default ng-pristine ng-valid" ng-model="dice">{{ bank_roll_actual }}</span></a>
                   </div>
                 </div>
                 <div class="row">
@@ -279,6 +279,12 @@
                           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                         </div>
                       </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="btn-group btn-group-justified">
+                      <a class="btn btn-default ng-pristine ng-valid" ng-model="dice">Bank Roll: {{ bank_roll_actual }}</span></a>
+                      <a class="btn btn-default ng-pristine ng-valid" ng-model="dice">Last Roll: {{ bank_roll_actual }}</span></a>
                     </div>
                   </div>
                   <div class="row disclaimer_for_game">
