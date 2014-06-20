@@ -141,9 +141,16 @@ function PayPlaceBets($scope, total_of_dice) {
     if (total_of_dice == scopeNum[total_of_dice] && $scope['place_bet_on_the_'+scopeNum[total_of_dice]] > 0) {
         var stay_up = $scope['place_bet_on_the_'+scopeNum[total_of_dice]]
         var stay_up_payout = $scope['place_bet_on_the_'+scopeNum[total_of_dice]] * placeBetOdds[total_of_dice]
-        var current_game_message = " Place Bet on the " + writtenWord[total_of_dice]
-        //PlayerGameCalls($scope, $scope.place_bet_on_the_4, "WON", current_game_message, stay_up, stay_up_payout)
-        $scope.place_bets_are_off == false ? $scope.bank_roll_actual += stay_up_payout : $scope.place_bets_off_message = "Bets are off"
+        var game_helper_modal_id = "#place_bet_on_the_"+scopeNum[total_of_dice]
+        var game_helper_modal_headline = "Place Bet on "+scopeNum[total_of_dice]
+        var game_helper_modal_win_lose = " You Placed a "+game_helper_modal_headline
+        var game_helper_modal_message = "You Placed a Place Bet on the "+writtenWord[total_of_dice]+" for "+stay_up+" Coins this pays " + stay_up_payout + " Coins. Loses on a Seven Out." 
+        if ($scope.place_bets_are_off == false ) {
+            $scope.bank_roll_actual += stay_up_payout 
+            PlayerGameCalls($scope, "WON", game_helper_modal_id, game_helper_modal_message, game_helper_modal_headline, game_helper_modal_win_lose, stay_up, stay_up_payout)
+        } else {
+            $scope.place_bets_off_message = "Bets are off"
+        }
     }
 }
 
