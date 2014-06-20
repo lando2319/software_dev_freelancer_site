@@ -9,7 +9,11 @@ function FrontLineWinner($scope, total_of_dice)
         var stay_up = $scope.line_bet
         var stay_up_payout = $scope.line_bet
         $scope.bank_roll_actual += $scope.line_bet
-        //PlayerGameCalls($scope, $scope.line_bet, "WON", " Pass Line Bet", stay_up, stay_up_payout)
+        var game_helper_modal_headline = "Pass Line Bet"
+        var game_helper_modal_win_lose = "The Pass Line during the \"Come Out Roll\" will win on 7 and 11, and lose on 2,3, and 12. Any other number becomes the point. Once the point has been established, only two numbers will affect the Pass Line, Rolling the Point will win and Rolling a Seven will lose."
+        var game_helper_modal_id = "#line_bet_modal"
+        var game_helper_modal_message = "You Placed a " + game_helper_modal_headline+ " for " + $scope.line_bet
+        PlayerGameCalls($scope, "WON", game_helper_modal_id, game_helper_modal_message, game_helper_modal_headline, game_helper_modal_win_lose, stay_up, stay_up_payout)
     } 
     if ($scope.line_bet > 0 && $scope.odds_behind_the_line > 0) {
         var stay_up = $scope.odds_behind_the_line
@@ -23,17 +27,24 @@ function FrontLineWinner($scope, total_of_dice)
             var stay_up_payout = $scope.odds_behind_the_line * 1.2
             var odds_game_message = " Odds Behind the Line (5 pays 6), Even money for the Line Bet"
         }
-        //PlayerGameCalls($scope, $scope.place_bet_on_the_4, "WON", odds_game_message, stay_up, stay_up_payout)
         $scope.bank_roll_actual += stay_up_payout
         $scope.bank_roll_actual += $scope.line_bet
         $scope.odds_behind_the_line = 0
+        var game_helper_modal_headline = "Odds Behind the Pass Line"
+        var game_helper_modal_win_lose = odds_game_message
+        var game_helper_modal_id = "#odds_behind_the_line_modal"
+        var game_helper_modal_message = "You Placed " + game_helper_modal_headline+ " for " + $scope.odds_behind_the_line + " this pays "+stay_up_payout+". The original Pass Line Bet (or Flat) always pays even money"
+        PlayerGameCalls($scope, "WON", game_helper_modal_id, game_helper_modal_message, game_helper_modal_headline, game_helper_modal_win_lose, stay_up, stay_up_payout)
     }
 
     if ($scope.dont_pass_line_bet > 0) {
         $scope.bank_roll_actual -= $scope.dont_pass_line_bet
         $scope.bank_roll_actual -= $scope.odds_behind_the_dont_pass_line
-        var current_game_message = ($scope.odds_behind_the_dont_pass_line == 0 ? " Don't Pass Line Bet" : " Don't Pass Line Bet with Lay")
-        //PlayerGameCalls($scope, $scope.dont_pass_line_bet, "LOST", current_game_message)
+        var game_helper_modal_headline = ($scope.odds_behind_the_dont_pass_line == 0 ? " Don't Pass Line Bet" : " Don't Pass Line Bet with Lay")
+        var game_helper_modal_win_lose = "The Don't Pass Line during the \"Come Out Roll\" will win on 2 and 3, 12 is a push and lose on 7 and 11. Any other number becomes the point. Once the point has been established, only two numbers will affect the Don't Pass Line, Rolling the Point will lose and Rolling a Seven will win."
+        var game_helper_modal_id = "#odds_behind_the_line_modal"
+        var game_helper_modal_message = "You Placed " + game_helper_modal_headline
+        PlayerGameCalls($scope, "LOST", game_helper_modal_id, game_helper_modal_message, game_helper_modal_headline, game_helper_modal_win_lose)
         $scope.dont_pass_line_bet = 0
         $scope.odds_behind_the_dont_pass_line = 0
     } 

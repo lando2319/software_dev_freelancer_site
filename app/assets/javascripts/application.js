@@ -23,7 +23,7 @@
 //= require odds
 //= require opening_bet_values
 
-var crapsGame = angular.module('crapsGame', ['ngAnimate', 'ngSanitize']);
+var crapsGame = angular.module('crapsGame', ['ngAnimate']);
 
 crapsGame.service('diceService', function() {
   this.change_denomination = function(a) {
