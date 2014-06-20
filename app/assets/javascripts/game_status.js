@@ -161,11 +161,15 @@ function ComesGoToThe($scope, total_of_dice) {
     var writtenWord = {4:'Four', 5:'Five', 6:'Six', 8:'Eight', 9:'Nine', 10:'Ten'};
     var trueOdds = {4:2, 5:1.5, 6:1.2, 8:1.2, 9:1.5, 10:2};
 
-    if ($scope['dont_come_flat_on_'+scopeNum[total_of_dice]] > 0) {
+    if ($scope['dont_come_bet_flat_on_'+scopeNum[total_of_dice]] > 0) {
         $scope.bank_roll_actual -= $scope['dont_come_bet_flat_on_'+scopeNum[total_of_dice]]
         $scope.bank_roll_actual -= $scope['dont_come_bet_lay_on_'+scopeNum[total_of_dice]]
         var come_bet_message = ($scope['dont_come_bet_lay_on_'+scopeNum[total_of_dice]] > 0 ? " Don't Come Bet with Lay" : " Don't Come Bet")
-        //PlayerGameCalls($scope, $scope.line_bet, "LOST", come_bet_message)
+        var game_helper_modal_headline = come_bet_message 
+        var game_helper_modal_win_lose = "Once a Don't Come Bet has traveled to a number, rolling that number again will lose, Wins on Seven."
+        var game_helper_modal_id = "#dont_come_bet_flat_on_"+scopeNum[total_of_dice]+"_modal"
+        var game_helper_modal_message = "You Placed " + game_helper_modal_headline
+        PlayerGameCalls($scope, "LOST", game_helper_modal_id, game_helper_modal_message, game_helper_modal_headline, game_helper_modal_win_lose)
         $scope['dont_come_bet_flat_on_'+scopeNum[total_of_dice]] = 0
         $scope['dont_come_bet_lay_on_'+scopeNum[total_of_dice]] = 0
     }
