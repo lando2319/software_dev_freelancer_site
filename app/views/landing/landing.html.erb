@@ -35,8 +35,8 @@
                 </div>
                 <div class="row dealer_calls">
                   <ul>
-                    <li ng-repeat="player_game_call in player_game_calls" class="losing_bet-{{player_game_call.losing_bet}} winning_bet-{{player_game_call.winning_bet}} player_rescue-{{player_game_call.player_rescue}}">
-                    <span>{{player_game_call.call_actual}} </span><a class="btn btn-default game_helper_button" data-toggle="modal" data-target={{player_game_call.game_helper_modal_id}}>?</a>
+                    <li ng-repeat="player_game_call in player_game_calls" class="losing_bet-{{player_game_call.losing_bet}} winning_bet-{{player_game_call.winning_bet}}">
+                    <span class="player_rescue-{{player_game_call.player_rescue}}">{{player_game_call.call_actual}} </span><a class="btn btn-default game_helper_button" data-toggle="modal" data-target={{player_game_call.game_helper_modal_id}}>?</a>
                     <div class="modal fade" id={{player_game_call.game_helper_modal_id.slice(1)}} tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                       <div class="modal-dialog">
                         <div class="modal-content">

@@ -335,5 +335,9 @@ function PlayerGameCalls($scope, win_or_lose, game_helper_modal_id, game_helper_
            }
         })
     }
+    else if (win_or_lose == "PLAYER_RESCUE") {
+        var player_rescue_var = game_helper_modal_message
+        $scope.player_game_calls.push({call_actual: player_rescue_var, game_helper_modal_id: game_helper_modal_id, game_helper_modal_message: game_helper_modal_message, game_helper_modal_headline: game_helper_modal_headline, game_helper_modal_win_lose: game_helper_modal_win_lose, player_rescue: true})
+    }
 }
 
