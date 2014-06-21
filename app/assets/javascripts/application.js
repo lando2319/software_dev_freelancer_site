@@ -201,15 +201,8 @@ crapsGame.controller('crapsGameplay', ['$scope', 'diceService', function($scope,
 
   $scope.roll = function() {
 
-
-
-
-      angular.forEach($scope.player_game_calls.reverse(), function(value) {
-          $scope.archive_game_calls.push(value)
-      })
-
-
-
+      
+      $scope.archive_game_calls.push({game_notice_actual: "Notice Here", net_change: "Net CHange"})
 
       $scope.player_game_calls = []
       $scope.hide_dice = !$scope.hide_dice
