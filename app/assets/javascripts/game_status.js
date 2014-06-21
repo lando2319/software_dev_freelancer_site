@@ -392,7 +392,7 @@ function GiveBackTheOdds($scope, total_of_dice) {
             if ($scope['come_bet_odds_on_'+num_actual] > 0 ) {
                 var game_helper_modal_headline = "Flat Bet On "+written_word+" your odds of "+$scope['come_bet_odds_on_'+num_actual]+" gets returned"
                 var game_helper_modal_win_lose = "Once a Come Bet has Traveled to a Number, if the Seven comes before that number the bet loses. The Odds on Come Bets are automatically off on the Come Out Roll (this can be overridden in the Adv Settings)."
-                var game_helper_modal_id = "#give_back_the_odds_on_"+value+"_modal"
+                var game_helper_modal_id = "#give_back_the_odds_on_"+num_actual+"_modal"
                 var game_helper_modal_message = "You Placed " + game_helper_modal_headline
                 PlayerGameCalls($scope, "LOST", game_helper_modal_id, game_helper_modal_message, game_helper_modal_headline, game_helper_modal_win_lose)
             } else {
@@ -420,7 +420,7 @@ function LoseFlatAndOddsOnComeBets($scope, total_of_dice) {
 
             var game_helper_modal_headline = "Odds and Flat Bet On "+written_word
             var game_helper_modal_win_lose = "Once a Come Bet has Traveled to a Number, if the Seven comes before that number the bet loses. The Odds on Come Bets are automatically off on the Come Out Roll (this can be overridden in the Adv Settings)."
-            var game_helper_modal_id = "#come_bet_flat_and_odds_loses_on_"+value+"_modal"
+            var game_helper_modal_id = "#come_bet_flat_and_odds_loses_on_"+written_word+"_modal"
             var game_helper_modal_message = "You Placed " + game_helper_modal_headline
             PlayerGameCalls($scope, "LOST", game_helper_modal_id, game_helper_modal_message, game_helper_modal_headline, game_helper_modal_win_lose)
 
