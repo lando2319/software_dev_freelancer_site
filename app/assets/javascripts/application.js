@@ -201,6 +201,7 @@ crapsGame.controller('crapsGameplay', ['$scope', 'diceService', function($scope,
 
   $scope.roll = function() {
 
+      var game_notice_actual_before_global = $scope.bank_roll_actual
       $scope.player_game_calls = []
       $scope.hide_dice = !$scope.hide_dice
       var current_roll_dice_2= new Array(1,2,3,4,5,6);
@@ -263,6 +264,7 @@ crapsGame.controller('crapsGameplay', ['$scope', 'diceService', function($scope,
               PayTheLastCome($scope, total_of_dice)
           }
       }
+      $scope.archive_game_calls.push({game_notice_actual: "Last Roll", net_change: (($scope.bank_roll_actual - game_notice_actual_before_global)+" Coins "), winning_bet: ($scope.bank_roll_actual - game_notice_actual_before_global > 0 ? true : false), losing_bet: ($scope.bank_roll_actual - game_notice_actual_before_global < 0 ? true : false)})
   };
 
   // connecting each place to bet with bank_roll_actual

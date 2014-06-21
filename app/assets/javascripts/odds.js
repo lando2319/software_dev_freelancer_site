@@ -1,6 +1,6 @@
 function EvaluateTheField($scope, total_of_dice) {
     if ($scope.field_bet > 0) {
-    var game_notice_actual_before = $scope.bank_roll_actual
+        var game_notice_actual_before = $scope.bank_roll_actual
         var game_helper_modal_headline = "Field Bet"
         var game_helper_modal_win_lose = "The Field is a One Roll Bet. It wins on any of the following numbers 2,3,4,9,10,11,12. Field Pays Even Money (2 pays double and 12 pays triple)"
         if (total_of_dice == 2) {
@@ -48,6 +48,7 @@ function PropBets($scope, random_1, random_2) {
         var prop_var_2 = pair_of_props_vars[2]
       
         if ($scope[bet_actual] > 0) {
+            var game_notice_actual_before = $scope.bank_roll_actual
             var game_helper_modal_headline = "Prop Bet on "+bet_actual.slice(-3).slice(0,1)+bet_actual.slice(-1)
             var game_helper_modal_win_lose = "The Field is a One Roll Bet. It wins on any of the following numbers 2,3,4,9,10,11,12. Field Pays Even Money (2 pays double and 12 pays triple)"
             if ((prop_var_1 == random_1 && prop_var_2 == random_2) || (prop_var_1 == random_2 && prop_var_2 == random_1)) {
@@ -102,6 +103,7 @@ function PropBets($scope, random_1, random_2) {
                 }
                 PlayerGameCalls($scope, "LOST", game_helper_modal_id, game_helper_modal_message, game_helper_modal_headline, game_helper_modal_win_lose)
            }
+           $scope.archive_game_calls.push({game_notice_actual: game_helper_modal_headline, net_change: (($scope.bank_roll_actual - game_notice_actual_before)+" Coins "), winning_bet: ($scope.bank_roll_actual - game_notice_actual_before > 0 ? true : false), losing_bet: ($scope.bank_roll_actual - game_notice_actual_before < 0 ? true : false)})
         }
     })
 
