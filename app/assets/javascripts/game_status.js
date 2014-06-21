@@ -118,6 +118,8 @@ function SetsThePoint($scope, total_of_dice) {
     var scopeNum = {4:'4', 5:'5', 6:'6', 8:'8', 9:'9', 10:'10'};
     var writtenWordCap = {4:'Four', 5:'Five', 6:'Six', 8:'Eight', 9:'Nine', 10:'Ten'};
     var writtenWord = {4:'four', 5:'five', 6:'six', 8:'eight', 9:'nine', 10:'ten'};
+    
+      $scope.point_is_word = writtenWordCap[total_of_dice]
 
       if (total_of_dice == scopeNum[total_of_dice]) {
         $scope['come_bet_odds_on_'+scopeNum[total_of_dice]] = 0
@@ -125,11 +127,11 @@ function SetsThePoint($scope, total_of_dice) {
         $scope['come_bet_odds_on_'+scopeNum[total_of_dice]] = 0
         $scope[writtenWord[total_of_dice]] = "ON"
         var current_game_message = "You Now Have a Point Of " + writtenWordCap[total_of_dice] 
-        var game_helper_modal_message = current_game_message
-        var game_helper_modal_headline = ($scope.line_bet > $scope.dont_pass_line_bet ? (writtenWordCap[total_of_dice] + " Rolls You Win, Seven Rolls you Lose") : (" Seven Rolls You Win, " + writtenWordCap[total_of_dice] + " Rolls you Lose"))
+        var game_helper_modal_headline = current_game_message
+        var game_helper_modal_message = ($scope.line_bet > $scope.dont_pass_line_bet ? (writtenWordCap[total_of_dice] + " Rolls You Win, Seven Rolls you Lose") : (" Seven Rolls You Win, " + writtenWordCap[total_of_dice] + " Rolls you Lose"))
         var game_helper_modal_win_lose = "It was just the \"Come Out Roll\" Now we have a point of "+$scope.point_is
         var game_helper_modal_id = "#point_is_set_modal"
-        PlayerGameCalls($scope, "PLAYER_RESCUE", game_helper_modal_id, game_helper_modal_message, game_helper_modal_headline, game_helper_modal_win_lose)
+        PlayerGameCalls($scope, "INFO", game_helper_modal_id, game_helper_modal_message, game_helper_modal_headline, game_helper_modal_win_lose)
       }
 }
 

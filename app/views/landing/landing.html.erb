@@ -23,9 +23,9 @@
                 </div>
                 <div class="row">
                   <div class="btn-group btn-group-justified">
-                    <a class="btn btn-default ng-pristine ng-valid" ng-disabled="place_bets_are_off == true" type="button" ng-model="dice" ng-click="place_bet_on_4_button();"><span class="badge">{{ place_bet_on_the_4 }}</span></a>
-                    <a class="btn btn-default ng-pristine ng-valid" ng-disabled="place_bets_are_off == true" type="button" ng-model="dice" ng-click="place_bet_on_5_button();"><span class="badge">{{ place_bet_on_the_5 }}</span></a>
-                    <a class="btn btn-default ng-pristine ng-valid" ng-disabled="place_bets_are_off == true" type="button" ng-model="dice" ng-click="place_bet_on_6_button();"><span class="badge">{{ place_bet_on_the_6 }}</span></a>
+                    <a class="btn btn-default ng-pristine ng-valid" ng-disabled="place_bets_are_off == true || point_is == 4" type="button" ng-model="dice" ng-click="place_bet_on_4_button();"><span class="badge">{{ place_bet_on_the_4 }}</span></a>
+                    <a class="btn btn-default ng-pristine ng-valid" ng-disabled="place_bets_are_off == true || point_is == 5" type="button" ng-model="dice" ng-click="place_bet_on_5_button();"><span class="badge">{{ place_bet_on_the_5 }}</span></a>
+                    <a class="btn btn-default ng-pristine ng-valid" ng-disabled="place_bets_are_off == true || point_is == 6" type="button" ng-model="dice" ng-click="place_bet_on_6_button();"><span class="badge">{{ place_bet_on_the_6 }}</span></a>
                   </div>
                 </div>
                 <div class="row">
@@ -35,13 +35,7 @@
                 </div>
                 <div class="row dealer_calls">
                   <div class="row dealer_calls dealer_calls_micro game_status_headline">
-                    <label><span>{{ dealer_call }}</span></label>
-                    <label><span ng-show="game_status == 'Come Out Roll' && (line_bet == dont_pass_line_bet) && line_bet == 0">You Need a Line Bet</span></label>
-                    <label><span ng-show="game_status == 'Come Out Roll' && (line_bet == dont_pass_line_bet) && line_bet != 0">Pick A Side</span></label>
-                    <label><span ng-show="game_status == 'Come Out Roll' && (line_bet > dont_pass_line_bet)">7 or 11 to Win</span></label>
-                    <label><span ng-show="game_status == 'Come Out Roll' && (line_bet < dont_pass_line_bet)">2 or 3 to Win</span></label>
-                    <label><span ng-show="game_status != 'Come Out Roll' && (line_bet > dont_pass_line_bet)">You Need {{ point_is }} To Win</span></label>
-                    <label><span ng-show="game_status != 'Come Out Roll' && (line_bet < dont_pass_line_bet)">You Need 7 To Win</span></label>
+                    <label>{{ game_status }} {{point_is_word}}</label>
                   </div>
                   <ul>
                     <li ng-repeat="player_game_call in player_game_calls" class="losing_bet-{{player_game_call.losing_bet}} winning_bet-{{player_game_call.winning_bet}}">
@@ -85,9 +79,9 @@
                 </div>
                 <div class="row">
                   <div class="btn-group btn-group-justified">
-                    <a class="btn btn-default ng-pristine ng-valid" ng-disabled="place_bets_are_off == true" type="button" ng-model="dice" ng-click="place_bet_on_8_button();"><span class="badge">{{ place_bet_on_the_8 }}</span></a>
-                    <a class="btn btn-default ng-pristine ng-valid" ng-disabled="place_bets_are_off == true" type="button" ng-model="dice" ng-click="place_bet_on_9_button();"><span class="badge">{{ place_bet_on_the_9 }}</span></a>
-                    <a class="btn btn-default ng-pristine ng-valid" ng-disabled="place_bets_are_off == true" type="button" ng-model="dice" ng-click="place_bet_on_10_button();"><span class="badge">{{ place_bet_on_the_10 }}</span></a>
+                    <a class="btn btn-default ng-pristine ng-valid" ng-disabled="place_bets_are_off == true || point_is == 8" type="button" ng-model="dice" ng-click="place_bet_on_8_button();"><span class="badge">{{ place_bet_on_the_8 }}</span></a>
+                    <a class="btn btn-default ng-pristine ng-valid" ng-disabled="place_bets_are_off == true || point_is == 9" type="button" ng-model="dice" ng-click="place_bet_on_9_button();"><span class="badge">{{ place_bet_on_the_9 }}</span></a>
+                    <a class="btn btn-default ng-pristine ng-valid" ng-disabled="place_bets_are_off == true || point_is == 10" type="button" ng-model="dice" ng-click="place_bet_on_10_button();"><span class="badge">{{ place_bet_on_the_10 }}</span></a>
                   </div>
                 </div>
                 <div class="row">
@@ -96,8 +90,8 @@
                     <a class="btn btn-default ng-pristine ng-valid" ng-disabled="game_status == 'Come Out Roll'" type="button" ng-model="dice" value="Place Bet" ng-click="place_come_bet_button();"><span class="point_num_font">Come Bet </span><span class="badge">{{ place_come_bet }}</span></a>
                   </div>
                 </div>
-                <div class="dealer_calls_micro">
-                  <br>
+                <div class="row dealer_calls">
+                  Bank Roll: {{bank_roll_actual}} Coins
                 </div>
                 <button id="btnSearch" class="btn btn-default btn-lg btn-block" ng-disabled="(line_bet + dont_pass_line_bet) < 1 " ng-model="dice" value="roll the dice" ng-click="roll();">
                 <div class="row dice_size text-animated-two" dice-roll-actual="hide_dice">
@@ -115,9 +109,6 @@
                   <span ng-show="die_two == 6">&#x2685</span>
                 </div>
                 </button>
-                <div class="row dealer_calls">
-                  Bank Roll: {{bank_roll_actual}} Coins
-                </div>
               </div>
               <div class="col-xs-12 col-ms-4 col-sm-4 col-md-4 col-lg-4">
                 <div class="row">
