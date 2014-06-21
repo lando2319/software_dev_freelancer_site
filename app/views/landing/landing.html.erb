@@ -58,6 +58,15 @@
                     </li>
                   </ul>
                 </div>
+                <div class="row dealer_calls dealer_calls_micro">
+                  <label><span>{{ dealer_call }}</span></label>
+                  <label><span ng-show="game_status == 'Come Out Roll' && (line_bet == dont_pass_line_bet) && line_bet == 0">You Need a Line Bet</span></label>
+                  <label><span ng-show="game_status == 'Come Out Roll' && (line_bet == dont_pass_line_bet) && line_bet != 0">Pick A Side</span></label>
+                  <label><span ng-show="game_status == 'Come Out Roll' && (line_bet > dont_pass_line_bet)">7 or 11 to Win</span></label>
+                  <label><span ng-show="game_status == 'Come Out Roll' && (line_bet < dont_pass_line_bet)">2 or 3 to Win</span></label>
+                  <label><span ng-show="game_status != 'Come Out Roll' && (line_bet > dont_pass_line_bet)">You Need {{ point_is }} To Win</span></label>
+                  <label><span ng-show="game_status != 'Come Out Roll' && (line_bet < dont_pass_line_bet)">You Need 7 To Win</span></label>
+                </div>
               </div>
               <div class="col-xs-6 col-ms-4 col-sm-4 col-md-4 col-lg-4">
                 <div class="row">
@@ -105,17 +114,11 @@
                   <span ng-show="die_two == 5">&#x2684</span>
                   <span ng-show="die_two == 6">&#x2685</span>
                 </div>
-                <div class="row dealer_calls dealer_calls_micro">
-                  <label><span>{{ dealer_call }}</span></label>
-                  <label><span ng-show="game_status == 'Come Out Roll' && (line_bet == dont_pass_line_bet) && line_bet == 0">You Need a Line Bet</span></label>
-                  <label><span ng-show="game_status == 'Come Out Roll' && (line_bet == dont_pass_line_bet) && line_bet != 0">Pick A Side</span></label>
-                  <label><span ng-show="game_status == 'Come Out Roll' && (line_bet > dont_pass_line_bet)">7 or 11 to Win</span></label>
-                  <label><span ng-show="game_status == 'Come Out Roll' && (line_bet < dont_pass_line_bet)">2 or 3 to Win</span></label>
-                  <label><span ng-show="game_status != 'Come Out Roll' && (line_bet > dont_pass_line_bet)">You Need {{ point_is }} To Win</span></label>
-                  <label><span ng-show="game_status != 'Come Out Roll' && (line_bet < dont_pass_line_bet)">You Need 7 To Win</span></label>
+                </button>
+                <div class="row dealer_calls">
+                  Bank Roll: {{bank_roll_actual}} Coins
                 </div>
               </div>
-              </button>
               <div class="col-xs-12 col-ms-4 col-sm-4 col-md-4 col-lg-4">
                 <div class="row">
                   <div class="btn-group btn-group-justified">
@@ -138,6 +141,7 @@
                     <a class="btn btn-default ng-pristine ng-valid" type="button" ng-model="dice" ng-click="bet_denomination_button();">{{ increase_decrease }}{{ bet_denomination }}</span></a>
                   </div>
                 </div>
+                <br>
                 <div class="row">
                   <div class="btn-group btn-group-justified">
                     <a class="btn btn-default" data-toggle="modal" data-target="#propBets">
@@ -148,18 +152,11 @@
                     </a>
                   </div>
                   <div class="btn-group btn-group-justified">
-                    <a class="btn btn-default" data-toggle="modal" data-target="#webDev">
-                      App Dev
-                    </a>
                     <a class="btn btn-default" data-toggle="modal" data-target="#advOptions">
                       Adv
                     </a>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="btn-group btn-group-justified">
-                    <a class="btn btn-default">
-                      Bank: {{bank_roll_actual}}
+                    <a class="btn btn-default" data-toggle="modal" data-target="#webDev">
+                      App Dev
                     </a>
                   </div>
                 </div>
