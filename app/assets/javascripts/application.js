@@ -264,7 +264,7 @@ crapsGame.controller('crapsGameplay', ['$scope', 'diceService', function($scope,
               PayTheLastCome($scope, total_of_dice)
           }
       }
-      $scope.archive_game_calls.push({game_notice_actual: "Last Roll", net_change: (($scope.bank_roll_actual - game_notice_actual_before_global)+" Coins "), winning_bet: ($scope.bank_roll_actual - game_notice_actual_before_global > 0 ? true : false), losing_bet: ($scope.bank_roll_actual - game_notice_actual_before_global < 0 ? true : false)})
+      $scope.archive_game_calls.push({game_notice_actual: "Last Roll TOTAL: ", net_change: (($scope.bank_roll_actual - game_notice_actual_before_global)+" Coins "), winning_bet: ($scope.bank_roll_actual - game_notice_actual_before_global > 0 ? true : false), losing_bet: ($scope.bank_roll_actual - game_notice_actual_before_global < 0 ? true : false)})
   };
 
   // connecting each place to bet with bank_roll_actual
