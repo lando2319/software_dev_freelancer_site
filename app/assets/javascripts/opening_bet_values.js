@@ -2,6 +2,7 @@
 function OpeningBetValues($scope)
 {
   $scope.player_game_calls = []
+  $scope.archive_game_calls = []
   $scope.dealer_call = "Come Out Roll"
   $scope.die_one = 2
   $scope.die_two = 2

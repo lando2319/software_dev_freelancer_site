@@ -156,6 +156,13 @@
                     </a>
                   </div>
                 </div>
+                <div class="row">
+                  <div class="btn-group btn-group-justified">
+                    <a class="btn btn-default" data-toggle="modal" data-target="#bankRollActual">
+                      Bank: {{bank_roll_actual}} Coins | Last Roll WON 35
+                    </a>
+                  </div>
+                </div>
                   <div class="modal fade" id="propBets" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                     <div class="modal-dialog">
                       <div class="modal-content">
@@ -281,10 +288,26 @@
                       </div>
                     </div>
                   </div>
-                  <div class="row">
-                    <div class="btn-group btn-group-justified">
-                      <a class="btn btn-default ng-pristine ng-valid" ng-model="dice">Bank Roll: {{ bank_roll_actual }}</span></a>
-                      <a class="btn btn-default ng-pristine ng-valid" ng-model="dice">Last Roll: {{ bank_roll_actual }}</span></a>
+                  <div class="modal fade" id="bankRollActual" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                          <h4 class="modal-title" id="myModalLabel">Betting Histroy</h4>
+                        </div>
+                        <div class="modal-body">
+                          <div class="row dealer_calls">
+                            <ul>
+                              <li ng-repeat="archive_game_calls in archive_game_calls">
+                              <span class="winning_bet-{{archive_game_calls.winning_bet}} losing_bet-{{archive_game_calls.losing_bet}}">{{archive_game_calls.call_actual}} </span>
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
+                      </div>
                     </div>
                   </div>
                   <div class="row disclaimer_for_game">
