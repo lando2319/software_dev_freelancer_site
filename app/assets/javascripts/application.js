@@ -201,9 +201,6 @@ crapsGame.controller('crapsGameplay', ['$scope', 'diceService', function($scope,
 
   $scope.roll = function() {
 
-      
-      $scope.archive_game_calls.push({game_notice_actual: "Notice Here", net_change: "Net CHange"})
-
       $scope.player_game_calls = []
       $scope.hide_dice = !$scope.hide_dice
       var current_roll_dice_2= new Array(1,2,3,4,5,6);

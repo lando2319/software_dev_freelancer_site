@@ -1,5 +1,6 @@
 function EvaluateTheField($scope, total_of_dice) {
     if ($scope.field_bet > 0) {
+    var game_notice_actual_before = $scope.bank_roll_actual
         var game_helper_modal_headline = "Field Bet"
         var game_helper_modal_win_lose = "The Field is a One Roll Bet. It wins on any of the following numbers 2,3,4,9,10,11,12. Field Pays Even Money (2 pays double and 12 pays triple)"
         if (total_of_dice == 2) {
@@ -29,6 +30,7 @@ function EvaluateTheField($scope, total_of_dice) {
             var game_helper_modal_message = "The Dice Rolled " + total_of_dice + ". This loses in the field." 
             PlayerGameCalls($scope, "LOST", "#field_bet_modal", game_helper_modal_message, game_helper_modal_headline, game_helper_modal_win_lose)
         }
+    $scope.archive_game_calls.push({game_notice_actual: "Field Bet", net_change: (($scope.bank_roll_actual - game_notice_actual_before)+" Coins "), winning_bet: ($scope.bank_roll_actual - game_notice_actual_before > 0 ? true : false), losing_bet: ($scope.bank_roll_actual - game_notice_actual_before < 0 ? true : false)})
     }
 }
 
