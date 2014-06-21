@@ -158,8 +158,8 @@
                 </div>
                 <div class="row">
                   <div class="btn-group btn-group-justified">
-                    <a class="btn btn-default" data-toggle="modal" data-target="#bankRollActual">
-                      Bank: {{bank_roll_actual}} Coins | Last Roll WON 35
+                    <a class="btn btn-default">
+                      Bank: {{bank_roll_actual}}
                     </a>
                   </div>
                 </div>
@@ -281,28 +281,6 @@
                         </div>
                         <div class="modal-body">
                           Checkout the Repo
-                        </div>
-                        <div class="modal-footer">
-                          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="modal fade" id="bankRollActual" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                    <div class="modal-dialog">
-                      <div class="modal-content">
-                        <div class="modal-header">
-                          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                          <h4 class="modal-title" id="myModalLabel">Betting Histroy</h4>
-                        </div>
-                        <div class="modal-body">
-                          <div class="row dealer_calls">
-                            <ul>
-                              <li ng-repeat="archive_game_call in archive_game_calls">
-                                <span class="player_rescue-{{archive_game_call.player_rescue}} winning_bet-{{archive_game_call.winning_bet}} losing_bet-{{archive_game_call.losing_bet}}">{{archive_game_call.game_notice_actual}} {{archive_game_call.net_change}} </span>
-                              </li>
-                            </ul>
-                          </div>
                         </div>
                         <div class="modal-footer">
                           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
