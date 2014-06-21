@@ -189,6 +189,25 @@ function ComesGoToThe($scope, total_of_dice) {
         var stay_up_payout= ($scope['come_bet_odds_on_'+scopeNum[total_of_dice]] * trueOdds[total_of_dice])
         $scope.bank_roll_actual += stay_up_payout + stay_up
         var come_bet_message = " Odds on Come Bet (off and on), Even money for the Come Bet"
+
+
+
+
+
+
+
+        var game_helper_modal_headline = " the Odds for your Come Bet"
+        var game_helper_modal_win_lose = come_bet_message
+        var game_helper_modal_id = "#come_bet_off_and_on_modal"
+        var game_helper_modal_message = "Your Come Bet on "+writtenWord[total_of_dice]+" with " + stay_up + " Odds, The Odds paid "+stay_up_payout+". The original Come Bet (or Flat) always pays even money. Total Payout was "+(stay_up_payout+stay_up+$scope['come_bet_flat_on_'+scopeNum[total_of_dice]])
+        PlayerGameCalls($scope, "WON", game_helper_modal_id, game_helper_modal_message, game_helper_modal_headline, game_helper_modal_win_lose, stay_up, stay_up_payout)
+
+
+
+
+
+
+
         //PlayerGameCalls($scope, $scope.line_bet, "WON", come_bet_message, stay_up, stay_up_payout)
     } else if ($scope['come_bet_flat_on_'+scopeNum[total_of_dice]] != $scope.place_come_bet) {
         if ($scope['come_bet_flat_on_'+scopeNum[total_of_dice]] != 0) {
