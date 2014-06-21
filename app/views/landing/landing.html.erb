@@ -34,6 +34,15 @@
                   </div>
                 </div>
                 <div class="row dealer_calls">
+                  <div class="row dealer_calls dealer_calls_micro game_status_headline">
+                    <label><span>{{ dealer_call }}</span></label>
+                    <label><span ng-show="game_status == 'Come Out Roll' && (line_bet == dont_pass_line_bet) && line_bet == 0">You Need a Line Bet</span></label>
+                    <label><span ng-show="game_status == 'Come Out Roll' && (line_bet == dont_pass_line_bet) && line_bet != 0">Pick A Side</span></label>
+                    <label><span ng-show="game_status == 'Come Out Roll' && (line_bet > dont_pass_line_bet)">7 or 11 to Win</span></label>
+                    <label><span ng-show="game_status == 'Come Out Roll' && (line_bet < dont_pass_line_bet)">2 or 3 to Win</span></label>
+                    <label><span ng-show="game_status != 'Come Out Roll' && (line_bet > dont_pass_line_bet)">You Need {{ point_is }} To Win</span></label>
+                    <label><span ng-show="game_status != 'Come Out Roll' && (line_bet < dont_pass_line_bet)">You Need 7 To Win</span></label>
+                  </div>
                   <ul>
                     <li ng-repeat="player_game_call in player_game_calls" class="losing_bet-{{player_game_call.losing_bet}} winning_bet-{{player_game_call.winning_bet}}">
                     <span class="player_rescue-{{player_game_call.player_rescue}}">{{player_game_call.call_actual}} </span><a class="btn btn-default game_helper_button" data-toggle="modal" data-target={{player_game_call.game_helper_modal_id}}>?</a>
@@ -57,15 +66,6 @@
                     </div>
                     </li>
                   </ul>
-                </div>
-                <div class="row dealer_calls dealer_calls_micro">
-                  <label><span>{{ dealer_call }}</span></label>
-                  <label><span ng-show="game_status == 'Come Out Roll' && (line_bet == dont_pass_line_bet) && line_bet == 0">You Need a Line Bet</span></label>
-                  <label><span ng-show="game_status == 'Come Out Roll' && (line_bet == dont_pass_line_bet) && line_bet != 0">Pick A Side</span></label>
-                  <label><span ng-show="game_status == 'Come Out Roll' && (line_bet > dont_pass_line_bet)">7 or 11 to Win</span></label>
-                  <label><span ng-show="game_status == 'Come Out Roll' && (line_bet < dont_pass_line_bet)">2 or 3 to Win</span></label>
-                  <label><span ng-show="game_status != 'Come Out Roll' && (line_bet > dont_pass_line_bet)">You Need {{ point_is }} To Win</span></label>
-                  <label><span ng-show="game_status != 'Come Out Roll' && (line_bet < dont_pass_line_bet)">You Need 7 To Win</span></label>
                 </div>
               </div>
               <div class="col-xs-6 col-ms-4 col-sm-4 col-md-4 col-lg-4">

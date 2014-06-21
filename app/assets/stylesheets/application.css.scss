@@ -115,10 +115,6 @@ fieldset[disabled] .btn-darkest.active {
 }
 
 .dice_size {
- /* margin-top: -38px;
-  margin-bottom: -24px;
-  */
-
   letter-spacing: -12px;
   text-align: center;
   font-size: 80px;
@@ -184,6 +180,11 @@ fieldset[disabled] .btn-darkest.active {
   min-width: 50px;
 }
 
+
+.game_status_headline {
+  background-color: black;
+  color: white;
+}
 
 .player_rescue-true {
   background-color: red;
