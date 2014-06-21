@@ -101,7 +101,6 @@ function PropBets($scope, random_1, random_2) {
                 }
                 PlayerGameCalls($scope, "LOST", game_helper_modal_id, game_helper_modal_message, game_helper_modal_headline, game_helper_modal_win_lose)
            }
-           $scope.last_roll_totals.push({game_notice_actual: game_helper_modal_headline, net_change: (($scope.bank_roll_actual - game_notice_actual_before)+" Coins "), winning_bet: ($scope.bank_roll_actual - game_notice_actual_before > 0 ? true : false), losing_bet: ($scope.bank_roll_actual - game_notice_actual_before < 0 ? true : false)})
         }
     })
 

@@ -94,49 +94,49 @@ crapsGame.controller('crapsGameplay', ['$scope', 'diceService', function($scope,
               var game_helper_modal_headline = "Come Bet"
               var game_helper_modal_win_lose = "WINS ON 7 and 11. LOSES ON 2,3, or 12. Any other number and the Come Bet will Travel to that number, a which point the bet will win by rolling that number again or lose by rolling a 7, which ever come first."
               var game_helper_modal_id = "#"+value+"_modal"
-              var game_helper_modal_message = "You Placed " + game_helper_modal_headline+ " for " + $scope[value]
+              var game_helper_modal_message = "You Placed " + game_helper_modal_headline+ " for " + $scope[value]+" Coins"
               PlayerGameCalls($scope, "INFO", game_helper_modal_id, game_helper_modal_message, game_helper_modal_headline, game_helper_modal_win_lose)
           }
           if ($scope[value] > 0 && value == "place_dont_come_bet") {
               var game_helper_modal_headline = "Don't Come Bet"
               var game_helper_modal_win_lose = "WINS ON 2, 3 or 12. LOSES ON 7 or 11. Any other number and the Don't Come Bet will Travel to that number, a which point the bet will lose by rolling that number again or win by rolling a 7, which ever come first."
               var game_helper_modal_id = "#"+value+"_modal"
-              var game_helper_modal_message = "You Placed " + game_helper_modal_headline+ " for " + $scope[value]
+              var game_helper_modal_message = "You Placed " + game_helper_modal_headline+ " for " + $scope[value]+ " Coins"
               PlayerGameCalls($scope, "INFO", game_helper_modal_id, game_helper_modal_message, game_helper_modal_headline, game_helper_modal_win_lose)
           }
           if ($scope[value] > 0 && value == "odds_behind_the_line") {
               var game_helper_modal_headline = "Odds behind the Pass Line"
               var game_helper_modal_win_lose = "WINS ON "+$scope.point_is+". LOSES ON 7. Once a point has been established you have the option of adding Odds to your Line Bet, like the pass line bet, only two numbers will affect the Odds behind the line, Rolling the Point will win and Rolling a Seven will lose."
               var game_helper_modal_id = "#"+value+"_modal"
-              var game_helper_modal_message = "You Placed " + game_helper_modal_headline+ " for " + $scope[value]
+              var game_helper_modal_message = "You Placed " + game_helper_modal_headline+ " for " + $scope[value]+ " Coins"
               PlayerGameCalls($scope, "INFO", game_helper_modal_id, game_helper_modal_message, game_helper_modal_headline, game_helper_modal_win_lose)
           }
           if ($scope[value] > 0 && value == "odds_behind_the_dont_pass_line") {
               var game_helper_modal_headline = "Odds behind the Don't Pass Line"
               var game_helper_modal_win_lose = "WINS ON 7. LOSES ON "+$scope.point_is+". Once a point has been established you have the option of adding a Lay to your Don't Pass Line Bet, like the don't pass line bet, only two numbers will affect the Odds behind the line, Rolling the Point will lose and Rolling a Seven will win."
               var game_helper_modal_id = "#"+value+"_modal"
-              var game_helper_modal_message = "You Placed " + game_helper_modal_headline+ " for " + $scope[value]
+              var game_helper_modal_message = "You Placed " + game_helper_modal_headline+ " for " + $scope[value]+" Coins"
               PlayerGameCalls($scope, "INFO", game_helper_modal_id, game_helper_modal_message, game_helper_modal_headline, game_helper_modal_win_lose)
           }
           if ($scope[value] > 0 && value == "dont_pass_line_bet") {
               var game_helper_modal_headline = "Don't Pass Line Bet"
               var game_helper_modal_win_lose = "The Don't Pass Line during the \"Come Out Roll\" will win on 2 and 3, 12 is a push and lose on 7 and 11. Any other number becomes the point. Once the point has been established, only two numbers will affect the Don't Pass Line, Rolling the Point will lose and Rolling a Seven will win."
               var game_helper_modal_id = "#"+value+"_modal"
-              var game_helper_modal_message = "You Placed a " + game_helper_modal_headline+ " for " + $scope[value]
+              var game_helper_modal_message = "You Placed a " + game_helper_modal_headline+ " for " + $scope[value]+" Coins"
               PlayerGameCalls($scope, "INFO", game_helper_modal_id, game_helper_modal_message, game_helper_modal_headline, game_helper_modal_win_lose)
           }
           if ($scope[value] > 0 && value == "line_bet") {
               var game_helper_modal_headline = "Pass Line Bet"
               var game_helper_modal_win_lose = "The Pass Line during the \"Come Out Roll\" will win on 7 and 11, and lose on 2,3, and 12. Any other number becomes the point. Once the point has been established, only two numbers will affect the Pass Line, Rolling the Point will win and Rolling a Seven will lose."
               var game_helper_modal_id = "#"+value+"_modal"
-              var game_helper_modal_message = "You Placed a " + game_helper_modal_headline+ " for " + $scope[value]
+              var game_helper_modal_message = "You Placed a " + game_helper_modal_headline+ " for " + $scope[value]+" Coins"
               PlayerGameCalls($scope, "INFO", game_helper_modal_id, game_helper_modal_message, game_helper_modal_headline, game_helper_modal_win_lose)
           }
           if ($scope[value] > 0 && value == "field_bet") {
               var game_helper_modal_headline = "Field Bet"
               var game_helper_modal_win_lose = "The Field is a One Roll Bet. It wins on any of the following numbers 2,3,4,9,10,11,12. Field Pays Even Money (2 pays double and 12 pays triple)"
               var game_helper_modal_id = "#"+value+"_modal"
-              var game_helper_modal_message = "You Placed a " + game_helper_modal_headline+ " for " + $scope[value]
+              var game_helper_modal_message = "You Placed a " + game_helper_modal_headline+ " for " + $scope[value]+" Coins"
               PlayerGameCalls($scope, "INFO", game_helper_modal_id, game_helper_modal_message, game_helper_modal_headline, game_helper_modal_win_lose)
           }
           if ($scope[value] > 0 && value.match("prop_bet_on_")) {
