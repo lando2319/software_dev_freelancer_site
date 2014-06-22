@@ -328,7 +328,9 @@ function PayTheLastCome($scope, total_of_dice) {
         PlayerGameCalls($scope, "WON", game_helper_modal_id, game_helper_modal_message, game_helper_modal_headline, game_helper_modal_win_lose, stay_up, stay_up_payout)
 
         $scope.bank_roll_actual += $scope.place_come_bet 
-        $scope.place_come_bet = 0
+        if (total_of_dice == 7 ) {
+            $scope.place_come_bet = 0
+        }
     }
     if ($scope.place_dont_come_bet > 0) {
         $scope.bank_roll_actual -= $scope.place_dont_come_bet 
