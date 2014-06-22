@@ -33,7 +33,7 @@ function EvaluateTheField($scope, total_of_dice) {
 }
 
 function PropBets($scope, random_1, random_2) {
-    var propBetChecker = {'prop_bet_on_1_1':' Aces Bet','prop_bet_on_2_1':' Ace Deuce Bet','prop_bet_on_6_1':' Yo Bet','prop_bet_on_6_6':' Twelve Bet',
+    var propBetChecker = {'prop_bet_on_1_1':' Aces Bet','prop_bet_on_2_1':' Ace Deuce Bet','prop_bet_on_6_5':' Yo Bet','prop_bet_on_6_6':' Twelve Bet',
       'prop_bet_on_6_1':' Six One Hop', 'prop_bet_on_5_2':' Five Two Hop', 'prop_bet_on_4_3':' Four Three Hop','prop_bet_on_3_1':' Three One Hop', 
       'prop_bet_on_2_2':' Hard Four Hop', 'prop_bet_on_3_2':' Three Two Hop', 'prop_bet_on_4_1':' Four One Hop','prop_bet_on_5_1':' Five One Hop', 
       'prop_bet_on_4_2':' Four Two Hop', 'prop_bet_on_3_3':' Hard Six Hop', 'prop_bet_on_6_2':' Six Two Hop','prop_bet_on_5_3':' Five Three Hop', 

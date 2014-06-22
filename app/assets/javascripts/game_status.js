@@ -32,7 +32,7 @@ function FrontLineWinner($scope, total_of_dice)
         var game_helper_modal_headline = "Odds Behind the Pass Line"
         var game_helper_modal_win_lose = odds_game_message
         var game_helper_modal_id = "#odds_behind_the_line_modal"
-        var game_helper_modal_message = "You Placed " + game_helper_modal_headline+ " for " + $scope.odds_behind_the_line + " this pays "+stay_up_payout+". The original Pass Line Bet (or Flat) always pays even money"
+        var game_helper_modal_message = "You Placed " + game_helper_modal_headline+ " for " + $scope.odds_behind_the_line + " Coins this pays "+stay_up_payout+" Coins. The original Pass Line Bet (or Flat) always pays even money"
         PlayerGameCalls($scope, "WON", game_helper_modal_id, game_helper_modal_message, game_helper_modal_headline, game_helper_modal_win_lose, stay_up, stay_up_payout)
         $scope.odds_behind_the_line = 0
     }
