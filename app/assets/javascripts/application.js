@@ -47,35 +47,36 @@ crapsGame.controller('crapsGameplay', ['$scope', 'diceService', function($scope,
   }
 
   var pointNumVars = ['4','5','6','8','9','10'];
+  var writtenWord = {'4':'Four', '5':'Five', '6':'Six', '8':'Eight', '9':'Nine', '10':'Ten'};
 
   angular.forEach(pointNumVars, function(value) {
         $scope['place_bet_on_'+value+'_button'] = function() {
             $scope.increase_decrease == "-" ? $scope['place_bet_on_the_'+value] -= $scope.bet_denomination : $scope['place_bet_on_the_'+value] += $scope.bet_denomination
             if ($scope['place_bet_on_the_'+value] > 0) {
-                var game_helper_modal_headline = "Odds On Your Come Bet on "+value
+                var game_helper_modal_headline = "Odds On Your Come Bet on "+writtenWord[value]
                 var game_helper_modal_win_lose = "WINS ON "+$scope.point_is+". LOSES ON 7. Once a point has been established you have the option of adding Odds to your Line Bet, like the pass line bet, only two numbers will affect the Odds behind the line, Rolling the Point will win and Rolling a Seven will lose."
                 var game_helper_modal_id = "#come_bet_odds_on_"+value+"_modal"
-                var game_helper_modal_message = "You Placed " + game_helper_modal_headline+ " for " + $scope['place_bet_on_the_'+value]
+                var game_helper_modal_message = "You Placed " + game_helper_modal_headline+ " for " + $scope['place_bet_on_the_'+value]+" Coins"
                 PlayerGameCalls($scope, "INFO", game_helper_modal_id, game_helper_modal_message, game_helper_modal_headline, game_helper_modal_win_lose)
             }
         }
         $scope['come_bet_odds_on_'+value+'_button'] = function() {
             $scope.increase_decrease == "-" ? $scope['come_bet_odds_on_'+value] -= $scope.bet_denomination : $scope['come_bet_odds_on_'+value] += $scope.bet_denomination
             if ($scope['come_bet_odds_on_'+value] > 0) {
-                var game_helper_modal_headline = "Odds On Your Come Bet on "+value
+                var game_helper_modal_headline = "Odds On Your Come Bet on "+writtenWord[value]
                 var game_helper_modal_win_lose = "WINS ON "+$scope.point_is+". LOSES ON 7. "
                 var game_helper_modal_id = "#come_bet_odds_on_"+value+"_modal"
-                var game_helper_modal_message = "You Placed " + game_helper_modal_headline+ " for " + $scope['come_bet_odds_on_'+value]
+                var game_helper_modal_message = "You Placed " + game_helper_modal_headline+ " for " + $scope['come_bet_odds_on_'+value]+" Coins"
                 PlayerGameCalls($scope, "INFO", game_helper_modal_id, game_helper_modal_message, game_helper_modal_headline, game_helper_modal_win_lose)
             }
         }
         $scope['dont_come_bet_lay_on_'+value+'_button'] = function() {
             $scope.increase_decrease == "-" ? $scope['dont_come_bet_lay_on_'+value] -= $scope.bet_denomination : $scope['dont_come_bet_lay_on_'+value] += $scope.bet_denomination
             if ($scope['dont_come_bet_lay_on_'+value] > 0) {
-                var game_helper_modal_headline = "Lay On Your Don't Come Bet on "+value
+                var game_helper_modal_headline = "Lay On Your Don't Come Bet on "+writtenWord[value]
                 var game_helper_modal_win_lose = "Loses ON "+$scope.point_is+". WINS ON 7. "
                 var game_helper_modal_id = "#dont_come_bet_lay_on_"+value+"_modal"
-                var game_helper_modal_message = "You Placed " + game_helper_modal_headline+ " for " + $scope['dont_come_bet_lay_on_'+value]
+                var game_helper_modal_message = "You Placed " + game_helper_modal_headline+ " for " + $scope['dont_come_bet_lay_on_'+value]+" Coins"
                 PlayerGameCalls($scope, "INFO", game_helper_modal_id, game_helper_modal_message, game_helper_modal_headline, game_helper_modal_win_lose)
             }
         }
@@ -161,21 +162,21 @@ crapsGame.controller('crapsGameplay', ['$scope', 'diceService', function($scope,
                   var game_helper_modal_win_lose = hop_1+"-"+hop_2+" Hopping is a One Roll Bet. The dice must come "+highside_lowside_wording+" in order to win. Pays "+highside_lowside
               }
               var game_helper_modal_id = "#"+value+"_modal"
-              var game_helper_modal_message = "You Placed a " + game_helper_modal_headline+ " for " + $scope[value]
+              var game_helper_modal_message = "You Placed a " + game_helper_modal_headline+ " for " + $scope[value]+" Coins"
               PlayerGameCalls($scope, "INFO", game_helper_modal_id, game_helper_modal_message, game_helper_modal_headline, game_helper_modal_win_lose)
           }
           if ($scope[value] > 0 && value == "prop_bet_red") {
               var game_helper_modal_headline = "Prop Bet on Any Seven"
               var game_helper_modal_win_lose = "Any Seven is a One Roll Bet. The dice must roll Seven in order to win. Pays 5 for 1"
               var game_helper_modal_id = "#"+value+"_modal"
-              var game_helper_modal_message = "You Placed a " + game_helper_modal_headline+ " for " + $scope[value]
+              var game_helper_modal_message = "You Placed a " + game_helper_modal_headline+ " for " + $scope[value]+" Coins"
               PlayerGameCalls($scope, "INFO", game_helper_modal_id, game_helper_modal_message, game_helper_modal_headline, game_helper_modal_win_lose)
           }
           if ($scope[value] > 0 && value == "prop_bet_craps") {
               var game_helper_modal_headline = "Prop Bet on Any Craps"
               var game_helper_modal_win_lose = "Any Craps is a One Roll Bet. The dice must roll Craps (2,3, or 12) in order to win. Pays 8 for 1"
               var game_helper_modal_id = "#"+value+"_modal"
-              var game_helper_modal_message = "You Placed a " + game_helper_modal_headline+ " for " + $scope[value]
+              var game_helper_modal_message = "You Placed a " + game_helper_modal_headline+ " for " + $scope[value]+" Coins"
               PlayerGameCalls($scope, "INFO", game_helper_modal_id, game_helper_modal_message, game_helper_modal_headline, game_helper_modal_win_lose)
           }
           if ($scope[value] > 0 && value.match("prop_bet_hard_")) {
@@ -193,7 +194,7 @@ crapsGame.controller('crapsGameplay', ['$scope', 'diceService', function($scope,
                   var game_helper_modal_win_lose = "Hard Ten is a bet that the dice will come \"Hard\" (5-5). WINS on 5-5, LOSES on 7 or easy Ten (6-4). Pays 7 for 1."
               }
               var game_helper_modal_id = "#"+value+"_modal"
-              var game_helper_modal_message = "You Placed a " + game_helper_modal_headline+ " for " + $scope[value]
+              var game_helper_modal_message = "You Placed a " + game_helper_modal_headline+ " for " + $scope[value]+" Coins"
               PlayerGameCalls($scope, "INFO", game_helper_modal_id, game_helper_modal_message, game_helper_modal_headline, game_helper_modal_win_lose)
           }
       }
