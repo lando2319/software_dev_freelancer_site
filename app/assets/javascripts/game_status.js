@@ -62,12 +62,17 @@ function LineAway($scope, total_of_dice) {
     if ($scope.dont_pass_line_bet > 0 && $scope.odds_behind_the_dont_pass_line == 0) {
         var stay_up = $scope.dont_pass_line_bet
         var stay_up_payout = $scope.dont_pass_line_bet
-        $scope.bank_roll_actual += $scope.dont_pass_line_bet
         var game_helper_modal_headline = ($scope.odds_behind_the_dont_pass_line == 0 ? " Don't Pass Line Bet" : " Don't Pass Line Bet with Lay")
         var game_helper_modal_win_lose = "The Don't Pass Line during the \"Come Out Roll\" will win on 2 and 3, 12 is a push and lose on 7 and 11. Any other number becomes the point. Once the point has been established, only two numbers will affect the Don't Pass Line, Rolling the Point will lose and Rolling a Seven will win."
         var game_helper_modal_id = "#dont_pass_line_bet"
-        var game_helper_modal_message = "You Placed a " + game_helper_modal_headline
-        PlayerGameCalls($scope, "WON", game_helper_modal_id, game_helper_modal_message, game_helper_modal_headline, game_helper_modal_win_lose, stay_up, stay_up_payout)
+        if (total_of_dice == 12) {
+            var game_helper_modal_message = "You Pushed on your " + game_helper_modal_headline
+            PlayerGameCalls($scope, "INFO", game_helper_modal_id, game_helper_modal_message, game_helper_modal_headline, game_helper_modal_win_lose)
+        } else {
+            $scope.bank_roll_actual += $scope.dont_pass_line_bet
+            var game_helper_modal_message = "You Placed a " + game_helper_modal_headline
+            PlayerGameCalls($scope, "WON", game_helper_modal_id, game_helper_modal_message, game_helper_modal_headline, game_helper_modal_win_lose, stay_up, stay_up_payout)
+        }
     } 
     if ($scope.dont_pass_line_bet > 0 && $scope.odds_behind_the_dont_pass_line > 0) {
         var stay_up = $scope.odds_behind_the_dont_pass_line
