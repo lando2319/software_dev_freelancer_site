@@ -116,30 +116,54 @@ function LineAway($scope, total_of_dice) {
 }
 
 function SetsThePoint($scope, total_of_dice) {
-      $scope.dealer_call = "We have a point "
-      $scope.game_status = "Point is "
-      $scope.point_is = total_of_dice
-      $scope.the_call_is = total_of_dice
-      $scope.place_bets_off_message = ""
+    $scope.dealer_call = "We have a point "
+    $scope.game_status = "Point is "
+    $scope.point_is = total_of_dice
+    $scope.the_call_is = total_of_dice
+    $scope.place_bets_off_message = ""
 
     var scopeNum = {4:'4', 5:'5', 6:'6', 8:'8', 9:'9', 10:'10'};
     var writtenWordCap = {4:'Four', 5:'Five', 6:'Six', 8:'Eight', 9:'Nine', 10:'Ten'};
     var writtenWord = {4:'four', 5:'five', 6:'six', 8:'eight', 9:'nine', 10:'ten'};
+    var trueOdds = {4:2, 5:1.5, 6:1.2, 8:1.2, 9:1.5, 10:2};
     
-      $scope.point_is_word = writtenWordCap[total_of_dice]
+    $scope.point_is_word = writtenWordCap[total_of_dice]
 
-      if (total_of_dice == scopeNum[total_of_dice]) {
-        $scope['come_bet_odds_on_'+scopeNum[total_of_dice]] = 0
-        $scope.bank_roll_actual += $scope['come_bet_odds_on_'+scopeNum[total_of_dice]]
-        $scope['come_bet_odds_on_'+scopeNum[total_of_dice]] = 0
-        $scope[writtenWord[total_of_dice]] = "ON"
-        var current_game_message = "You Now Have a Point Of " + writtenWordCap[total_of_dice] 
-        var game_helper_modal_headline = current_game_message
-        var game_helper_modal_message = ($scope.line_bet > $scope.dont_pass_line_bet ? (writtenWordCap[total_of_dice] + " Rolls You Win, Seven Rolls you Lose") : (" Seven Rolls You Win, " + writtenWordCap[total_of_dice] + " Rolls you Lose"))
-        var game_helper_modal_win_lose = "It was just the \"Come Out Roll\" Now we have a point of "+writtenWordCap[total_of_dice]
-        var game_helper_modal_id = "#point_is_set_modal"
-        PlayerGameCalls($scope, "INFO", game_helper_modal_id, game_helper_modal_message, game_helper_modal_headline, game_helper_modal_win_lose)
-      }
+    if ($scope['come_bet_flat_on_'+scopeNum[total_of_dice]] > 0) {
+        $scope.bank_roll_actual += $scope['come_bet_flat_on_'+scopeNum[total_of_dice]]
+        $scope['come_bet_flat_on_'+scopeNum[total_of_dice]] = 0
+        if ($scope.odds_on_come_bets_are_off == false) {
+            var stay_up = $scope['come_bet_odds_on_'+scopeNum[total_of_dice]]
+            var stay_up_payout = $scope['come_bet_odds_on_'+scopeNum[total_of_dice]] * trueOdds[total_of_dice]
+            $scope.bank_roll_actual += stay_up_payout
+            $scope['come_bet_odds_on_'+scopeNum[total_of_dice]] = 0
+            var current_game_message = "Come Bet and Odds On " + writtenWordCap[total_of_dice] 
+            var game_helper_modal_headline = current_game_message
+            var game_helper_modal_message = ($scope.line_bet > $scope.dont_pass_line_bet ? (writtenWordCap[total_of_dice] + " Rolls You Win, Seven Rolls you Lose") : (" Seven Rolls You Win, " + writtenWordCap[total_of_dice] + " Rolls you Lose"))
+            var game_helper_modal_win_lose = "It was just the \"Come Out Roll\" Now we have a point of "+writtenWordCap[total_of_dice]+". You Called your Bets Working."
+            var game_helper_modal_id = "#point_is_set_working_odds_modal"
+            PlayerGameCalls($scope, "WON", game_helper_modal_id, game_helper_modal_message, game_helper_modal_headline, game_helper_modal_win_lose, stay_up, stay_up_payout)
+
+        } else {
+            var stay_up = $scope['come_bet_flat_on_'+scopeNum[total_of_dice]]
+            var stay_up_payout = $scope['come_bet_flat_on_'+scopeNum[total_of_dice]]
+            $scope.bank_roll_actual += $scope['come_bet_flat_on_'+scopeNum[total_of_dice]]
+            $scope['come_bet_flat_on_'+scopeNum[total_of_dice]] = 0
+            $scope['come_bet_odds_on_'+scopeNum[total_of_dice]] = 0
+            var current_game_message = "Come Bet On" + writtenWordCap[total_of_dice] 
+            var game_helper_modal_headline = current_game_message
+            var game_helper_modal_message = ($scope.line_bet > $scope.dont_pass_line_bet ? (writtenWordCap[total_of_dice] + " Rolls You Win, Seven Rolls you Lose") : (" Seven Rolls You Win, " + writtenWordCap[total_of_dice] + " Rolls you Lose"))
+            var game_helper_modal_win_lose = "It was just the \"Come Out Roll\" Now we have a point of "+writtenWordCap[total_of_dice]+". You Come Bet wins because the number rolled before a Seven. The Odds are automatically Turned off on the \"Come Out Roll\", This can be overridden in the Adv Section."
+            var game_helper_modal_id = "#point_is_set_modal"
+            PlayerGameCalls($scope, "WON", game_helper_modal_id, game_helper_modal_message, game_helper_modal_headline, game_helper_modal_win_lose, stay_up, stay_up_payout)
+        }
+    }
+    $scope[writtenWord[total_of_dice]] = "ON"
+    var game_helper_modal_message = "We Now Have A Point Of "+writtenWord[total_of_dice] 
+    var game_helper_modal_win_lose = "It was just the \"Come Out Roll\" Now we have a point of "+writtenWordCap[total_of_dice]+"."
+    var game_helper_modal_headline = "Poit is "+writtenWord[total_of_dice]
+    var game_helper_modal_id = "#point_is_set_no_come_bet_modal"
+    PlayerGameCalls($scope, "INFO", game_helper_modal_id, game_helper_modal_message, game_helper_modal_headline, game_helper_modal_win_lose)
 }
 
 function PayPlaceBets($scope, total_of_dice) {
@@ -190,10 +214,10 @@ function ComesGoToThe($scope, total_of_dice) {
         var game_helper_modal_win_lose = "Your Don't Come Bet just Traveled to the "+writtenWord[total_of_dice]+". This Bet will now LOSE on "+writtenWord[total_of_dice]+" and WIN on Seven. You also have the option to add a Lay by clicking on the bet. The Lay will win and lose on the same numbers, this is a way to increase your action against the "+writtenWord[total_of_dice]+"."
         var game_helper_modal_headline = "Don't Come Bet"
         var game_helper_modal_id = "#dont_come_travels_modal"
-        PlayerGameCalls($scope, "PLAYER_RESCUE", game_helper_modal_id, game_helper_modal_message, game_helper_modal_headline, game_helper_modal_win_lose)
+        PlayerGameCalls($scope, "INFO", game_helper_modal_id, game_helper_modal_message, game_helper_modal_headline, game_helper_modal_win_lose)
     }
 
-    if ($scope['come_bet_flat_on_'+scopeNum[total_of_dice]] == $scope.place_come_bet && $scope.place_come_bet != 0) {
+    if (($scope['come_bet_flat_on_'+scopeNum[total_of_dice]] == $scope.place_come_bet) && $scope.place_come_bet != 0) {
         var stay_up = ($scope['come_bet_odds_on_'+scopeNum[total_of_dice]])
         var stay_up_payout= ($scope['come_bet_odds_on_'+scopeNum[total_of_dice]] * trueOdds[total_of_dice])
         $scope.bank_roll_actual += stay_up_payout + stay_up
@@ -217,11 +241,13 @@ function ComesGoToThe($scope, total_of_dice) {
 
 
 
-    } else if ($scope['come_bet_flat_on_'+scopeNum[total_of_dice]] != $scope.place_come_bet && $scope.place_come_bet != 0) {
+    }
+
+    if (($scope['come_bet_flat_on_'+scopeNum[total_of_dice]] != $scope.place_come_bet) && $scope.place_come_bet != 0) {
         if ($scope['come_bet_flat_on_'+scopeNum[total_of_dice]] != 0) {
             var stay_up = ($scope['come_bet_odds_on_'+scopeNum[total_of_dice]])
             var stay_up_payout= ($scope['come_bet_odds_on_'+scopeNum[total_of_dice]] * trueOdds[total_of_dice])
-            $scope.bank_roll_actual += (stay_up_payout + stay_up)
+            $scope.bank_roll_actual += (stay_up_payout + stay_up + $scope['come_bet_flat_on_'+scopeNum[total_of_dice]])
             var come_bet_message = " Odds on Come Bet, Even money for the Come Bet"
 
             var game_helper_modal_headline = " the Odds for your Come Bet"
@@ -245,7 +271,7 @@ function ComesGoToThe($scope, total_of_dice) {
             var game_helper_modal_win_lose = "Your Come Bet just Traveled to the "+writtenWord[total_of_dice]+". This Bet will now LOSE on Seven and Win on "+writtenWord[total_of_dice]+". You also have the option to adding Odds by clicking on the bet. The Odds will win and lose on the same numbers, this is a way to increase your action on the "+writtenWord[total_of_dice]+"."
             var game_helper_modal_headline = "Come Bet"
             var game_helper_modal_id = "#come_travels_modal"
-            PlayerGameCalls($scope, "PLAYER_RESCUE", game_helper_modal_id, game_helper_modal_message, game_helper_modal_headline, game_helper_modal_win_lose)
+            PlayerGameCalls($scope, "INFO", game_helper_modal_id, game_helper_modal_message, game_helper_modal_headline, game_helper_modal_win_lose)
 
 
 
@@ -408,7 +434,7 @@ function GiveBackTheOdds($scope, total_of_dice) {
             } else {
                 var game_helper_modal_headline = "Flat Bet On "+written_word
                 var game_helper_modal_win_lose = "Once a Come Bet has Traveled to a Number, if the Seven comes before that number the bet loses. The Odds on Come Bets are automatically off on the Come Out Roll (this can be overridden in the Adv Settings)."
-                var game_helper_modal_id = "#come_bet_flat_loses_on_"+value+"_modal"
+                var game_helper_modal_id = "#come_bet_flat_loses_on_"+num_actual+"_modal"
                 var game_helper_modal_message = "You Placed " + game_helper_modal_headline
                 PlayerGameCalls($scope, "LOST", game_helper_modal_id, game_helper_modal_message, game_helper_modal_headline, game_helper_modal_win_lose)
 
