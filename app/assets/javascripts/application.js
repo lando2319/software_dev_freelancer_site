@@ -235,6 +235,7 @@ crapsGame.controller('crapsGameplay', ['$scope', 'diceService', function($scope,
               FrontLineWinner($scope, total_of_dice)
               ComesGoToThe($scope, total_of_dice)
               $scope.point_is = ""
+              $scope.point_is_word = ""
               $scope.game_status = "Come Out Roll"
               $scope.place_bets_are_off = true 
               $scope.odds_on_come_bets_are_off = true 

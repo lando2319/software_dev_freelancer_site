@@ -12,7 +12,7 @@ function FrontLineWinner($scope, total_of_dice)
         var game_helper_modal_headline = "Pass Line Bet"
         var game_helper_modal_win_lose = "The Pass Line during the \"Come Out Roll\" will win on 7 and 11, and lose on 2,3, and 12. Any other number becomes the point. Once the point has been established, only two numbers will affect the Pass Line, Rolling the Point will win and Rolling a Seven will lose."
         var game_helper_modal_id = "#line_bet_modal"
-        var game_helper_modal_message = "You Placed a " + game_helper_modal_headline+ " for " + $scope.line_bet
+        var game_helper_modal_message = "You Placed a " + game_helper_modal_headline+ " for " + $scope.line_bet+" Coins"
         PlayerGameCalls($scope, "WON", game_helper_modal_id, game_helper_modal_message, game_helper_modal_headline, game_helper_modal_win_lose, stay_up, stay_up_payout)
     } 
     if ($scope.line_bet > 0 && $scope.odds_behind_the_line > 0) {
@@ -29,12 +29,12 @@ function FrontLineWinner($scope, total_of_dice)
         }
         $scope.bank_roll_actual += stay_up_payout
         $scope.bank_roll_actual += $scope.line_bet
-        $scope.odds_behind_the_line = 0
         var game_helper_modal_headline = "Odds Behind the Pass Line"
         var game_helper_modal_win_lose = odds_game_message
         var game_helper_modal_id = "#odds_behind_the_line_modal"
         var game_helper_modal_message = "You Placed " + game_helper_modal_headline+ " for " + $scope.odds_behind_the_line + " this pays "+stay_up_payout+". The original Pass Line Bet (or Flat) always pays even money"
         PlayerGameCalls($scope, "WON", game_helper_modal_id, game_helper_modal_message, game_helper_modal_headline, game_helper_modal_win_lose, stay_up, stay_up_payout)
+        $scope.odds_behind_the_line = 0
     }
 
     if ($scope.dont_pass_line_bet > 0) {
@@ -95,7 +95,7 @@ function LineAway($scope, total_of_dice) {
         var game_helper_modal_headline = ($scope.odds_behind_the_line == 0 ? " Pass Line Bet" : " Pass Line Bet with Odds")
         var game_helper_modal_win_lose = "The Pass Line during the \"Come Out Roll\" will win on 7 and 11, and lose on 2,3, and 12. Any other number becomes the point. Once the point has been established, only two numbers will affect the Pass Line, Rolling the Point will win and Rolling a Seven will lose."
         var game_helper_modal_id = "#line_bet_modal"
-        var game_helper_modal_message = "You Placed " + game_helper_modal_headline
+        var game_helper_modal_message = "You Placed a " + game_helper_modal_headline
         PlayerGameCalls($scope, "LOST", game_helper_modal_id, game_helper_modal_message, game_helper_modal_headline, game_helper_modal_win_lose)
         $scope.line_bet = 0
         $scope.odds_behind_the_line = 0
@@ -129,7 +129,7 @@ function SetsThePoint($scope, total_of_dice) {
         var current_game_message = "You Now Have a Point Of " + writtenWordCap[total_of_dice] 
         var game_helper_modal_headline = current_game_message
         var game_helper_modal_message = ($scope.line_bet > $scope.dont_pass_line_bet ? (writtenWordCap[total_of_dice] + " Rolls You Win, Seven Rolls you Lose") : (" Seven Rolls You Win, " + writtenWordCap[total_of_dice] + " Rolls you Lose"))
-        var game_helper_modal_win_lose = "It was just the \"Come Out Roll\" Now we have a point of "+$scope.point_is
+        var game_helper_modal_win_lose = "It was just the \"Come Out Roll\" Now we have a point of "+writtenWordCap[total_of_dice]
         var game_helper_modal_id = "#point_is_set_modal"
         PlayerGameCalls($scope, "INFO", game_helper_modal_id, game_helper_modal_message, game_helper_modal_headline, game_helper_modal_win_lose)
       }
