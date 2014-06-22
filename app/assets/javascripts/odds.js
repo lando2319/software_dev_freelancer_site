@@ -140,7 +140,7 @@ function PropBets($scope, random_1, random_2) {
             var game_helper_modal_id = "#prop_bet_craps_modal"
             var game_helper_modal_message = "You Placed a " + game_helper_modal_headline
             PlayerGameCalls($scope, "LOST", game_helper_modal_id, game_helper_modal_message, game_helper_modal_headline, game_helper_modal_win_lose)
-            $scope.bank_roll_actual -= stay_up_payout
+            $scope.bank_roll_actual -= $scope.prop_bet_craps
             $scope.prop_bet_craps = 0
         }
     }
