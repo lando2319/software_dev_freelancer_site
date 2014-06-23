@@ -30,7 +30,7 @@
                 </div>
                 <div class="row">
                   <div class="btn-group btn-group-justified">
-                    <a class="btn btn-default ng-pristine ng-valid" type="button" ng-model="dice" value="Place Bet" ng-click="field_bet_button();"><span class="point_num_font">Field </span><span class="badge">{{ field_bet }}</span><span class="point_num_font">   2-3-4-9-10-11-12</span></a>
+                    <a class="btn btn-default ng-pristine ng-valid" type="button" ng-model="dice" value="Place Bet" ng-click="field_bet_button();"><span class="point_num_font">Field </span><span class="badge">{{ field_bet }}</span></a>
                   </div>
                 </div>
                 <div class="row dealer_calls">
@@ -87,8 +87,8 @@
                 </div>
                 <div class="row">
                   <div class="btn-group btn-group-justified">
-                    <a class="btn btn-darkest ng-pristine ng-valid" ng-disabled="game_status == 'Come Out Roll'" type="button" ng-model="dice" value="Place Bet" ng-click="place_dont_come_bet_button();"><span class="point_num_font_darkside">Don't Come </span><span class="badge">{{ place_dont_come_bet }}</span></a>
-                    <a class="btn btn-default ng-pristine ng-valid" ng-disabled="game_status == 'Come Out Roll'" type="button" ng-model="dice" value="Place Bet" ng-click="place_come_bet_button();"><span class="point_num_font">Come Bet </span><span class="badge">{{ place_come_bet }}</span></a>
+                    <a class="btn btn-darkest ng-pristine ng-valid" ng-disabled="game_status == 'Come Out Roll'" type="button" ng-model="dice" value="Place Bet" ng-click="place_dont_come_bet_button();"><span class="point_num_font_darkside">D C </span><span class="badge">{{ place_dont_come_bet }}</span></a>
+                    <a class="btn btn-default ng-pristine ng-valid" ng-disabled="game_status == 'Come Out Roll'" type="button" ng-model="dice" value="Place Bet" ng-click="place_come_bet_button();"><span class="point_num_font">Come </span><span class="badge">{{ place_come_bet }}</span></a>
                   </div>
                 </div>
                 <button id="btnSearch" class="btn btn-default btn-lg btn-block" ng-disabled="(line_bet + dont_pass_line_bet) < 1 " ng-model="dice" value="roll the dice" ng-click="roll();">
