@@ -48,7 +48,6 @@ crapsGame.controller('crapsGameplay', ['$scope', 'diceService', function($scope,
 
   function BankRollChecker(value) {
       if ($scope.increase_decrease == "+") {
-          console.log("11")
           if ($scope.bank_roll_actual - $scope.bet_denomination < 0) {
               $scope.no_bet_not_enough_funds = "NO BET! Not Enough Funds."
           } else {
@@ -252,6 +251,7 @@ crapsGame.controller('crapsGameplay', ['$scope', 'diceService', function($scope,
               ComesGoToThe($scope, total_of_dice)
               $scope.odds_on_come_bets_are_off = false
               $scope.place_bets_are_off = false 
+              $scope.hardways_are_off = false 
           }
           else if ($scope.game_status == "Point is " && ($scope.point_is == total_of_dice)) {
               FrontLineWinner($scope, total_of_dice)
@@ -261,6 +261,7 @@ crapsGame.controller('crapsGameplay', ['$scope', 'diceService', function($scope,
               $scope.game_status = "Come Out Roll"
               $scope.place_bets_are_off = true 
               $scope.odds_on_come_bets_are_off = true 
+              $scope.hardways_are_off = true 
           }
           else if ($scope.game_status == "Point is " && ($scope.point_is != total_of_dice)) {
               $scope.the_call_is = total_of_dice

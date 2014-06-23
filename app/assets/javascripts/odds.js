@@ -33,6 +33,44 @@ function EvaluateTheField($scope, total_of_dice) {
 }
 
 function PropBets($scope, random_1, random_2) {
+
+    var allHardWayNumbers = {4:'prop_bet_hard_4', 6:'prop_bet_hard_6', 8:'prop_bet_hard_8', 10:'prop_bet_hard_10'};
+    var writtenWord = {4:'Four', 6:'Six', 8:'Eight', 10:'Ten'};
+    var writtenWordWithOdds = {4:'Hard Four (7 to 1)', 6:'Six (9 to 1)', 8:'Eight (9 to 1)', 10:'Ten (7 to 1)'};
+    var hardWayOdds = {4:7, 6:9, 8:9, 10:7};
+
+    var hardWayWinLose = {
+        4:"Hard Four is a bet that the dice will come \"Hard\" (2-2). WINS on 2-2, LOSES on 7 or easy Four (3-1). Pays 7 for 1.",
+        6:"Hard Six is a bet that the dice will come \"Hard\" (3-3). WINS on 3-3, LOSES on 7 or easy Six (4-2 or 5-1). Pays 9 for 1.",
+        8:"Hard Eight is a bet that the dice will come \"Hard\" (4-4). WINS on 4-4, LOSES on 7 or easy Eight (6-2 or 5-3). Pays 9 for 1.",
+        10:"Hard Ten is a bet that the dice will come \"Hard\" (5-5). WINS on 5-5, LOSES on 7 or easy Ten (6-4). Pays 7 for 1."
+    }
+
+    angular.forEach(allHardWayNumbers, function(bet_value, num_actual) {
+        if ($scope[bet_value] > 0) {
+            if ((random_1 + random_2 == num_actual && random_1 != random_2) || random_1 + random_2 == 7) {
+                if ($scope.hardways_are_off == false) {
+                    var game_helper_modal_id = "#hardway_bet_on_the_"+num_actual
+                    var game_helper_modal_headline = "Prop Bet on Hard "+writtenWord[num_actual]
+                    var game_helper_modal_win_lose = "Come Bets Are Always Off on the Come Out Roll. Override through the Adv Section."
+                    var game_helper_modal_message = "You Bet a Prop Bet on Hard "+writtenWord[num_actual]+". "+hardWayWinLose[num_actual]
+                    PlayerGameCalls($scope, "LOST", game_helper_modal_id, game_helper_modal_message, game_helper_modal_headline, game_helper_modal_win_lose)
+                    $scope.bank_roll_actual -= $scope[bet_value]
+                    $scope[bet_value] = 0
+                }
+            } else if (random_1 + random_2 == num_actual && random_1 == random_2) {
+                var stay_up = $scope['prop_bet_hard_'+(random_1+random_2)]
+                var stay_up_payout = $scope['prop_bet_hard_'+(random_1+random_2)] * hardWayOdds[random_1+random_2]
+                var game_helper_modal_id = "#hardway_bet_on_the_"+(random_1+random_2)
+                var game_helper_modal_headline = "Prop Bet on Hard "+writtenWord[random_1+random_2]
+                var game_helper_modal_win_lose = "Come Bets Are Always Off on the Come Out Roll. Override through the Adv Section."
+                var game_helper_modal_message = "Your bet of "+stay_up+" Coins pays " + stay_up_payout + " Coins. Loses on a Seven Out or Easy "+writtenWord[random_1+random_2]+". Pays "+writtenWordWithOdds[random_1+random_2]
+                PlayerGameCalls($scope, "WON", game_helper_modal_id, game_helper_modal_message, game_helper_modal_headline, game_helper_modal_win_lose, stay_up, stay_up_payout)
+            }
+        }
+
+    })
+
     var propBetChecker = {'prop_bet_on_1_1':' Aces Bet','prop_bet_on_2_1':' Ace Deuce Bet','prop_bet_on_6_5':' Yo Bet','prop_bet_on_6_6':' Twelve Bet',
       'prop_bet_on_6_1':' Six One Hop', 'prop_bet_on_5_2':' Five Two Hop', 'prop_bet_on_4_3':' Four Three Hop','prop_bet_on_3_1':' Three One Hop', 
       'prop_bet_on_2_2':' Hard Four Hop', 'prop_bet_on_3_2':' Three Two Hop', 'prop_bet_on_4_1':' Four One Hop','prop_bet_on_5_1':' Five One Hop', 
