@@ -53,10 +53,15 @@ crapsGame.controller('crapsGameplay', ['$scope', 'diceService', function($scope,
               $scope.no_bet_not_enough_funds = "NO BET! Not Enough Funds."
           } else {
               $scope[value] += $scope.bet_denomination
+              $scope.no_bet_not_enough_funds = ""
           }
       } else {
-          $scope[value] -= $scope.bet_denomination
-          $scope.no_bet_not_enough_funds = ""
+          if ($scope[value] - $scope.bet_denomination < 0) {
+              $scope.no_bet_not_enough_funds = "To Add to a Bet Click on \"-\" to change -/+"
+          } else {
+              $scope[value] -= $scope.bet_denomination
+              $scope.no_bet_not_enough_funds = ""
+          }
       }
   }
 
