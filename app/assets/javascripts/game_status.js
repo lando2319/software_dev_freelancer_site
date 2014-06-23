@@ -27,6 +27,7 @@ function FrontLineWinner($scope, total_of_dice)
             var stay_up_payout = $scope.odds_behind_the_line * 1.2
             var odds_game_message = " Odds Behind the Line (5 pays 6), Even money for the Line Bet"
         }
+        var stay_up_payout = Math.floor(stay_up_payout)
         $scope.bank_roll_actual += stay_up_payout
         $scope.bank_roll_actual += $scope.line_bet
         var game_helper_modal_headline = "Odds Behind the Pass Line"
@@ -86,6 +87,7 @@ function LineAway($scope, total_of_dice) {
             var stay_up_payout = $scope.odds_behind_the_dont_pass_line * (5/6)
             var odds_game_message = " Odds Behind the Line (6 pays 5), Even money for the Don't Pass Bet"
         }
+        var stay_up_payout = Math.floor(stay_up_payout) 
         var game_helper_modal_headline = "Don't Pass Bet With Lay"
         var game_helper_modal_win_lose = odds_game_message
         var game_helper_modal_id = "#odds_behind_the_line_modal"
@@ -134,6 +136,7 @@ function SetsThePoint($scope, total_of_dice) {
         if ($scope.odds_on_come_bets_are_off == false) {
             var stay_up = $scope['come_bet_odds_on_'+scopeNum[total_of_dice]]
             var stay_up_payout = $scope['come_bet_odds_on_'+scopeNum[total_of_dice]] * trueOdds[total_of_dice]
+            var stay_up_payout = Math.floor(stay_up_payout)
             $scope.bank_roll_actual += stay_up_payout
             $scope['come_bet_odds_on_'+scopeNum[total_of_dice]] = 0
             var current_game_message = "Come Bet and Odds On " + writtenWordCap[total_of_dice] 
@@ -162,6 +165,7 @@ function SetsThePoint($scope, total_of_dice) {
         if ($scope.place_bets_are_off == false) {
             var stay_up = $scope['place_bet_on_the_'+scopeNum[total_of_dice]] 
             var stay_up_payout = $scope['place_bet_on_the_'+scopeNum[total_of_dice]] * placeBetOdds[total_of_dice]
+            var stay_up_payout = Math.floor(stay_up_payout)
             var game_helper_modal_message = "Your Place Bet on "+writtenWordCap[total_of_dice]+" has been returned to you" 
             var game_helper_modal_win_lose = "The Odds behind the Line Pay better odds than the Place Bet, therefore your Place Bet has been returned to you. Click \"Odds\" to bet the Odds behind the Pass Line."
             var game_helper_modal_id = "#point_is_set_place_bet_returned_modal"
@@ -194,6 +198,7 @@ function PayPlaceBets($scope, total_of_dice) {
     if ($scope['place_bet_on_the_'+scopeNum[total_of_dice]] > 0) {
         var stay_up = $scope['place_bet_on_the_'+scopeNum[total_of_dice]]
         var stay_up_payout = $scope['place_bet_on_the_'+scopeNum[total_of_dice]] * placeBetOdds[total_of_dice]
+        var stay_up_payout = Math.floor(stay_up_payout)
         var game_helper_modal_id = "#place_bet_on_the_"+scopeNum[total_of_dice]
         var game_helper_modal_headline = "Place Bet on "+writtenWord[total_of_dice]
         var game_helper_modal_win_lose = ""
@@ -240,6 +245,7 @@ function ComesGoToThe($scope, total_of_dice) {
     if (($scope['come_bet_flat_on_'+scopeNum[total_of_dice]] == $scope.place_come_bet) && $scope.place_come_bet != 0) {
         var stay_up = ($scope['come_bet_odds_on_'+scopeNum[total_of_dice]])
         var stay_up_payout= ($scope['come_bet_odds_on_'+scopeNum[total_of_dice]] * trueOdds[total_of_dice])
+        var stay_up_payout = Math.floor(stay_up_payout)
         $scope.bank_roll_actual += stay_up_payout
         $scope.bank_roll_actual += $scope['come_bet_flat_on_'+scopeNum[total_of_dice]]
         var come_bet_message = "Because the bet you placed in the Come is the same amount as the flat on "+writtenWord[total_of_dice]+" the this is called \"off and on\"."
@@ -263,6 +269,7 @@ function ComesGoToThe($scope, total_of_dice) {
         if ($scope['come_bet_flat_on_'+scopeNum[total_of_dice]] != 0) {
             var stay_up = ($scope['come_bet_odds_on_'+scopeNum[total_of_dice]])
             var stay_up_payout= ($scope['come_bet_odds_on_'+scopeNum[total_of_dice]] * trueOdds[total_of_dice])
+            var stay_up_payout = Math.floor(stay_up_payout)
             $scope.bank_roll_actual += (stay_up_payout + stay_up + $scope['come_bet_flat_on_'+scopeNum[total_of_dice]])
 
             if ($scope['come_bet_odds_on_'+scopeNum[total_of_dice]] > 0) {
@@ -433,7 +440,7 @@ function SevenOut($scope, total_of_dice) {
                   var stay_up_payout = $scope['dont_come_bet_lay_on_'+bet_actual] * (5/6)
                   var odds_game_message = " (6 pays 5) "
               }
-
+              var stay_up_payout = Math.floor(stay_up_payout)
               var game_helper_modal_headline = "Don't Come Bet against the "+written_word+" with Lay"
               var game_helper_modal_win_lose = "You had a Don't Come Bet with Lay behind the "+written_word+". The Lay of "+stay_up+" paid "+stay_up_payout+odds_game_message
               var game_helper_modal_id = "#dont_come_bet_behind_the_"+bet_actual+"_modal"
