@@ -66,7 +66,7 @@ crapsGame.controller('crapsGameplay', ['$scope', 'diceService', function($scope,
             $scope.increase_decrease == "-" ? $scope['come_bet_odds_on_'+value] -= $scope.bet_denomination : $scope['come_bet_odds_on_'+value] += $scope.bet_denomination
             if ($scope['come_bet_odds_on_'+value] > 0) {
                 var game_helper_modal_headline = "Odds On Your Come Bet on "+writtenWord[value]
-                var game_helper_modal_win_lose = "WINS ON "+$scope.point_is+". LOSES ON 7. "
+                var game_helper_modal_win_lose = "WINS ON "+writtenWord[value]+". LOSES ON Seven. "
                 var game_helper_modal_id = "#come_bet_odds_on_"+value+"_modal"
                 var game_helper_modal_message = "You Placed " + game_helper_modal_headline+ " for " + $scope['come_bet_odds_on_'+value]+" Coins"
                 PlayerGameCalls($scope, "INFO", game_helper_modal_id, game_helper_modal_message, game_helper_modal_headline, game_helper_modal_win_lose)
@@ -76,7 +76,7 @@ crapsGame.controller('crapsGameplay', ['$scope', 'diceService', function($scope,
             $scope.increase_decrease == "-" ? $scope['dont_come_bet_lay_on_'+value] -= $scope.bet_denomination : $scope['dont_come_bet_lay_on_'+value] += $scope.bet_denomination
             if ($scope['dont_come_bet_lay_on_'+value] > 0) {
                 var game_helper_modal_headline = "Lay On Your Don't Come Bet on "+writtenWord[value]
-                var game_helper_modal_win_lose = "Loses ON "+$scope.point_is+". WINS ON 7. "
+                var game_helper_modal_win_lose = "Loses ON "+writtenWord[value]+". WINS ON Seven. "
                 var game_helper_modal_id = "#dont_come_bet_lay_on_"+value+"_modal"
                 var game_helper_modal_message = "You Placed " + game_helper_modal_headline+ " for " + $scope['dont_come_bet_lay_on_'+value]+" Coins"
                 PlayerGameCalls($scope, "INFO", game_helper_modal_id, game_helper_modal_message, game_helper_modal_headline, game_helper_modal_win_lose)
@@ -109,14 +109,14 @@ crapsGame.controller('crapsGameplay', ['$scope', 'diceService', function($scope,
           }
           if ($scope[value] > 0 && value == "odds_behind_the_line") {
               var game_helper_modal_headline = "Odds behind the Pass Line"
-              var game_helper_modal_win_lose = "WINS ON "+$scope.point_is+". LOSES ON 7. Once a point has been established you have the option of adding Odds to your Line Bet, like the pass line bet, only two numbers will affect the Odds behind the line, Rolling the Point will win and Rolling a Seven will lose."
+              var game_helper_modal_win_lose = "WINS ON "+writtenWord[value]+". LOSES ON Seven. Once a point has been established you have the option of adding Odds to your Line Bet, like the pass line bet, only two numbers will affect the Odds behind the line, Rolling the Point will win and Rolling a Seven will lose."
               var game_helper_modal_id = "#"+value+"_modal"
               var game_helper_modal_message = "You Placed " + game_helper_modal_headline+ " for " + $scope[value]+ " Coins"
               PlayerGameCalls($scope, "INFO", game_helper_modal_id, game_helper_modal_message, game_helper_modal_headline, game_helper_modal_win_lose)
           }
           if ($scope[value] > 0 && value == "odds_behind_the_dont_pass_line") {
               var game_helper_modal_headline = "Odds behind the Don't Pass Line"
-              var game_helper_modal_win_lose = "WINS ON 7. LOSES ON "+$scope.point_is+". Once a point has been established you have the option of adding a Lay to your Don't Pass Line Bet, like the don't pass line bet, only two numbers will affect the Odds behind the line, Rolling the Point will lose and Rolling a Seven will win."
+              var game_helper_modal_win_lose = "WINS ON Seven. LOSES ON "+writtenWord[value]+". Once a point has been established you have the option of adding a Lay to your Don't Pass Line Bet, like the don't pass line bet, only two numbers will affect the Odds behind the line, Rolling the Point will lose and Rolling a Seven will win."
               var game_helper_modal_id = "#"+value+"_modal"
               var game_helper_modal_message = "You Placed " + game_helper_modal_headline+ " for " + $scope[value]+" Coins"
               PlayerGameCalls($scope, "INFO", game_helper_modal_id, game_helper_modal_message, game_helper_modal_headline, game_helper_modal_win_lose)

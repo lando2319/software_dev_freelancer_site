@@ -157,8 +157,8 @@ function SetsThePoint($scope, total_of_dice) {
         $scope['come_bet_flat_on_'+scopeNum[total_of_dice]] = 0
     }
     $scope[writtenWord[total_of_dice]] = "ON"
-    var game_helper_modal_message = ($scope.line_bet > $scope.dont_pass_line_bet ? (writtenWordCap[total_of_dice] + " Rolls You Win, Seven Rolls you Lose") : (" Seven Rolls You Win, " + writtenWordCap[total_of_dice] + " Rolls you Lose"))
-    var game_helper_modal_win_lose = "It was just the \"Come Out Roll\" Now we have a point of "+writtenWordCap[total_of_dice]+"."
+    var game_helper_modal_message = ($scope.line_bet > $scope.dont_pass_line_bet ? ("If "+writtenWordCap[total_of_dice] + " Rolls Before a Seven You Win Your Pass Line Bet") : (" If " + writtenWordCap[total_of_dice] + " Rolls Before A Lose"))
+    var game_helper_modal_win_lose = "It was just the \"Come Out Roll\" Now we have a point of "+writtenWordCap[total_of_dice]+". "+game_helper_modal_message+($scope.line_bet > $scope.dont_pass_line_bet ? (". Click Odds to increase your action, the Odds behind the pass line have the best odds.") : (". Click \"Lay\" to increase your action against the "+writtenWordCap[total_of_dice]+". The Lay Pays the Best Odds."))
     var game_helper_modal_headline = "Point is "+writtenWordCap[total_of_dice]+"."
     var game_helper_modal_id = "#point_is_set_no_come_bet_modal"
     PlayerGameCalls($scope, "INFO", game_helper_modal_id, game_helper_modal_message, game_helper_modal_headline, game_helper_modal_win_lose)
@@ -362,10 +362,10 @@ function SevenOut($scope, total_of_dice) {
               if ($scope['place_bet_on_the_'+num_actual] > 0) {
                   $scope.bank_roll_actual -= $scope['place_bet_on_the_'+num_actual] 
 
-                  var game_helper_modal_headline = "Place Bet Bet on "+written_word
-                  var game_helper_modal_win_lose = "Place Bets lose on SevenOut. Place Bets are Off on the Come Out Roll (this can be overridden in the Adv Setting)."
+                  var game_helper_modal_headline = "Place Bet on "+written_word
+                  var game_helper_modal_win_lose = "Place Bets lose on Seven Out. Place Bets are Off on the Come Out Roll (this can be overridden in the Adv Setting)."
                   var game_helper_modal_id = "#come_bet_travels_to_modal"
-                  var game_helper_modal_message = "You Placed a " + game_helper_modal_headline
+                  var game_helper_modal_message = "You Bet a " + game_helper_modal_headline
                   PlayerGameCalls($scope, "LOST", game_helper_modal_id, game_helper_modal_message, game_helper_modal_headline, game_helper_modal_win_lose)
 
                   $scope['place_bet_on_the_'+num_actual] = 0        
