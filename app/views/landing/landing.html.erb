@@ -37,29 +37,31 @@
                   <div class="game_status_headline">
                     <label>{{ game_status }} {{point_is_word}}</label>
                   </div>
-                  <ul>
-                    <li ng-repeat="player_game_call in player_game_calls" class="losing_bet-{{player_game_call.losing_bet}} winning_bet-{{player_game_call.winning_bet}}">
-                    <span class="player_rescue-{{player_game_call.player_rescue}}">{{player_game_call.call_actual}} </span><a class="btn btn-default game_helper_button" data-toggle="modal" data-target={{player_game_call.game_helper_modal_id}}>?</a>
-                    <div class="modal fade" id={{player_game_call.game_helper_modal_id.slice(1)}} tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                      <div class="modal-dialog">
-                        <div class="modal-content">
-                          <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                            <h4 class="modal-title" id="myModalLabel">Craps Buzz Says ...</h4>
-                          </div>
-                          <div class="modal-body">
-                            <h4>{{player_game_call.game_helper_modal_headline}}</h4>
-                            {{player_game_call.game_helper_modal_message}}
-                            <h5>{{player_game_call.game_helper_modal_win_lose}}</h5>
-                          </div>
-                          <div class="modal-footer">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                  <div class="notice_board text-animated-two" dice-roll-actual="hide_dice">
+                    <ul>
+                      <li ng-repeat="player_game_call in player_game_calls" class="losing_bet-{{player_game_call.losing_bet}} winning_bet-{{player_game_call.winning_bet}}">
+                      <span class="player_rescue-{{player_game_call.player_rescue}}">{{player_game_call.call_actual}} </span><a class="btn btn-default game_helper_button" data-toggle="modal" data-target={{player_game_call.game_helper_modal_id}}>?</a>
+                      <div class="modal fade" id={{player_game_call.game_helper_modal_id.slice(1)}} tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                              <h4 class="modal-title" id="myModalLabel">Craps Buzz Says ...</h4>
+                            </div>
+                            <div class="modal-body">
+                              <h4>{{player_game_call.game_helper_modal_headline}}</h4>
+                              {{player_game_call.game_helper_modal_message}}
+                              <h5>{{player_game_call.game_helper_modal_win_lose}}</h5>
+                            </div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            </div>
                           </div>
                         </div>
                       </div>
-                    </div>
-                    </li>
-                  </ul>
+                      </li>
+                    </ul>
+                  </div>
                   {{no_bet_not_enough_funds}}
                 </div>
               </div>
