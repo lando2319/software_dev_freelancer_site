@@ -91,33 +91,35 @@
                     <a class="btn btn-default ng-pristine ng-valid" ng-disabled="game_status == 'Come Out Roll'" type="button" ng-model="dice" value="Place Bet" ng-click="place_come_bet_button();"><span class="point_num_font">Come </span><span class="badge">{{ place_come_bet }}</span></a>
                   </div>
                 </div>
-                <button id="btnSearch" class="btn btn-default btn-lg btn-block" ng-disabled="(line_bet + dont_pass_line_bet) < 1 " ng-model="dice" value="roll the dice" ng-click="roll();">
-                  <div >
-                    <div class="row dealer_calls">
-                      Coins: {{bank_roll_actual}}
-                    </div>
-                    <div class="row dice_size text-animated-two" dice-roll-actual="hide_dice">
-                      <span ng-show="die_one == 1">&#x2680</span>
-                      <span ng-show="die_one == 2">&#x2681</span>
-                      <span ng-show="die_one == 3">&#x2682</span>
-                      <span ng-show="die_one == 4">&#x2683</span>
-                      <span ng-show="die_one == 5">&#x2684</span>
-                      <span ng-show="die_one == 6">&#x2685</span>
-                      <span ng-show="die_two == 1">&#x2680</span>
-                      <span ng-show="die_two == 2">&#x2681</span>
-                      <span ng-show="die_two == 3">&#x2682</span>
-                      <span ng-show="die_two == 4">&#x2683</span>
-                      <span ng-show="die_two == 5">&#x2684</span>
-                      <span ng-show="die_two == 6">&#x2685</span>
-                    </div>
+                <div class="row">
+                  <div class="btn-group btn-group-justified">
+                    <a class="btn btn-default ng-pristine ng-valid" ng-disabled="(line_bet + dont_pass_line_bet) < 1 " ng-model="dice" value="roll the dice" ng-click="roll();">
+                      <div class="dealer_calls coin_style">
+                        Coins: {{bank_roll_actual}}
+                      </div>
+                      <div class="dice_size text-animated-two" dice-roll-actual="hide_dice">
+                        <span ng-show="die_one == 1">&#x2680</span>
+                        <span ng-show="die_one == 2">&#x2681</span>
+                        <span ng-show="die_one == 3">&#x2682</span>
+                        <span ng-show="die_one == 4">&#x2683</span>
+                        <span ng-show="die_one == 5">&#x2684</span>
+                        <span ng-show="die_one == 6">&#x2685</span>
+                        <span ng-show="die_two == 1">&#x2680</span>
+                        <span ng-show="die_two == 2">&#x2681</span>
+                        <span ng-show="die_two == 3">&#x2682</span>
+                        <span ng-show="die_two == 4">&#x2683</span>
+                        <span ng-show="die_two == 5">&#x2684</span>
+                        <span ng-show="die_two == 6">&#x2685</span>
+                      </div>
+                    </a>
                   </div>
-                </button>
+                </div>
                 <div class="dealer_calls">
                   <div ng-show="(line_bet + dont_pass_line_bet) > 1">
-                    DICE ARE READY!
+                    DICE<br>ARE READY!
                   </div>
                   <div ng-show="(line_bet + dont_pass_line_bet) == 0">
-                    NEED "PASS LINE" OR "DON'T PASS" BET!
+                    NEED "PASS LINE"<br>OR "DON'T PASS" BET!
                   </div>
                 </div>
               </div>
