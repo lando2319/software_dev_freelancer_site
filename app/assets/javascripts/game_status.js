@@ -191,7 +191,7 @@ function PayPlaceBets($scope, total_of_dice) {
     var writtenWord = {4:'Four (5 pays 9)', 5:'Five (5 pays 7)', 6:'Six (6 pays 7)', 8:'Eight (6 pays 7)', 9:'Nine (5 pays 7)', 10:'Ten (5 pays 9)'};
     var placeBetOdds = {4:1.8, 5:1.4, 6:1.16667, 8:1.16667, 9:1.4, 10:1.8};
 
-    if (total_of_dice == scopeNum[total_of_dice] && $scope['place_bet_on_the_'+scopeNum[total_of_dice]] > 0) {
+    if ($scope['place_bet_on_the_'+scopeNum[total_of_dice]] > 0) {
         var stay_up = $scope['place_bet_on_the_'+scopeNum[total_of_dice]]
         var stay_up_payout = $scope['place_bet_on_the_'+scopeNum[total_of_dice]] * placeBetOdds[total_of_dice]
         var game_helper_modal_id = "#place_bet_on_the_"+scopeNum[total_of_dice]
@@ -290,6 +290,15 @@ function ComesGoToThe($scope, total_of_dice) {
 
         }
         if ($scope['come_bet_flat_on_'+scopeNum[total_of_dice]] == 0 && $scope.place_come_bet != 0) {
+            if ($scope['place_bet_on_the_'+scopeNum[total_of_dice]] > 0) {
+                var game_helper_modal_message = "Down with Odds, You Place Bet got moved to Odds on the "+writtenWord[total_of_dice]
+                var game_helper_modal_win_lose = game_helper_modal_message+". The Odds on the Come Bet Pay Better."
+                var game_helper_modal_headline = "Down with Odds"
+                var game_helper_modal_id = "#down_with_odds_modal"
+                PlayerGameCalls($scope, "INFO", game_helper_modal_id, game_helper_modal_message, game_helper_modal_headline, game_helper_modal_win_lose)
+                $scope['come_bet_odds_on_'+scopeNum[total_of_dice]] = $scope['place_bet_on_the_'+scopeNum[total_of_dice]] 
+                $scope['place_bet_on_the_'+scopeNum[total_of_dice]] = 0
+            }
             $scope['come_bet_flat_on_'+scopeNum[total_of_dice]] = $scope.place_come_bet
             $scope.place_come_bet = 0
 

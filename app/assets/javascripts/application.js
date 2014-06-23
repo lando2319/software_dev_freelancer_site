@@ -229,8 +229,8 @@ crapsGame.controller('crapsGameplay', ['$scope', 'diceService', function($scope,
       if (total_of_dice == 4 || total_of_dice == 5 || total_of_dice == 6 || total_of_dice == 8 || total_of_dice == 9 || total_of_dice == 10 ) {
           if ($scope.game_status == "Come Out Roll") {
               SetsThePoint($scope, total_of_dice)
-              ComesGoToThe($scope, total_of_dice)
               PayPlaceBets($scope, total_of_dice)
+              ComesGoToThe($scope, total_of_dice)
               $scope.odds_on_come_bets_are_off = false
               $scope.place_bets_are_off = false 
           }
@@ -245,8 +245,8 @@ crapsGame.controller('crapsGameplay', ['$scope', 'diceService', function($scope,
           }
           else if ($scope.game_status == "Point is " && ($scope.point_is != total_of_dice)) {
               $scope.the_call_is = total_of_dice
-              ComesGoToThe($scope, total_of_dice)
               PayPlaceBets($scope, total_of_dice)
+              ComesGoToThe($scope, total_of_dice)
           }
       }
       if (total_of_dice == 7) {
