@@ -109,14 +109,14 @@ crapsGame.controller('crapsGameplay', ['$scope', 'diceService', function($scope,
           }
           if ($scope[value] > 0 && value == "odds_behind_the_line") {
               var game_helper_modal_headline = "Odds behind the Pass Line"
-              var game_helper_modal_win_lose = "WINS ON "+writtenWord[value]+". LOSES ON Seven. Once a point has been established you have the option of adding Odds to your Line Bet, like the pass line bet, only two numbers will affect the Odds behind the line, Rolling the Point will win and Rolling a Seven will lose."
+              var game_helper_modal_win_lose = "WINS ON "+writtenWord[$scope.point_is]+". LOSES ON Seven. Once a point has been established you have the option of adding Odds to your Line Bet, like the pass line bet, only two numbers will affect the Odds behind the line, Rolling the Point will win and Rolling a Seven will lose."
               var game_helper_modal_id = "#"+value+"_modal"
               var game_helper_modal_message = "You Placed " + game_helper_modal_headline+ " for " + $scope[value]+ " Coins"
               PlayerGameCalls($scope, "INFO", game_helper_modal_id, game_helper_modal_message, game_helper_modal_headline, game_helper_modal_win_lose)
           }
           if ($scope[value] > 0 && value == "odds_behind_the_dont_pass_line") {
               var game_helper_modal_headline = "Odds behind the Don't Pass Line"
-              var game_helper_modal_win_lose = "WINS ON Seven. LOSES ON "+writtenWord[value]+". Once a point has been established you have the option of adding a Lay to your Don't Pass Line Bet, like the don't pass line bet, only two numbers will affect the Odds behind the line, Rolling the Point will lose and Rolling a Seven will win."
+              var game_helper_modal_win_lose = "WINS ON Seven. LOSES ON "+writtenWord[$scope.point_is]+". Once a point has been established you have the option of adding a Lay to your Don't Pass Line Bet, like the don't pass line bet, only two numbers will affect the Odds behind the line, Rolling the Point will lose and Rolling a Seven will win."
               var game_helper_modal_id = "#"+value+"_modal"
               var game_helper_modal_message = "You Placed " + game_helper_modal_headline+ " for " + $scope[value]+" Coins"
               PlayerGameCalls($scope, "INFO", game_helper_modal_id, game_helper_modal_message, game_helper_modal_headline, game_helper_modal_win_lose)
