@@ -48,15 +48,17 @@ crapsGame.controller('crapsGameplay', ['$scope', 'diceService', function($scope,
 
   var pointNumVars = ['4','5','6','8','9','10'];
   var writtenWord = {'4':'Four', '5':'Five', '6':'Six', '8':'Eight', '9':'Nine', '10':'Ten'};
+  var placeBetOdds = {'4':1.8, '5':1.4, '6':1.2, '8':1.2, '9':1.4, '10':1.8};
+  var namedPlaceBetOdds = {'4':'(5 pays 9)', '5':'(5 pays 7)', '6':'(6 pays 7)', '8':'(6 pays 7)', '9':'(5 pays 7)', '10':'(5 pays 9)'};
 
   angular.forEach(pointNumVars, function(value) {
         $scope['place_bet_on_'+value+'_button'] = function() {
             $scope.increase_decrease == "-" ? $scope['place_bet_on_the_'+value] -= $scope.bet_denomination : $scope['place_bet_on_the_'+value] += $scope.bet_denomination
             if ($scope['place_bet_on_the_'+value] > 0) {
-                var game_helper_modal_headline = "Odds On Your Come Bet on "+writtenWord[value]
-                var game_helper_modal_win_lose = "WINS ON "+$scope.point_is+". LOSES ON 7. Once a point has been established you have the option of adding Odds to your Line Bet, like the pass line bet, only two numbers will affect the Odds behind the line, Rolling the Point will win and Rolling a Seven will lose."
-                var game_helper_modal_id = "#come_bet_odds_on_"+value+"_modal"
-                var game_helper_modal_message = "You Placed " + game_helper_modal_headline+ " for " + $scope['place_bet_on_the_'+value]+" Coins"
+                var game_helper_modal_headline = "Place Bet on "+writtenWord[value]
+                var game_helper_modal_win_lose = "WINS ON "+writtenWord[value]+". LOSES ON Seven. Your bet of "+$scope['place_bet_on_the_'+value]+" Coins pays "+($scope['place_bet_on_the_'+value]*placeBetOdds[value])+" Coins "+namedPlaceBetOdds[value]+". Place bets are off on the Come Out Roll. Override by checking box in the  \"Adv\" Section."
+                var game_helper_modal_id = "#place_bet_on_"+value+"_modal"
+                var game_helper_modal_message = "You Bet a " + game_helper_modal_headline+ " for " + $scope['place_bet_on_the_'+value]+" Coins"
                 PlayerGameCalls($scope, "INFO", game_helper_modal_id, game_helper_modal_message, game_helper_modal_headline, game_helper_modal_win_lose)
             }
         }

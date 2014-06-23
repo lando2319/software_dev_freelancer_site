@@ -173,9 +173,9 @@ function PayPlaceBets($scope, total_of_dice) {
         var stay_up = $scope['place_bet_on_the_'+scopeNum[total_of_dice]]
         var stay_up_payout = $scope['place_bet_on_the_'+scopeNum[total_of_dice]] * placeBetOdds[total_of_dice]
         var game_helper_modal_id = "#place_bet_on_the_"+scopeNum[total_of_dice]
-        var game_helper_modal_headline = "Place Bet on "+scopeNum[total_of_dice]
-        var game_helper_modal_win_lose = " You Placed a "+game_helper_modal_headline
-        var game_helper_modal_message = "You Placed a Place Bet on the "+writtenWord[total_of_dice]+" for "+stay_up+" Coins this pays " + stay_up_payout + " Coins. Loses on a Seven Out." 
+        var game_helper_modal_headline = "Place Bet on "+writtenWord[total_of_dice]
+        var game_helper_modal_win_lose = ""
+        var game_helper_modal_message = "You Put a Place Bet on the "+writtenWord[total_of_dice]+". Your bet of "+stay_up+" Coins pays " + stay_up_payout + " Coins. Loses on a Seven Out." 
         if ($scope.place_bets_are_off == false ) {
             $scope.bank_roll_actual += stay_up_payout 
             PlayerGameCalls($scope, "WON", game_helper_modal_id, game_helper_modal_message, game_helper_modal_headline, game_helper_modal_win_lose, stay_up, stay_up_payout)
