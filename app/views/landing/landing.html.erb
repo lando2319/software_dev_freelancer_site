@@ -97,6 +97,7 @@
                       <div class="dealer_calls coin_style">
                         Coins: {{bank_roll_actual}}
                       </div>
+                      </p>
                       <div class="dice_size text-animated-two" dice-roll-actual="hide_dice">
                         <span ng-show="die_one == 1">&#x2680</span>
                         <span ng-show="die_one == 2">&#x2681</span>
@@ -111,15 +112,16 @@
                         <span ng-show="die_two == 5">&#x2684</span>
                         <span ng-show="die_two == 6">&#x2685</span>
                       </div>
+                      </p>
+                      <div class="dealer_calls">
+                        <div ng-show="(line_bet + dont_pass_line_bet) > 1">
+                          DICE<br>ARE READY!
+                        </div>
+                        <div ng-show="(line_bet + dont_pass_line_bet) == 0">
+                          NEED "PASS LINE"<br>OR "DON'T PASS" BET!
+                        </div>
+                      </div>
                     </a>
-                  </div>
-                </div>
-                <div class="dealer_calls">
-                  <div ng-show="(line_bet + dont_pass_line_bet) > 1">
-                    DICE<br>ARE READY!
-                  </div>
-                  <div ng-show="(line_bet + dont_pass_line_bet) == 0">
-                    NEED "PASS LINE"<br>OR "DON'T PASS" BET!
                   </div>
                 </div>
               </div>
