@@ -46,6 +46,20 @@ crapsGame.controller('crapsGameplay', ['$scope', 'diceService', function($scope,
     $scope.bet_denomination = diceService.change_denomination($scope.bet_denomination)
   }
 
+  function BankRollChecker(value) {
+      if ($scope.increase_decrease == "+") {
+          console.log("11")
+          if ($scope.bank_roll_actual - $scope.bet_denomination < 0) {
+              $scope.no_bet_not_enough_funds = "NO BET! Not Enough Funds."
+          } else {
+              $scope[value] += $scope.bet_denomination
+          }
+      } else {
+          $scope[value] -= $scope.bet_denomination
+          $scope.no_bet_not_enough_funds = ""
+      }
+  }
+
   var pointNumVars = ['4','5','6','8','9','10'];
   var writtenWord = {'4':'Four', '5':'Five', '6':'Six', '8':'Eight', '9':'Nine', '10':'Ten'};
   var placeBetOdds = {'4':1.8, '5':1.4, '6':1.2, '8':1.2, '9':1.4, '10':1.8};
@@ -53,7 +67,7 @@ crapsGame.controller('crapsGameplay', ['$scope', 'diceService', function($scope,
 
   angular.forEach(pointNumVars, function(value) {
         $scope['place_bet_on_'+value+'_button'] = function() {
-            $scope.increase_decrease == "-" ? $scope['place_bet_on_the_'+value] -= $scope.bet_denomination : $scope['place_bet_on_the_'+value] += $scope.bet_denomination
+            BankRollChecker('place_bet_on_the_'+value)
             if ($scope['place_bet_on_the_'+value] > 0) {
                 var game_helper_modal_headline = "Place Bet on "+writtenWord[value]
                 var game_helper_modal_win_lose = "WINS ON "+writtenWord[value]+". LOSES ON Seven. Your bet of "+$scope['place_bet_on_the_'+value]+" Coins pays "+($scope['place_bet_on_the_'+value]*placeBetOdds[value])+" Coins "+namedPlaceBetOdds[value]+". Place bets are off on the Come Out Roll. Override by checking box in the  \"Adv\" Section."
@@ -63,7 +77,7 @@ crapsGame.controller('crapsGameplay', ['$scope', 'diceService', function($scope,
             }
         }
         $scope['come_bet_odds_on_'+value+'_button'] = function() {
-            $scope.increase_decrease == "-" ? $scope['come_bet_odds_on_'+value] -= $scope.bet_denomination : $scope['come_bet_odds_on_'+value] += $scope.bet_denomination
+            BankRollChecker('come_bet_odds_on_'+value)
             if ($scope['come_bet_odds_on_'+value] > 0) {
                 var game_helper_modal_headline = "Odds On Your Come Bet on "+writtenWord[value]
                 var game_helper_modal_win_lose = "WINS ON "+writtenWord[value]+". LOSES ON Seven. "
@@ -73,7 +87,7 @@ crapsGame.controller('crapsGameplay', ['$scope', 'diceService', function($scope,
             }
         }
         $scope['dont_come_bet_lay_on_'+value+'_button'] = function() {
-            $scope.increase_decrease == "-" ? $scope['dont_come_bet_lay_on_'+value] -= $scope.bet_denomination : $scope['dont_come_bet_lay_on_'+value] += $scope.bet_denomination
+            BankRollChecker('dont_come_bet_lay_on_'+value)
             if ($scope['dont_come_bet_lay_on_'+value] > 0) {
                 var game_helper_modal_headline = "Lay On Your Don't Come Bet on "+writtenWord[value]
                 var game_helper_modal_win_lose = "Loses ON "+writtenWord[value]+". WINS ON Seven. "
@@ -92,7 +106,7 @@ crapsGame.controller('crapsGameplay', ['$scope', 'diceService', function($scope,
 
   angular.forEach(gameButtonsMisc, function(value) {
       $scope[value + "_button"] = function() {
-          $scope.increase_decrease == "-" ? $scope[value] -= $scope.bet_denomination : $scope[value] += $scope.bet_denomination
+          BankRollChecker(value)
           if ($scope[value] > 0 && value == "place_come_bet") {
               var game_helper_modal_headline = "Come Bet"
               var game_helper_modal_win_lose = "WINS ON 7 and 11. LOSES ON 2,3, or 12. Any other number and the Come Bet will Travel to that number, a which point the bet will win by rolling that number again or lose by rolling a 7, which ever come first."
