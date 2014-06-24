@@ -175,18 +175,19 @@
                           <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                           <h4 class="modal-title" id="myModalLabel">Prop Bets</h4>
                         </div>
-                        <div class="modal-body">
+                        <div class="modal-body point_num_font">
                           <h4>Hard Ways<h4>
-                            <div class="row">
-                              <div class="btn-group-vertical">
-                                <button class="btn btn-default ng-pristine ng-valid" type="button" ng-disabled="hardways_are_off" ng-model="dice" value="Place Bet" ng-click="prop_bet_hard_6_button();">Hard 6 <span class="badge">{{ prop_bet_hard_6 }}</span></button>
-                                <button class="btn btn-default ng-pristine ng-valid" type="button" ng-disabled="hardways_are_off" ng-model="dice" value="Place Bet" ng-click="prop_bet_hard_8_button();">Hard 8 <span class="badge">{{ prop_bet_hard_8 }}</span></button>
-                              </div>
-                              <div class="btn-group-vertical">
-                                <button class="btn btn-default ng-pristine ng-valid" type="button" ng-disabled="hardways_are_off" ng-model="dice" value="Place Bet" ng-click="prop_bet_hard_10_button();">Hard 10 <span class="badge">{{ prop_bet_hard_10 }}</span></button>
-                                <button class="btn btn-default ng-pristine ng-valid" type="button" ng-disabled="hardways_are_off" ng-model="dice" value="Place Bet" ng-click="prop_bet_hard_4_button();">Hard 4 <span class="badge">{{ prop_bet_hard_4 }}</span></button>
-                              </div>
+                          <div class="row">
+                            <div class="btn-group-vertical">
+                              <button class="btn btn-default ng-pristine ng-valid" type="button" ng-disabled="hardways_are_off" ng-model="dice" value="Place Bet" ng-click="prop_bet_hard_6_button();">Hard 6 <span class="badge">{{ prop_bet_hard_6 }}</span></button>
+                              <button class="btn btn-default ng-pristine ng-valid" type="button" ng-disabled="hardways_are_off" ng-model="dice" value="Place Bet" ng-click="prop_bet_hard_8_button();">Hard 8 <span class="badge">{{ prop_bet_hard_8 }}</span></button>
                             </div>
+                            <div class="btn-group-vertical">
+                              <button class="btn btn-default ng-pristine ng-valid" type="button" ng-disabled="hardways_are_off" ng-model="dice" value="Place Bet" ng-click="prop_bet_hard_10_button();">Hard 10 <span class="badge">{{ prop_bet_hard_10 }}</span></button>
+                              <button class="btn btn-default ng-pristine ng-valid" type="button" ng-disabled="hardways_are_off" ng-model="dice" value="Place Bet" ng-click="prop_bet_hard_4_button();">Hard 4 <span class="badge">{{ prop_bet_hard_4 }}</span></button>
+                            </div>
+                          </div>
+                          <br>
                           <button class="btn btn-default" type="button" ng-model="dice" value="Place Bet" ng-click="prop_bet_red_button();">Any Seven <span class="badge">{{ prop_bet_red }}</span></button>
                           <div class="row">
                             <div class="btn-toolbar btn-group">
@@ -201,6 +202,8 @@
                               <button class="btn btn-default ng-pristine ng-valid" type="button" ng-model="dice" value="Place Bet" ng-click="prop_bet_on_6_5_button();">Eleven <span class="badge">{{ prop_bet_on_6_5 }}</span></button>
                             </div>
                           </div>
+                          <br>
+                          <h4>Hop Bets<h4>
                           <div class="row">
                             <div class="btn-toolbar btn-group">
                               <button class="btn btn-default ng-pristine ng-valid" type="button" ng-model="dice" value="Place Bet" ng-click="prop_bet_on_6_1_button();">6-1 <span class="badge">{{ prop_bet_on_6_1 }}</span></button>
